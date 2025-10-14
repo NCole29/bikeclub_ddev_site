@@ -1,0 +1,13 @@
+# Club leader settings link.
+bikeclub_leader.admin:
+  title: 'Club leader field settings'
+  description: 'Club leader information: name, position, start date, end date, and assigned Drupal role.'
+  route_name:  bikeclub_leader.leader_settings
+  parent: system.admin_structure
+
+# View replaces default entity.club_leader.collection.
+bikeclub_leader.leaders:
+  title: 'Club leader list'
+  description: 'Club leader admin list'
+  route_name: view.club_leaders.edit
+  parent: entity.user.collection

@@ -1,0 +1,26 @@
+{
+  "name": "bikeclub/bikeclub_locations",
+  "description": "Installs Location content type.",
+  "keywords": ["recipe", "Drupal standard install"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/add_content_by_bundle": "^1.2",
+    "drupal/address": "^2.0",
+    "drupal/address_map_link": "^2.0@alpha",
+    "drupal/geocoder": "^4.23",
+    "drupal/geofield": "^1.0",
+	"drupal/geofield_map": "^11.0",
+    "drupal/leaflet": "^10.0",
+    "geocoder-php/google-maps-provider": "^4.7",
+    "geocoder-php/nominatim-provider": "^5.7"
+  },
+  "version": "1.0.1"
+}

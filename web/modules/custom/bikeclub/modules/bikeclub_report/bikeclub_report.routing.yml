@@ -1,0 +1,63 @@
+# File uploads.
+bikeclub_report.uploads:
+  path: '/admin/uploads'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'File uploads'
+  requirements:
+    _permission: 'access toolbar'
+
+# Custom reports.
+bikeclub_report.members_by_year:
+  path: '/reports/annual_members'
+  defaults:
+    _controller: '\Drupal\bikeclub_report\Plugin\Block\AnnualMembership::build'
+    _title: 'Annual Membership'
+    
+bikeclub_report.multiple_memberships:
+  path: '/report/multiple_memberships'
+  defaults:
+    _controller: '\Drupal\bikeclub_report\MultipleMemberships::getMultiples'
+    _title: 'Persons with Multiple Membership records'
+  requirements:
+    _permission: 'view club reports'
+
+bikeclub_report.revenue:  
+  path: '/report/revenue'
+  defaults:
+    _controller: '\Drupal\bikeclub_report\RevenueReport::getRevenue'
+    _title: 'Revenue report'
+  requirements:
+    _permission: 'view club reports'
+
+# Script to merge multiple memberships.
+bikeclub_report.fix_memberships:
+  path: '/fix-memberships'
+  defaults:
+    _controller: '\Drupal\bikeclub_report\FixMemberships::mergeMemberships'
+    _title: 'Fix memberships'
+  requirements:
+    _role: 'administer CiviCRM'
+
+# Configuration for calculation of annual membership.
+bikeclub_report.admin_settings:
+  path: '/admin/config/bikeclub/oldmembershipfees'
+  defaults:
+    _form: '\Drupal\bikeclub_report\Form\OldFeesForm'
+    _title: 'Historic Membership Fees'
+  requirements:
+    _permission: 'administer memberyear_settings'
+  options:
+    _admin_route: TRUE
+
+bikeclub_report.memberyear_settings:
+  path: '/admin/structure/bikeclub_reportyear_settings'
+  defaults:
+    _form: '\Drupal\bikeclub_report\Form\MemberYearSettingsForm'
+    _title: 'MemberYear record'
+  requirements:
+    _permission: 'administer memberyear entity'
+
+
+
+

@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_free_form
+    - node.type.event
+    - webform.webform.free_event
+  module:
+    - webform
+id: node.event.field_registration_free_form
+field_name: field_registration_free_form
+entity_type: node
+bundle: event
+label: 'Registration, Free event webform'
+description: "The Free event webform pops up over the event page to collect name and email. Information is pre-populated for logged-in users.<br>\r\nSet open and close dates for the form (below) to display a closing date on the Event page. To open the form immediately, select a past date."
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 158e6801-89b5-4ab4-8e70-7f9b897b15e3
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

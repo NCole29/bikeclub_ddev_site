@@ -1,0 +1,30 @@
+services:
+  bikeclub.route_subscriber:
+    class: Drupal\bikeclub\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  bikeclub.rwgpsClient:
+    class: Drupal\bikeclub\Utility\GetRwgpsClient
+    arguments: ['@config.factory','@http_client_factory','@entity_type.manager','@logger.factory','@messenger']
+
+  Drupal\bikeclub\Utility\GetRwgpsClient: '@bikeclub.rwgpsClient'
+
+  bikeclub.renameImages:
+    class: Drupal\bikeclub\Utility\RenameImages
+    arguments: ['@entity_type.manager']
+
+  Drupal\bikeclub\Utility\RenameImages: '@bikeclub.renameImages'
+      
+  # Hooks
+  Drupal\bikeclub\Hook\BikeclubForms:
+    class: Drupal\bikeclub\Hook\BikeclubForms
+    autowire: true
+
+  Drupal\bikeclub\Hook\BikeclubMenus:
+    class: Drupal\bikeclub\Hook\BikeclubMenus
+    autowire: true
+
+  Drupal\bikeclub\Hook\BikeclubNodes:
+    class: Drupal\bikeclub\Hook\BikeclubNodes
+    autowire: true

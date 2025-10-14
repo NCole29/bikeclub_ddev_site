@@ -1,0 +1,22 @@
+name: 'Bikeclub Ride Tools'
+type: module
+description: 'Ride tools to cancel ride, enter waiver form, view ride schedules.'
+package: Bikeclub
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - drupal:block_content
+  - drupal:datetime
+  - drupal:layout_builder
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:views
+  - datetimehideseconds:datetimehideseconds
+  - field_group:field_group
+  - layout_builder_restrictions:layout_builder_restrictions
+  - smart_date:smart_date
+  - smart_date:smart_date_recur
+  - views_year_filter:views_year_filter  
+libraries:
+  - bikeclub_ride_tools/toolbar-icon

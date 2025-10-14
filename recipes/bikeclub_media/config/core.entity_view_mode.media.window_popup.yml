@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.window_popup
+label: 'Popup window'
+description: ''
+targetEntityType: media
+cache: true

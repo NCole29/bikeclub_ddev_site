@@ -1,0 +1,50 @@
+name: 'Bikeclub Events'
+description: 'Provides Event and Location content types.'
+type: 'Content type'
+recipes:
+  - bikeclub_content_type_base
+  - bikeclub_field_storage_registration
+  - bikeclub_banner
+  - bikeclub_locations
+install:
+  - link
+  # Contrib.
+  - calendar_view
+  - datetimehideseconds
+  - smart_date
+  - webform
+  - webform_node
+  - webform_options_limit
+  - webform_templates
+  - webform_ui
+  - webform_views
+  - webform_views_extras
+config:
+  strict: false
+  import:
+    smart_date: '*'
+  actions:
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'create event content'
+        - 'create location content'
+        - 'delete any event content'
+        - 'delete any location content'
+        - 'edit any event content'
+        - 'edit any location content'
+        - 'configure editable event node layout overrides'
+        - 'use text format basic_html'
+        - 'use text format summary_fields'
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own webform submission'
+        - 'view webform submissions own node'
+    pathauto.pattern.content:
+      simpleConfigUpdate:
+        bundles:
+          event: event
+    webform.settings:
+      ui:
+        video_display: hidden

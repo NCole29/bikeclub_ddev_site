@@ -1,0 +1,64 @@
+<?php
+
+namespace Drupal\bikeclub\Access;
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Routing\Access\AccessInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
+
+class WebformSubmissionAccess implements AccessInterface {
+
+  /**
+   * Grant webform submisssion access if user in field_registrations_visible or field_ride_leader.
+   *
+   * @param \Drupal\Core\Session\AccountInterface $account
+   *   Run access checks for this account.
+   *
+   * @return \Drupal\Core\Access\AccessResultInterface
+   *   The access result.
+   */
+  public function access(RouteMatchInterface $route_match, AccountInterface $account) {
+   
+    if ($route_match->getRouteName() != 'entity.node.webform.results_submissions') {
+      return;
+    }
+
+    $node = $route_match->getParameter('node');
+
+    if (!$account->isAuthenticated()) {
+      return AccessResult::neutral();
+    }
+    elseif ($account->hasPermission('view webform submissions any node')) {
+      return AccessResult::allowed();
+    } 
+    elseif ($account->hasPermission('view webform submissions own node') and $account->id() === $node->getOwnerId()) {
+      return AccessResult::allowed();
+    }
+    else {
+
+      // Is user a ride leader for a ride? Or provided access to event/webform submissions?
+      // Authenticated users must have permission to 'View webform submissions for own node'.
+
+      if ($node->hasField('field_ride_leader')) {
+        $allowed_access = array_column($node->field_ride_leader->getValue(), 'target_id');
+      } 
+      elseif ($node->hasField('field_registrations_visible')) {
+        $allowed_access = array_column($node->field_registrations_visible->getValue(), 'target_id');
+      }
+
+      if (in_array($account->id(), $allowed_access, TRUE)) {
+        $allowedAccess = AccessResult::allowed()
+          ->cachePerUser()
+          ->addCacheableDependency($node);
+
+        return AccessResult::allowedIfHasPermission($account, 'view webform submissions own node')
+          ->andIf($allowedAccess);          
+      } else {
+        return AccessResult::neutral();
+      }
+    } 
+  }
+
+}

@@ -1,0 +1,164 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Drupal\bikeclub\Hook;
+
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Database\Connection;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Path\CurrentPathStack;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+
+/**
+ * Hook implementations for menus and links.
+ */
+class BikeclubMenus {
+
+  /**
+   * Constructor for BikeclubNode Hooks.
+   */
+  public function __construct(
+    protected Connection $connection,
+    protected CurrentPathStack $currentPath,
+    protected AccountProxyInterface $currentUser,
+    protected MessengerInterface $messenger,
+    protected RouteMatchInterface $routeMatch
+  ) {
+  }
+
+  /**
+   * Implements hook_link_alter().
+   */
+  #[Hook('link_alter')]
+  public function bikeclub_link_alter(&$variables) {
+    // Replace "Home" menu item with icon.
+    if ($variables['text'] == 'Home' & $variables['text'] <> '0') {
+      $variables['options']['attributes']['class'] = 'w3-button';
+      $variables['text'] = t('<i class="fa fa-home fa-lg" aria-hidden="true"></i>');
+    }
+  }
+
+  /**
+   * Implements hook_local_tasks_alter().
+   */
+  #[Hook('local_tasks_alter')]
+  public function bikeclub_local_tasks_alter(&$local_tasks) {
+    // Hide tabs above Login form
+    //$this->messenger->addStatus('local_tasks_alter: ' . $route_name);
+    unset($local_tasks["user.pass"]);
+  }
+
+  /**
+   * Implements hook_menu_local_actions_alter().
+   */
+  #[Hook('menu_local_actions_alter')]
+  public function bikeclub_menu_local_actions_alter(&$local_actions) {
+
+    // People > List: remove 'Add user' button (users are managed through memberships)
+    unset($local_actions["user_admin_create"]);
+    // People > Event participants: remove 'Add participant' button
+    unset($local_actions["civicrm.civicrm_participant_add"]);
+    // People > Contacts: remove 'New contact' button
+    unset($local_actions["civicrm.civicrm_contact_add"]);
+
+  }
+
+  /**
+   * Implements hook_menu_local_tasks_alter().
+   */
+  #[Hook('menu_local_tasks_alter')]
+  public function bikeclub_menu_local_tasks_alter(&$data, $route_name, 
+     \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+
+   // $this->messenger->addError("Route: " . $route_name);
+
+    // Remove tabs from the user page.
+    unset($data['tabs'][0]['entity.user.edit_form']);
+    unset($data['tabs'][0]['shortcut.set_switch']);
+    unset($data['tabs'][0]['role_delegation.edit_form']);
+    unset($data['tabs'][0]['entity.webform_submission.user']);
+    unset($data['tabs'][0]['devel.entities:user.devel_tab']);
+    unset($data['tabs'][0]['tac_lite.user_access']);
+    unset($data['tabs'][0]['views_view:view.scheduler_scheduled_media.user_page']);
+    unset($data['tabs'][0]['views_view:view.scheduler_scheduled_content.user_page']);
+
+    switch($route_name) {
+      // Hide "Test" tab and rename "Results" to "Registrations".
+      case 'entity.node.canonical':
+        unset($data['tabs'][0]['entity.node.webform.test_form']);
+        $data['tabs'][0]['entity.node.webform.results']['#link']['title'] = t('Registrations');
+        break;
+
+      // Check membership status and display message if not current.
+      case 'entity.user.canonical':
+        $data['tabs'][0]['entity.user.canonical']['#link']['title'] = 'Member Info';
+        $current_user = $this->currentUser->getAccount();
+        $user_id = $current_user->id();
+        $this->checkMembership($user_id);
+        break;
+
+      // Remove tabs from the personal contact form page.
+      case 'entity.user.contact_form':
+        unset($data['tabs'][0]);
+        break;
+
+      // Change tab title on the "My Accounts" page.
+      case 'view.events_free.free_events':
+      case 'view.ride_routes.my_rides':
+      case 'view.user_account.my_events':
+      case 'view.user_account.my_payments':
+        $data['tabs'][0]['entity.user.canonical']['#link']['title'] = 'Member Info';
+        break;
+    }
+  }
+
+  /**
+   * Implements hook_preprocess_menu().
+   */
+  #[Hook('preprocess_menu')]
+  public function bikeclub_preprocess_menu(&$variables) {
+    // Convert menu to HTML if contains `fas fa-` or `fab fa-`.
+    // Include: use Drupal\Core\Render\Markup;
+    foreach ($variables['items'] as $menu_id => $menu) {
+      $title = $variables['items'][$menu_id]['title'];
+
+      if (is_string($title)) {
+        if ( (strpos($title, 'fas fa-') > 0) ||
+             (strpos($title, 'fab fa-') > 0) ||
+             (strpos($title, 'fa fa-') > 0) ) {
+
+          $variables['items'][$menu_id]['title'] = Markup::create('<i class="' . $title . '"></i>');
+        }
+      }
+    }  
+  } 
+
+  function checkMembership($user_id) {
+    $db = $this->connection;
+
+    $contact_id = $db->select('civicrm_uf_match', 'ufm')
+      ->fields('ufm', ['contact_id'])
+      ->condition('ufm.uf_id', $user_id)
+      ->execute()
+      ->fetchField();
+   
+
+    if ($contact_id) {
+      $status_id = $db->select('civicrm_membership', 'cm')
+        ->fields('cm', ['status_id'])
+        ->condition('cm.contact_id', $contact_id)
+        ->execute()
+        ->fetchField();
+
+      if ($status_id > 2) {
+        $this->messenger->addError("Your membership is not current.");
+      }
+    }
+  }
+
+}

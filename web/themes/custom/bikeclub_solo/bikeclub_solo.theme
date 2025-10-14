@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bikeclub_solo_theme_suggestions_block_alter(&$suggestions, $variables) {
+
+  // Load theme suggestions for blocks from parent theme.
+  foreach ($suggestions as &$suggestion) {
+    $suggestion = str_replace('solo_', 'bikeclub_solo_', $suggestion);
+  }
+}
+
+/**
+ * Implements hook_preprocess_node__banner__full().
+ */
+function bikeclub_solo_preprocess_node__banner__full(array &$variables): void {
+  // Specific to bikeclub banner content type. 
+  // Pass number_images variable to template to set the columns in the responsive grid.
+  $variables['columns'] = 'number_images';
+}
+
+/**
+ * Implements hook_preprocess_block
+ */
+function bikeclub_solo_preprocess_block(&$variables) {
+  // Set background for cancellation alert from theme settings.
+  if ($variables['plugin_id'] == 'views_block:cancellations-cancellations') {
+    $colors = [
+      '#0085a1' => 'w3-vivid-greenish-blue',
+      '#008856' => 'w3-vivid-green',
+      '#008882' => 'w3-vivid-bluish-green',
+      '#00a1c2' => 'w3-vivid-blue',
+      '#27a64c' => 'w3-vivid-yellowish-green',
+      '#30267a' => 'w3-vivid-purplish-blue',
+      '#870074' => 'w3-vivid-reddish-purple',
+      '#8db600' => 'w3-vivid-yellow-green',
+      '#9a4eae' => 'w3-vivid-purple',
+      '#be0032' => 'w3-vivid-red',
+      '#ce4676' => 'w3-vivid-purplish-red',
+      '#dcd300' => 'w3-vivid-greenish-yellow',
+      '#e25822' => 'w3-vivid-reddish-orange',
+      '#f38400' => 'w3-vivid-orange',
+      '#f3c300' => 'w3-vivid-yellow',
+      '#f6a600' => 'w3-vivid-orange-yellow',
+      '#ffb5ba' => 'w3-vivid-vivid-pink',
+      '#ffb7a5' => 'w3-vivid-yellowish-pink',
+      '#ffffff' => 'w3-vivid-white',
+    ];
+    $background = theme_get_setting('cancel_bgcolor') ?? '#ffffff';
+    $bgcolor = $colors[$background];
+    $variables['bgcolor'] = $bgcolor;
+  }
+}

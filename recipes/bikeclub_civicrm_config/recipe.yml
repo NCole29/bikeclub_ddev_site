@@ -1,0 +1,36 @@
+name: 'Bikeclub CiviCRM configuration'
+description: 'Provides CiviCRM-related modules, configuration, views, and webforms.'
+type: 'Administration' 
+install:
+  - datetime
+  - options
+  # Contrib.
+  - civicrm
+  - civicrm_entity
+  - civicrm_group_roles
+  - civicrm_member_roles
+  - honeypot
+  - webform
+  - webform_civicrm
+  - webform_options_limit
+  - webform_templates
+  - webform_ui
+  - webform_views
+config:
+  strict: false
+  import:
+    webform: '*'
+    webform_templates: '*'
+  actions:
+    civicrm_entity.settings:
+      simple_config_update:
+        filter_format: plain_text
+        enabled_entity_types:
+          civicrm_address: civicrm_address
+          civicrm_contact: civicrm_contact
+          civicrm_email: civicrm_email
+          civicrm_event: civicrm_event
+          civicrm_membership: civicrm_membership          
+          civicrm_membership_type: civicrm_membership_type
+          civicrm_participant: civicrm_participant          
+          civicrm_phone: civicrm_phone

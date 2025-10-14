@@ -1,0 +1,75 @@
+# Custom webform submission delete.
+entity.bikeclub.user.submission.delete:
+  path: '/webform/{webform}/submissions/{webform_submission}/delete'
+  defaults:
+    _entity_form: 'custom_submission.delete'
+    _title: 'Delete webform submission'
+  requirements:
+    _entity_access: 'webform_submission.delete'
+
+entity.webform_submission.delete_form:
+  path: '/admin/structure/webform/manage/{webform}/submission/{webform_submission}/delete'
+  defaults:
+    _entity_form: 'custom_submission.delete'
+    _title: 'Delete webform submission'
+  requirements:
+    _entity_access: 'webform_submission.delete'
+
+# Display "entity = user.default" in "front-page" theme for Members
+# Rename "route = entity.user.edit_form" to entity.user.edit_myform
+# Rename "path='/user/{user}/edit'" to '/user/{user}/edit-me'
+entity.user.edit_myform:
+  path: '/user/{user}/edit-me'
+  defaults:
+    _entity_form: user.default
+    _title: 'Edit User'
+  requirements:
+    _permission: 'edit my contact'
+  options:
+    _admin_route: FALSE
+
+entity.user.edit_myprofile:
+  path: '/user/{user}/edit/myprofile/1'
+  defaults:
+    _entity_form: civicrm.user_profile
+    _title: 'Edit User Profile'
+  requirements:
+    _permission: 'edit my contact'
+  options:
+    _admin_route: FALSE
+
+user.contact_form:
+  path: '/contact/{user}/contact'
+  defaults:
+    _title: 'Link to user contact form'
+    _controller: '\Drupal\contact\Controller\ContactController::contactPersonalPage'
+
+bikeclub.custom_config:
+  path: '/admin/configuration/custom_config'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Bikeclub configuration'
+  requirements:
+    _permission: 'access toolbar'
+
+# Custom entities menu item under Structure.
+bikeclub.custom_entities:
+  path: '/admin/structure/custom_entities'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Custom entities'
+  requirements:
+    _permission: 'access toolbar'
+
+# Link to personal contact form outside "user" page.
+entity.user_contactlink.contact_form:
+  path: '/contact/{user}/contact'
+  defaults:
+    _title: 'Contact person'
+    _controller: '\Drupal\contact\Controller\ContactController::contactPersonalPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: entity:user

@@ -1,0 +1,50 @@
+name: 'Bikeclub Rides'
+description: 'Provides Ride and Recurring ride content types.'
+type: 'Content type'
+recipes:
+  - bikeclub_content_type_base
+  - bikeclub_locations
+install:
+  # Contrib.
+  - calendar_view
+  - datetime
+  - datetimehideseconds
+  - honeypot
+  - smart_date
+  - smart_date_recur
+  - webform
+  - webform_node
+  - webform_options_limit
+  - webform_templates
+  - webform_ui
+  - webform_views
+  - webform_views_extras
+  #Custom
+  - bikeclub_ride_tools
+config:
+  strict: false
+  import:
+    smart_date: '*'
+  actions:
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'create ride content'
+        - 'create recurring_ride content'
+        - 'delete any ride content'
+        - 'delete any recurring_ride content'
+        - 'edit any ride content'
+        - 'edit any recurring_ride content'
+        - 'use text format ride_page'
+    user.role.rides_coordinator:
+      createIfNotExists:
+        label: 'Rides coordinator'
+      grantPermissions:
+        - 'create ride content'
+        - 'create recurring_ride content'
+        - 'delete any ride content'
+        - 'delete any recurring_ride content'
+        - 'edit any ride content'
+        - 'edit any recurring_ride content'
+        - 'use text format ride_page'

@@ -1,0 +1,6 @@
+services:
+  bikeclub_ride_tools.rwgpsClient:
+    class: Drupal\bikeclub_ride_tools\Utility\GetRwgpsClient
+    arguments: ['@config.factory','@http_client_factory','@entity_type.manager','@logger.factory','@messenger']
+
+  Drupal\bikeclub_ride_tools\Utility\GetRwgpsClient: '@bikeclub_ride_tools.rwgpsClient'

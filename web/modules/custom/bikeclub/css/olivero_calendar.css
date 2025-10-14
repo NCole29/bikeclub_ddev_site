@@ -1,0 +1,19 @@
+/* ----------
+   Olivero  - set colors consistent with theme
+   Default text is dark so make it white.
+   Expand calendar width beyond the default content region
+  ----------*/
+  .calendar-view-table {
+    --calendar-view-color-light: #edf4fc;
+    --calendar-view-color-dark: #134a85;
+  }
+ .calendar-view-table th {
+  color: #fff !important;
+ }
+  /* Olivero main region is too narrow for calendar */
+  @media(min-width: 49rem) {
+    .calendar-view-table {
+      width: 130%;
+      margin-left: -85px;
+    }
+  }

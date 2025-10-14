@@ -1,0 +1,10 @@
+name: 'Bikeclub Registration field storage'
+description: 'Provides storage for registration fields.'
+type: 'Content field'
+install:
+  - link
+  - node
+  - options
+# Contrib  
+  - honeypot
+

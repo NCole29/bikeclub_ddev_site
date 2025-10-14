@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.crop_20_7
+  module:
+    - crop
+name: banner
+label: Banner
+effects:
+  fb6f1c0e-02b7-49cc-932d-fa636e7e5d0b:
+    uuid: fb6f1c0e-02b7-49cc-932d-fa636e7e5d0b
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: crop_20_7
+      automatic_crop_provider: null
+  3ca48c4c-55ed-4733-aaaa-75c1c293bd8d:
+    uuid: 3ca48c4c-55ed-4733-aaaa-75c1c293bd8d
+    id: image_scale
+    weight: 3
+    data:
+      width: 2015
+      upscale: true
+      height: null
+  81aac017-5e23-48e7-845c-dfe404c7bb84:
+    uuid: 81aac017-5e23-48e7-845c-dfe404c7bb84
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

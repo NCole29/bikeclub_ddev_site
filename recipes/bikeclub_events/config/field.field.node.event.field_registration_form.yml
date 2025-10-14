@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_form
+    - node.type.event
+    - webform.webform.paid_event_5
+  module:
+    - webform
+id: node.event.field_registration_form
+field_name: field_registration_form
+entity_type: node
+bundle: event
+label: 'Select a paid event webform'
+description: "The Paid event webform opens in a new web page.<br>\r\nSet open and close dates for the form (below) to display a closing date on the Event page. To open the form immediately, select a past date."
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 62a80706-1aa0-49c9-a8af-7bedf921debd
+    default_data: null
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

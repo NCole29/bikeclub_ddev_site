@@ -1,0 +1,384 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ride.field_activity
+    - field.field.node.ride.field_additional_information
+    - field.field.node.ride.field_cancel
+    - field.field.node.ride.field_date
+    - field.field.node.ride.field_dayofweek
+    - field.field.node.ride.field_description
+    - field.field.node.ride.field_developed_by
+    - field.field.node.ride.field_location
+    - field.field.node.ride.field_lunch_place
+    - field.field.node.ride.field_lunch_same
+    - field.field.node.ride.field_multiple_times
+    - field.field.node.ride.field_registration_required
+    - field.field.node.ride.field_registration_rideform
+    - field.field.node.ride.field_ride_leader
+    - field.field.node.ride.field_ride_picture
+    - field.field.node.ride.field_rwgps_routes
+    - field.field.node.ride.field_schedule_date
+    - field.field.node.ride.field_time
+    - node.type.ride
+  module:
+    - conditional_fields
+    - datetime
+    - datetimehideseconds
+    - field_group
+    - media_library
+    - text
+    - webform
+third_party_settings:
+  field_group:
+    group_date_and_time:
+      children:
+        - title
+        - field_multiple_times
+        - field_time
+        - field_date
+      label: 'Basic info'
+      region: content
+      parent_name: group_ta
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_location_and_routes:
+      children:
+        - field_location
+        - group_lunch
+        - field_rwgps_routes
+      label: 'Location and routes'
+      region: content
+      parent_name: group_ta
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_description:
+      children:
+        - field_activity
+        - field_description
+        - field_additional_information
+        - field_ride_picture
+        - field_developed_by
+      label: Description
+      region: content
+      parent_name: group_ta
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: 'Documents, such as cue sheets, may be added in the description or additional information fields by clicking the media icon on the editor toolbar.'
+        required_fields: true
+    group_ride_leader_s_:
+      children:
+        - field_ride_leader
+      label: 'Ride leader(s)'
+      region: content
+      parent_name: group_ta
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_ta:
+      children:
+        - group_date_and_time
+        - group_ride_leader_s_
+        - group_location_and_routes
+        - group_description
+        - group_registration
+      label: 'Tab container'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_registration:
+      children:
+        - field_registration_required
+        - field_registration_rideform
+      label: Registration
+      region: content
+      parent_name: group_ta
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: "A registration link is shown on the ride page. Use this if a count of riders is required.\r\nRegistrations are visible to the ride leader(s) for this ride, and the rides coordinators."
+        required_fields: true
+    group_lunch:
+      children:
+        - field_lunch_same
+        - field_lunch_place
+      label: Lunch
+      region: content
+      parent_name: group_location_and_routes
+      weight: 38
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: node.ride.default
+targetEntityType: node
+bundle: ride
+mode: default
+content:
+  co_authors:
+    type: entity_reference_autocomplete_tags
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_activity:
+    type: options_select
+    weight: 41
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_additional_information:
+    type: text_textarea
+    weight: 43
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_date:
+    type: datetime_default
+    weight: 38
+    region: content
+    settings: {  }
+    third_party_settings:
+      datetimehideseconds:
+        hide: true
+  field_description:
+    type: text_textarea
+    weight: 42
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_developed_by:
+    type: string_textfield
+    weight: 45
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location:
+    type: entity_reference_autocomplete
+    weight: 37
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lunch_place:
+    type: entity_reference_autocomplete
+    weight: 54
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        e6816e83-0512-47e1-bcb8-59478487b941:
+          entity_type: node
+          bundle: ride
+          dependee: field_lunch_same
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_lunch_same:
+    type: options_select
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_multiple_times:
+    type: boolean_checkbox
+    weight: 36
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_registration_required:
+    type: boolean_checkbox
+    weight: 37
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_registration_rideform:
+    type: webform_entity_reference_select
+    weight: 38
+    region: content
+    settings:
+      default_data: true
+      webforms:
+        - ride_registration
+    third_party_settings:
+      conditional_fields:
+        04a83f2c-d4dd-4281-8a4a-250a3f5c319d:
+          entity_type: node
+          bundle: ride
+          dependee: field_registration_required
+          settings:
+            state: visible
+            reset: false
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_ride_leader:
+    type: entity_reference_autocomplete
+    weight: 35
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_ride_picture:
+    type: media_library_widget
+    weight: 44
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_rwgps_routes:
+    type: entity_reference_autocomplete
+    weight: 39
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_time:
+    type: string_textfield
+    weight: 37
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Enter time and condition. E.g., 9 am for long ride'
+    third_party_settings:
+      conditional_fields:
+        0ca34625-9fca-4b83-ba41-fcf9138c0b40:
+          entity_type: node
+          bundle: ride
+          dependee: field_multiple_times
+          settings:
+            state: visible
+            reset: false
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 35
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_cancel: true
+  field_day: true
+  field_dayofweek: true
+  field_schedule_date: true
+  path: true
+  promote: true
+  publish_on: true
+  sticky: true
+  unpublish_on: true

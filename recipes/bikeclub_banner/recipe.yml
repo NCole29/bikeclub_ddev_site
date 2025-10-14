@@ -1,0 +1,30 @@
+name: 'Bikeclub Banner'
+description: 'Provides the banner content type for placing images above content on the home page.'
+type: 'Content type'
+recipes:
+  - bikeclub_media
+install:
+  - node
+  # Contrib.
+  - crop
+  - field_group
+  - image_widget_crop
+  - svg_image
+  - views_slideshow
+  - views_slideshow_cycle
+config:
+  strict: false
+  import:
+    image_widget_crop: '*'
+    node:
+      - core.entity_view_mode.node.full
+      - core.entity_view_mode.node.teaser
+      - system.action.node_delete_action
+      - system.action.node_make_sticky_action
+      - system.action.node_make_unsticky_action
+      - system.action.node_promote_action
+      - system.action.node_publish_action
+      - system.action.node_save_action
+      - system.action.node_unpromote_action
+      - system.action.node_unpublish_action
+    views_slideshow_cycle: '*'

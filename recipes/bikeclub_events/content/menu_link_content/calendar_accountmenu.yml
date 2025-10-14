@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 973a2e49-5253-4191-b9ac-1aef3706ec99
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: false
+  title:
+    -
+      value: Calendar
+  menu_name:
+    -
+      value: account
+  link:
+    -
+      uri: 'internal:/calendar'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: 3
+  expanded:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true

@@ -1,0 +1,40 @@
+bikeclub_report.admin_uploads:
+  title: 'File uploads'
+  description: 'Upload reports'
+  route_name: bikeclub_report.uploads
+  parent: system.admin
+  weight: -9
+  enabled: 1
+  menu_name: admin
+  options:
+    query:
+      uid: 1
+    attributes:
+      class:
+        - toolbar-icon
+        - toolbar-icon-system-admin-content
+        
+# Add settings form to Configuration > System
+bikeclub_report.admin_settings:
+  title: 'Old Member Fees'
+  description: 'Enter historic membership fees and duration for calculation of annual membership.'
+  route_name: bikeclub_report.admin_settings
+  parent: system.admin_config_system
+  menu_name: admin
+  enabled: 1
+  weight: 99
+
+bikeclub_report.membership_report:
+  title: 'Membership by Year'
+  description: 'Membership by year'
+  route_name: bikeclub_report.members_by_year
+  weight: 0
+  enabled: 1
+  menu_name: club-reports
+
+# Custom entities menu items.
+bikeclub_report.memberyear_settings:
+  title: 'Members by year'
+  description: 'Records of members by year are used to calculate Annual Membership.'
+  route_name:  'bikeclub_report.memberyear_settings'
+  parent: 'bikeclub_ride.custom_entities'

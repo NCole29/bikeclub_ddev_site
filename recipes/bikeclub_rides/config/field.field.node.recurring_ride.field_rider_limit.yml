@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rider_limit
+    - node.type.recurring_ride
+id: node.recurring_ride.field_rider_limit
+field_name: field_rider_limit
+entity_type: node
+bundle: recurring_ride
+label: 'Rider limit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

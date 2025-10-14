@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Olivero's theme implementation to display a node teaser.
+ *
+ * Modified to add <hr> after content.
+ * Can add <hr> to View if using fields, but better layout with layout builder 
+ *  and teaser view mode.
+ * 
+  * @see template_preprocess_node()
+ */
+#}
+
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'teaser',
+  'teaser--card'
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="teaser__content">
+    <header>
+      {% if label and not page %}
+        <h2{{ title_attributes.addClass('node__title', 'teaser__title') }}>
+          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
+      {% endif %}
+      <div class="teaser__meta">
+        {% if display_submitted %}
+          <div class="node__meta">
+          <span{{ author_attributes }}>
+            {{ date }}
+          </span>
+            {{ metadata }}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+    {{ content|without('links') }}
+    <hr>
+  </div>
+</article>

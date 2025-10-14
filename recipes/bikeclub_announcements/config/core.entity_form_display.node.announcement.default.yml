@@ -1,0 +1,221 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.announcement.field_contact_form
+    - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_summary
+    - field.field.node.announcement.field_text
+    - node.type.announcement
+  module:
+    - conditional_fields
+    - field_group
+    - scheduler
+    - text
+third_party_settings:
+  field_group:
+    group_schedule:
+      children:
+        - publish_on
+        - unpublish_on
+      label: 'Schedule publication'
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: "<big>Set \"Publish on\" in the past to publish immediately.<br>\"Unpublish on\" must be in the future.</big>\r\n  "
+        required_fields: true
+    group_contact_link:
+      children:
+        - field_contact_form
+        - field_contact_person
+      label: 'Contact link'
+      region: content
+      parent_name: group_page_content
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_tabs:
+      children:
+        - group_schedule
+        - group_page_content
+        - group_summary_for_home_page
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
+    group_page_content:
+      children:
+        - title
+        - field_text
+        - group_contact_link
+      label: 'Page content'
+      region: hidden
+      parent_name: group_tabs
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_summary_for_home_page:
+      children:
+        - sticky
+        - field_summary
+      label: 'Summary for home page'
+      region: hidden
+      parent_name: group_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: "<big>Summary should be brief.</big>\r\n"
+        required_fields: true
+id: node.announcement.default
+targetEntityType: node
+bundle: announcement
+mode: default
+content:
+  field_contact_form:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_person:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        f4bea69e-2271-4324-a4e2-2414c4b26ce6:
+          entity_type: node
+          bundle: page
+          dependee: field_contact_form
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: personal
+            effect: show
+            effect_options: {  }
+            selector: ''
+        0fd7c82e-84ad-47cc-b60c-443af2e116c5:
+          entity_type: node
+          bundle: announcement
+          dependee: field_contact_form
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: personal
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_summary:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_text:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  scheduler_settings: true
+  status: true
+  uid: true

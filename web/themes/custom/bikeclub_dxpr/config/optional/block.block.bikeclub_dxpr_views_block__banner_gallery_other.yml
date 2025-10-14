@@ -1,0 +1,25 @@
+uuid: bd071ab5-c95a-4a61-8d61-630b5c7421b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.banner
+  module:
+    - views
+  theme:
+    - bikeclub_dxpr
+id: bikeclub_dxpr_views_block__banner_gallery_other
+theme: bikeclub_dxpr
+region: highlighted
+weight: 0
+provider: null
+plugin: 'views_block:banner-gallery_other'
+settings:
+  id: 'views_block:banner-gallery_other'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

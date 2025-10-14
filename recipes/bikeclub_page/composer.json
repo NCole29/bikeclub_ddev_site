@@ -1,0 +1,21 @@
+{
+  "name": "bikeclub/bikeclub_page",
+  "description": "Installs Basic Page content type.",
+  "keywords": ["recipe", "Drupal standard install"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "bikeclub/bikeclub_banner": "dev-main",
+    "bikeclub/bikeclub_content_type_base": "dev-main",
+    "drupal/conditional_fields": "^4.0@alpha",
+    "drupal/scheduler": "^2.1"
+  },
+  "version": "1.0.1"
+}

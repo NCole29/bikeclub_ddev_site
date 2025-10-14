@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ride_leaders
+label: 'Ride leaders'
+role: ride_leader
+group: '13'

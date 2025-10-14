@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.location.field_address
+    - field.field.node.location.field_coordinates
+    - field.field.node.location.field_location_info
+    - field.field.node.location.field_location_type
+    - field.field.node.location.field_restrooms
+    - node.type.location
+  module:
+    - address
+    - address_map_link
+    - options
+    - text
+    - user
+id: node.location.full
+targetEntityType: node
+bundle: location
+mode: full
+content:
+  field_address:
+    type: address_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings:
+      address_map_link:
+        link_address: true
+        map_link_type: google_maps
+        map_link_position: after
+        map_link_text: 'Google Map'
+        map_link_new_window: true
+    weight: 0
+    region: content
+  field_location_info:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_restrooms:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_coordinates: true
+  field_location_type: true
+  links: true

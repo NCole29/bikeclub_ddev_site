@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.crop_4_3
+  module:
+    - crop
+name: medium_4_3
+label: 'Medium - (375 wide) with crop 4:3'
+effects:
+  e051acef-d8a1-4983-a700-a70eb0856971:
+    uuid: e051acef-d8a1-4983-a700-a70eb0856971
+    id: crop_crop
+    weight: 3
+    data:
+      crop_type: crop_4_3
+      automatic_crop_provider: null
+  c4962a2d-80fb-4280-aaa1-bfd454963b62:
+    uuid: c4962a2d-80fb-4280-aaa1-bfd454963b62
+    id: image_scale
+    weight: 3
+    data:
+      width: 375
+      height: null
+      upscale: false
+  c34f87aa-72aa-4a1c-83c8-2db9a00a29ce:
+    uuid: c34f87aa-72aa-4a1c-83c8-2db9a00a29ce
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

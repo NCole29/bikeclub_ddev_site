@@ -1,0 +1,34 @@
+{
+  "name": "bikeclub/bikeclub_media",
+  "description": "Installs image and file media types, configuration, and taxonomies.",
+  "keywords": ["recipe", "bikeclub", "media"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "dimsemenov/magnific-popup",
+        "version": "4.17.1",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/dimsemenov/Magnific-Popup/archive/refs/heads/master.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "drupal/crop": "^2.0",
+    "drupal/entity_browser": "^2.0",
+    "drupal/svg_image": "^3.0"
+  },
+  "version": "1.0.1"
+}

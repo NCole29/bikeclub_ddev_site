@@ -1,0 +1,29 @@
+name: Bikeclub Installer
+type: profile
+core_version_requirement: ^11
+description: 'Provides install-time tweaks. Not to be used in production.'
+
+# Use the `distribution` key to skip the installer's profile selection step.
+distribution:
+  name: Drupal for Bike Clubs
+  install:
+    finish_url: '/node'
+    theme: bikeclub_installer_theme
+    
+forms:
+  - '\Drupal\RecipeKit\Installer\Form\RecipesForm'
+  - '\Drupal\RecipeKit\Installer\Form\SiteNameForm'
+  
+recipes:
+  required: 
+    - bikeclub/bikeclub_starter
+  optional: 
+    'Announcements':
+      - bikeclub/bikeclub_announcements
+    'FAQs':
+      - bikeclub/bikeclub_faqs
+    
+# Explicitly provide an empty list of themes -- this prevents the installer from
+# injecting Stark into it.
+# @see install_profile_info()
+#themes: []

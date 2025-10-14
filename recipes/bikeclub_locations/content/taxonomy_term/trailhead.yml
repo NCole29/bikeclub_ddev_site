@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: cbc4fae3-07f4-4602-bf3f-dd9a36a1121b
+  bundle: locations
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Trailhead
+  weight:
+    -
+      value: 4
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0

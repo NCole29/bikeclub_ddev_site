@@ -1,0 +1,30 @@
+{
+  "name": "bikeclub/bikeclub_rides",
+  "description": "Installs Ride and Recurring ride content types.",
+  "keywords": ["recipe", "Drupal standard install"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "repositories": {
+    "bikeclub_content_type_base": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_content_type_base" },
+    "bikeclub_locations": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_locations" }
+},
+  "require": {
+    "bikeclub/bikeclub_content_type_base": "dev-main",
+    "bikeclub/bikeclub_locations": "dev-main",
+	"drupal/calendar_view": "^2.1",
+    "drupal/conditional_fields": "^4.0@alpha",		
+    "drupal/datetimehideseconds": "^1.0",
+    "drupal/smart_date": "^4.2",
+    "drupal/webform": "^6.3@beta",
+    "drupal/webform_views": "^5.5",
+    "drupal/webform_views_extras": "^2.0"
+  },
+  "version": "1.0.1"
+}

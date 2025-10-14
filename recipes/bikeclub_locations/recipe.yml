@@ -1,0 +1,58 @@
+name: 'Bikeclub Locations'
+description: 'Provides Location content type.'
+type: 'Content type'
+install:
+  - node
+  - options
+  - taxonomy
+  - views
+  # Contrib.
+  - add_content_by_bundle
+  - address
+  - address_map_link
+  - geocoder
+  - geocoder_address
+  - geocoder_field
+  - geocoder_geofield
+  - geofield
+  - geofield_map
+  - leaflet_views
+input:
+  api:
+    data_type: string
+    description: 'Enter GoogleMaps API key.'
+    prompt:
+      method: ask
+      arguments:
+        question: 'Enter a Google Maps API key, or hit enter to continue and configure a geocoder provider through the UI.'
+    default:
+      source: value
+      value: ''
+config:
+  strict: false
+  actions:
+    geocoder.geocoder_provider.googlemaps:
+      createIfNotExists:
+        langcode: en
+        status: true
+        label: GoogleMaps
+        plugin: googlemaps
+        configuration:
+          throttle:
+            period: null
+            limit: null
+          apiKey: ${api}
+          region: ''
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'create location content'
+        - 'delete any location content'
+        - 'edit any location content'
+        - 'use text format basic_html'
+        - 'use text format summary_fields'
+    pathauto.pattern.content:
+      simpleConfigUpdate:
+        bundles:
+          location: 'location'

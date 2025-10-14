@@ -1,0 +1,93 @@
+name: 'Bikeclub Media'
+description: 'Provides media types, view modes, and taxonomies.'
+type: 'Media type'
+recipes:
+  - core/recipes/document_media_type
+  - core/recipes/image_media_type
+  - core/recipes/standard_responsive_images
+install:
+  - taxonomy
+  # Contrib.
+  - crop
+  - entity_browser
+  - svg_image
+config:
+  # Strict false applies to config folder, so we overwrite views.view.media
+  strict: false
+  actions:
+    core.entity_form_display.media.image.default:
+      setComponent:
+        name: field_image_category
+        options:
+          type: options_select
+          label: above
+          settings: { }
+          third_party_settings: { }
+          weight: 1
+          region: content
+    core.entity_form_display.media.image.media_library:
+      setComponent:
+        name: field_image_category
+        options:
+          type: options_select
+          weight: 1
+          region: content
+          settings: {  }
+          third_party_settings: {  }
+    core.entity_view_display.media.image.default:
+      setComponent:
+        name: field_image_category
+        options:
+          hidden: true
+    core.entity_view_display.media.image.media_library:
+      setComponent:
+        name: field_image_category
+        options:
+          hidden: true
+    core.entity_form_display.media.document.default:
+      setComponent:
+        name: field_document_category
+        options:
+          type: options_select
+          weight: 1
+          region: content
+          settings: {  }
+          third_party_settings: {  } 
+    core.entity_form_display.media.document.media_library:
+      setComponent:
+        name: field_document_category
+        options:
+          type: options_select
+          weight: 1
+          region: content
+          settings: {  }
+          third_party_settings: {  } 
+    core.entity_view_display.media.document.default:
+      setComponent:
+        name: field_media_document
+        options:
+          use_description_as_link_text: true
+    core.entity_view_display.media.document.media_library:
+      setComponent:
+        name: field_media_document
+        options:
+          use_description_as_link_text: true
+    # Assign Drupal permissions for media.
+    # Content creator/ride_leader may delete/update own media.
+    # Editor/rides_coordinator/site_admin may delete/update any media.
+    user.role.anonymous:
+      grantPermissions:
+        - 'view media'
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own files'
+        - 'view media'
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'access media overview'
+        - 'create media'
+        - 'delete any media'
+        - 'update any media'
+        - 'view own unpublished media'

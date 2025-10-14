@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.crop_4_3
+  module:
+    - crop
+name: small_4_3
+label: 'Small - (244 wide) with crop 4:3'
+effects:
+  e051acef-d8a1-4983-a700-a70eb0856971:
+    uuid: e051acef-d8a1-4983-a700-a70eb0856971
+    id: crop_crop
+    weight: 3
+    data:
+      crop_type: crop_4_3
+      automatic_crop_provider: null
+  44709e44-e057-457c-a57f-a8d48980b4e4:
+    uuid: 44709e44-e057-457c-a57f-a8d48980b4e4
+    id: image_scale
+    weight: 3
+    data:
+      width: 244
+      height: null
+      upscale: false
+  701f1a62-8cd5-409c-b202-34fe72b6ad86:
+    uuid: 701f1a62-8cd5-409c-b202-34fe72b6ad86
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

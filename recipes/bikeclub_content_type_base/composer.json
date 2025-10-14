@@ -1,0 +1,35 @@
+{
+  "name": "bikeclub/bikeclub_content_type_base",
+  "description": "Provides field storage, text editors, contact forms, and the page access taxonomy vocabulary.",
+  "keywords": ["recipe", "Page access"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "repositories": {
+    "bikeclub_media": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_media" }
+  },
+  "require": {
+    "bikeclub/bikeclub_media": "dev-main",
+    "drupal/add_content_by_bundle": "^1.2",
+    "drupal/conditional_fields": "^4.0@alpha",
+    "drupal/contact_storage": "*",
+    "drupal/entity_reference_revisions": "^1.0",
+    "drupal/field_group": "^4.0",
+    "drupal/layout_builder_admin_theme": "^2.0",
+    "drupal/layout_builder_restrictions": "^3.0",
+    "drupal/layout_paragraphs": "^2.0",
+    "drupal/paragraphs": "^1.0",
+    "drupal/pathauto": "^1.13",
+    "drupal/quick_node_clone": "^1.22",
+    "drupal/scheduler": "^2.0",
+    "drupal/tac_lite": "^2.0",
+    "drupal/token": "^1.15"
+  },
+  "version": "1.0.1"
+}
