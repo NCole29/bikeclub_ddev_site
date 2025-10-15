@@ -46,5 +46,5 @@ config:
         bundles:
           event: event
     webform.settings:
-      ui:
+      simpleConfigUpdate:
         video_display: hidden

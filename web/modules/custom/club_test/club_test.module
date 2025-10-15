@@ -1,0 +1,116 @@
+<?php
+
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+
+use Drupal\user\Entity\Role;
+use Drupal\user\Entity\User;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
+use Drupal\webform\Entity\WebformSubmission;
+use Drupal\views\ViewExecutableFactory;
+
+/*
+use Drupal\club_test\DefaultBlocks;
+use Drupal\club_test\DefaultMenus;
+use Drupal\club_test\DefaultNodes;
+use Drupal\club_test\DefaultTaxonomy;
+use Drupal\club_test\DefaultUsers;
+*/
+use Drupal\club_test\DefaultMenus;
+
+/*
+ * Implement hook_help.
+ * Test code is written to help page
+ */
+function club_test_help($route_name, RouteMatchInterface $route_match) {
+
+  if ($route_name == 'help.page.club_test') {
+
+    $bgcolor = \Drupal::config('olivero.settings')->get('base_primary_color');
+    kint($bgcolor);
+
+    $bgcolor = \Drupal::config('solo.settings');
+    die;
+
+  }
+}
+
+  /*  
+    $db = \Drupal::database();
+    $email = 'PaulaBossone@gmail.com';
+    $contact_id = $db->select('civicrm_email', 'ce')
+      ->fields('ce', ['contact_id'])
+      ->condition('ce.email', $email)
+      ->execute()
+      ->fetchField();
+
+    $db = \Drupal::database();
+    
+    // Use Drupal user for lookup in case email is not unique in CiviCRM.
+    $user = 863;
+    $contact_id = $db->select('civicrm_uf_match', 'ufm')
+      ->fields('ufm', ['contact_id'])
+      ->condition('ufm.uf_id', $user)
+      ->execute()
+      ->fetchField();
+    kint($contact_id);
+
+    $email = 'JoeBiden@whitehouse.gov';
+    $contact_id = $db->select('civicrm_email', 'ce')
+      ->distinct()
+      ->fields('ce', ['contact_id'])
+      ->condition('ce.email', $email)
+      ->execute()
+      ->fetchField();
+    kint($contact_id);
+    die;
+    */
+  /*
+    $module = 'club_ride';  
+    $lastN = \Drupal::service('update.update_hook_registry')->getInstalledVersion($module);
+
+    echo 'Last hook_update_N for ' . $module . ": " . $lastN;
+    die;
+    
+  */
+     /*
+    $query = \Drupal::entityQuery('block_content')
+    ->accessCheck(FALSE)
+    ->condition('info', 'Member Info'); 
+    $results = $query->execute();
+
+    kint($results);
+    die;
+
+    $tag_id = 7;
+    $contact_id = 4;
+
+    $query = \Drupal::entityQuery('civicrm_entity_tag')
+      ->condition('tag_id', $tag_id)
+      ->condition('entity_id', $contact_id);
+    $hasTag = $query->execute();
+    $hasTag = reset($hasTag);
+
+    kint($hasTag);
+    die;
+*/
+
+   // Print UUIDs for exporting default content.
+   // Add UUIDs to modules/custom/export_content/export_content.info.yml and enable module.
+   /*
+    DefaultNodes::getNode(426);   
+    DefaultBlocks::getBlocks([1,3,6,14]);
+    DefaultCiviEntity::getMenu('main');
+    DefaultTaxonomy::getTaxonomy('locations');
+    DefaultNodes::getNode(310);                
+    DefaultNodes::getNodes([2907,2953]);
+    DefaultUsers::getUsers([858,859,860,861]); 
+    DefaultTaxonomy::getTaxonomy('activities');
+    DefaultMenus::getMenu('main');
+    */
+
+

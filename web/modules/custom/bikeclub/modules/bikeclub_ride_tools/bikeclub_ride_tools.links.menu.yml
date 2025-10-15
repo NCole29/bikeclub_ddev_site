@@ -41,16 +41,6 @@ bikeclub_ride_tools.view_ride_schedule:
   menu_name: admin
 
 
-# Add Rides to the Content drop down list (fewer mouse clicks).
-bikeclub_ride_tools.ride_content:
-  title: 'Rides'
-  description: 'Rides'
-  route_name: view.content_rides.rides
-  parent: system.admin_content
-  menu_name: admin
-  enabled: 1
-
-
 # Structure > Bikeclub entities.
 bikeclub_ride_tools.custom_entities:
   title: 'Bikeclub entities'

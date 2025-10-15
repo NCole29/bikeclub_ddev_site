@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_activity
     - field.storage.node.field_date
+    - field.storage.node.field_datetime
     - field.storage.node.field_dayofweek
     - field.storage.node.field_location
     - field.storage.node.field_ride_leader
@@ -21,12 +22,13 @@ dependencies:
     - address
     - datetime
     - node
+    - smart_date
     - taxonomy
     - user
 id: rides
 label: Rides
 module: node
-description: 'Rides tabs under Content, plus master list of rides.'
+description: 'Rides tabs under Content, plus Rides (all rides) on Main menu.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -476,28 +478,15 @@ display:
           row_class: '<h2>'
           default_row_class: true
           columns:
-            nid: nid
             title: title
-            type: type
-            field_location: field_location
-            field_dayofweek: field_dayofweek
+            field_activity: field_activity
             field_datetime: field_datetime
-            field_datetime_1: field_datetime
-            nothing: nothing
-            field_ride_leader_1: field_ride_leader_1
-            name: name
-            status: status
-            changed: changed
-            operations: operations
+            field_date: field_datetime
+            field_location: field_location
+            field_address_locality: field_address_locality
+            field_address_administrative_area: field_address_locality
           default: '-1'
           info:
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -505,8 +494,20 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            type:
-              sortable: true
+            field_activity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_datetime:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -519,59 +520,16 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_dayofweek:
+            field_address_locality:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_datetime:
+            field_address_administrative_area:
               sortable: false
               default_sort_order: asc
-              align: ''
-              separator: ' - '
-              empty_column: false
-              responsive: ''
-            field_datetime_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nothing:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_ride_leader_1:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            status:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            changed:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            operations:
               align: ''
               separator: ''
               empty_column: false
@@ -2558,11 +2516,11 @@ display:
         - 'config:field.storage.node.field_ride_leader'
   ride_list:
     id: ride_list
-    display_title: 'Master list'
+    display_title: 'All rides'
     display_plugin: page
     position: 2
     display_options:
-      title: 'Master list of rides'
+      title: 'All club rides'
       fields:
         title:
           id: title
@@ -2683,6 +2641,147 @@ display:
           settings:
             link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_datetime:
+          id: field_datetime
+          table: node__field_datetime
+          field: field_datetime
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Date
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: smartdate_default
+          settings:
+            timezone_override: ''
+            format: date_only
+            force_chronological: false
+            add_classes: false
+            time_wrapper: true
+            localize: false
+            parts:
+              start: start
+              end: '0'
+              duration: '0'
+            duration:
+              separator: ' | '
+              unit: ''
+              decimals: 2
+              suffix: h
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: true
+          multi_type: separator
+          separator: to
+          field_api_classes: false
+        field_date:
+          id: field_date
+          table: node__field_date
+          field: field_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Date
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: 'D, M j Y'
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -3193,17 +3292,13 @@ display:
       path: all-rides
       menu:
         type: normal
-        title: 'Master list of rides'
+        title: Rides
         description: ''
         weight: 0
         expanded: false
         menu_name: main
-        parent: 'menu_link_content:63ecbaac-1209-4347-a97a-e32458c1b592'
+        parent: ''
         context: '0'
-        as_local_task: false
-        local_task_link_title: ''
-        local_task_parent: 'views_view:view.block_content.page_1'
-        local_task_weight: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -3214,6 +3309,8 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_activity'
+        - 'config:field.storage.node.field_date'
+        - 'config:field.storage.node.field_datetime'
         - 'config:field.storage.node.field_location'
   rides:
     id: rides

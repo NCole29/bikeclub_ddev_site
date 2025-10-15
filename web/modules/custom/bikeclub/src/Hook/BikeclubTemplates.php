@@ -14,6 +14,10 @@ class BikeclubTemplates {
   #[Hook('theme')]
   public function addTemplates() {
     return [
+      'calendar_view_pager__calendar' => [
+        'template' => 'calendar-view-pager--custom',
+        'base hook' => 'calendar_view_pager__calendar',
+      ],
       'field__node__field_registration_form' => [
         'template' => 'field--node--registration-button',
         'base hook' => 'field',

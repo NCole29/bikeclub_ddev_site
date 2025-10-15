@@ -1,0 +1,10 @@
+{# image is above content for mobile screens and to left otherwise #}
+<article class="card-horiz">
+  <div class="card-container">
+    <div class="card-image">{{ image }}</div>
+    <div class="card-content">
+      <h2 class="card-title"><a href="{{ url }}">{{ heading }}</a></h2>
+      {{ content | without('banner_image')}}
+    </div>
+  </div>
+</article>

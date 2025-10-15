@@ -94,14 +94,6 @@ class BikeclubMenus {
         $data['tabs'][0]['entity.node.webform.results']['#link']['title'] = t('Registrations');
         break;
 
-      // Check membership status and display message if not current.
-      case 'entity.user.canonical':
-        $data['tabs'][0]['entity.user.canonical']['#link']['title'] = 'Member Info';
-        $current_user = $this->currentUser->getAccount();
-        $user_id = $current_user->id();
-        $this->checkMembership($user_id);
-        break;
-
       // Remove tabs from the personal contact form page.
       case 'entity.user.contact_form':
         unset($data['tabs'][0]);
@@ -137,28 +129,5 @@ class BikeclubMenus {
       }
     }  
   } 
-
-  function checkMembership($user_id) {
-    $db = $this->connection;
-
-    $contact_id = $db->select('civicrm_uf_match', 'ufm')
-      ->fields('ufm', ['contact_id'])
-      ->condition('ufm.uf_id', $user_id)
-      ->execute()
-      ->fetchField();
-   
-
-    if ($contact_id) {
-      $status_id = $db->select('civicrm_membership', 'cm')
-        ->fields('cm', ['status_id'])
-        ->condition('cm.contact_id', $contact_id)
-        ->execute()
-        ->fetchField();
-
-      if ($status_id > 2) {
-        $this->messenger->addError("Your membership is not current.");
-      }
-    }
-  }
 
 }

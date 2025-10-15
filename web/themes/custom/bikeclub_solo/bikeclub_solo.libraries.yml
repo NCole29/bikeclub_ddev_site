@@ -1,5 +1,5 @@
 bikeclub-solo-global:
   css:
     theme:
-      css/bikeclub_solo_style.css: {}
+      css/bikeclub_solo.css: {}
    

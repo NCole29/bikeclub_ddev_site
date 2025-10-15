@@ -28,22 +28,7 @@ entity.user.edit_myform:
   options:
     _admin_route: FALSE
 
-entity.user.edit_myprofile:
-  path: '/user/{user}/edit/myprofile/1'
-  defaults:
-    _entity_form: civicrm.user_profile
-    _title: 'Edit User Profile'
-  requirements:
-    _permission: 'edit my contact'
-  options:
-    _admin_route: FALSE
-
-user.contact_form:
-  path: '/contact/{user}/contact'
-  defaults:
-    _title: 'Link to user contact form'
-    _controller: '\Drupal\contact\Controller\ContactController::contactPersonalPage'
-
+# Add Bikeclub config under Admin > Configuration. 
 bikeclub.custom_config:
   path: '/admin/configuration/custom_config'
   defaults:

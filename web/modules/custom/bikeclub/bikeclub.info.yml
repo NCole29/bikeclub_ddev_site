@@ -8,3 +8,4 @@ dependencies:
   - drupal:taxonomy
   - drupal:node
   - drupal:user
+  - fontawesome:fontawesome

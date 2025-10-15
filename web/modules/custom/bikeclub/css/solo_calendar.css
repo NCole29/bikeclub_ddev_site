@@ -1,0 +1,7 @@
+.calendar-view-table {
+  --calendar-view-color-light: #edf4fc;
+  --calendar-view-color-dark: #134a85;
+}
+.calendar-view-table th {
+  color: #fff !important;
+}

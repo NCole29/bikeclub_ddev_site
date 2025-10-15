@@ -1,11 +1,3 @@
-# Add link to the People menu.
-bikeclub.civigroups:
-  title: 'CiviGroup Roles Sync'
-  description: 'Synch CiviCRM Ride Leader GROUP with Drupal Ride Leader ROLE'
-  route_name: civicrm_group_roles.admin_config_civicrm.civicrm_group_roles_manual_sync
-  parent: entity.user.collection
-  weight: 100
-
 # Add Custom entities to the Admin menu under Structure.
 bikeclub.custom_entities:
   title: 'Bikeclub entities'

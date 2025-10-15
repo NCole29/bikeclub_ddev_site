@@ -18,6 +18,6 @@ class BikeclubPreprocess {
     // Hide country name everywhere address is displayed.
     if ($vars['field_name'] == 'field_address') {
       $vars['items'][0]['content']['country']['#value'] = '';
-    }
+    }    
   }
 }

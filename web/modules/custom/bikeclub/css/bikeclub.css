@@ -1,30 +1,19 @@
-
 /* ----------
    CALENDAR
   ----------*/
-  .calendar-view-table {
-    --calendar-view-columns: 7;
-    --calendar-view-color-white: #fff;
-    --calendar-view-color-lighter: #f8f8f8;
-    --calendar-view-color-light: var(--bg-very-light); /*f4f4f4*/
-    --calendar-view-color-grey: #ccc;
-    --calendar-view-color-gray: #555;
-    --calendar-view-color-evil: #666;
-    --calendar-view-color-dark: var(--bg-dark);
-    --calendar-view-day-rows-gap: 0.5rem;
-    display: grid;
-    grid-template-columns: repeat(var(--calendar-view-columns), 1fr);
-    border-collapse: collapse;
-  }
   .calendar-view-pager li {
     list-style-type: none; 
   }
+  
   /* Increase font size for pager from 0.8125rem, remove text-transform: uppercase; */
   .calendar-view-pager__reset a,
   .calendar-view-pager .pager__item > * {
     padding: 1rem 0.5rem;
     font-size: 1.5rem;
     line-height: 0;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-decoration: none;
   }
 
 /*---------------------------------------------------------------------------

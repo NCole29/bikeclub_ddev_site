@@ -10,9 +10,3 @@ user.edit_myform:
   base_route: user.default
   title: Edit
   weight: 2
-
-user.edit_myprofile:
-  route_name: user.edit_myprofile
-  base_route: civicrm.user_profile
-  title: 'Edit profile'
-  weight: 2

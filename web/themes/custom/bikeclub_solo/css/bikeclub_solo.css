@@ -1,11 +1,8 @@
-li.nav__menu-item-account a {
-  color: var(--r-br)!important; 
-  background-color: white!important; 
-}
-
-li.nav__menu-item-account a:hover {
-  color: white!important; 
-  background-color: var(--r-br)!important; 
+/* User account menu has dark text on dark background. Change to header bgcolor. */
+.header-inner nav .navigation__menubar > li > button,
+.header-inner nav .navigation__menubar > li > a,
+.solo-inner .navigation__menubar-account li a {
+  background-color: inherit; /* white;*/
 }
 
 /* Style the select options in bikeclub-solo theme cancellation color form */
