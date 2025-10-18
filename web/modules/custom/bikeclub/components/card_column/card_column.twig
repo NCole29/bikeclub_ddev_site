@@ -1,0 +1,12 @@
+{# image is above content for mobile screens and to left otherwise #}
+<article class="card-column">
+  <div class="card-container">
+    {% if image %}
+      <div class="card-image">{{ image }}</div>
+    {% endif %}
+    <div class="card-content">
+      <h2 class="card-title"><a href="{{ url }}">{{ heading }}</a></h2>
+      {{ content }}
+    </div>
+  </div>
+</article>

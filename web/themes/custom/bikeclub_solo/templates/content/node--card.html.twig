@@ -1,9 +1,0 @@
-{# Renders the content using the "card-horiz" component. #}
-
-{{ include('bikeclub_solo:card-horiz', {
-  heading: node.title.value,
-  url: path('entity.node.canonical', { node: node.id() }),
-  metadata: { },
-  image: content.banner_image,
-  content: content
-}, with_context = false) }}

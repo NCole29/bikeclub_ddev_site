@@ -1,0 +1,35 @@
+{
+  "name": "bikeclub/bikeclub_paragraph_types",
+  "description": "Installs paragraph types.",
+  "keywords": ["recipe", "Paragraphs"],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nancy Cole",
+      "homepage": "https://bikeclubsites.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/entity_reference_revisions": "^1.0",
+    "drupal/field_group": "^4.0",
+    "drupal/fontawesome": "^3.0",
+    "drupal/layout_paragraphs": "^2.0",
+    "drupal/paragraphs": "^1.0",
+    "drupal/style_selector": "^2.0@alpha",
+    "npm-asset/fonticonpicker--fonticonpicker": "^3.0",
+    "npm-asset/fortawesome--fontawesome-free": "5.15"
+  },
+  "extra": {
+    "installer-paths": {
+      "web/libraries/{$name}": [
+        "type:drupal-library",
+        "type:npm-asset",
+        "npm-asset/fortawesome--fontawesome-free",
+        "npm-asset/fonticonpicker--fonticonpicker"
+      ]
+    }
+  },
+  "version": "1.0.1"
+}

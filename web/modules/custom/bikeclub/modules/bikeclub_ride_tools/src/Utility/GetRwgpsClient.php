@@ -2,25 +2,28 @@
 
 namespace Drupal\bikeclub_ride_tools\Utility;
 
+use Drupal\Core\Http\ClientFactory;
+
+/**
+ * Provides a service to retrieve RWGPS route data.
+ */
 class GetRwgpsClient {
 
-  protected $client;
+ /**
+   * The HTTP client factory.
+   *
+   * @var \Drupal\Core\Http\ClientFactory
+   */
+  protected $httpClientFactory;
 
   /**
    * Constructs a new GetRwgpsClient object.
    *
-   * @param $http_client_factory \Drupal\Core\Http\ClientFactory
+   * @param \Drupal\Core\Http\ClientFactory $httpClientFactory
+   *   The HTTP client factory.
    */
-  public function __construct($http_client_factory) {
-    $config = $this->configFactory->get('club.adminsettings');
-
-    $this->client = $http_client_factory->fromOptions([
-      'base_uri' => 'https://ridewithgps.com/routes/',
-      'headers' => [
-      'apikey' => $config->get('rwgps_api')
-        ]
-      ]);
-    $this->logger = $this->loggerFactory->get('type');
+  public function __construct(ClientFactory $httpClientFactory) {
+    $this->httpClientFactory = $httpClientFactory;
   }
 
   /**
@@ -32,6 +35,18 @@ class GetRwgpsClient {
    */
   public function getRouteInfo($routeId, $ride_start) {
 
+    $config = $this->configFactory->get('bikeclub.adminsettings');
+
+    $client = $this->httpClientFactory->fromOptions([
+      'base_uri' => 'https://ridewithgps.com/routes/',
+      'headers' => [
+        'apikey' => $config->get('rwgps_api')
+      ]
+    ]);
+    $this->logger = $this->loggerFactory->get('type');
+
+  
+    // Get route Ids from node.
     $entity = $this->entityTypeManager->getStorage('club_route');
 
     if (is_numeric($routeId)) {
@@ -39,7 +54,7 @@ class GetRwgpsClient {
       $url = $routeId . '.json';
 
       try {
-        $response = $this->client->request('GET', $url);
+        $response = $client->request('GET', $url);
 
         if ($response->getStatusCode() == 200) {
           $routeInfo = json_decode($response->getBody(),true);

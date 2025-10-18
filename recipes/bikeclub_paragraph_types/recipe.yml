@@ -1,0 +1,26 @@
+name: 'Bikeclub Paragraph types'
+description: 'Provides callout, card, text, and section paragraph types.'
+type: 'Content field'
+install:
+  - block_content
+  - link
+  - media
+  - options
+  # Contrib.
+  - entity_reference_revisions
+  - field_group
+  - layout_paragraphs
+  - paragraphs
+  - style_selector
+config:
+  import:
+    paragraphs: '*'
+  actions:
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'create paragraphs_block block content'
+        - 'delete any paragraphs_block block content'
+        - 'edit any paragraphs_block block content'
+        - 'view any paragraphs_block block content history'

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\bikeclub_ride_tools\Hook;
 
 use Drupal\bikeclub_ride_tools\Utility\GetRwgpsClient;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 
@@ -30,11 +31,16 @@ class RideNodes {
    */
   #[Hook('node_presave')]
   function nodePresave(EntityInterface $node) {
+    
     $node_type = $node->bundle();
+ 
+    if (!in_array($node_type, ['ride','recurring_ride'] )) {
+      return;
+    }
 
     switch ($node_type) {
       case 'ride':
-		// Fill schedule date (entity reference field).
+		  // Fill schedule date (entity reference field).
         if ($node->field_date->value) {
           $date_formatter = \Drupal::service('date.formatter');
           $date = $date_formatter->format($node->get('field_date')->date->getTimestamp(), 'custom', 'Y-m-d');
@@ -50,7 +56,7 @@ class RideNodes {
             $node->field_schedule_date->target_id = $id;
           }       
         }
-	  // No break. Next section applies to ride and recurring_ride.
+	    // No break. Next section applies to ride and recurring_ride.
       case 'recurring_ride':
         // Process RWGPS routes.
         if ($node->field_rwgps_routes) {
@@ -67,7 +73,7 @@ class RideNodes {
             }
           }
         } 
-		break;
+	  	break;
     } 
   } 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd2639f7f0948f2c6cd3a349e5346f85",
+    "content-hash": "d9973753dfa3e0d610bae421f59495d6",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -24,6 +24,12 @@
                 "dflydev/apache-mime-types": "^1.0"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply patch to fix php8.2 deprecation notice on dynamic property $filename": "https://download.civicrm.org/patches/011c5f09dc27b260937380f7a9ef5ad1fa713ae206b0b66ce03decc1932fc3f6/17.patch",
+                    "Update gitignore to ensure that sites that manage via git don't miss out on the important db.json file": "https://download.civicrm.org/patches/ffb6c65c6caa0a8a648f167f8800072d50ca0e4138002c52c05065be0ae60a63/15.patch"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "MimeTyper\\": "src/"
@@ -608,6 +614,63 @@
                 "issues": "https://github.com/NCole29/bikeclub_page/issues"
             },
             "time": "2025-10-11T19:57:19+00:00"
+        },
+        {
+            "name": "bikeclub/bikeclub_paragraph_types",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NCole29/bikeclub_paragraph_types.git",
+                "reference": "b3afda0282f91b0c04b0adc7dcc4e78eded6a169"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_paragraph_types/zipball/b3afda0282f91b0c04b0adc7dcc4e78eded6a169",
+                "reference": "b3afda0282f91b0c04b0adc7dcc4e78eded6a169",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/entity_reference_revisions": "^1.0",
+                "drupal/field_group": "^4.0",
+                "drupal/fontawesome": "^3.0",
+                "drupal/layout_paragraphs": "^2.0",
+                "drupal/paragraphs": "^1.0",
+                "drupal/style_selector": "^2.0@alpha",
+                "npm-asset/fonticonpicker--fonticonpicker": "^3.0",
+                "npm-asset/fortawesome--fontawesome-free": "5.15"
+            },
+            "default-branch": true,
+            "type": "drupal-recipe",
+            "extra": {
+                "installer-paths": {
+                    "web/libraries/{$name}": [
+                        "type:drupal-library",
+                        "type:npm-asset",
+                        "npm-asset/fortawesome--fontawesome-free",
+                        "npm-asset/fonticonpicker--fonticonpicker"
+                    ]
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nancy Cole",
+                    "homepage": "https://bikeclubsites.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Installs paragraph types.",
+            "keywords": [
+                "Paragraphs",
+                "recipe"
+            ],
+            "support": {
+                "source": "https://github.com/NCole29/bikeclub_paragraph_types/tree/main",
+                "issues": "https://github.com/NCole29/bikeclub_paragraph_types/issues"
+            },
+            "time": "2025-10-15T22:12:46+00:00"
         },
         {
             "name": "bikeclub/bikeclub_rides",
@@ -3069,7 +3132,6 @@
                 "issues": "https://github.com/doctrine/annotations/issues",
                 "source": "https://github.com/doctrine/annotations/tree/2.0.2"
             },
-            "abandoned": true,
             "time": "2024-09-05T10:17:24+00:00"
         },
         {
@@ -4094,56 +4156,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/automatic_updates",
                 "issues": "https://www.drupal.org/project/issues/automatic_updates"
-            }
-        },
-        {
-            "name": "drupal/bootstrap5",
-            "version": "4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bootstrap5.git",
-                "reference": "4.0.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.6.zip",
-                "reference": "4.0.6",
-                "shasum": "600973f96a3ed1eb54b133d96b25b55f8ea58f9a"
-            },
-            "require": {
-                "drupal/core": "^10.1 || ^11.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "4.0.6",
-                    "datestamp": "1759216769",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Vladimir Roudakov (vladimiraus)",
-                    "homepage": "https://www.drupal.org/u/vladimiraus",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "vladimiraus",
-                    "homepage": "https://www.drupal.org/user/673120"
-                }
-            ],
-            "description": "Master theme using Bootstrap 5: powerful front-end framework for faster and easier web development.",
-            "homepage": "https://www.drupal.org/project/bootstrap5",
-            "support": {
-                "source": "https://git.drupalcode.org/project/bootstrap5",
-                "issues": "https://www.drupal.org/project/issues/bootstrap5"
             }
         },
         {
@@ -5467,126 +5479,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/diff",
                 "issues": "https://www.drupal.org/project/issues/diff"
-            }
-        },
-        {
-            "name": "drupal/dxpr_theme",
-            "version": "6.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme.git",
-                "reference": "6.0.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-6.0.9.zip",
-                "reference": "6.0.9",
-                "shasum": "58228bd887475b1a75e521a14f6292d797051e20"
-            },
-            "require": {
-                "drupal/bootstrap5": "^3 || ^4",
-                "drupal/core": "^9.3 || ^10 || ^11",
-                "drupal/dxpr_theme_helper": "*",
-                "drupal/media_library_form_element": "^2.1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "6.0.9",
-                    "datestamp": "1759847461",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "jurriaanroelofs",
-                    "homepage": "https://www.drupal.org/user/52638"
-                }
-            ],
-            "description": "Low-code Drupal Framework Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
-            }
-        },
-        {
-            "name": "drupal/dxpr_theme_helper",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme_helper.git",
-                "reference": "2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme_helper-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "ca86e955570ee90754f1b468bc6f013611f3d7b5"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10 || ^11"
-            },
-            "require-dev": {
-                "drush/drush": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1759322129",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Helper module  to support DXPR Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme_helper",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme_helper",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
             }
         },
         {
@@ -6996,77 +6888,6 @@
                 "source": "https://git.drupal.org/project/masquerade.git",
                 "issues": "https://www.drupal.org/project/issues/masquerade",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
-            "name": "drupal/media_library_form_element",
-            "version": "2.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/media_library_form_element.git",
-                "reference": "2.1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_library_form_element-2.1.4.zip",
-                "reference": "2.1.4",
-                "shasum": "575d5a69e4b9e310336aeb3ee169ec2d7c8b3f2b"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.4",
-                    "datestamp": "1759255782",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Kim Kennof",
-                    "homepage": "https://www.drupal.org/u/nightlife2008",
-                    "email": "kim.kennof@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "AUSY, a randstad company",
-                    "homepage": "https://www.ausy.be",
-                    "email": "info@ausy.be",
-                    "role": "Sponsor"
-                },
-                {
-                    "name": "mark_fullmer",
-                    "homepage": "https://www.drupal.org/user/2612816"
-                },
-                {
-                    "name": "nightlife2008",
-                    "homepage": "https://www.drupal.org/user/333515"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                }
-            ],
-            "description": "This module provides a Media Library Form API element to be used in all sorts of forms.",
-            "homepage": "https://www.drupal.org/project/media_library_form_element",
-            "keywords": [
-                "Drupal",
-                "Form API",
-                "Media",
-                "Media Library"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/media_library_form_element",
-                "issues": "https://www.drupal.org/project/issues/media_library_form_element"
             }
         },
         {
@@ -10637,6 +10458,12 @@
                 "pear/pear-core-minimal": "*"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for the pear:db package": "https://download.civicrm.org/patches/47e125fec0c789b095880fa65c6037210b01179290d5727b22b70fa77333496b/pear_db_civicrm_changes.patch",
+                    "Ensure that error messages about MySQL-SSL connections are reported": "https://download.civicrm.org/patches/a6e31a769218801fb1fb3d679ff72d3d8a7c5637d3bb7b78680cd7809552e0c6/mysqli-ssl.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "DB": "./"
@@ -10769,6 +10596,11 @@
                 "pear/net_smtp": "Install optionally via your project's composer.json"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for CRM-1367 and CRM-5946": "https://download.civicrm.org/patches/00da3cfcfe0d24420665f3015a5d3ea72dc331a52636f009883892ed3c7fbf84/pear-mail.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10830,6 +10662,11 @@
                 "php": ">=5.2.0"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply patch for CRM-3133 wordwrap body to be 750 characters to apply with RFC 2821": "https://download.civicrm.org/patches/38231167f0c789e0b368b38c1499973d562de65e87094b402156a6b928cc4c38/crm_3133.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10888,6 +10725,11 @@
                 "pear/auth_sasl": "Install optionally via your project's composer.json"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Add in CiviCRM custom error message for CRM-8744": "https://download.civicrm.org/patches/ee02d81d09432e524b249c9d874c9756b88924df8f5a8d69b19e8b4d6f532327/error-msg.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Net": "./"
@@ -16923,6 +16765,12 @@
                 "zetacomponents/unit-test": "*"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "CiviCRM Custom Patches for ZetaCompoents mail": "https://download.civicrm.org/patches/6e4bd36dd432a1e62830b0c757a3bac9645ea1cfc551db39798a88c06d66aaf3/100-filename.patch",
+                    "CiviCRM Custom patch to fix a php8.1 issue found in CiviCRM unit tests": "https://download.civicrm.org/patches/d187bcd1100b99529705cdd61193efa683951f6cfbc97ecaa69bc6cd601d2e5f/200-php-81.patch"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src"
@@ -16991,6 +16839,7 @@
         "bikeclub/bikeclub_events": 20,
         "bikeclub/bikeclub_faqs": 20,
         "bikeclub/bikeclub_page": 20,
+        "bikeclub/bikeclub_paragraph_types": 20,
         "bikeclub/bikeclub_rides": 20,
         "drupal/address_map_link": 15,
         "drupal/conditional_fields": 15,

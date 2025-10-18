@@ -29,7 +29,7 @@ class RwgpsAPIForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('club.adminsettings');
+    $config = $this->config('bikeclub.adminsettings');
 
     $form['rwgps_api'] = [
       '#type' => 'textfield',
@@ -47,7 +47,7 @@ class RwgpsAPIForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $this->config('club.adminsettings')
+    $this->config('bikeclub.adminsettings')
       ->set('rwgps_api', $form_state->getValue('rwgps_api'))
       ->save();
   }
