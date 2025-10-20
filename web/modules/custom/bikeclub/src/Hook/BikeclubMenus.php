@@ -38,9 +38,11 @@ class BikeclubMenus {
   #[Hook('link_alter')]
   public function bikeclub_link_alter(&$variables) {    
     // Change 'Home' to fontawesome icon.   
-    if (isset($variables['url']) && $variables['url']->getRouteName() === '<front>') {
-      $variables['options']['attributes']['class'] = 'home-button';
-      $variables['text'] = t('<i class="fa fa-home fa-lg" aria-hidden="true"></i>');
+    if (isset($variables['url']) & $variables['url']->isRouted()) {
+      if ($variables['url']->getRouteName() === '<front>') {
+        $variables['options']['attributes']['class'] = 'home-button';
+        $variables['text'] = t('<i class="fa fa-home fa-lg" aria-hidden="true"></i>');
+      }
     }
   }   
 
