@@ -19,7 +19,6 @@ settings:
       - numberedList
       - alignment
       - link
-      - drupalMedia
       - insertTable
       - blockQuote
       - removeFormat
@@ -39,9 +38,5 @@ settings:
         reversed: true
         startIndex: true
       multiBlock: true
-    ckeditor_link_styles_linkStyles:
-      styles: {  }
-    media_media:
-      allow_view_mode_override: false
 image_upload:
   status: false

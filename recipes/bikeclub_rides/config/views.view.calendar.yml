@@ -9,7 +9,7 @@ dependencies:
     - node.type.event
     - node.type.recurring_dates
     - node.type.ride
-    - system.menu.main
+    - system.menu.account
   module:
     - calendar_view
     - datetime
@@ -86,7 +86,7 @@ display:
         type: calendar_month
         options:
           offset: 0
-          display_reset: 1
+          display_reset: 0
           use_previous_next: 1
           label_format: F
       exposed_form:
@@ -996,10 +996,10 @@ display:
         type: normal
         title: Calendar
         description: ''
-        weight: 0
+        weight: -10
         expanded: false
-        menu_name: main
-        parent: 'menu_link_content:63ecbaac-1209-4347-a97a-e32458c1b592'
+        menu_name: account
+        parent: ''
         context: '0'
     cache_metadata:
       max-age: -1

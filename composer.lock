@@ -24,12 +24,6 @@
                 "dflydev/apache-mime-types": "^1.0"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Apply patch to fix php8.2 deprecation notice on dynamic property $filename": "https://download.civicrm.org/patches/011c5f09dc27b260937380f7a9ef5ad1fa713ae206b0b66ce03decc1932fc3f6/17.patch",
-                    "Update gitignore to ensure that sites that manage via git don't miss out on the important db.json file": "https://download.civicrm.org/patches/ffb6c65c6caa0a8a648f167f8800072d50ca0e4138002c52c05065be0ae60a63/15.patch"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "MimeTyper\\": "src/"
@@ -180,12 +174,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub.git",
-                "reference": "a1df805b6f0b0181ee04ced013a7da04a4f5348e"
+                "reference": "7c8ef1af81cf20a5fccddcb4c497bef6fc43e665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub/zipball/a1df805b6f0b0181ee04ced013a7da04a4f5348e",
-                "reference": "a1df805b6f0b0181ee04ced013a7da04a4f5348e",
+                "url": "https://api.github.com/repos/NCole29/bikeclub/zipball/7c8ef1af81cf20a5fccddcb4c497bef6fc43e665",
+                "reference": "7c8ef1af81cf20a5fccddcb4c497bef6fc43e665",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +202,7 @@
                 "source": "https://github.com/NCole29/bikeclub/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub/issues"
             },
-            "time": "2025-10-13T19:43:02+00:00"
+            "time": "2025-10-20T15:31:21+00:00"
         },
         {
             "name": "bikeclub/bikeclub_announcements",
@@ -256,12 +250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_banner.git",
-                "reference": "fa8c54b7d6ff03b826431d80e17394f11033a8d6"
+                "reference": "790197d8e8fb8a049acd1607640551b4df63cc0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_banner/zipball/fa8c54b7d6ff03b826431d80e17394f11033a8d6",
-                "reference": "fa8c54b7d6ff03b826431d80e17394f11033a8d6",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_banner/zipball/790197d8e8fb8a049acd1607640551b4df63cc0a",
+                "reference": "790197d8e8fb8a049acd1607640551b4df63cc0a",
                 "shasum": ""
             },
             "require": {
@@ -293,7 +287,7 @@
                 "source": "https://github.com/NCole29/bikeclub_banner/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_banner/issues"
             },
-            "time": "2025-10-13T14:14:34+00:00"
+            "time": "2025-10-20T15:26:33+00:00"
         },
         {
             "name": "bikeclub/bikeclub_content_type_base",
@@ -301,12 +295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_content_type_base.git",
-                "reference": "20eb5218e814e26e557e5bd76b9043445f6e8a3c"
+                "reference": "81d1467c697259e06e5302256f7a210cfa146ff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_content_type_base/zipball/20eb5218e814e26e557e5bd76b9043445f6e8a3c",
-                "reference": "20eb5218e814e26e557e5bd76b9043445f6e8a3c",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_content_type_base/zipball/81d1467c697259e06e5302256f7a210cfa146ff6",
+                "reference": "81d1467c697259e06e5302256f7a210cfa146ff6",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +341,7 @@
                 "source": "https://github.com/NCole29/bikeclub_content_type_base/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_content_type_base/issues"
             },
-            "time": "2025-10-11T16:51:22+00:00"
+            "time": "2025-10-20T15:26:55+00:00"
         },
         {
             "name": "bikeclub/bikeclub_events",
@@ -355,12 +349,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_events.git",
-                "reference": "63c84a14f224c365034a3e4173caf2ea0d05d4a6"
+                "reference": "4e6ee0906a98e57c04e855362167114c9b404e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_events/zipball/63c84a14f224c365034a3e4173caf2ea0d05d4a6",
-                "reference": "63c84a14f224c365034a3e4173caf2ea0d05d4a6",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_events/zipball/4e6ee0906a98e57c04e855362167114c9b404e6c",
+                "reference": "4e6ee0906a98e57c04e855362167114c9b404e6c",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +391,7 @@
                 "source": "https://github.com/NCole29/bikeclub_events/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_events/issues"
             },
-            "time": "2025-10-13T19:03:06+00:00"
+            "time": "2025-10-15T22:15:17+00:00"
         },
         {
             "name": "bikeclub/bikeclub_faqs",
@@ -447,12 +441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_field_storage_registration.git",
-                "reference": "63da4f4588737440d9f4cc71c773e9063a025ce3"
+                "reference": "86b0b3f261731a2ef6fd3680ad2a8625f0ab4596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_field_storage_registration/zipball/63da4f4588737440d9f4cc71c773e9063a025ce3",
-                "reference": "63da4f4588737440d9f4cc71c773e9063a025ce3",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_field_storage_registration/zipball/86b0b3f261731a2ef6fd3680ad2a8625f0ab4596",
+                "reference": "86b0b3f261731a2ef6fd3680ad2a8625f0ab4596",
                 "shasum": ""
             },
             "require": {
@@ -479,7 +473,7 @@
                 "source": "https://github.com/NCole29/bikeclub_field_storage_registration/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_field_storage_registration/issues"
             },
-            "time": "2025-10-12T17:22:54+00:00"
+            "time": "2025-10-20T15:27:05+00:00"
         },
         {
             "name": "bikeclub/bikeclub_locations",
@@ -487,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_locations.git",
-                "reference": "d2efe0b95e9ea336d946062b9048280ca6a94572"
+                "reference": "ef30c0fd6fcf80c94fb625f562680dc7d6797f2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_locations/zipball/d2efe0b95e9ea336d946062b9048280ca6a94572",
-                "reference": "d2efe0b95e9ea336d946062b9048280ca6a94572",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_locations/zipball/ef30c0fd6fcf80c94fb625f562680dc7d6797f2c",
+                "reference": "ef30c0fd6fcf80c94fb625f562680dc7d6797f2c",
                 "shasum": ""
             },
             "require": {
@@ -527,7 +521,7 @@
                 "source": "https://github.com/NCole29/bikeclub_locations/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_locations/issues"
             },
-            "time": "2025-10-11T21:22:15+00:00"
+            "time": "2025-10-20T15:27:20+00:00"
         },
         {
             "name": "bikeclub/bikeclub_media",
@@ -535,12 +529,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_media.git",
-                "reference": "4f6b4f57bd8fd39a91d4fb651883aa17c6292cc1"
+                "reference": "f2802fdb4acd3ddef46828106a6598987ea92207"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_media/zipball/4f6b4f57bd8fd39a91d4fb651883aa17c6292cc1",
-                "reference": "4f6b4f57bd8fd39a91d4fb651883aa17c6292cc1",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_media/zipball/f2802fdb4acd3ddef46828106a6598987ea92207",
+                "reference": "f2802fdb4acd3ddef46828106a6598987ea92207",
                 "shasum": ""
             },
             "require": {
@@ -570,7 +564,7 @@
                 "source": "https://github.com/NCole29/bikeclub_media/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_media/issues"
             },
-            "time": "2025-08-29T12:31:01+00:00"
+            "time": "2025-10-20T15:27:37+00:00"
         },
         {
             "name": "bikeclub/bikeclub_page",
@@ -678,12 +672,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NCole29/bikeclub_rides.git",
-                "reference": "2d60ecbcdfc3bc144c6023aa4cc00eb1a25c3bcf"
+                "reference": "e744c09fbdeba02171c4ab392ad07bb863365b69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_rides/zipball/2d60ecbcdfc3bc144c6023aa4cc00eb1a25c3bcf",
-                "reference": "2d60ecbcdfc3bc144c6023aa4cc00eb1a25c3bcf",
+                "url": "https://api.github.com/repos/NCole29/bikeclub_rides/zipball/e744c09fbdeba02171c4ab392ad07bb863365b69",
+                "reference": "e744c09fbdeba02171c4ab392ad07bb863365b69",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +712,7 @@
                 "source": "https://github.com/NCole29/bikeclub_rides/tree/main",
                 "issues": "https://github.com/NCole29/bikeclub_rides/issues"
             },
-            "time": "2025-10-13T19:42:51+00:00"
+            "time": "2025-10-15T22:17:01+00:00"
         },
         {
             "name": "brick/math",
@@ -3132,6 +3126,7 @@
                 "issues": "https://github.com/doctrine/annotations/issues",
                 "source": "https://github.com/doctrine/annotations/tree/2.0.2"
             },
+            "abandoned": true,
             "time": "2024-09-05T10:17:24+00:00"
         },
         {
@@ -3530,16 +3525,16 @@
         },
         {
             "name": "doctrine/persistence",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "dcbdfe4b211ae09478e192289cae7ab0987b29a4"
+                "reference": "b9c49ad3558bb77ef973f4e173f2e9c2eca9be09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/dcbdfe4b211ae09478e192289cae7ab0987b29a4",
-                "reference": "dcbdfe4b211ae09478e192289cae7ab0987b29a4",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/b9c49ad3558bb77ef973f4e173f2e9c2eca9be09",
+                "reference": "b9c49ad3558bb77ef973f4e173f2e9c2eca9be09",
                 "shasum": ""
             },
             "require": {
@@ -3548,11 +3543,11 @@
                 "psr/cache": "^1.0 || ^2.0 || ^3.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12",
-                "phpstan/phpstan": "1.12.7",
-                "phpstan/phpstan-phpunit": "^1",
-                "phpstan/phpstan-strict-rules": "^1.6",
-                "phpunit/phpunit": "^9.6",
+                "doctrine/coding-standard": "^14",
+                "phpstan/phpstan": "2.1.30",
+                "phpstan/phpstan-phpunit": "^2",
+                "phpstan/phpstan-strict-rules": "^2",
+                "phpunit/phpunit": "^10.5.58 || ^12",
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0 || ^7.0",
                 "symfony/finder": "^4.4 || ^5.4 || ^6.0 || ^7.0"
             },
@@ -3603,7 +3598,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/4.1.0"
+                "source": "https://github.com/doctrine/persistence/tree/4.1.1"
             },
             "funding": [
                 {
@@ -3619,20 +3614,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-21T16:00:31+00:00"
+            "time": "2025-10-16T20:13:18+00:00"
         },
         {
             "name": "dompdf/dompdf",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dompdf/dompdf.git",
-                "reference": "b3493e35d31a5e76ec24c3b64a29b0034b2f32a6"
+                "reference": "baed300e4fb8226359c04395518059a136e2a2e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/b3493e35d31a5e76ec24c3b64a29b0034b2f32a6",
-                "reference": "b3493e35d31a5e76ec24c3b64a29b0034b2f32a6",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/baed300e4fb8226359c04395518059a136e2a2e2",
+                "reference": "baed300e4fb8226359c04395518059a136e2a2e2",
                 "shasum": ""
             },
             "require": {
@@ -3681,9 +3676,9 @@
             "homepage": "https://github.com/dompdf/dompdf",
             "support": {
                 "issues": "https://github.com/dompdf/dompdf/issues",
-                "source": "https://github.com/dompdf/dompdf/tree/v3.1.2"
+                "source": "https://github.com/dompdf/dompdf/tree/v3.1.3"
             },
-            "time": "2025-09-23T03:06:41+00:00"
+            "time": "2025-10-14T13:10:17+00:00"
         },
         {
             "name": "dompdf/php-font-lib",
@@ -6848,7 +6843,7 @@
             "extra": {
                 "drupal": {
                     "version": "7.0.10",
-                    "datestamp": "1759925018",
+                    "datestamp": "1760731845",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7536,17 +7531,17 @@
         },
         {
             "name": "drupal/scheduler",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/scheduler.git",
-                "reference": "2.2.1"
+                "reference": "2.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/scheduler-2.2.1.zip",
-                "reference": "2.2.1",
-                "shasum": "ce9a9405ea88140fbdd53f1e3ed3741b6f27266c"
+                "url": "https://ftp.drupal.org/files/projects/scheduler-2.2.2.zip",
+                "reference": "2.2.2",
+                "shasum": "e763779860e98f5d3554abec6678554da540fdd3"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11"
@@ -7562,8 +7557,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.1",
-                    "datestamp": "1738771365",
+                    "version": "2.2.2",
+                    "datestamp": "1760885783",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8503,20 +8498,20 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.18.0",
+            "version": "v4.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "cb56001e54359df7ae76dc522d08845dc741621b"
+                "reference": "b287d2a16aceffbf6e0295559b39662612b77fcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/cb56001e54359df7ae76dc522d08845dc741621b",
-                "reference": "cb56001e54359df7ae76dc522d08845dc741621b",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/b287d2a16aceffbf6e0295559b39662612b77fcf",
+                "reference": "b287d2a16aceffbf6e0295559b39662612b77fcf",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.6.0 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
+                "php": "~5.6.0 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
             },
             "require-dev": {
                 "cerdic/css-tidy": "^1.7 || ^2.0",
@@ -8558,9 +8553,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ezyang/htmlpurifier/issues",
-                "source": "https://github.com/ezyang/htmlpurifier/tree/v4.18.0"
+                "source": "https://github.com/ezyang/htmlpurifier/tree/v4.19.0"
             },
-            "time": "2024-11-01T03:51:45+00:00"
+            "time": "2025-10-17T16:34:55+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -9670,16 +9665,16 @@
         },
         {
             "name": "league/csv",
-            "version": "9.26.0",
+            "version": "9.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "7fce732754d043f3938899e5183e2d0f3d31b571"
+                "reference": "cb491b1ba3c42ff2bcd0113814f4256b42bae845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/7fce732754d043f3938899e5183e2d0f3d31b571",
-                "reference": "7fce732754d043f3938899e5183e2d0f3d31b571",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/cb491b1ba3c42ff2bcd0113814f4256b42bae845",
+                "reference": "cb491b1ba3c42ff2bcd0113814f4256b42bae845",
                 "shasum": ""
             },
             "require": {
@@ -9757,7 +9752,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-01T11:24:54+00:00"
+            "time": "2025-10-16T08:22:09+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -10587,12 +10582,6 @@
                 "pear/pear-core-minimal": "*"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Apply CiviCRM Customisations for the pear:db package": "https://download.civicrm.org/patches/47e125fec0c789b095880fa65c6037210b01179290d5727b22b70fa77333496b/pear_db_civicrm_changes.patch",
-                    "Ensure that error messages about MySQL-SSL connections are reported": "https://download.civicrm.org/patches/a6e31a769218801fb1fb3d679ff72d3d8a7c5637d3bb7b78680cd7809552e0c6/mysqli-ssl.patch"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "DB": "./"
@@ -10725,11 +10714,6 @@
                 "pear/net_smtp": "Install optionally via your project's composer.json"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Apply CiviCRM Customisations for CRM-1367 and CRM-5946": "https://download.civicrm.org/patches/00da3cfcfe0d24420665f3015a5d3ea72dc331a52636f009883892ed3c7fbf84/pear-mail.patch"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10791,11 +10775,6 @@
                 "php": ">=5.2.0"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Apply patch for CRM-3133 wordwrap body to be 750 characters to apply with RFC 2821": "https://download.civicrm.org/patches/38231167f0c789e0b368b38c1499973d562de65e87094b402156a6b928cc4c38/crm_3133.patch"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10854,11 +10833,6 @@
                 "pear/auth_sasl": "Install optionally via your project's composer.json"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Add in CiviCRM custom error message for CRM-8744": "https://download.civicrm.org/patches/ee02d81d09432e524b249c9d874c9756b88924df8f5a8d69b19e8b4d6f532327/error-msg.patch"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Net": "./"
@@ -16894,12 +16868,6 @@
                 "zetacomponents/unit-test": "*"
             },
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "CiviCRM Custom Patches for ZetaCompoents mail": "https://download.civicrm.org/patches/6e4bd36dd432a1e62830b0c757a3bac9645ea1cfc551db39798a88c06d66aaf3/100-filename.patch",
-                    "CiviCRM Custom patch to fix a php8.1 issue found in CiviCRM unit tests": "https://download.civicrm.org/patches/d187bcd1100b99529705cdd61193efa683951f6cfbc97ecaa69bc6cd601d2e5f/200-php-81.patch"
-                }
-            },
             "autoload": {
                 "classmap": [
                     "src"

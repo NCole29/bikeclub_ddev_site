@@ -1,4 +1,5 @@
 .ddev
+recipes
 tmp
 vendor
 web/core

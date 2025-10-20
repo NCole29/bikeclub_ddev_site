@@ -3078,6 +3078,7 @@ display:
           tokenize: false
       display_extenders: {  }
       block_description: 'Ride start locations'
+      block_hide_empty: true                            
       allow:
         items_per_page: false
     cache_metadata:
