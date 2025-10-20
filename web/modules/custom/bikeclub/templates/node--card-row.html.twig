@@ -3,7 +3,8 @@
 {{ include('bikeclub:card_row', {
   heading: node.title.value,
   url: path('entity.node.canonical', { node: node.id() }),
-  metadata: { },
   image: content.banner_image,
-  content: content|without('banner_image')
+  date: content.field_date,
+  location: content.field_location,
+  content: content.field_summary
 }, with_context = false) }}

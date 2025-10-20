@@ -6,6 +6,7 @@ recipes:
 install:
   # Contrib.
   - faqfield
+  - bikeclub
 config:
   strict: false
   actions:

@@ -13,9 +13,12 @@ props:
     image:
       type: string
       label: The image URL or data.
-    metadata:
-      type: object
-      title: Metadata
+    date:
+      type: string
+      label: Date
+    location:
+      type: string
+      title: URL
 slots:
   content:
     title: Content

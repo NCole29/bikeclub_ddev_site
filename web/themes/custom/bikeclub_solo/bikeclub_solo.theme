@@ -12,19 +12,6 @@ function bikeclub_solo_theme_suggestions_block_alter(&$suggestions, $variables) 
 }
 
 /**
-   * Implements hook_preprocess_HOOK().
-   */
-  function bikeclub_solo_preprocess_view(&$variables) {
-    // Check if screen_width is set in the settings, passed from JS.
-    if (isset(\Drupal::config('system.theme')->get('settings')['screen_width'])) {
-      $variables['screen_width'] = \Drupal::config('system.theme')->get('settings')['screen_width'];
-    } else {
-      // Fallback or default if JS hasn't run yet or failed.
-      $variables['screen_width'] = 0; 
-    }
-  }
-
-/**
  * Implements hook_preprocess_node__banner__full().
  */
 function bikeclub_solo_preprocess_node__banner__full(array &$variables): void {

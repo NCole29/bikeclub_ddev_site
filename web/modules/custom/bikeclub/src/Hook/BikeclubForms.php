@@ -109,7 +109,7 @@ class BikeclubForms {
       break;
 
       case 'webform_submission_renew_membership_add_form':
-        $user = $form['elements']['contact_pagebreak']['civicrm_1_contact_1_contact_existing']['#value'];
+       // $user = $form['elements']['contact_pagebreak']['civicrm_1_contact_1_contact_existing']['#value'];
 
         if ($this->currentUser->id() != $user and $this->getCurrentAdmin() == 1) {
           $this->messenger->addError('Form contains YOUR information. Use CiviCRM to manually renew membership for another user.');

@@ -1,3 +1,5 @@
+
+
 /* User account menu has dark text on dark background. Change to header bgcolor. */
 .header-inner nav .navigation__menubar > li > button,
 .header-inner nav .navigation__menubar > li > a,
@@ -5,6 +7,23 @@
   background-color: inherit; /* white;*/
 }
 
+.site-logo-img {
+  height:100px!important;
+}
+
+h1.page-title-text {
+  padding-block:0!important;
+}
+
+/* There's a cumulative effect so we get more than 400 */
+.page-wrapper h2 {
+  font-weight: 400!important;
+}
+
+/* Title of items in Views list (e.g., upcoming rides & events) */
+.views-field-title a {
+  font-weight: bold;
+}
 /* Style the select options in bikeclub-solo theme cancellation color form */
 select option[value='#ffb5ba'] { background-color: #ffb5ba; color: #ffffff;}
 select option[value='#be0032'] { background-color: #be0032; color: #ffffff;}

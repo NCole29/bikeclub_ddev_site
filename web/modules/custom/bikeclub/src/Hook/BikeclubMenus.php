@@ -13,6 +13,7 @@ use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Link;
 
 /**
  * Hook implementations for menus and links.
@@ -35,13 +36,13 @@ class BikeclubMenus {
    * Implements hook_link_alter().
    */
   #[Hook('link_alter')]
-  public function bikeclub_link_alter(&$variables) {
-    // Replace "Home" menu item with icon.
-    if ($variables['text'] == 'Home' & $variables['text'] <> '0') {
-      $variables['options']['attributes']['class'] = 'w3-button';
+  public function bikeclub_link_alter(&$variables) {    
+    // Change 'Home' to fontawesome icon.   
+    if (isset($variables['url']) && $variables['url']->getRouteName() === '<front>') {
+      $variables['options']['attributes']['class'] = 'home-button';
       $variables['text'] = t('<i class="fa fa-home fa-lg" aria-hidden="true"></i>');
     }
-  }
+  }   
 
   /**
    * Implements hook_local_tasks_alter().

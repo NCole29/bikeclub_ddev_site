@@ -26,6 +26,8 @@ install:
   - quick_node_clone
   - scheduler
   - tac_lite
+  # Custom
+  - bikeclub
 config:
   strict: false
   import:
