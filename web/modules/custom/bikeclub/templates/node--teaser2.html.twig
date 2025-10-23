@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display a node teaser2.
+ * Teaser 2 is used to embed a node on a page layout.
+ *  e.g., location on ride and event pages.
+ * Format title as label.
+ *
+ */
+#}
+{% set classes = [
+    'node',
+    'solo-clear',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {% if label and not page %}
+      <label class="field__label"> 
+       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </label>
+    {% endif %}
+  <div> 
+    {{ content }}
+  </div>
+</article>

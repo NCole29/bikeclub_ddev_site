@@ -103,7 +103,7 @@
         "drupal/recipe_installer_kit": "^1.0.0-alpha3",
         "drupal/redirect": "^1.11",
         "drupal/scheduler": "^2.1",
-        "drupal/smart_date": "^4.2",
+        "drupal/smart_date": "^4.1",
         "drupal/solo": "^1.0",
         "drupal/style_selector": "^2.0@alpha",
         "drupal/svg_image": "^3.0",

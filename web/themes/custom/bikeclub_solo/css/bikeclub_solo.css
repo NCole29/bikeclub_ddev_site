@@ -1,5 +1,4 @@
 
-
 /* User account menu has dark text on dark background. Change to header bgcolor. */
 .header-inner nav .navigation__menubar > li > button,
 .header-inner nav .navigation__menubar > li > a,
@@ -20,10 +19,25 @@ h1.page-title-text {
   font-weight: 400!important;
 }
 
+/* Fix layout builder region overlap */ 
+.layout--twocol-section > .layout__region {
+  flex: 0 1 100%;
+  padding:  1rem!important;
+}
+
 /* Title of items in Views list (e.g., upcoming rides & events) */
 .views-field-title a {
   font-weight: bold;
 }
+
+/* Add bold and larger size */
+label,
+.field__label {
+  font-weight: 600;
+  font-size:  120%;
+  margin-top: 1rem;
+}
+
 /* Style the select options in bikeclub-solo theme cancellation color form */
 select option[value='#ffb5ba'] { background-color: #ffb5ba; color: #ffffff;}
 select option[value='#be0032'] { background-color: #be0032; color: #ffffff;}

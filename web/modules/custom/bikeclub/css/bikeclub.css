@@ -16,6 +16,12 @@
   padding: 0.95rem 0.5rem 0 0!important;
 }
 
+/* Remove margins between Location title and address (top), and address and Google link (bottom)  */
+.address {
+  margin-top: 0;
+  margin-bottom: 0;  
+}
+
 /* ----------
    CALENDAR
   ----------*/

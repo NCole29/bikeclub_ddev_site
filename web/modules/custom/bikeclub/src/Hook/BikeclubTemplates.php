@@ -14,26 +14,18 @@ class BikeclubTemplates {
   #[Hook('theme')]
   public function addTemplates() {
     return [
-      'calendar_view_pager__calendar' => [
-        'template' => 'calendar-view-pager--custom',
-        'base hook' => 'calendar_view_pager__calendar',
-      ],
-      'field__node__field_registration_form' => [
-        'template' => 'field--node--registration-button',
-        'base hook' => 'field',
-      ],
-      'field__node__field_registration_free_form' => [
-        'template' => 'field--node--registration-button',
-        'base hook' => 'field',
-      ],
-      'field__node__webform__webform' => [
-        'template' => 'field--node--registration-button',
-        'base hook' => 'field',
-      ],
-      'node__location' => [
-        'template' => 'node--location--custom',
+      'node__teaser2' => [
+        'template' => 'node--teaser2',
         'base hook' => 'node',
       ],
+      'field__address' => [
+        'template' => 'field--address',
+        'base hook' => 'field',
+      ],  
+      'address_plain__custom' => [
+        'template' => 'address-plain',
+        'base hook' => 'field',
+      ],      
       'node__card_row' => [
         'template' => 'node--card-row',
         'base hook' => 'node',

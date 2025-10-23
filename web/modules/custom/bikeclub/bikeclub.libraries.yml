@@ -10,4 +10,4 @@ olivero_calendar:
 solo_calendar:
   css:
     theme:
-      css/solo_calendar.css: { }  
+      css/solo_mods.css: { }  
