@@ -31,11 +31,12 @@ h1.page-title-text {
 }
 
 /* Add bold and larger size */
-label,
-.field__label {
+label, .field__label {
   font-weight: 600;
-  font-size:  120%;
-  margin-top: 1rem;
+  font-size: 120%;
+}
+.field {
+  margin-top: 0.5rem;
 }
 
 /* Style the select options in bikeclub-solo theme cancellation color form */

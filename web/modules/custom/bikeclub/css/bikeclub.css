@@ -1,5 +1,5 @@
 /*
-  This file has CSS to style the home button, and CSS used in the Views UI.
+  This file has CSS to modify module styles. These may apply to all themes.
   Additional CSS is in themes/bikeclub_solo (SOLO subtheme) to modify the Solo theme defaults.
   Color modifications are done through the UI in bikeclub_solo theme settings.
 */
@@ -25,20 +25,20 @@
 /* ----------
    CALENDAR
   ----------*/
-  .calendar-view-pager li {
-    list-style-type: none; 
-  }
-  
-  /* Increase font size for pager from 0.8125rem, remove text-transform: uppercase; */
-  .calendar-view-pager__reset a,
-  .calendar-view-pager .pager__item > * {
-    padding: 1rem 0.5rem;
-    font-size: 1.5rem;
-    line-height: 0;
-    text-transform: capitalize;
-    font-weight: bold;
-    text-decoration: none;
-  }
+.calendar-view-pager li {
+  list-style-type: none; 
+}
+
+/* Increase font size for pager from 0.8125rem, remove text-transform: uppercase; */
+.calendar-view-pager__reset a,
+.calendar-view-pager .pager__item > * {
+  padding: 1rem 0.5rem;
+  font-size: 1.5rem;
+  line-height: 0;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 /*---------------------------------------------------------------------------
   Plain table - no shading, border on bottom only
