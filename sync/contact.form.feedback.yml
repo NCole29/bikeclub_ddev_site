@@ -1,0 +1,12 @@
+uuid: 1a90ca84-aca2-4148-a7ff-177a4ff24857
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: 'Website feedback'
+recipients:
+  - '${recipient}'
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

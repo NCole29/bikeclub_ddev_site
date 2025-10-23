@@ -1,0 +1,14 @@
+uuid: b94eadc4-8a36-4003-8ac4-b867ab538b7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.membership
+  module:
+    - user
+id: user_add_role_action.membership
+label: 'Add the Membership Coordinator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: membership

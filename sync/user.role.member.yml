@@ -1,0 +1,11 @@
+uuid: fa8e222a-74bd-47bf-9e8f-7fbc335510b4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yoQgbRd9JzXtTVIABYe9o_tOGJ0sU-8AFRx1siPbSZY
+id: member
+label: Member
+weight: 3
+is_admin: false
+permissions: {  }

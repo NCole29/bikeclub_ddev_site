@@ -109,6 +109,7 @@
         "drupal/svg_image": "^3.0",
         "drupal/tac_lite": "^2.0",
         "drupal/token": "^1.15",
+        "drupal/views_local_tasks": "^1.0",
         "drupal/views_slideshow": "^5.0",
         "drupal/webform": "^6.3@beta",
         "drupal/webform_views": "^5.5",

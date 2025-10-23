@@ -1,0 +1,14 @@
+uuid: b65e2d92-7013-4ea6-9a7b-9233f49bf540
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ride_leader
+  module:
+    - user
+id: user_remove_role_action.ride_leader
+label: 'Remove the Ride leader role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ride_leader

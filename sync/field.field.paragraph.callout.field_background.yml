@@ -1,0 +1,25 @@
+uuid: a75aef85-4f69-4713-a9cd-3cc219bf333a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background
+    - paragraphs.paragraphs_type.callout
+  module:
+    - style_selector
+_core:
+  default_config_hash: UC5QDL79Aqobo13Dcbg7Fzxfu1K3pJoNsxvo02OzVc8
+id: paragraph.callout.field_background
+field_name: field_background
+entity_type: paragraph
+bundle: callout
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: club-style1
+default_value_callback: ''
+settings: {  }
+field_type: style_selector_css_class

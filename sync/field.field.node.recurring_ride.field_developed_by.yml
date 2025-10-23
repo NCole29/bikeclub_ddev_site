@@ -1,0 +1,21 @@
+uuid: 232f6e7f-3767-4052-b26c-8146518bd871
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_developed_by
+    - node.type.recurring_ride
+_core:
+  default_config_hash: kmGoiAwOktqK0fLviub7AzYNPmkGBSYpwF7O2JyoPyQ
+id: node.recurring_ride.field_developed_by
+field_name: field_developed_by
+entity_type: node
+bundle: recurring_ride
+label: 'Developed by'
+description: 'OPTIONAL. Enter name of person who developed the ride. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,25 @@
+uuid: 4e11a31e-fbd3-4dda-98e5-4e4fd586f5fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: KSG-gQ6k81K21A0OVeVXt-bdJjyrlLXxZjKsLF_3OTo
+id: bikeclub_solo_site_branding
+theme: bikeclub_solo
+region: header
+weight: -4
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

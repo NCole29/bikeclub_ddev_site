@@ -1,0 +1,21 @@
+uuid: 9caf9063-e7d7-48e8-8c21-2f24a624b77d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - smart_date
+_core:
+  default_config_hash: clTv_mZKVL4fXmR2VYSxlnFFuSEDTCj649d-0JAuSTs
+id: node.field_datetime
+field_name: field_datetime
+entity_type: node
+type: smartdate
+settings: {  }
+module: smart_date
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

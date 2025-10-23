@@ -1,0 +1,22 @@
+uuid: 69a5e81d-288d-4bf3-a1fa-850632e0c7cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: tcm3r0JwIgdRq9b4bpcDKDY_1Wkpr3moOjXQdDDw-28
+id: node.field_dayofweek
+field_name: field_dayofweek
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

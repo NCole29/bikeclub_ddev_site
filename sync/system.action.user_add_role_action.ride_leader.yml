@@ -1,0 +1,14 @@
+uuid: b634648e-eca2-4dc9-93fe-c0e9c08188ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ride_leader
+  module:
+    - user
+id: user_add_role_action.ride_leader
+label: 'Add the Ride leader role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ride_leader

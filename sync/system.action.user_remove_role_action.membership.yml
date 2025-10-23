@@ -1,0 +1,14 @@
+uuid: 6f103e30-a621-458f-ab4d-568c02954195
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.membership
+  module:
+    - user
+id: user_remove_role_action.membership
+label: 'Remove the Membership Coordinator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: membership

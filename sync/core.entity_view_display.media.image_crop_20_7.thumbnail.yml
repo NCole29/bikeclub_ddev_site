@@ -1,0 +1,48 @@
+uuid: 7ad47093-f913-4867-9c3e-e8aabaee57cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.thumbnail
+    - field.field.media.image_crop_20_7.field_image_category
+    - field.field.media.image_crop_20_7.field_media_image
+    - image.style.banner
+    - media.type.image_crop_20_7
+  module:
+    - layout_builder
+    - svg_image
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: PKyJb7vsae1QowA8luemHocUbf7vthuaDFWcKRfaPxI
+id: media.image_crop_20_7.thumbnail
+targetEntityType: media
+bundle: image_crop_20_7
+mode: thumbnail
+content:
+  field_image_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: banner
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

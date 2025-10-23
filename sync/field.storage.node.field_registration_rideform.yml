@@ -1,0 +1,22 @@
+uuid: 9b6d2544-69fb-45f7-a65f-1a8af8f25508
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - webform
+_core:
+  default_config_hash: CqXLcMfZyqBLviUEJLQDsiYS7QLF2LwyueR36aeTRAI
+id: node.field_registration_rideform
+field_name: field_registration_rideform
+entity_type: node
+type: webform
+settings:
+  target_type: webform
+module: webform
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

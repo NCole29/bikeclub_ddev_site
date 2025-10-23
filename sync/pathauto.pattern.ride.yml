@@ -1,0 +1,25 @@
+uuid: 5b555546-c124-4012-8cab-fa6179ec1e27
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: wxFdbYPwY_ViHh5kVHM9eNupOefko1pWW5GKOx5bhpU
+id: ride
+label: Ride
+type: 'canonical_entities:node'
+pattern: 'ride/[node:title]'
+selection_criteria:
+  00566a30-f54e-4c69-aa9c-797868ff5e60:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 00566a30-f54e-4c69-aa9c-797868ff5e60
+    context_mapping:
+      node: node
+    bundles:
+      recurring_ride: recurring_ride
+      ride: ride
+selection_logic: and
+weight: -5
+relationships: {  }

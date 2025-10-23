@@ -1,0 +1,11 @@
+uuid: 913aecc9-3c75-4da7-ad85-69796d326a91
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5iRN0566FSrW0EqkUNdlp3pqmnVS9TixFuYc4vnCRZU
+name: Locations
+vid: locations
+description: 'Types of locations.'
+weight: 0
+new_revision: false

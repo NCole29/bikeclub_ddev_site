@@ -1,0 +1,106 @@
+uuid: 560b946b-e73e-490a-a863-198ae8ad3365
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.large
+    - core.entity_view_mode.media.medium
+    - core.entity_view_mode.media.small
+    - core.entity_view_mode.media.window_popup
+  module:
+    - editor
+    - linkit
+    - media
+_core:
+  default_config_hash: 5s3gf9ABU1lT8EAmwwdB_ylUdD67D1AxRMGFvvCzXMM
+name: 'Basic HTML'
+format: basic_html
+weight: 0
+filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: -45
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: -47
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: -41
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -37
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      allowed_html: '<br> <p class="small medium regular light-button dark-button light-centered dark-centered text-align-left text-align-center text-align-justify"> <h2 class="text-align-left text-align-center text-align-justify"> <h3 class="text-align-left text-align-center text-align-justify"> <strong> <em> <blockquote> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol reversed start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-align><a data-entity-type data-entity-uuid data-entity-substitution> <drupal-media data-view-mode><a data-entity-type data-entity-uuid data-entity-substitution> <drupal-media data-view-mode>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -38
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: -46
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -39
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: -44
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -42
+    settings:
+      filter_url_length: 72
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -40
+    settings:
+      title: true
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: -43
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        large: large
+        medium: medium
+        small: small
+        window_popup: window_popup
+      allowed_media_types:
+        document: document
+        image_crop_16_9: image_crop_16_9
+        image_crop_4_3: image_crop_4_3

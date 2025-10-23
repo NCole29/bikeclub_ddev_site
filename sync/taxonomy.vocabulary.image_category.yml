@@ -1,0 +1,11 @@
+uuid: 42383879-ee20-4fad-9d6d-69126c4eb415
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vPn3SuI7YnXz5Ne_5WJSjyn6qDhYHgjWiJduwGATbq0
+name: 'Image category'
+vid: image_category
+description: 'Category corresponds with content type where image was originally saved.'
+weight: 0
+new_revision: false

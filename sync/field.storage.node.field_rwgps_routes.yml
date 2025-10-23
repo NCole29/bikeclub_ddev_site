@@ -1,0 +1,22 @@
+uuid: 1493c722-8cc3-4b8a-9777-434fc84e7de6
+langcode: en
+status: true
+dependencies:
+  module:
+    - bikeclub_ride_tools
+    - node
+_core:
+  default_config_hash: gZu6Ue3bmPi3P0dJMk7kZQTPUE9i6p16YTm25_XEtvM
+id: node.field_rwgps_routes
+field_name: field_rwgps_routes
+entity_type: node
+type: entity_reference
+settings:
+  target_type: club_route
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

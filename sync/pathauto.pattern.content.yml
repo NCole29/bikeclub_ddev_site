@@ -1,0 +1,31 @@
+uuid: d7ffa7cd-3f1e-4a20-95ce-e4186d10c443
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: VSP2vGzPfOuc50LdipGQPmTQy-FWfiRFJGTZrVLAjvM
+id: content
+label: Content
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  37ca2391-58e6-4f17-b974-f20980389de4:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 37ca2391-58e6-4f17-b974-f20980389de4
+    context_mapping:
+      node: node
+    bundles:
+      announcement: announcement
+      event: event
+      faqs: faqs
+      location: location
+      page: page
+      webform: webform
+selection_logic: and
+weight: -5
+relationships: {  }
+bundles:
+  location: location

@@ -1,0 +1,21 @@
+uuid: da25a5fe-f787-4d98-908c-96281fecb9da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time
+    - node.type.recurring_ride
+_core:
+  default_config_hash: AmHm3imr92eiETqEnEOSMc0k-c5SgrM7OCscr_ilUIA
+id: node.recurring_ride.field_time
+field_name: field_time
+entity_type: node
+bundle: recurring_ride
+label: Time
+description: 'Click "Add another item" to provide multiple starting times as multiple rows of text. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: 75fab05b-36f7-4047-acce-7abdfbbfa03f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: zI192xg7wHBPCbcTONkjY4da44QoKfLfWaWfJXgrkxc
+id: node.field_cancel
+field_name: field_cancel
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

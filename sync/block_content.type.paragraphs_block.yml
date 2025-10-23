@@ -1,0 +1,10 @@
+uuid: 3ec0108e-ac28-4b38-b96f-59953a83b40c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uNhPCKto-0pcHy-rqxYNTfZdCHrxamV6P5L6Hyh87sY
+id: paragraphs_block
+label: 'Paragraphs block'
+revision: 0
+description: 'A paragraphs block uses paragraphs components (accordion, callouts, cards, image & text, or text).'

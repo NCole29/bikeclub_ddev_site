@@ -1,0 +1,26 @@
+uuid: 91f99d2c-7cc9-41a7-8a26-b09cda7bbb83
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraphs_block
+    - field.field.block_content.paragraphs_block.field_paragraph_components
+  module:
+    - layout_paragraphs
+_core:
+  default_config_hash: 81ZD_fiojpIr3u2gwcXhLPJ_5psktTRtp1p1Cr36azU
+id: block_content.paragraphs_block.default
+targetEntityType: block_content
+bundle: paragraphs_block
+mode: default
+content:
+  field_paragraph_components:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

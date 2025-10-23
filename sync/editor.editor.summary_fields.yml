@@ -1,0 +1,67 @@
+uuid: b32274db-77c9-414f-a23d-572744abd536
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.summary_fields
+  module:
+    - ckeditor5
+_core:
+  default_config_hash: nOMOvYH_7iuS0WSC_c0ElL-EZJQQ0HcGT_aQxl51hdw
+format: summary_fields
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - heading
+      - bold
+      - italic
+      - bulletedList
+      - numberedList
+      - alignment
+      - link
+      - style
+      - blockQuote
+      - removeFormat
+      - sourceEditing
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Light button'
+          element: '<p class="light-button">'
+        -
+          label: 'Dark button'
+          element: '<p class="dark-button">'
+        -
+          label: 'Light centered'
+          element: '<p class="light-centered">'
+        -
+          label: 'Dark centered'
+          element: '<p class="dark-centered">'
+    linkit_extension:
+      linkit_enabled: true
+      linkit_profile: club
+    media_media:
+      allow_view_mode_override: false
+image_upload:
+  status: false

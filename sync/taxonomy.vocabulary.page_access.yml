@@ -1,0 +1,11 @@
+uuid: dcec8770-d32a-41f9-9c59-14625fca78cf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2RB3L7laZXRcE2juP4Q0GSOMcJYJlLmBYgDROvTUQ3w
+name: 'Page access'
+vid: page_access
+description: 'Taxonomy Access Control module grants page permission using these terms.'
+weight: 0
+new_revision: false

@@ -1,0 +1,26 @@
+uuid: 310cc6bd-7a03-460b-bf83-fb5542bb51dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.ride_page
+    - node.type.recurring_ride
+  module:
+    - text
+_core:
+  default_config_hash: HPj8D8hYX9FkKBVFATm5UtSPdHm6eu8cDczIvVA7P8Q
+id: node.recurring_ride.field_description
+field_name: field_description
+entity_type: node
+bundle: recurring_ride
+label: Description
+description: 'The media library icon can be used to add files (such as cue sheets). Use the Ride picture field for an image.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - ride_page
+field_type: text_long

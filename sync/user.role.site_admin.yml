@@ -1,0 +1,62 @@
+uuid: 99d845c4-4d55-456c-a4e0-7f43cde5c3bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraphs_block
+    - core.entity_view_display.node.event.default
+    - filter.format.basic_html
+    - filter.format.ride_page
+    - filter.format.summary_fields
+    - node.type.announcement
+    - node.type.event
+    - node.type.faqs
+    - node.type.location
+    - node.type.page
+    - node.type.recurring_ride
+    - node.type.ride
+  module:
+    - block_content
+    - filter
+    - layout_builder
+    - media
+    - node
+id: site_admin
+label: 'Site administrator'
+weight: 4
+is_admin: false
+permissions:
+  - 'access media overview'
+  - 'configure editable event node layout overrides'
+  - 'create announcement content'
+  - 'create event content'
+  - 'create faqs content'
+  - 'create location content'
+  - 'create media'
+  - 'create page content'
+  - 'create paragraphs_block block content'
+  - 'create recurring_ride content'
+  - 'create ride content'
+  - 'delete any announcement content'
+  - 'delete any event content'
+  - 'delete any faqs content'
+  - 'delete any location content'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete any paragraphs_block block content'
+  - 'delete any recurring_ride content'
+  - 'delete any ride content'
+  - 'edit any announcement content'
+  - 'edit any event content'
+  - 'edit any faqs content'
+  - 'edit any location content'
+  - 'edit any page content'
+  - 'edit any paragraphs_block block content'
+  - 'edit any recurring_ride content'
+  - 'edit any ride content'
+  - 'update any media'
+  - 'use text format basic_html'
+  - 'use text format ride_page'
+  - 'use text format summary_fields'
+  - 'view any paragraphs_block block content history'
+  - 'view own unpublished media'

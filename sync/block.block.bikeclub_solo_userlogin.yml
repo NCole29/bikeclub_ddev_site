@@ -1,0 +1,25 @@
+uuid: b70627ac-ce48-428f-a460-f5907c3dddc4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - bikeclub_solo
+id: bikeclub_solo_userlogin
+theme: bikeclub_solo
+region: popup_login_block
+weight: -5
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  label_display: visible
+  provider: user
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /user/login

@@ -1,0 +1,40 @@
+uuid: 276ae610-b0fb-41bf-824f-6e9577d3e276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_person
+    - node.type.announcement
+_core:
+  default_config_hash: EDvqu4z6c8vS1flq1bScwvRldUfjPiiR-oP49IwI83Q
+id: node.announcement.field_contact_person
+field_name: field_contact_person
+entity_type: node
+bundle: announcement
+label: Contact
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        member: member
+        administrator: '0'
+        ride_leader: '0'
+        membership: '0'
+        site_admin: '0'
+        rides_coordinator: '0'
+        content_creator: '0'
+        editor: '0'
+    include_anonymous: false
+field_type: entity_reference

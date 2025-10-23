@@ -1,0 +1,80 @@
+uuid: ede3a3e7-bb2a-4808-9f45-bb556188d40b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.faqs.field_contact_form
+    - field.field.node.faqs.field_contact_person
+    - field.field.node.faqs.field_faq
+    - field.field.node.faqs.field_page_access
+    - field.field.node.faqs.field_text_above_faqs
+    - field.field.node.faqs.field_text_below_faqs
+    - node.type.faqs
+  module:
+    - bikeclub
+    - faqfield
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: GT2UWqzmLjdKCQAEFX8yQ8S-qJpeinmIy2bkrcgv1-A
+id: node.faqs.full
+targetEntityType: node
+bundle: faqs
+mode: full
+content:
+  field_contact_form:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_contact_person:
+    type: user_contact_link
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_faq:
+    type: faqfield_accordion
+    label: visually_hidden
+    settings:
+      active: 0
+      heightStyle: auto
+      collapsible: false
+      event: click
+      animate:
+        easing: linear
+        duration: 200
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_text_above_faqs:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text_below_faqs:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_page_access: true

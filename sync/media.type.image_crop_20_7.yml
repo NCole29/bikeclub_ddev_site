@@ -1,0 +1,20 @@
+uuid: b5218d8a-67a5-456e-a474-b2b188daf6fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: _none
+_core:
+  default_config_hash: 1jISu3e1n1o-CALlBlawDVnr2l0wBHmD-nRxi3LiH1k
+id: image_crop_20_7
+label: 'Banner picture'
+description: 'Use local images with crop for reusable media; 20:7 aspect ratio enforced.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

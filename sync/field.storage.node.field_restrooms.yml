@@ -1,0 +1,29 @@
+uuid: f868f8b2-8355-428a-bb29-fa985adf823e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: Fqxy90RM_QYsVyMHiHHhbt_aK0B__a_gaEaT43GpMtA
+id: node.field_restrooms
+field_name: field_restrooms
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'There are restrooms at the start.'
+    -
+      value: '2'
+      label: 'There are no restrooms at the start.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

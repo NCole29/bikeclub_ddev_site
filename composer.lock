@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac733e8d6ed2f9a9bb57c50e2018df7c",
+    "content-hash": "43fcec0e8bb18bf677c0420933b70a47",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -7952,6 +7952,50 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/views_local_tasks",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_local_tasks.git",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_local_tasks-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "82e1d57eb954323cbb3153a88d240e908030bc36"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.2",
+                    "datestamp": "1718137037",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "kaszarobert",
+                    "homepage": "https://www.drupal.org/user/3578328"
+                }
+            ],
+            "description": "Create 2nd level menu tabs (local tasks) with views without writing YAML code.",
+            "homepage": "https://www.drupal.org/project/views_local_tasks",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_local_tasks"
             }
         },
         {

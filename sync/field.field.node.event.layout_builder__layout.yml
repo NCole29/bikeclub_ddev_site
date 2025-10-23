@@ -1,0 +1,23 @@
+uuid: 31ecc669-3f42-4fdb-addd-4626ac91cada
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.layout_builder__layout
+    - node.type.event
+  module:
+    - layout_builder
+_core:
+  default_config_hash: 8WV9mS7Smt0DiiOV7cThFE_Rkmof9Zyl4DHeNRVwokg
+id: node.event.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: node
+bundle: event
+label: Layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: layout_section

@@ -1,0 +1,14 @@
+uuid: c5eb1a86-521b-4136-9d28-90e350b18d37
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: cZ-HLdpr7vus81g5bGj8gDXqEyag3_fH-uNcMcCdJ_o
+id: crop_16_9
+label: 'Crop 16:9'
+description: 'Landscape format.'
+aspect_ratio: '16:9'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

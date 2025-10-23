@@ -1,0 +1,22 @@
+uuid: 293df8be-2821-4e23-b43a-5c5d7a222057
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - solo
+_core:
+  default_config_hash: q4vhRqioFTSLqZkh7D3wOdDR-TNVl1FMFav5tlQPACc
+id: solo_content
+theme: solo
+region: content
+weight: 4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

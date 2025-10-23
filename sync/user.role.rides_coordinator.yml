@@ -1,0 +1,25 @@
+uuid: f2b28d0e-c763-4cad-ae59-fde60a05615b
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.ride_page
+    - node.type.recurring_ride
+    - node.type.ride
+  module:
+    - filter
+    - node
+_core:
+  default_config_hash: KhoEV-DXvv9nDZfo5jv09vQeHejAvjiKD9nXrN36SSA
+id: rides_coordinator
+label: 'Rides coordinator'
+weight: 5
+is_admin: false
+permissions:
+  - 'create recurring_ride content'
+  - 'create ride content'
+  - 'delete any recurring_ride content'
+  - 'delete any ride content'
+  - 'edit any recurring_ride content'
+  - 'edit any ride content'
+  - 'use text format ride_page'

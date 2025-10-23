@@ -1,0 +1,11 @@
+uuid: a04d6432-714b-4cf1-9f94-72fdf4858cda
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: L_ugZMIz1njuQdXoosUca4HooXa8m6H4SV2XC3WPQU8
+name: 'Document category'
+vid: document_category
+description: 'Document category'
+weight: 0
+new_revision: false

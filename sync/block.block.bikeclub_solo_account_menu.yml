@@ -1,0 +1,27 @@
+uuid: fbc8e3dd-7d24-403a-b21e-e086cb2d582d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: 0VOxC7grRLd99-guivD1ie2Id2h8HLpgnh5GvN9k41Y
+id: bikeclub_solo_account_menu
+theme: bikeclub_solo
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

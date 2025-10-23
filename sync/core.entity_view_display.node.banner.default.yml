@@ -1,0 +1,33 @@
+uuid: 6e3a4e91-d146-4ddf-a611-79aebf341eeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.banner.banner_image
+    - field.field.node.banner.field_padding
+    - node.type.banner
+  module:
+    - user
+_core:
+  default_config_hash: dFv9fYd57p3AqqhEWPay0fqsTaBl0vIzD8VtcrawK-0
+id: node.banner.default
+targetEntityType: node
+bundle: banner
+mode: default
+content:
+  banner_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_padding: true

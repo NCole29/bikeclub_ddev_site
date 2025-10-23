@@ -1,0 +1,21 @@
+uuid: dd18e42c-410b-4806-9020-ad4f515c2aeb
+langcode: en
+status: true
+dependencies:
+  module:
+    - faqfield
+    - node
+_core:
+  default_config_hash: GxW6-z_74EiqmQAk6wCn3bdLV8GGus8HuTkrawjHOlI
+id: node.field_faq
+field_name: field_faq
+entity_type: node
+type: faqfield
+settings: {  }
+module: faqfield
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

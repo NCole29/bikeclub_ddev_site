@@ -1,0 +1,20 @@
+uuid: c3134c73-7d26-4d60-b7da-fa95e3446bf0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: 1OjtPt88d9F-yKS7LO1Z1C6PKtR304ms_iWxDF5lywI
+id: bikeclub_solo_primary_admin_actions
+theme: bikeclub_solo
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

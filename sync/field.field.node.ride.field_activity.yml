@@ -1,0 +1,31 @@
+uuid: 7783c411-2a97-4713-99dd-1e7b9b5db642
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity
+    - node.type.ride
+    - taxonomy.vocabulary.activities
+_core:
+  default_config_hash: tA06hcKl7j9Ut0X8006-SD8_8SJpKYJnVWFvIyTEW2M
+id: node.ride.field_activity
+field_name: field_activity
+entity_type: node
+bundle: ride
+label: 'Ride type'
+description: 'Type of ride or other activity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activities: activities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

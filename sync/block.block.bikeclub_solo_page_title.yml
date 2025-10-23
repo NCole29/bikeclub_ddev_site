@@ -1,0 +1,20 @@
+uuid: 1b2b677e-4f95-4e46-85dd-bd99f82d11a3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: qli-wXR2irNU7a2NqVgw9d9giH2E8LbVPMINJ6YdGts
+id: bikeclub_solo_page_title
+theme: bikeclub_solo
+region: page_title
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: 8b323992-d516-45d1-8075-b5fcc32abad9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2G1M7vKeoD9jSxhJY4SXBXIVPc4zZ3eP2-iRKJ3kvUc
+id: crop_20_7
+label: 'Crop 20:7'
+description: 'Wide image used for banner pictures.'
+aspect_ratio: '20:7'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

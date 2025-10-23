@@ -1,0 +1,20 @@
+uuid: 86f057e0-54a5-45e0-9bb5-267d55b23892
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+_core:
+  default_config_hash: UTmhWcmWsND2lcrgv84O0Xj9B99x13rC-OSERl3vXiM
+id: node.location.title
+field_name: title
+entity_type: node
+bundle: location
+label: 'Place name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

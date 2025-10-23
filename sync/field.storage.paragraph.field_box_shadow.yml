@@ -1,0 +1,20 @@
+uuid: b80e79e2-b7ce-41e1-8cd4-3bab1c824dbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: iGJyiw2sVzUhfzum2dUaMzWOhGWB2rMEK610SZlDsQk
+id: paragraph.field_box_shadow
+field_name: field_box_shadow
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

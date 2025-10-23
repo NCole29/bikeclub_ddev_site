@@ -1,0 +1,23 @@
+uuid: bb83e65d-e738-4960-861a-9be46d5b3c87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lunch_same
+    - node.type.recurring_ride
+  module:
+    - options
+_core:
+  default_config_hash: wbNa3OhDYzhhPa9TSyx2jOSr8JELyfOhimTna_3HRvw
+id: node.recurring_ride.field_lunch_same
+field_name: field_lunch_same
+entity_type: node
+bundle: recurring_ride
+label: 'Lunch place'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

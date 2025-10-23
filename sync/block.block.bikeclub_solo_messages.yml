@@ -1,0 +1,22 @@
+uuid: b6aec2da-58a9-47bd-8cb8-798945fb653d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: JpuAENtZbfds80HSMUU7-Y8mo32RNj1Psb2FcNh-pIg
+id: bikeclub_solo_messages
+theme: bikeclub_solo
+region: system_messages
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,41 @@
+uuid: 1df5d33a-5482-46e3-969c-c4acd95530b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - style_selector
+_core:
+  default_config_hash: z9tNSZayN58Z3HMy3Oa4dKG7YZ96SVUCxGPw9MYEAAI
+id: paragraph.field_background
+field_name: field_background
+entity_type: paragraph
+type: style_selector_css_class
+settings:
+  allowed_values:
+    -
+      value: club-style1
+      label: 'Style 1'
+    -
+      value: club-style2
+      label: 'Style 2'
+    -
+      value: club-style3
+      label: 'Style 3'
+    -
+      value: club-style4
+      label: 'Style 4'
+    -
+      value: club-style5
+      label: 'Style 5'
+    -
+      value: club-clear
+      label: None
+  allowed_values_function: ''
+module: style_selector
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

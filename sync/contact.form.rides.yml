@@ -1,0 +1,14 @@
+uuid: 3532d1d6-ad86-4904-be70-386b8056314c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GfoZDophtt9P6C40-C5qWLdqiMEUeZb0DBudFDrGbeQ
+id: rides
+label: Rides
+recipients:
+  - rides@example.org
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

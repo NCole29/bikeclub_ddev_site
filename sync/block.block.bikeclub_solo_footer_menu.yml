@@ -1,0 +1,27 @@
+uuid: 15130cfa-a847-4bc0-a990-17fb5ee1f899
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: HkaBgUtQ4EoF52yFyKBQL-Vv3VpMr9ZT5wEq-t4zZps
+id: bikeclub_solo_footer_menu
+theme: bikeclub_solo
+region: footer_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

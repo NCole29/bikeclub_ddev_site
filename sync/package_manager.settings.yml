@@ -1,0 +1,11 @@
+additional_trusted_composer_plugins:
+  - civicrm/civicrm-asset-plugin
+  - civicrm/composer-compile-plugin
+  - civicrm/composer-downloads-plugin
+  - cweagans/composer-patches
+  - drupal/core-recipe-unpack
+  - wikimedia/composer-merge-plugin
+include_unknown_files_in_project_root: true
+executables:
+  composer: null
+  rsync: null

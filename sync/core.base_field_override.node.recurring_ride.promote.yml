@@ -1,0 +1,24 @@
+uuid: 40be80bc-b50d-4c01-bb4e-3c93530eaa63
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.recurring_ride
+_core:
+  default_config_hash: TSUUPeq7AYCy9-iPtiMxBdf5UZBSwLzfvewhiZJBeMo
+id: node.recurring_ride.promote
+field_name: promote
+entity_type: node
+bundle: recurring_ride
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

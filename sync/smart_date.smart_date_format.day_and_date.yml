@@ -1,0 +1,17 @@
+uuid: 96d9167a-9257-41ba-a5c6-8403c4331913
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OnnKJ0GuRx2-7sBKJJczmGRu3XpczmbQOqYtY1wwiD0
+id: day_and_date
+label: 'Day and date'
+date_format: 'D, M j Y'
+time_format: ''
+time_hour_format: ''
+allday_label: ''
+separator: ' - '
+join: ', '
+ampm_reduce: '1'
+date_first: '1'
+site_time_toggle: '1'

@@ -1,0 +1,22 @@
+uuid: d9b53be8-b3f9-48be-b7fb-ff14cf9892c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bikeclub_ride_tools
+    - node
+_core:
+  default_config_hash: a8DXTD6ruqx-VUXNlTbuGcmHF-k5f2gJkC1_6BXPT9A
+id: node.field_schedule_date
+field_name: field_schedule_date
+entity_type: node
+type: entity_reference
+settings:
+  target_type: club_schedule
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

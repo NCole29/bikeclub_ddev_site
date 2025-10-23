@@ -1,0 +1,15 @@
+uuid: 6e2511eb-35e2-4e1b-90d8-0910623a7335
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: c9PaH2w6Hvt6y3Z9Wm1ffhAw9qGZRag1vIrSa4jECT0
+id: gallery
+label: 'Gallery picture'
+description: 'Use local images with crop for reusable media; 3:2 aspect ratio enforced.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

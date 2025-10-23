@@ -1,0 +1,23 @@
+uuid: 1f548444-a058-4cf7-95aa-0bb2fd3b6397
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.recurring_dates
+  module:
+    - datetime
+_core:
+  default_config_hash: j4UrD4KKW-u_ZZXV-6g3jgPkzkTT3uSd2_tpW_4qlC0
+id: node.recurring_dates.field_date
+field_name: field_date
+entity_type: node
+bundle: recurring_dates
+label: 'Drupal Date'
+description: 'Date used for calendar.  Smart date fields make the calendar load too slowly.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

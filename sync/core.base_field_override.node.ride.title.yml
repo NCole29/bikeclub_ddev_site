@@ -1,0 +1,20 @@
+uuid: c75a7217-0b73-4f5c-834b-3f99ac45fd4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ride
+_core:
+  default_config_hash: xjD3Rf061ldodzyBvQs_yRqg0xFO4EtOomXW9ZG-LF4
+id: node.ride.title
+field_name: title
+entity_type: node
+bundle: ride
+label: 'Ride name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

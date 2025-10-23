@@ -1,0 +1,22 @@
+uuid: 6dd59b31-5bb6-4a3b-86eb-050059840599
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+_core:
+  default_config_hash: c6qqp2h9vGJdn5cubcdsoxnerMCZT2JpW6t9qa-683o
+id: node.field_ride_leader
+field_name: field_ride_leader
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

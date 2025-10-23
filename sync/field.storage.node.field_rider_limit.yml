@@ -1,0 +1,22 @@
+uuid: 2cd9fe94-348b-450c-b567-8133b661b00f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: BSgkVVm0D_Ak8dDKvknNnwxVgeRIGEdXW4jvtHAc-IY
+id: node.field_rider_limit
+field_name: field_rider_limit
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

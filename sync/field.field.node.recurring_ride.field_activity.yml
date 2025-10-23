@@ -1,0 +1,31 @@
+uuid: 817fc822-e726-45c2-bb27-068bd02e2611
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity
+    - node.type.recurring_ride
+    - taxonomy.vocabulary.activities
+_core:
+  default_config_hash: 0Dzf_rI1XFXUX-gSuWrEY140nbw07OZ0BL51-Y7Cn9g
+id: node.recurring_ride.field_activity
+field_name: field_activity
+entity_type: node
+bundle: recurring_ride
+label: 'Ride type'
+description: 'Type of ride or other activity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activities: activities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 541cdfb9-3031-4123-93d7-9a8614f21a6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+_core:
+  default_config_hash: uTwfjLbQT6hR_E6UHqFe96LQEWn3qcVBWniUutWWtGA
+id: node.field_contact_person
+field_name: field_contact_person
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

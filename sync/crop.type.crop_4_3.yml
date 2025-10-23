@@ -1,0 +1,14 @@
+uuid: 64da9da8-7fdd-4818-94bf-4014f9eb4256
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SUZLdZhUW5hgnaW8pQDQxTVkq4J7ZF5XNt3_vTFAq-g
+id: crop_4_3
+label: 'Crop 4:3'
+description: 'Standard 4:3 format.'
+aspect_ratio: '4:3'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

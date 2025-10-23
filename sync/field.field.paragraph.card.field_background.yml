@@ -1,0 +1,25 @@
+uuid: e1acbd0a-24c8-4ed0-b7c4-b592759afa7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background
+    - paragraphs.paragraphs_type.card
+  module:
+    - style_selector
+_core:
+  default_config_hash: NtDeP-ofNnZSDqiA6RUuXYvQ69koBjrxThfqGUK456E
+id: paragraph.card.field_background
+field_name: field_background
+entity_type: paragraph
+bundle: card
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: club-style1
+default_value_callback: ''
+settings: {  }
+field_type: style_selector_css_class

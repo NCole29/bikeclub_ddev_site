@@ -1,0 +1,40 @@
+uuid: 7e8031a7-1a99-488c-bc6c-5a4ec08ca6a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraphs_block
+    - field.storage.block_content.field_paragraph_components
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 78e5OymN2HJb9_tCB5DsSBPQvuK1zu4ZZKn-akD-na8
+id: block_content.paragraphs_block.field_paragraph_components
+field_name: field_paragraph_components
+entity_type: block_content
+bundle: paragraphs_block
+label: 'Paragraph components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 1
+    target_bundles_drag_drop:
+      callout:
+        weight: 5
+        enabled: false
+      card:
+        weight: 6
+        enabled: false
+      section:
+        weight: 7
+        enabled: false
+      text:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

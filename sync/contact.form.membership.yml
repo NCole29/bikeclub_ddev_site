@@ -1,0 +1,14 @@
+uuid: 15d365ad-95c4-4e46-be48-88422d5a21cd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OYbLwe5lrHezOQF5QUeqYtO7AJ4ieqbsb-a7Yc93kBw
+id: membership
+label: Membership
+recipients:
+  - membership@example.org
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

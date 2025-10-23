@@ -1,0 +1,42 @@
+uuid: 357b084e-6a25-476b-8f1e-1e5dbaf20f9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registrations_visible
+    - node.type.event
+_core:
+  default_config_hash: Jts6j4kjpwjsIbnmDmRgS_iVUlfyw6Y4Sz665IboG_o
+id: node.event.field_registrations_visible
+field_name: field_registrations_visible
+entity_type: node
+bundle: event
+label: 'Registrations are visible to'
+description: "Enter names of members to allow them to view registration results.<br>\r\nDo not add the website coordinator and club president because they have access to all registration results."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        member: member
+        administrator: '0'
+        board: '0'
+        events_coordinator: '0'
+        civicrm: '0'
+        ride_leader: '0'
+        rides_coordinator: '0'
+        content_creator: '0'
+        editor: '0'
+        site_admin: '0'
+    include_anonymous: false
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: 3a891b09-97e7-4db2-9e57-29a15a12c236
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ride
+_core:
+  default_config_hash: L1ZdE8qAhwIXH8kLgReHqhdyd0fyoaDT7WU0QPTP5FQ
+id: node.ride.promote
+field_name: promote
+entity_type: node
+bundle: ride
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

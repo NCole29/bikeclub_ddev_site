@@ -1,0 +1,24 @@
+uuid: 19cfb81e-466a-47b9-9dcc-e656cfe156c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_directory
+  module:
+    - user
+id: user.user.field_directory
+field_name: field_directory
+entity_type: user
+bundle: user
+label: 'Include in directory'
+description: "Check to be included in the member directory, available to members when logged in.\r\nDirectory displays name, city/town, and a link to a contact form. Information entered in the website contact form is forwarded to members' email."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

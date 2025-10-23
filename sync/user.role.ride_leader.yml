@@ -1,0 +1,11 @@
+uuid: 3fc5641e-7527-439d-bb73-47a188d6a472
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: irvXcajeMTf6LBI5_BJzgmmrRtRnDzEoVD9DoPZ5IKU
+id: ride_leader
+label: 'Ride leader'
+weight: 3
+is_admin: false
+permissions: {  }

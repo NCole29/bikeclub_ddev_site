@@ -1,0 +1,31 @@
+uuid: f24b1251-6da8-4952-89db-87861b949d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.locations
+  module:
+    - system
+    - views
+  theme:
+    - olivero
+_core:
+  default_config_hash: 8hjIeZIp5nvtAsdMxGiMvzrJjU-aT_68y_xM_dj0U2U
+id: views_block__locations_ride_starts
+theme: olivero
+region: content_below
+weight: -9
+provider: null
+plugin: 'views_block:locations-ride_starts'
+settings:
+  id: 'views_block:locations-ride_starts'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

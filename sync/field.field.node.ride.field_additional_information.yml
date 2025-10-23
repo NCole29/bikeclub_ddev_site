@@ -1,0 +1,26 @@
+uuid: c0762e82-0168-4aec-a84d-e818d1168544
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_information
+    - filter.format.ride_page
+    - node.type.ride
+  module:
+    - text
+_core:
+  default_config_hash: JcbO8PMEncAc3No2_pwYxYbLXTlw2Fly5C2wmEZOzvI
+id: node.ride.field_additional_information
+field_name: field_additional_information
+entity_type: node
+bundle: ride
+label: 'Additional information'
+description: 'OPTIONAL. Use this field for information that should stand out from general ride description such as (1) directions, (2) parking information, (3) cookout information, (4) road conditions.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - ride_page
+field_type: text_long

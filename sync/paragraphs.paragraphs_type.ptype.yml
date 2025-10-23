@@ -1,0 +1,10 @@
+uuid: 0d343cab-c872-491d-af79-be4ef4f8e658
+langcode: en
+status: true
+dependencies: {  }
+id: ptype
+label: ptype
+icon_uuid: null
+icon_default: null
+description: 'Sample ptype'
+behavior_plugins: {  }

@@ -1,0 +1,25 @@
+uuid: 5201c0b1-c185-463c-bcad-9708fe7f1035
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_box_shadow
+    - paragraphs.paragraphs_type.card
+_core:
+  default_config_hash: 2q-2MdXK5A_5pULRV5StgOktGDSZTcRTSNrke4ZJ64U
+id: paragraph.card.field_box_shadow
+field_name: field_box_shadow
+entity_type: paragraph
+bundle: card
+label: 'Box shadow'
+description: 'Default card has a box shadow. Uncheck for "flat" card without shadow.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

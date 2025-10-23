@@ -1,0 +1,35 @@
+uuid: 67e6c86a-3869-4296-8f06-21443aafba7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraphs_block
+    - field.field.block_content.paragraphs_block.field_paragraph_components
+  module:
+    - layout_paragraphs
+_core:
+  default_config_hash: ETmpi6kKUXr8p1hgK7qlgIi8SDaOlpDH2V474gKTPe4
+id: block_content.paragraphs_block.default
+targetEntityType: block_content
+bundle: paragraphs_block
+mode: default
+content:
+  field_paragraph_components:
+    type: layout_paragraphs
+    weight: 26
+    region: content
+    settings:
+      preview_view_mode: default
+      nesting_depth: 0
+      require_layouts: 0
+      empty_message: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

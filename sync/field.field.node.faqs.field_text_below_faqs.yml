@@ -1,0 +1,26 @@
+uuid: fda588c7-f6ea-4c4d-97ef-dcbd1e230657
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_below_faqs
+    - filter.format.basic_html
+    - node.type.faqs
+  module:
+    - text
+_core:
+  default_config_hash: g5nHv3QxGX46II-DuU58gZNb0gilEuKVDvZse4__wUU
+id: node.faqs.field_text_below_faqs
+field_name: field_text_below_faqs
+entity_type: node
+bundle: faqs
+label: 'Text below FAQs (optional)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

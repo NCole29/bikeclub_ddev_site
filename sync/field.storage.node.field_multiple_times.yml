@@ -1,0 +1,20 @@
+uuid: 04c85237-dd58-481d-8704-d083e761005e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Y1u_Q2DNDb9S-xDb_qOi5ov_Fidxpcrnf8NYSMBoQF8
+id: node.field_multiple_times
+field_name: field_multiple_times
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

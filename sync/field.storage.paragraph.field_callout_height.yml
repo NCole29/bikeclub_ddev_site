@@ -1,0 +1,29 @@
+uuid: 6cde2306-992d-465c-afa2-8985f3fa7cc4
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: mzWyKpZe3BLqAgY88UGPB8TuDwdPWZFqLaap0paHGpo
+id: paragraph.field_callout_height
+field_name: field_callout_height
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: callout-height-auto
+      label: auto
+    -
+      value: callout-height-90
+      label: 90%
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

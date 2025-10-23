@@ -1,0 +1,29 @@
+uuid: eb439b57-a0ae-4264-9e4c-80a4470e0951
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.rides_upcoming
+  module:
+    - system
+    - views
+  theme:
+    - bikeclub_solo
+id: bikeclub_solo_views_block__rides_upcoming_weekday_rides
+theme: bikeclub_solo
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:rides_upcoming-weekday_rides'
+settings:
+  id: 'views_block:rides_upcoming-weekday_rides'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

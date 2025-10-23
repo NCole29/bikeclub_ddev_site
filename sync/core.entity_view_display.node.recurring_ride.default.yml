@@ -1,0 +1,440 @@
+uuid: 9895601a-862e-4e55-a33c-52a95abcfc81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.recurring_ride.field_activity
+    - field.field.node.recurring_ride.field_additional_information
+    - field.field.node.recurring_ride.field_datetime
+    - field.field.node.recurring_ride.field_dayofweek
+    - field.field.node.recurring_ride.field_description
+    - field.field.node.recurring_ride.field_developed_by
+    - field.field.node.recurring_ride.field_location
+    - field.field.node.recurring_ride.field_lunch_place
+    - field.field.node.recurring_ride.field_lunch_same
+    - field.field.node.recurring_ride.field_multiple_times
+    - field.field.node.recurring_ride.field_registration_required
+    - field.field.node.recurring_ride.field_registration_rideform
+    - field.field.node.recurring_ride.field_ride_leader
+    - field.field.node.recurring_ride.field_ride_picture
+    - field.field.node.recurring_ride.field_rider_limit
+    - field.field.node.recurring_ride.field_rwgps_routes
+    - field.field.node.recurring_ride.field_time
+    - image.style.medium_16_9
+    - node.type.recurring_ride
+    - views.view.ride_routes
+  module:
+    - layout_builder
+    - layout_discovery
+    - media
+    - options
+    - smart_date_recur
+    - text
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          23d1687c-62a9-4198-bef5-f206cbc875c0:
+            uuid: 23d1687c-62a9-4198-bef5-f206cbc875c0
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_activity'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          aad86131-e94b-4c9b-9239-d05e765df661:
+            uuid: aad86131-e94b-4c9b-9239-d05e765df661
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_datetime'
+              label: Date
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: smartdate_recurring
+                label: above
+                settings:
+                  timezone_override: ''
+                  format: day_and_date
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: true
+                  localize: false
+                  parts:
+                    start: start
+                    end: end
+                    duration: '0'
+                  duration:
+                    separator: ' | '
+                    unit: ''
+                    decimals: 2
+                    suffix: h
+                  past_display: 0
+                  upcoming_display: 1
+                  show_next: true
+                  current_upcoming: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          3d8f1726-d2a5-48d9-a3fe-a466a7145c2d:
+            uuid: 3d8f1726-d2a5-48d9-a3fe-a466a7145c2d
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_time'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          84835f81-856e-4cde-9e04-9b4254611b0f:
+            uuid: 84835f81-856e-4cde-9e04-9b4254611b0f
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_ride_leader'
+              label: Leader(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_contact
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          052525a0-f20a-4342-9b8b-58a95053b84c:
+            uuid: 052525a0-f20a-4342-9b8b-58a95053b84c
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_location'
+              label: 'Starting location'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          5b05fd94-41ad-4e25-ac4e-df11fd28e9f8:
+            uuid: 5b05fd94-41ad-4e25-ac4e-df11fd28e9f8
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_lunch_same'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: list_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          b357ca06-f8c3-4e34-a1e8-8980b280c5de:
+            uuid: b357ca06-f8c3-4e34-a1e8-8980b280c5de
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_ride_picture'
+              label: 'Ride picture'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: media_thumbnail
+                label: visually_hidden
+                settings:
+                  image_link: ''
+                  image_style: large_16_9
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          4fa91841-fa3e-4678-ab41-a95e8a6a867b:
+            uuid: 4fa91841-fa3e-4678-ab41-a95e8a6a867b
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          24d689b8-adde-4a3d-b3c3-cec2876e25d1:
+            uuid: 24d689b8-adde-4a3d-b3c3-cec2876e25d1
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_additional_information'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          f682fb70-6192-46ed-8ca3-f4db4477c71a:
+            uuid: f682fb70-6192-46ed-8ca3-f4db4477c71a
+            region: second
+            configuration:
+              id: 'field_block:node:recurring_ride:field_lunch_place'
+              label: 'Lunch location'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          953d615c-93d4-4599-9fcd-c5c7c9eb2bf5:
+            uuid: 953d615c-93d4-4599-9fcd-c5c7c9eb2bf5
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_registration_rideform'
+              label: 'Registration form'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: webform_entity_reference_link
+                label: visually_hidden
+                settings:
+                  label: Register
+                  dialog: ''
+                  attributes:
+                    class:
+                      - blue-button
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          de806c4a-6422-4f59-8af1-acb08804ef9b:
+            uuid: de806c4a-6422-4f59-8af1-acb08804ef9b
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_rider_limit'
+              label: 'Rider limit'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          10757dac-96d5-4e0f-8944-f92e59c13313:
+            uuid: 10757dac-96d5-4e0f-8944-f92e59c13313
+            region: second
+            configuration:
+              id: 'views_block:ride_routes-route_list'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 7
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          253dfc97-933d-48a3-85fc-77e772b6d553:
+            uuid: 253dfc97-933d-48a3-85fc-77e772b6d553
+            region: content
+            configuration:
+              id: 'views_block:ride_routes-route_maps'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: fY4hyE4WSwnqZqOB6KESnrg5DUF3wt5DoV7pLV2MXQw
+id: node.recurring_ride.default
+targetEntityType: node
+bundle: recurring_ride
+mode: default
+content:
+  field_activity:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_additional_information:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_datetime:
+    type: smartdate_recurring
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: day_and_date
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+      past_display: 0
+      upcoming_display: 1
+      show_next: false
+      current_upcoming: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_dayofweek:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_description:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_location:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_lunch_same:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_ride_leader:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_ride_picture:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: medium_16_9
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_rider_limit:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 12
+    region: first
+  field_time:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_day: true
+  field_developed_by: true
+  field_lunch_place: true
+  field_multiple_times: true
+  field_registration_required: true
+  field_registration_rideform: true
+  field_results_access: true
+  field_rwgps_routes: true
+  links: true

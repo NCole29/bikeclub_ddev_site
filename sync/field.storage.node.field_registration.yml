@@ -1,0 +1,35 @@
+uuid: 69d6b6c3-7694-44c0-89b4-c228304471b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: 8pupPpz7ogQ8LPd34iKkgsWOVfEdvvr8Cxmk3d71b4k
+id: node.field_registration
+field_name: field_registration
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'No registration'
+    -
+      value: 1
+      label: 'Free event'
+    -
+      value: 2
+      label: 'Paid event. To change the price, Go to <a href="/admin/structure/webform">Webforms</a> and see instructions.'
+    -
+      value: 3
+      label: 'Paid registration - insert URL link(s) to CiviCRM event page(s) or external site'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

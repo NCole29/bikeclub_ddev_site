@@ -1,0 +1,11 @@
+uuid: 79a094f9-9924-4c90-83fc-9c938d08034f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 923VnUcziSj_6yd76UnD87l9i0EugeGQMviMZ_L1gWk
+id: membership
+label: 'Membership Coordinator'
+weight: 4
+is_admin: false
+permissions: {  }

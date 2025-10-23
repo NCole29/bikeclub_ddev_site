@@ -1,0 +1,183 @@
+uuid: fcaeb915-b8fd-48f5-98dd-8eabbe25143a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.banner_image
+    - field.field.node.page.field_components
+    - field.field.node.page.field_contact_form
+    - field.field.node.page.field_contact_person
+    - field.field.node.page.field_padding
+    - field.field.node.page.field_page_access
+    - field.field.node.page.field_summary
+    - field.field.node.page.field_text
+    - field.field.node.page.field_type_of_page
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
+    - layout_paragraphs
+    - options
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          4deab89e-5291-4122-a7ba-8bb203359365:
+            uuid: 4deab89e-5291-4122-a7ba-8bb203359365
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_components'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: layout_paragraphs
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: ''
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          8ec46b1d-2b84-4531-8b0c-540fdedee2cb:
+            uuid: 8ec46b1d-2b84-4531-8b0c-540fdedee2cb
+            region: content
+            configuration:
+              id: 'extra_field_block:node:page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 6
+            additional: {  }
+          6817d9a7-4b39-4afc-b4d7-e83572790ed0:
+            uuid: 6817d9a7-4b39-4afc-b4d7-e83572790ed0
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_contact_person'
+              label: Contact
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: user_contact_link
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          c3b3afba-170d-4fd8-8ee9-9899185d92ed:
+            uuid: c3b3afba-170d-4fd8-8ee9-9899185d92ed
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_text'
+              label: Text
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          af6ef78d-2107-4cae-8d0b-ba350d10b4ec:
+            uuid: af6ef78d-2107-4cae-8d0b-ba350d10b4ec
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_contact_form'
+              label: 'Contact form'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+_core:
+  default_config_hash: XFsiOZJbYtHrXQL7bTEr5rq2xH7JmHcPn-xvA8fitr8
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  banner_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_components:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_contact_person:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_padding:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_type_of_page:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_contact_form: true
+  field_page_access: true
+  field_summary: true
+  field_text: true
+  layout_builder__layout: true

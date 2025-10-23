@@ -1,0 +1,35 @@
+uuid: 134fcdd9-493d-440d-b4e5-0a0c5f14653e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.summary_fields
+    - filter.format.webform_default
+  module:
+    - contact
+    - file
+    - filter
+    - fontawesome
+    - media
+    - system
+    - webform
+    - webform_node
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access fontawesome additional settings'
+  - 'access site-wide contact form'
+  - 'access user contact forms'
+  - 'delete own files'
+  - 'delete own webform submission'
+  - 'use text format basic_html'
+  - 'use text format summary_fields'
+  - 'use text format webform_default'
+  - 'view media'
+  - 'view webform submissions own node'

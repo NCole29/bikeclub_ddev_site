@@ -1,0 +1,22 @@
+uuid: 95eaa027-4fb9-44b5-8cbd-37a77d0b945f
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: npvn7zHu51Jm_7qcvYCyXqwv_b8_FjGCu0O6SF5BIR8
+id: bikeclub_solo_breadcrumbs
+theme: bikeclub_solo
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

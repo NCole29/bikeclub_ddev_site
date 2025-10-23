@@ -1,0 +1,21 @@
+uuid: 4bef0084-6dd5-409c-a4c2-ec33b437aebd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.card
+_core:
+  default_config_hash: 8BEZ_k1f6Q3oSVBxDuuasRh6kmaniTyVLWzoclh7uUk
+id: paragraph.card.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: card
+label: Title
+description: 'Title is optional. Leave blank to place image at top of the card.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

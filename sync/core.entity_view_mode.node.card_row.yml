@@ -1,0 +1,11 @@
+uuid: 96bf95fa-489c-4a3d-a473-b777f6807432
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.card_row
+label: 'Card row'
+description: 'Cards arranged horizontally in rows.'
+targetEntityType: node
+cache: true

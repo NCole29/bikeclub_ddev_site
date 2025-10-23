@@ -1,0 +1,26 @@
+uuid: 86240d41-f2b6-4ec1-b005-a9dc33250c1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_above_faqs
+    - filter.format.basic_html
+    - node.type.faqs
+  module:
+    - text
+_core:
+  default_config_hash: MWs1I_xw5uZY3MuwrKaTVsC890_EKooU6xlpSy2H0pk
+id: node.faqs.field_text_above_faqs
+field_name: field_text_above_faqs
+entity_type: node
+bundle: faqs
+label: 'Text above FAQs (optional)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

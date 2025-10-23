@@ -1,0 +1,20 @@
+uuid: 0a6f6dcb-41b5-406d-a4e2-8cb2cce03abb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.recurring_ride
+_core:
+  default_config_hash: akXWhdeIh4CK41RD16H6RZkhEEk_Szmj1_fRDspB67o
+id: node.recurring_ride.title
+field_name: title
+entity_type: node
+bundle: recurring_ride
+label: 'Ride name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

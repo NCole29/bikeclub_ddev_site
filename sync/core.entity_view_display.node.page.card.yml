@@ -1,0 +1,82 @@
+uuid: 55dd346a-5557-4957-bad8-19df37185539
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.page.banner_image
+    - field.field.node.page.field_components
+    - field.field.node.page.field_contact_form
+    - field.field.node.page.field_contact_person
+    - field.field.node.page.field_padding
+    - field.field.node.page.field_page_access
+    - field.field.node.page.field_summary
+    - field.field.node.page.field_text
+    - field.field.node.page.field_type_of_page
+    - field.field.node.page.layout_builder__layout
+    - image.style.thumbnail_16_9
+    - node.type.page
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - media
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+_core:
+  default_config_hash: V-1CSO11qrFiNZLRE4Eg2PVQwNxtjdG7H8aUJu_-b58
+id: node.page.card
+targetEntityType: node
+bundle: page
+mode: card
+content:
+  banner_image:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: thumbnail_16_9
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_components: true
+  field_contact_form: true
+  field_contact_person: true
+  field_padding: true
+  field_page_access: true
+  field_text: true
+  field_type_of_page: true
+  layout_builder__layout: true

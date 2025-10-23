@@ -1,0 +1,26 @@
+uuid: 8f8f147f-1fc3-453b-b806-cea7db7439ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.ride
+  module:
+    - datetime
+_core:
+  default_config_hash: Jvci0paupl_6ks1DT2oPpXca3cjTLRfv3PL58X9qZqw
+id: node.ride.field_date
+field_name: field_date
+entity_type: node
+bundle: ride
+label: Date/time
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,22 @@
+uuid: 5f29f94b-9554-49ba-b428-f8aac66accd9
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - node
+_core:
+  default_config_hash: Of64lMPHtlaavCH1UJDRW8sD8GqJW4ilDbyODhEf_L4
+id: node.field_contact_form
+field_name: field_contact_form
+entity_type: node
+type: entity_reference
+settings:
+  target_type: contact_form
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

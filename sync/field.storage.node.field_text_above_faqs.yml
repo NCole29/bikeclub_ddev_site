@@ -1,0 +1,21 @@
+uuid: 49ee7b4b-d8b8-478b-a627-bcdf1050ddaf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+_core:
+  default_config_hash: CNdNEOfF27I3jn-KylE94GC5nCEgMbkIX-SsYIsTGIo
+id: node.field_text_above_faqs
+field_name: field_text_above_faqs
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

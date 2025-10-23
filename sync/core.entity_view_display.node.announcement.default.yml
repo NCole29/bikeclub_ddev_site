@@ -1,0 +1,55 @@
+uuid: cc3e946a-26fa-463d-af22-1e8440265ec8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.announcement.field_contact_form
+    - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_summary
+    - field.field.node.announcement.field_text
+    - node.type.announcement
+  module:
+    - bikeclub
+    - text
+    - user
+_core:
+  default_config_hash: dpAW7yNltumctksIRg5RnXnIi1FXMwTMt0KMg8xJ-ro
+id: node.announcement.default
+targetEntityType: node
+bundle: announcement
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_contact_form:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_contact_person:
+    type: user_contact_link
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_summary: true

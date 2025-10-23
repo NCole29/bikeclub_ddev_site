@@ -1,0 +1,10 @@
+uuid: c2e53994-8501-4629-aa8a-94e87f6ed1c0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: UPgeUsunmHLjvKMBmNSrarS7_tcq4Divm6wI_t7B-SY
+id: welcome
+label: Welcome
+description: 'Things users can do when they start using Drupal.'
+locked: false

@@ -1,0 +1,26 @@
+uuid: 73df7740-ce4f-40a1-8343-fa6c23c89362
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_info
+    - filter.format.basic_html
+    - node.type.location
+  module:
+    - text
+_core:
+  default_config_hash: RjnDL9dt-mbj0GP7jxpcixikjTpPrf3idpGStZFrYRo
+id: node.location.field_location_info
+field_name: field_location_info
+entity_type: node
+bundle: location
+label: 'Other location info'
+description: 'Use this field for parking information or to advise on nearby restrooms if there are none at the start.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

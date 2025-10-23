@@ -1,0 +1,32 @@
+uuid: 00521699-c9ba-438a-821e-463d0bf63a48
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: KzqO8S8F0u1C2UTqsRPR3UnwwEjo-8_E7K2aNdIZSEo
+id: paragraph.field_card_height
+field_name: field_card_height
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: card-height-auto
+      label: auto
+    -
+      value: card-height-95
+      label: 95%
+    -
+      value: card-height-100
+      label: 100%
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

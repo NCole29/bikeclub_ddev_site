@@ -1,0 +1,22 @@
+uuid: 9f07b6b0-df04-43a8-80cb-707db2284ce9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: rLqYQMygOiAf2Cjj2FXMkeP0BnWA7orgjw6CMIQUz1M
+id: bikeclub_solo_powered
+theme: bikeclub_solo
+region: footer_menu
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

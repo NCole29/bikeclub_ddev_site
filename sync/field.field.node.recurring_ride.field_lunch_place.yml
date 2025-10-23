@@ -1,0 +1,31 @@
+uuid: f80c0853-2543-4c46-b453-41055a0f9e46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lunch_place
+    - node.type.location
+    - node.type.recurring_ride
+_core:
+  default_config_hash: S7Bx9idVwXyk9RhC7fkxqxEMQnNNyXeVBfI-i6kiKds
+id: node.recurring_ride.field_lunch_place
+field_name: field_lunch_place
+entity_type: node
+bundle: recurring_ride
+label: 'Lunch location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

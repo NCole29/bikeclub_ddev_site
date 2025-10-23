@@ -1,0 +1,27 @@
+uuid: 6dd9b5e9-eebc-4542-aeda-2ed80d43c46f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+_core:
+  default_config_hash: vyklkLz3owaWd5Qwbs4cPKIB_pGvxx5xLvfOZ2QoD10
+id: bikeclub_solo_main_menu
+theme: bikeclub_solo
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

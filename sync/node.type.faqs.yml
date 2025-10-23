@@ -1,0 +1,34 @@
+uuid: e229cf14-554f-4d46-8b7f-8fab8d0ecccb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
+_core:
+  default_config_hash: 5L2puimuIGPlfnJJIOMtVQuO-40jTZ_s4xy-omDASh8
+name: 'FAQ page'
+type: faqs
+description: 'Provide questions-and-answers in collapsible fields. Additional text may be included and placed in a layout above, below, right, or left of the FAQs.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

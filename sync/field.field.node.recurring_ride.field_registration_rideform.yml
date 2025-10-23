@@ -1,0 +1,33 @@
+uuid: 94ae748d-6dae-4a99-9b9d-430423ce30ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_rideform
+    - node.type.recurring_ride
+  module:
+    - webform
+_core:
+  default_config_hash: OBAHmljmMkY30eZ0ggX5mZOxHhGJlU9AUYqGwe1JrcU
+id: node.recurring_ride.field_registration_rideform
+field_name: field_registration_rideform
+entity_type: node
+bundle: recurring_ride
+label: 'Registration form'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 21baa292-9cee-4758-848a-8c5723cbb789
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform
