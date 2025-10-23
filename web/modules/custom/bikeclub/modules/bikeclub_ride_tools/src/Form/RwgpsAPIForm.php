@@ -5,6 +5,7 @@
  * Contains Drupal\bikeclub_ride_tools\Form\RwgpsAPIForm.
  */
 namespace Drupal\bikeclub_ride_tools\Form;
+
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -14,7 +15,7 @@ class RwgpsAPIForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'club.adminsettings',
+      'bikeclub.adminsettings',
     ];
   }
 

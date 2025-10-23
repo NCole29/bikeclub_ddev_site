@@ -223,16 +223,6 @@ class ClubRoute extends ContentEntityBase implements ClubRouteInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['created_at'] = BaseFieldDefinition::create('timestamp')
-      ->setLabel(t('Created on RWGPS'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE);
-
-    $fields['updated_at'] = BaseFieldDefinition::create('timestamp')
-      ->setLabel(t('Updated on RWGPS'))
-      ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE);
-
     $fields['geofield'] = BaseFieldDefinition::create('geofield')
       ->setLabel(t('Geofield for mapping'))
       ->setDescription(t('Automatically filled from lat/lng fields.'))
@@ -244,6 +234,44 @@ class ClubRoute extends ContentEntityBase implements ClubRouteInterface {
       ->setDisplayOptions('form', array(
         'weight' => 8,
       ));
+
+    // Entity reference field, holds the reference to the user object
+    $fields['ride_start'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Ride start'))
+      ->setDescription(t('References the Location content type.'))
+      ->setSetting('target_type', 'node')
+      ->setSetting('handler_settings', [
+        'target_bundles' => [
+          'location' => 'location',
+        ],
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'match_limit' => 10,
+          'size' => 60,
+          'placeholder' => '',
+        ],
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'entity_reference_label',
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['created_at'] = BaseFieldDefinition::create('timestamp')
+      ->setLabel(t('Created on RWGPS'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+
+    $fields['updated_at'] = BaseFieldDefinition::create('timestamp')
+      ->setLabel(t('Updated on RWGPS'))
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
 
     // Owner field of the contact.
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')

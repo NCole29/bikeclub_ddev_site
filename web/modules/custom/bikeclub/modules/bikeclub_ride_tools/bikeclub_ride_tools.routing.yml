@@ -1,6 +1,6 @@
 # Configuration settings
 bikeclub_ride_tools.rwgps_api:
-  path: '/admin/config/club/rwgps-api'
+  path: '/admin/config/bikeclub/rwgps-api'
   defaults:
     _form: '\Drupal\bikeclub_ride_tools\Form\RwgpsAPIForm'
     _title: 'RWGPS API Form'
@@ -10,7 +10,7 @@ bikeclub_ride_tools.rwgps_api:
     _admin_route: TRUE
 
 bikeclub_ride_tools.add_schedule_dates:
-  path: '/admin/config/club/add-schedule-dates'
+  path: '/admin/config/bikeclub/add-schedule-dates'
   defaults:
     _form: '\Drupal\bikeclub_ride_tools\Form\AddScheduleDates'
     _title: 'Add Schedule Dates'
@@ -100,8 +100,8 @@ entity.club_route.delete_form:
     _permission: 'delete club_route entity'
 
 # # View, edit - Schedule date
-entity.club_schedule.canonical:
-  path: '/admin/club_schedule/{club_schedule}'
+entity.bikeclub_schedule.canonical:
+  path: '/admin/bikeclub_ride_tools/{club_schedule}'
   defaults:
     _entity_view: 'club_schedule'
     _title: 'Ride schedule date'
@@ -109,7 +109,7 @@ entity.club_schedule.canonical:
     _permission: 'view club_schedule entity'
 
 entity.club_schedule.edit_form:
-  path: '/admin/club_schedule/{club_schedule}/edit'
+  path: '/admin/bikeclub_ride_tools/{club_schedule}/edit'
   defaults:
     _entity_form: club_schedule.default
     _title: 'Edit schedule date'

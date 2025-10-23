@@ -1,0 +1,119 @@
+<?php
+declare(strict_types=1);
+
+namespace Drupal\bikeclub\Hook;
+
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\FormInterface; 
+use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\views\ViewExecutableFactory;
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\WebformSubmissionForm;
+
+/**
+ * Hook implementations for forms.
+ */
+class BikeclubWebforms {
+
+ /**
+  * Constructor for BikeclubNode Hooks.
+  */
+  public function __construct(
+    protected EntityTypeManagerInterface $entityTypeManager,
+    protected MessengerInterface $messenger,
+    protected AccountProxyInterface $currentUser,
+    protected ViewExecutableFactory $view_executable
+  ) {
+  }
+
+  /**
+   * Implements hook_form_alter().
+   */
+  #[Hook('form_alter')]
+  public function formAlter(&$form, $form_state, $form_id) {
+    //\Drupal::messenger()->addStatus('Form ID: ' . $form_id);
+
+    switch ($form_id) {
+      case 'webform_submission_free_event_delete_form':
+        // Shorten the default "delete confirmation" message to make if "friendlier" for users.
+       
+        $title = $form['#title']->getArguments('%label');  // Get event title and remove "Submission #XXX".
+        $event_name = explode(':',reset($title));
+        $form['#title'] = 'Cancel registration for ' . $event_name[0];
+
+        $form['warning']['#message_type'] = NULL;  // Remove type to remove the "Warning message" header.
+        $form['warning']['#message_message'] = 'Are you sure you want to delete registration for <strong>' . $event_name[0] . '</strong>?'; 
+        $form['description'] = NULL;
+      break;
+
+      case 'webform_submission_renew_membership_add_form':
+        $user = $form['elements']['contact_pagebreak']['civicrm_1_contact_1_contact_existing']['#value'];
+
+        if ($this->currentUser->id() != $user and $this->getCurrentAdmin() == 1) {
+          $this->messenger->addError('Form contains YOUR information. Use CiviCRM to manually renew membership for another user.');
+        }
+      break;
+    }
+
+    // Ride registration form_id contains node info, so can't condition on form_id.
+    if ($form_state->getFormObject() instanceof WebformSubmissionForm) {
+      $webform_id = $form_state->getFormObject()->getWebform()->id();
+
+      if ($webform_id == 'ride_registration') {
+        $source_entity = $form_state->getFormObject()->getEntity()->getSourceEntity();
+
+        // If webform attached to a node.
+        if ($source_entity && $source_entity->getEntityTypeId() === 'node') {
+          $nid = $source_entity->id();
+          $node = $this->entityTypeManager->getStorage('node')->load($nid);
+
+          // Get the ride date to populate the webform.
+          if ($node->bundle() == 'ride') {
+            $date_string = $node->get('field_date')->value; 
+          }
+          elseif ($node->bundle() == 'recurring_ride') {
+            // View display returns the next ride date for $nid.
+            $date_view = $this->entityTypeManager->getStorage('view')->load('ride_dates');
+            $view = $this->view_executable->get($date_view);
+            $view->setDisplay('register_next_recurring');
+            $view->setArguments([$nid,]);
+            $view->preExecute();
+            $view->execute();
+              
+            $date_string = $view->result[0]->_entity->get('field_date')->value;
+          }
+
+          // Drupal ride_date is stored in UTC, webform needs date in default timezone.
+          $form['elements']['ride_date']['#default_value'] = $this->convertTimeZone($date_string);
+        }
+      }
+    }
+  }
+
+  /**
+   * Functions called by hook_form_alter().
+   */
+  public function getCurrentAdmin() {
+    $roles = $this->currentUser->getRoles();
+
+    $currentAdmin = 0;
+    if(in_array('administrator',$roles) | in_array('site_admin',$roles) | in_array('membership_coordinator',$roles)) {
+      $currentAdmin = 1;
+    }
+    return $currentAdmin;
+  }
+
+  public function convertTimeZone($date_string) {
+    // Transform UTC date_string (UTC) to default timezone.
+    $timezone = new \DateTimeZone('UTC');
+    $date_time = new DrupalDateTime($date_string, $timezone);
+    $timestamp = $date_time->getTimestamp();
+
+    $date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'Y-m-d');
+    return $date;
+  }
+}

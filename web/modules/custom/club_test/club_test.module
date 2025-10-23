@@ -30,10 +30,10 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
-    $bgcolor = \Drupal::config('olivero.settings')->get('base_primary_color');
-    kint($bgcolor);
+    $config = \Drupal::config('bikeclub.adminsettings');
+    $rwgps = $config->get('rwgps_api');
 
-    $bgcolor = \Drupal::config('solo.settings');
+    kint($rwgps);
     die;
 
   }

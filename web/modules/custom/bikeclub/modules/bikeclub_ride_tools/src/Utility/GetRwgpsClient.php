@@ -2,14 +2,31 @@
 
 namespace Drupal\bikeclub_ride_tools\Utility;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Http\ClientFactory;
+use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Provides a service to retrieve RWGPS route data.
  */
 class GetRwgpsClient {
 
- /**
+/**
+  * The config factory.
+  *
+  * @var \Drupal\Core\Config\ConfigFactoryInterface
+  */
+  protected $configFactory;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * The HTTP client factory.
    *
    * @var \Drupal\Core\Http\ClientFactory
@@ -17,13 +34,28 @@ class GetRwgpsClient {
   protected $httpClientFactory;
 
   /**
-   * Constructs a new GetRwgpsClient object.
+   * The messenger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * Construct a new GetRwgpsClient object.
    *
    * @param \Drupal\Core\Http\ClientFactory $httpClientFactory
    *   The HTTP client factory.
    */
-  public function __construct(ClientFactory $httpClientFactory) {
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    EntityTypeManagerInterface $entity_type_manager,
+    ClientFactory $httpClientFactory,
+    MessengerInterface $messenger
+  ) {
+    $this->configFactory     = $config_factory;
+    $this->entityTypeManager = $entity_type_manager;
     $this->httpClientFactory = $httpClientFactory;
+    $this->messenger         = $messenger;
   }
 
   /**
@@ -34,17 +66,15 @@ class GetRwgpsClient {
    * @return array
    */
   public function getRouteInfo($routeId, $ride_start) {
-
-    $config = $this->configFactory->get('bikeclub.adminsettings');
+   
+    $rwgpsKey = $this->configFactory->get('bikeclub.adminsettings')->get('rwgps_api');
 
     $client = $this->httpClientFactory->fromOptions([
       'base_uri' => 'https://ridewithgps.com/routes/',
       'headers' => [
-        'apikey' => $config->get('rwgps_api')
+        'apikey' => $rwgpsKey
       ]
     ]);
-    $this->logger = $this->loggerFactory->get('type');
-
   
     // Get route Ids from node.
     $entity = $this->entityTypeManager->getStorage('club_route');
@@ -70,14 +100,14 @@ class GetRwgpsClient {
           $oldRoute = $entity
             ->load($routeId);
 
-          if ($oldRoute) {
+          if (!empty($oldRoute)) {
             $oldRoute->name->value = $routeInfo['name'];
             $oldRoute->distance->value = round($routeInfo['distance']/1609);  // convert meters to miles
             $oldRoute->elevation_gain->value = round($routeInfo['elevation_gain']*3.281); // convert meters to feet
             $oldRoute->locality->value = $routeInfo['locality'];
             $oldRoute->state->value = $routeInfo['administrative_area'];
             $oldRoute->geofield->setValue([$geofield_point, NULL]);
-            $oldRoute->field_ride_start->target_id = $ride_start;
+            $oldRoute->ride_start = $ride_start;
             $oldRoute->created_at->value = $routeInfo['created_at'];
             $oldRoute->updated_at->value = $routeInfo['updated_at'];
             $oldRoute->save();
@@ -90,6 +120,7 @@ class GetRwgpsClient {
               'elevation_gain' => round($routeInfo['elevation_gain']*3.281), // convert meters to feet
               'locality' => $routeInfo['locality'],
               'state' => $routeInfo['administrative_area'],
+              'ride_start' => $ride_start,
               'geofield' => [$geofield_point, NULL],
               'created_at' => $routeInfo['created_at'],
               'updated_at' => $routeInfo['updated_at'],

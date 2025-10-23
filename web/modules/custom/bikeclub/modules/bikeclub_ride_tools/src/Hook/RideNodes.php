@@ -48,7 +48,7 @@ class RideNodes {
           $query = $this->entityTypeManager->getStorage('club_schedule')->getQuery();
           $id = $query
             ->accessCheck(FALSE)
-            ->condition('field_schedule_date', $date, '=')
+            ->condition('schedule_date', $date, '=')
             ->execute();
           $id = reset($id);
 
@@ -67,9 +67,10 @@ class RideNodes {
             $ride_start = $node->field_location->target_id;
 
             foreach ($node->field_rwgps_routes as $routeId) {
-              // Trim to remove whitespace then call RouteInfo to save or update route entity.
-              $routeId->target_id = trim($routeId->target_id);
-              $this->rwgpsClient->getRouteInfo($routeId->target_id, $ride_start);
+              if (!empty($routeId->target_id)){
+                //$routeId->target_id = trim($routeId->target_id); // Was a string, now an INT.
+                $this->rwgpsClient->getRouteInfo($routeId->target_id, $ride_start);
+              }
             }
           }
         } 

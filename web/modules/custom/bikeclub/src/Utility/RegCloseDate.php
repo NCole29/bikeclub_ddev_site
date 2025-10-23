@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\bikeclub;
+namespace Drupal\bikeclub\Utility;
 
 use Drupal\Core\Datetime\DrupalDateTime;
 

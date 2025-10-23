@@ -7,8 +7,9 @@ use Drupal\Core\Datetime\DrupalDateTime;
 class LoadSchedule {
   /**
    * Add records to the club_schedule table for each day, for 5 years.
+   * $load = 0 (initial load), 1 (subsequent loads) 
    */
-  public static function loadSchedule($load = 1) {
+  public static function loadSchedule($load) {
     $now = time();
     $storage = \Drupal::entityTypeManager()->getStorage('club_schedule');
 
@@ -31,7 +32,7 @@ class LoadSchedule {
         $timestamp = strtotime("+$x day", $jan1);
         $weekday = date('l', $timestamp);
 
-        $date = DrupalDateTime::createFromTimestamp($timestamp, 'UTC')->format('Y-m-d\TH:i:s'); 		
+        $date = DrupalDateTime::createFromTimestamp($timestamp, 'UTC')->format('Y-m-d'); 		
 
         $newDate = $storage->create([
           'weekday' => $weekday,

@@ -5,7 +5,7 @@ namespace Drupal\bikeclub_ride_tools\Form;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\club_newschedule\LoadSchedule;
+use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 
 /**
  * @file
@@ -21,7 +21,7 @@ class AddScheduleDates extends FormBase {
   }
 
   public function getDates() {
-    $minmax = \Drupal::entityQueryAggregate('club_newschedule')
+    $minmax = \Drupal::entityQueryAggregate('club_schedule')
     ->accessCheck(FALSE)
     ->aggregate('schedule_date', 'MIN', NULL)
     ->aggregate('schedule_date', 'MAX', NULL)
@@ -31,7 +31,7 @@ class AddScheduleDates extends FormBase {
   }
 
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // Get range of dates in the club_newschedule table.
+    // Get range of dates in the club_schedule table.
     $minmax = $this->getDates();
 
     // Get the date formatter service
@@ -63,7 +63,7 @@ class AddScheduleDates extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    LoadSchedule::loadSchedule("1"); // 1 indicates NOT initial load.
+    LoadSchedule::loadSchedule(1); // 1 indicates NOT initial load.
     \Drupal::messenger()->addMessage(t("Three years of dates have been added."));
     $form_state->setRedirect('<front>');
   }

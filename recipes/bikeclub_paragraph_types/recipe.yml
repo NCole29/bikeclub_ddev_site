@@ -13,6 +13,7 @@ install:
   - paragraphs
   - style_selector
 config:
+  strict: false
   import:
     paragraphs: '*'
   actions:

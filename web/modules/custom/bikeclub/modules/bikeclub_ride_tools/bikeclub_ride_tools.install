@@ -1,0 +1,72 @@
+<?php
+
+use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_install().
+ *
+ * @see system_install()
+ */
+function bikeclub_ride_tools_install() {
+  LoadSchedule::loadSchedule(0);
+  drupal_flush_all_caches();
+}
+
+/**
+ * Load schedule dates (forgot to include this install file initially).
+ */
+function bikeclub_ride_tools_update_9001() {
+  LoadSchedule::loadSchedule(0);
+  drupal_flush_all_caches();
+}
+
+function bikeclub_ride_tools_update_9002() {
+  LoadSchedule::loadSchedule(0);
+  drupal_flush_all_caches();
+}
+
+// Add ride_start field to the club_route entity,
+function bikeclub_ride_tools_update_9004() {
+
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Entity reference field, holds the reference to the user object
+  $field_storage_definition = BaseFieldDefinition::create('entity_reference')
+    ->setLabel(t('Ride start'))
+    ->setDescription(t('References the Location content type.'))
+    ->setSetting('target_type', 'node')
+    ->setSetting('handler_settings', [
+      'target_bundles' => [
+        'location' => 'location',
+      ],
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'entity_reference_autocomplete',
+      'settings' => [
+        'match_operator' => 'CONTAINS',
+        'match_limit' => 10,
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'weight' => -4,
+    ])
+    ->setDisplayOptions('view', [
+      'label' => 'inline',
+      'type' => 'entity_reference_label',
+      'weight' => -4,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE);
+
+
+  // Install the new field storage definition. LINE 64 GENERATES AN ERROR!
+  $entity_definition_update_manager->installFieldStorageDefinition(
+    'ride_start',            // Field machine name
+    'club_route',            // Entity type ID
+    'bikeclub_ride_tools',   // Module name
+    $field_storage_definition
+  );
+
+  return t('The custom field "ride_start" has been added to the club_route entity type.');
+}

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Drupal\bikeclub\Hook;
 
+use Drupal\bikeclub\Utility\RegCloseDate;
 use Drupal\bikeclub\Utility\RenameImages;
-
 use Drupal\bikeclub\Utility\UpdateRecurDates;
+
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Datetime\DateHelper;
 use Drupal\Core\Datetime\DrupalDateTime;
