@@ -87,15 +87,24 @@ class BikeclubWebforms {
             $date_string = $view->result[0]->_entity->get('field_date')->value;
           }
 
-          // Drupal ride_date is stored in UTC, webform needs date in default timezone.
-          $form['elements']['ride_date']['#default_value'] = $this->convertTimeZone($date_string);
+          // Transform UTC date_string (UTC) to default timezone.
+          $timezone = new \DateTimeZone('UTC');
+          $date_time = new DrupalDateTime($date_string, $timezone);
+          $timestamp = $date_time->getTimestamp();
+
+          // "ride_date" is displayed on form. Numeric "date" is saved to database (to enable sorting).
+          $ride_date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'l, F j, Y \a\t H:i');
+          $date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'Y-m-d');
+
+          $form['elements']['ride_date']['#default_value'] = $ride_date;
+          $form['elements']['date']['#default_value'] = $date;
         }
       }
     }
   }
 
   /**
-   * Functions called by hook_form_alter().
+   * Function called by hook_form_alter().
    */
   public function getCurrentAdmin() {
     $roles = $this->currentUser->getRoles();
@@ -107,13 +116,17 @@ class BikeclubWebforms {
     return $currentAdmin;
   }
 
-  public function convertTimeZone($date_string) {
-    // Transform UTC date_string (UTC) to default timezone.
-    $timezone = new \DateTimeZone('UTC');
-    $date_time = new DrupalDateTime($date_string, $timezone);
-    $timestamp = $date_time->getTimestamp();
+  /**
+   * Implements hook_webform_submission_presave().
+   */
+  public function webformSubmission_presave(Drupal\webform\WebformSubmissionInterface $webform_submission) {
+    // Unset "ride_date" as its used for display only; "date" is saved to the database.
+    $field = 'ride_date';
 
-    $date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'Y-m-d');
-    return $date;
+    $data = $webform_submission->getData();
+    if (isset($data[$field])) {
+      unset($data[$field]);
+      $webform_submission->setData($data);
+    }
   }
 }

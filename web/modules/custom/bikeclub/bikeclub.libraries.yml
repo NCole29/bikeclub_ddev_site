@@ -11,3 +11,4 @@ solo_calendar:
   css:
     theme:
       css/solo_calendar.css: { }  
+      

@@ -105,8 +105,10 @@ class BikeclubNodes {
         break;
 
       case 'recurring_ride':
-        // Get numeric day-of-week from timestamp.  
-        $node->field_dayofweek = date('w',$node->field_datetime->value);
+        // Get numeric day-of-week from timestamp. 
+        // Typecast field_datetime because its a 'bigint' type that Drupal returns as string. 
+        $date_time = (int) $node->field_datetime->value;
+        $node->field_dayofweek = date('w',$date_time);
 
         // Edited content.
         if ($node->id()) {

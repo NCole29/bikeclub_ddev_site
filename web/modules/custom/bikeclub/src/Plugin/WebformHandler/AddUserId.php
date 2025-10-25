@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   id = "AddUserId",
  *   label = @Translation("Add User Id"),
  *   category = @Translation("Custom"),
- *   description = @Translation("Use email to lookup user id for anonymous submissions."),
+ *   description = @Translation("Use email to lookup user id and reset submission owner."),
  * )
  */
 class AddUserId extends WebformHandlerBase {
@@ -41,15 +41,17 @@ class AddUserId extends WebformHandlerBase {
     $data = $webform_submission->getData();
     $email = $data['email'];
 
-    // Return if user is filled or don't have email.
-    if ($webform_submission->getOwner()->id() > 0 | empty($email)) {
+    $owner_email = $webform_submission->getOwner()->get('mail')->value;
+    
+    // Return if email is empty or owner = email on form.
+    if ( empty($email) | $owner_email == $email) {
       return;
     }
 
-    // For anonymous submission, get user_id and setOwner on submission.
+    // Get user_id for person on form and setOwner on submission.
     $users = $this->entityTypeManager->getStorage('user')->loadByProperties(['mail' => $email]);
     $user = $users ? reset($users) : FALSE; // Users is array. Take first entry since its unique.
-
+   
     if ($user) {
       $user_account = $this->entityTypeManager->getStorage('user')->load($user->id());
       $webform_submission->setOwner($user_account);

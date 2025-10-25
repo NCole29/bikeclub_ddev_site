@@ -30,15 +30,29 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
-    $config = \Drupal::config('bikeclub.adminsettings');
-    $rwgps = $config->get('rwgps_api');
 
-    kint($rwgps);
-    die;
+    // Replace 'your_webform_id' with the actual ID of your webform.
+    $webform_id = 'ride_registration';
 
+    // Load the webform entity.
+    $webform = \Drupal\webform\Entity\Webform::load($webform_id);
+
+    // Check if the webform exists and has submissions.
+    if ($webform && $webform->hasSubmissions()) {
+    
+      $query = \Drupal::entityQuery('webform_submission')
+        ->condition('webform_id', $webform_id)
+        ->condition('entity_id', '3059')
+        ->accessCheck(FALSE);
+      $query->count();
+      $result = $query->execute();
+
+    
+      kint($result);
+      die;
+    }
   }
 }
-
   /*  
     $db = \Drupal::database();
     $email = 'PaulaBossone@gmail.com';

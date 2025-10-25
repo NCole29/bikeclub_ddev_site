@@ -147,22 +147,3 @@
   font-size: 80%;
   line-height: 1.1;
 }
-
-/*--------------------
-  Registration button
-  -------------------- */
-.register-button,
-.register-button a:link,
-.register-button a:visited {
-  display: inline-block;
-  background-color: #155295!important;
-  color:white!important;
-  border-radius: 2px;
-  padding: 8px 16px;
-  margin: 16px 0;
-  max-width: fit-content; 
-  vertical-align: middle;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
