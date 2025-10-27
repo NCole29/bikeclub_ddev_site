@@ -20,13 +20,17 @@ class ClubScheduleForm extends ContentEntityForm {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $entity = $this->entity;
-    $schedule_date = strtotime($entity->schedule_date->value);
-    $print_date = date('l, M d, Y', $schedule_date);
-
-    $form['schedule_form']['#markup'] = 'Add ride leader for ' . $print_date;
 
     $form = parent::buildForm($form, $form_state);
 
+    $form['intro_markup'] = [
+      '#type' => 'markup',
+      '#weight' => -10,
+      '#markup' => $this->t('<h3>Add ride leader to the schedule.</h3>'),
+    ];  
+
+    $form['schedule_date']['#disabled'] = TRUE;
+    $form['weekday']['#type'] = 'hidden';
     return $form;
   }
 
@@ -34,9 +38,8 @@ class ClubScheduleForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    $form_state->setRedirect('entity.club_schedule.collection');
+ 
     $entity = $this->getEntity();
     $entity->save();
   }
-
 }

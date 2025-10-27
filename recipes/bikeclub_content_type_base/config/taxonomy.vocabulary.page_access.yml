@@ -1,7 +1,0 @@
-langcode: en
-status: true
-name: 'Page access'
-vid: page_access
-description: 'Taxonomy Access Control module grants view page permission using these terms.'
-weight: 0
-new_revision: false

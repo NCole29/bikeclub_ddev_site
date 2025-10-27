@@ -100,11 +100,11 @@ entity.club_route.delete_form:
     _permission: 'delete club_route entity'
 
 # # View, edit - Schedule date
-entity.bikeclub_schedule.canonical:
-  path: '/admin/bikeclub_ride_tools/{club_schedule}'
+entity.club_schedule.canonical:
+  path: '/admin/club_schedule/{club_schedule}'
   defaults:
     _entity_view: 'club_schedule'
-    _title: 'Ride schedule date'
+    _title: 'Ride schedule'
   requirements:
     _permission: 'view club_schedule entity'
 

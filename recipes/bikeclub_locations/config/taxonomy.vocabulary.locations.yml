@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Locations
-vid: locations
-description: 'Types of locations.'
-weight: 0
-new_revision: false

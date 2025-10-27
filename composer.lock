@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dce24c269cc911994eadf3c464fc51be",
+    "content-hash": "a1c6b61039f40591e37e469f1f74bb60",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -24,6 +24,12 @@
                 "dflydev/apache-mime-types": "^1.0"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply patch to fix php8.2 deprecation notice on dynamic property $filename": "https://download.civicrm.org/patches/011c5f09dc27b260937380f7a9ef5ad1fa713ae206b0b66ce03decc1932fc3f6/17.patch",
+                    "Update gitignore to ensure that sites that manage via git don't miss out on the important db.json file": "https://download.civicrm.org/patches/ffb6c65c6caa0a8a648f167f8800072d50ca0e4138002c52c05065be0ae60a63/15.patch"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "MimeTyper\\": "src/"
@@ -203,516 +209,6 @@
                 "issues": "https://github.com/NCole29/bikeclub/issues"
             },
             "time": "2025-10-20T15:31:21+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_announcements",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_announcements.git",
-                "reference": "215c50ff2ffebe20a4ddb1153e9e3be38161ae8c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_announcements/zipball/215c50ff2ffebe20a4ddb1153e9e3be38161ae8c",
-                "reference": "215c50ff2ffebe20a4ddb1153e9e3be38161ae8c",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_content_type_base": "dev-main"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs Announcement content type.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_announcements/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_announcements/issues"
-            },
-            "time": "2025-10-11T21:21:47+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_banner",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_banner.git",
-                "reference": "790197d8e8fb8a049acd1607640551b4df63cc0a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_banner/zipball/790197d8e8fb8a049acd1607640551b4df63cc0a",
-                "reference": "790197d8e8fb8a049acd1607640551b4df63cc0a",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_media": "dev-main",
-                "drupal/crop": "^2.0",
-                "drupal/field_group": "^4.0",
-                "drupal/image_widget_crop": "^3.0",
-                "drupal/svg_image": "^3.0",
-                "drupal/views_slideshow": "^5.0"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs home page banner content type.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_banner/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_banner/issues"
-            },
-            "time": "2025-10-20T15:26:33+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_content_type_base",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_content_type_base.git",
-                "reference": "81d1467c697259e06e5302256f7a210cfa146ff6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_content_type_base/zipball/81d1467c697259e06e5302256f7a210cfa146ff6",
-                "reference": "81d1467c697259e06e5302256f7a210cfa146ff6",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_media": "dev-main",
-                "drupal/add_content_by_bundle": "^1.2",
-                "drupal/conditional_fields": "^4.0@alpha",
-                "drupal/contact_storage": "*",
-                "drupal/entity_reference_revisions": "^1.0",
-                "drupal/field_group": "^4.0",
-                "drupal/layout_builder_admin_theme": "^2.0",
-                "drupal/layout_builder_restrictions": "^3.0",
-                "drupal/layout_paragraphs": "^2.0",
-                "drupal/paragraphs": "^1.0",
-                "drupal/pathauto": "^1.13",
-                "drupal/quick_node_clone": "^1.22",
-                "drupal/scheduler": "^2.0",
-                "drupal/tac_lite": "^2.0",
-                "drupal/token": "^1.15"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Provides field storage, text editors, contact forms, and the page access taxonomy vocabulary.",
-            "keywords": [
-                "Page access",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_content_type_base/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_content_type_base/issues"
-            },
-            "time": "2025-10-20T15:26:55+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_events",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_events.git",
-                "reference": "4e6ee0906a98e57c04e855362167114c9b404e6c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_events/zipball/4e6ee0906a98e57c04e855362167114c9b404e6c",
-                "reference": "4e6ee0906a98e57c04e855362167114c9b404e6c",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_banner": "dev-main",
-                "bikeclub/bikeclub_content_type_base": "dev-main",
-                "bikeclub/bikeclub_field_storage_registration": "dev-main",
-                "bikeclub/bikeclub_locations": "dev-main",
-                "drupal/calendar_view": "^2.1",
-                "drupal/conditional_fields": "^4.0@alpha",
-                "drupal/datetimehideseconds": "^1.0",
-                "drupal/smart_date": "^4.2",
-                "drupal/webform": "^6.3@beta",
-                "drupal/webform_views": "^5.5",
-                "drupal/webform_views_extras": "^2.0"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs Event and Location content types.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_events/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_events/issues"
-            },
-            "time": "2025-10-15T22:15:17+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_faqs",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_faqs.git",
-                "reference": "4e6921e79bf93275d86f123127418f444e497cf3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_faqs/zipball/4e6921e79bf93275d86f123127418f444e497cf3",
-                "reference": "4e6921e79bf93275d86f123127418f444e497cf3",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_content_type_base": "dev-main",
-                "drupal/faqfield": "^8.0",
-                "drupal/scheduler": "^2.1"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs FAQs content type.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_faqs/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_faqs/issues"
-            },
-            "time": "2025-10-11T21:22:08+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_field_storage_registration",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_field_storage_registration.git",
-                "reference": "86b0b3f261731a2ef6fd3680ad2a8625f0ab4596"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_field_storage_registration/zipball/86b0b3f261731a2ef6fd3680ad2a8625f0ab4596",
-                "reference": "86b0b3f261731a2ef6fd3680ad2a8625f0ab4596",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/honeypot": "^2.0"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs storage for registration fields used by Events and Rides.",
-            "keywords": [
-                "Page access",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_field_storage_registration/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_field_storage_registration/issues"
-            },
-            "time": "2025-10-20T15:27:05+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_locations",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_locations.git",
-                "reference": "ef30c0fd6fcf80c94fb625f562680dc7d6797f2c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_locations/zipball/ef30c0fd6fcf80c94fb625f562680dc7d6797f2c",
-                "reference": "ef30c0fd6fcf80c94fb625f562680dc7d6797f2c",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/add_content_by_bundle": "^1.2",
-                "drupal/address": "^2.0",
-                "drupal/address_map_link": "^2.0@alpha",
-                "drupal/geocoder": "^4.23",
-                "drupal/geofield": "^1.0",
-                "drupal/geofield_map": "^11.0",
-                "drupal/leaflet": "^10.0",
-                "geocoder-php/google-maps-provider": "^4.7",
-                "geocoder-php/nominatim-provider": "^5.7"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs Location content type.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_locations/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_locations/issues"
-            },
-            "time": "2025-10-20T15:27:20+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_media",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_media.git",
-                "reference": "f2802fdb4acd3ddef46828106a6598987ea92207"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_media/zipball/f2802fdb4acd3ddef46828106a6598987ea92207",
-                "reference": "f2802fdb4acd3ddef46828106a6598987ea92207",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/crop": "^2.0",
-                "drupal/entity_browser": "^2.0",
-                "drupal/svg_image": "^3.0"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs image and file media types, configuration, and taxonomies.",
-            "keywords": [
-                "bikeclub",
-                "media",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_media/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_media/issues"
-            },
-            "time": "2025-10-20T15:27:37+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_page",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_page.git",
-                "reference": "3e2ff57107c52c3bf15d33145600d679e4e456ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_page/zipball/3e2ff57107c52c3bf15d33145600d679e4e456ad",
-                "reference": "3e2ff57107c52c3bf15d33145600d679e4e456ad",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_banner": "dev-main",
-                "bikeclub/bikeclub_content_type_base": "dev-main",
-                "drupal/conditional_fields": "^4.0@alpha",
-                "drupal/scheduler": "^2.1"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs Basic Page content type.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_page/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_page/issues"
-            },
-            "time": "2025-10-11T19:57:19+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_paragraph_types",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_paragraph_types.git",
-                "reference": "b3afda0282f91b0c04b0adc7dcc4e78eded6a169"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_paragraph_types/zipball/b3afda0282f91b0c04b0adc7dcc4e78eded6a169",
-                "reference": "b3afda0282f91b0c04b0adc7dcc4e78eded6a169",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/entity_reference_revisions": "^1.0",
-                "drupal/field_group": "^4.0",
-                "drupal/fontawesome": "^3.0",
-                "drupal/layout_paragraphs": "^2.0",
-                "drupal/paragraphs": "^1.0",
-                "drupal/style_selector": "^2.0@alpha",
-                "npm-asset/fonticonpicker--fonticonpicker": "^3.0",
-                "npm-asset/fortawesome--fontawesome-free": "5.15"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "extra": {
-                "installer-paths": {
-                    "web/libraries/{$name}": [
-                        "type:drupal-library",
-                        "type:npm-asset",
-                        "npm-asset/fortawesome--fontawesome-free",
-                        "npm-asset/fonticonpicker--fonticonpicker"
-                    ]
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs paragraph types.",
-            "keywords": [
-                "Paragraphs",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_paragraph_types/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_paragraph_types/issues"
-            },
-            "time": "2025-10-15T22:12:46+00:00"
-        },
-        {
-            "name": "bikeclub/bikeclub_rides",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NCole29/bikeclub_rides.git",
-                "reference": "e744c09fbdeba02171c4ab392ad07bb863365b69"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NCole29/bikeclub_rides/zipball/e744c09fbdeba02171c4ab392ad07bb863365b69",
-                "reference": "e744c09fbdeba02171c4ab392ad07bb863365b69",
-                "shasum": ""
-            },
-            "require": {
-                "bikeclub/bikeclub_content_type_base": "dev-main",
-                "bikeclub/bikeclub_locations": "dev-main",
-                "drupal/calendar_view": "^2.1",
-                "drupal/conditional_fields": "^4.0@alpha",
-                "drupal/datetimehideseconds": "^1.0",
-                "drupal/smart_date": "^4.2",
-                "drupal/webform": "^6.3@beta",
-                "drupal/webform_views": "^5.5",
-                "drupal/webform_views_extras": "^2.0"
-            },
-            "default-branch": true,
-            "type": "drupal-recipe",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nancy Cole",
-                    "homepage": "https://bikeclubsites.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Installs Ride and Recurring ride content types.",
-            "keywords": [
-                "Drupal standard install",
-                "recipe"
-            ],
-            "support": {
-                "source": "https://github.com/NCole29/bikeclub_rides/tree/main",
-                "issues": "https://github.com/NCole29/bikeclub_rides/issues"
-            },
-            "time": "2025-10-15T22:17:01+00:00"
         },
         {
             "name": "brick/math",
@@ -3131,16 +2627,16 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "2eb07e5953eed811ce1b309a7478a3b236f2273d"
+                "reference": "9acfeea2e8666536edff3d77c531261c63680160"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/2eb07e5953eed811ce1b309a7478a3b236f2273d",
-                "reference": "2eb07e5953eed811ce1b309a7478a3b236f2273d",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/9acfeea2e8666536edff3d77c531261c63680160",
+                "reference": "9acfeea2e8666536edff3d77c531261c63680160",
                 "shasum": ""
             },
             "require": {
@@ -3149,11 +2645,11 @@
                 "symfony/polyfill-php84": "^1.30"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12",
+                "doctrine/coding-standard": "^14",
                 "ext-json": "*",
-                "phpstan/phpstan": "^1.8",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^10.5"
+                "phpstan/phpstan": "^2.1.30",
+                "phpstan/phpstan-phpunit": "^2.0.7",
+                "phpunit/phpunit": "^10.5.58 || ^11.5.42 || ^12.4"
             },
             "type": "library",
             "autoload": {
@@ -3197,7 +2693,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/collections/issues",
-                "source": "https://github.com/doctrine/collections/tree/2.3.0"
+                "source": "https://github.com/doctrine/collections/tree/2.4.0"
             },
             "funding": [
                 {
@@ -3213,7 +2709,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-22T10:17:19+00:00"
+            "time": "2025-10-25T09:18:13+00:00"
         },
         {
             "name": "doctrine/common",
@@ -6843,7 +6339,7 @@
             "extra": {
                 "drupal": {
                     "version": "7.0.10",
-                    "datestamp": "1760731845",
+                    "datestamp": "1759925018",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8296,54 +7792,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/webform_views",
                 "issues": "https://www.drupal.org/project/issues/webform_views"
-            }
-        },
-        {
-            "name": "drupal/webform_views_extras",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/webform_views_extras.git",
-                "reference": "2.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform_views_extras-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "6481270a8dbe4ea8632ad501855184d62b8d4155"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11",
-                "drupal/webform": "*",
-                "drupal/webform_views": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1710625913",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Mohamed Anis Taktak (matio89)",
-                    "homepage": "https://www.drupal.org/u/matio89",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Extends webform views and support relationship views with all content entities not only node.",
-            "homepage": "https://www.drupal.org/project/webform_views_extras",
-            "support": {
-                "source": "http://cgit.drupalcode.org/webform_views_extras",
-                "issues": "https://www.drupal.org/project/issues/webform_views_extras"
             }
         },
         {
@@ -10692,6 +10140,12 @@
                 "pear/pear-core-minimal": "*"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for the pear:db package": "https://download.civicrm.org/patches/47e125fec0c789b095880fa65c6037210b01179290d5727b22b70fa77333496b/pear_db_civicrm_changes.patch",
+                    "Ensure that error messages about MySQL-SSL connections are reported": "https://download.civicrm.org/patches/a6e31a769218801fb1fb3d679ff72d3d8a7c5637d3bb7b78680cd7809552e0c6/mysqli-ssl.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "DB": "./"
@@ -10824,6 +10278,11 @@
                 "pear/net_smtp": "Install optionally via your project's composer.json"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply CiviCRM Customisations for CRM-1367 and CRM-5946": "https://download.civicrm.org/patches/00da3cfcfe0d24420665f3015a5d3ea72dc331a52636f009883892ed3c7fbf84/pear-mail.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10885,6 +10344,11 @@
                 "php": ">=5.2.0"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Apply patch for CRM-3133 wordwrap body to be 750 characters to apply with RFC 2821": "https://download.civicrm.org/patches/38231167f0c789e0b368b38c1499973d562de65e87094b402156a6b928cc4c38/crm_3133.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mail": "./"
@@ -10943,6 +10407,11 @@
                 "pear/auth_sasl": "Install optionally via your project's composer.json"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Add in CiviCRM custom error message for CRM-8744": "https://download.civicrm.org/patches/ee02d81d09432e524b249c9d874c9756b88924df8f5a8d69b19e8b4d6f532327/error-msg.patch"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Net": "./"
@@ -16978,6 +16447,12 @@
                 "zetacomponents/unit-test": "*"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "CiviCRM Custom Patches for ZetaCompoents mail": "https://download.civicrm.org/patches/6e4bd36dd432a1e62830b0c757a3bac9645ea1cfc551db39798a88c06d66aaf3/100-filename.patch",
+                    "CiviCRM Custom patch to fix a php8.1 issue found in CiviCRM unit tests": "https://download.civicrm.org/patches/d187bcd1100b99529705cdd61193efa683951f6cfbc97ecaa69bc6cd601d2e5f/200-php-81.patch"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src"
@@ -17042,12 +16517,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "bikeclub/bikeclub": 20,
-        "bikeclub/bikeclub_announcements": 20,
-        "bikeclub/bikeclub_events": 20,
-        "bikeclub/bikeclub_faqs": 20,
-        "bikeclub/bikeclub_page": 20,
-        "bikeclub/bikeclub_paragraph_types": 20,
-        "bikeclub/bikeclub_rides": 20,
         "drupal/address_map_link": 15,
         "drupal/conditional_fields": 15,
         "drupal/style_selector": 15,
