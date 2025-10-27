@@ -1,0 +1,17 @@
+uuid: 9eaea069-65f9-4351-be78-69cf2e357973
+langcode: en
+status: false
+dependencies: {  }
+name: 'Full html'
+format: full_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: ''
+      filter_html_help: true
+      filter_html_nofollow: false

@@ -15,7 +15,7 @@ field_name: field_description
 entity_type: node
 bundle: recurring_ride
 label: Description
-description: 'The media library icon can be used to add files (such as cue sheets). Use the Ride picture field for an image.'
+description: ''
 required: false
 translatable: false
 default_value: {  }

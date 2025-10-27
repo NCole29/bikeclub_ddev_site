@@ -15,12 +15,12 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing_date
+    - field.field.node.ride.field_registration_closing
+    - field.field.node.ride.field_registration_form
+    - field.field.node.ride.field_registration_limit
     - field.field.node.ride.field_registration_required
-    - field.field.node.ride.field_registration_rideform
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
-    - field.field.node.ride.field_rider_limit
     - field.field.node.ride.field_rwgps_routes
     - field.field.node.ride.field_schedule_date
     - field.field.node.ride.field_time
@@ -133,7 +133,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: full
+                  view_mode: teaser2
                 third_party_settings: {  }
             weight: 10
             additional: {  }
@@ -201,15 +201,11 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: smartdate_default
+                type: datetime_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format: day_and_date
-                  force_chronological: false
-                  add_classes: false
-                  time_wrapper: false
-                  localize: false
+                  format_type: ride_date
                 third_party_settings: {  }
             weight: 8
             additional: {  }
@@ -228,7 +224,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: default
+                  view_mode: teaser2
                 third_party_settings: {  }
             weight: 12
             additional: {  }
@@ -250,11 +246,24 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 11
             additional: {  }
-          78469bc4-d09d-4a77-81d8-4a1be3eb4df2:
-            uuid: 78469bc4-d09d-4a77-81d8-4a1be3eb4df2
+          132f36e9-74cf-45ef-ad81-3b7da4ed5bad:
+            uuid: 132f36e9-74cf-45ef-ad81-3b7da4ed5bad
+            region: second
+            configuration:
+              id: 'views_block:ride_routes-route_list'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 14
+            additional: {  }
+          e26bb22d-3ea7-40ba-8fe9-9ae63435c0ae:
+            uuid: e26bb22d-3ea7-40ba-8fe9-9ae63435c0ae
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_rideform'
+              id: 'field_block:node:ride:field_registration_form'
               label: 'Registration form'
               label_display: '0'
               provider: layout_builder
@@ -269,36 +278,16 @@ third_party_settings:
                   dialog: ''
                   attributes:
                     class:
-                      - blue-button
+                      - button
                 third_party_settings: {  }
-            weight: 6
+            weight: 5
             additional: {  }
-          69729d19-a92c-40c5-910d-25f16370ce91:
-            uuid: 69729d19-a92c-40c5-910d-25f16370ce91
+          4ca13916-5bb6-44ce-bfb3-e40e9431f96c:
+            uuid: 4ca13916-5bb6-44ce-bfb3-e40e9431f96c
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_closing_date'
-              label: 'Registration will close on'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: medium
-                third_party_settings: {  }
-            weight: 8
-            additional: {  }
-          16ca1cc2-db1a-4e99-a7b1-05e50859bba7:
-            uuid: 16ca1cc2-db1a-4e99-a7b1-05e50859bba7
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_rider_limit'
-              label: 'Rider limit'
+              id: 'field_block:node:ride:field_registration_limit'
+              label: 'Registration limit'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -309,22 +298,29 @@ third_party_settings:
                 label: inline
                 settings:
                   thousand_separator: ''
-                  prefix_suffix: true
+                  prefix_suffix: false
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          42fe2f80-9b90-4721-8b9b-872eb4d3d5ed:
+            uuid: 42fe2f80-9b90-4721-8b9b-872eb4d3d5ed
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_registration_closing'
+              label: 'Registration closing date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: date_and_12_hr_time
                 third_party_settings: {  }
             weight: 7
-            additional: {  }
-          132f36e9-74cf-45ef-ad81-3b7da4ed5bad:
-            uuid: 132f36e9-74cf-45ef-ad81-3b7da4ed5bad
-            region: second
-            configuration:
-              id: 'views_block:ride_routes-route_list'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: null
-            weight: 14
             additional: {  }
         third_party_settings: {  }
       -
@@ -419,12 +415,12 @@ hidden:
   field_lunch_same: true
   field_multiple_times: true
   field_nonmembers: true
-  field_registration_closing_date: true
+  field_registration_closing: true
+  field_registration_form: true
+  field_registration_limit: true
   field_registration_required: true
-  field_registration_rideform: true
   field_results_access: true
   field_ride_picture: true
-  field_rider_limit: true
   field_rwgps_routes: true
   field_schedule_date: true
   links: true

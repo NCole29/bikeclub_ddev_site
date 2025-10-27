@@ -12,7 +12,7 @@ dependencies:
 id: bikeclub_solo_views_block__rides_upcoming_weekend_rides
 theme: bikeclub_solo
 region: sidebar_second
-weight: 0
+weight: -8
 provider: null
 plugin: 'views_block:rides_upcoming-weekend_rides'
 settings:

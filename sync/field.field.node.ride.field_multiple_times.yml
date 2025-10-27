@@ -12,7 +12,7 @@ field_name: field_multiple_times
 entity_type: node
 bundle: ride
 label: 'Multiple start times per route distance or other condition?'
-description: "<li>Check the box to make the <strong>Time</strong> field visible. </li>\r\n<li>Enter the earliest time in the <strong>Date/time</strong> field.</li>"
+description: 'Check the box to make the <strong>Time</strong> field visible, then click "Add another item" to provide multiple starting times as multiple rows of text. Enter the earliest time in the <strong>Date/time</strong> field.'
 required: false
 translatable: false
 default_value:

@@ -13,17 +13,19 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
+    - field.field.node.recurring_ride.field_registration_closing
+    - field.field.node.recurring_ride.field_registration_form
+    - field.field.node.recurring_ride.field_registration_limit
     - field.field.node.recurring_ride.field_registration_required
-    - field.field.node.recurring_ride.field_registration_rideform
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
-    - field.field.node.recurring_ride.field_rider_limit
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
     - image.style.medium_16_9
     - node.type.recurring_ride
     - views.view.ride_routes
   module:
+    - datetime
     - layout_builder
     - layout_discovery
     - media
@@ -32,6 +34,7 @@ dependencies:
     - text
     - user
     - views
+    - webform
 third_party_settings:
   layout_builder:
     enabled: true
@@ -76,10 +79,10 @@ third_party_settings:
                 label: above
                 settings:
                   timezone_override: ''
-                  format: day_and_date
+                  format: default
                   force_chronological: false
                   add_classes: false
-                  time_wrapper: true
+                  time_wrapper: false
                   localize: false
                   parts:
                     start: start
@@ -146,7 +149,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: teaser
+                  view_mode: teaser2
                 third_party_settings: {  }
             weight: 3
             additional: {  }
@@ -229,55 +232,12 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_label
+                type: entity_reference_entity_view
                 label: above
                 settings:
-                  link: true
+                  view_mode: teaser2
                 third_party_settings: {  }
             weight: 5
-            additional: {  }
-          953d615c-93d4-4599-9fcd-c5c7c9eb2bf5:
-            uuid: 953d615c-93d4-4599-9fcd-c5c7c9eb2bf5
-            region: first
-            configuration:
-              id: 'field_block:node:recurring_ride:field_registration_rideform'
-              label: 'Registration form'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_link
-                label: visually_hidden
-                settings:
-                  label: Register
-                  dialog: ''
-                  attributes:
-                    class:
-                      - blue-button
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-          de806c4a-6422-4f59-8af1-acb08804ef9b:
-            uuid: de806c4a-6422-4f59-8af1-acb08804ef9b
-            region: first
-            configuration:
-              id: 'field_block:node:recurring_ride:field_rider_limit'
-              label: 'Rider limit'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_integer
-                label: inline
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: true
-                third_party_settings: {  }
-            weight: 8
             additional: {  }
           10757dac-96d5-4e0f-8944-f92e59c13313:
             uuid: 10757dac-96d5-4e0f-8944-f92e59c13313
@@ -291,6 +251,60 @@ third_party_settings:
               views_label: ''
               items_per_page: null
             weight: 7
+            additional: {  }
+          7da3dfb1-d6f7-4cc1-b8eb-0fb43d9256b4:
+            uuid: 7da3dfb1-d6f7-4cc1-b8eb-0fb43d9256b4
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_registration_form'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: webform_entity_reference_link
+                label: visually_hidden
+                settings:
+                  label: Register
+                  dialog: ''
+                  attributes:
+                    class:
+                      - button
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          84a5a453-5d9a-4f0e-830a-6825fd636237:
+            uuid: 84a5a453-5d9a-4f0e-830a-6825fd636237
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_registration_limit'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: number_integer
+                label: above
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          86bfcc68-d2bd-4293-861f-9a00a110e429:
+            uuid: 86bfcc68-d2bd-4293-861f-9a00a110e429
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_registration_closing'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: medium
+                third_party_settings: {  }
+            weight: 11
             additional: {  }
         third_party_settings: {  }
       -
@@ -392,6 +406,36 @@ content:
     third_party_settings: {  }
     weight: 11
     region: content
+  field_registration_closing:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 15
+    region: first
+  field_registration_form:
+    type: webform_entity_reference_link
+    label: visually_hidden
+    settings:
+      label: Register
+      dialog: ''
+      attributes:
+        class:
+          - button
+    third_party_settings: {  }
+    weight: 13
+    region: first
+  field_registration_limit:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 14
+    region: first
   field_ride_leader:
     type: entity_reference_label
     label: above
@@ -411,15 +455,6 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
-  field_rider_limit:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 12
-    region: first
   field_time:
     type: string
     label: above
@@ -434,7 +469,6 @@ hidden:
   field_lunch_place: true
   field_multiple_times: true
   field_registration_required: true
-  field_registration_rideform: true
   field_results_access: true
   field_rwgps_routes: true
   links: true

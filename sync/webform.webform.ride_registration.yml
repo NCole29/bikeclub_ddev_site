@@ -20,12 +20,14 @@ elements: |-
     '#type': webform_computed_token
     '#title': Ride
     '#title_display': invisible
+    '#display_on': view
     '#template': '[webform_submission:node:title]'
     '#store': true
   ride_date:
     '#type': textfield
     '#title': 'Ride date'
     '#title_display': inline
+    '#autocomplete': ''
     '#readonly': true
     '#prepopulate': true
   name:
@@ -36,11 +38,11 @@ elements: |-
     '#type': email
     '#title': Email
     '#title_display': inline
-  date_token:
-    '#type': webform_computed_token
-    '#title': 'Date token'
-    '#title_display': inline
-    '#template': '[webform_submission:values:ride_date]'
+  date:
+    '#type': hidden
+    '#title': Date
+    '#default_value': "Displayed date is a text field with the DAY so it won't sort in views. This hidden field is saved for sorting."
+    '#prepopulate': true
 css: ''
 javascript: ''
 settings:
@@ -61,7 +63,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_disable_remote_addr: false
+  form_disable_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -98,7 +100,19 @@ settings:
   submission_excluded_elements: {  }
   submission_exclude_empty: false
   submission_exclude_empty_checkbox: false
-  submission_views: {  }
+  submission_views:
+    embed_default:
+      title: 'Registrations shown on nodes'
+      view: 'webform_submissions_custom:embed_default'
+      webform_routes: {  }
+      node_routes:
+        - entity.node.webform.results_submissions
+    embed_administer:
+      title: 'Results shown on Webform'
+      view: 'webform_submissions_custom:embed_administer'
+      webform_routes:
+        - entity.webform.results_submissions
+      node_routes: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
   submission_user_duplicate: false
@@ -149,7 +163,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: '[current-page:title] registration'
-  confirmation_message: '<h3>Registration is complete</h3><p>Registant:&nbsp;<strong>[webform_submission:values:name]</strong><br>Registration date:&nbsp;[webform_submission:completed:custom:D, M j, Y g:ia]</p><p><br>Ride:&nbsp;<strong>[webform_submission:node]</strong><br>Ride date: <strong>[webform_submission:values:ride_date]</strong><br>Location:&nbsp;<strong>[webform_submission:node:field_location:entity]</strong><br><br>&nbsp;<a href="[webform_submission:node:url]">Return to ride page</a></p>'
+  confirmation_message: '<h3>Registration is complete</h3><p>Registant:&nbsp;<strong>[webform_submission:values:name]</strong><br>Registration date:&nbsp;[webform_submission:completed:custom:D, M j, Y g:i a]</p><p><br>Ride:&nbsp;<strong>[webform_submission:node]</strong><br>Ride date: <strong>[webform_submission:values:ride_date:ride_date]</strong><br>Location:&nbsp;<strong>[webform_submission:node:field_location:entity]</strong><br><br>&nbsp;<a href="[webform_submission:node:url]">Return to ride page</a></p>'
   confirmation_attributes: {  }
   confirmation_back: false
   confirmation_back_label: ''
@@ -236,20 +250,13 @@ handlers:
     conditions: {  }
     weight: 0
     settings: {  }
-  rider_limit:
-    id: settings
-    handler_id: rider_limit
-    label: Rider_limit
+  check_submission_limit_per_source_entity:
+    id: SubmissionLimit
+    handler_id: check_submission_limit_per_source_entity
+    label: 'Check submission limit per source entity.'
     notes: ''
     status: true
     conditions: {  }
     weight: 0
-    settings:
-      debug: false
-      preview_title: ''
-      preview_message: ''
-      confirmation_url: ''
-      confirmation_title: ''
-      confirmation_message: ''
-      entity_limit_total: '[webform_submission:source-entity:field_rider_limit]'
+    settings: {  }
 variants: {  }

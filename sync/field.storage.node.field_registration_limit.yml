@@ -1,13 +1,11 @@
-uuid: 2cd9fe94-348b-450c-b567-8133b661b00f
+uuid: 0461324c-5367-476b-be16-81569eb9d926
 langcode: en
 status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: BSgkVVm0D_Ak8dDKvknNnwxVgeRIGEdXW4jvtHAc-IY
-id: node.field_rider_limit
-field_name: field_rider_limit
+id: node.field_registration_limit
+field_name: field_registration_limit
 entity_type: node
 type: integer
 settings:

@@ -30,10 +30,6 @@ class BikeclubTemplates {
         'template' => 'node--card-row',
         'base hook' => 'node',
       ],
-      'node__card_column' => [
-        'template' => 'node--card-column',
-        'base hook' => 'node',
-      ],
       // Adding 'uri' to variables so its available in paragraph templates.
       'fontawesomeicons' => [
         'variables' => [

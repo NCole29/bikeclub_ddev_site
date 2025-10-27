@@ -38,7 +38,7 @@ class WebformSubmissionAccess implements AccessInterface {
     }
     else {
 
-      // Is user a ride leader for a ride? Or provided access to event/webform submissions?
+      // Grant access if user is a ride leader or provided access to event/webform submissions.
       // Authenticated users must have permission to 'View webform submissions for own node'.
 
       if ($node->hasField('field_ride_leader')) {

@@ -1,22 +1,22 @@
-uuid: 93aef39d-9e9a-499a-95c1-12ea287bc921
+uuid: eed6cd9f-5ae6-4aa3-99c4-b4958b24e182
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.events
+    - views.view.rides_upcoming
   module:
     - system
     - views
   theme:
-    - bikeclub_solo
-id: bikeclub_solo_views_block__events_upcoming_events
-theme: bikeclub_solo
-region: sidebar_second
+    - olivero
+id: olivero_views_block__rides_upcoming_weekend_rides
+theme: olivero
+region: sidebar
 weight: -9
 provider: null
-plugin: 'views_block:events-upcoming_events'
+plugin: 'views_block:rides_upcoming-weekend_rides'
 settings:
-  id: 'views_block:events-upcoming_events'
+  id: 'views_block:rides_upcoming-weekend_rides'
   label: ''
   label_display: visible
   provider: views

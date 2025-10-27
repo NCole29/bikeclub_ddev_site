@@ -6,8 +6,6 @@ dependencies:
     - filter.format.ride_page
   module:
     - ckeditor5
-_core:
-  default_config_hash: M45z0gLkMOWa572g65w-MSRx6V_LBG_2rrD152Z98RI
 format: ride_page
 editor: ckeditor5
 settings:
@@ -23,6 +21,7 @@ settings:
       - alignment
       - link
       - insertTable
+      - drupalMedia
       - blockQuote
       - removeFormat
   plugins:
@@ -41,5 +40,7 @@ settings:
         reversed: true
         startIndex: true
       multiBlock: true
+    media_media:
+      allow_view_mode_override: false
 image_upload:
   status: false

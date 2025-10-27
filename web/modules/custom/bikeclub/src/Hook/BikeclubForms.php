@@ -53,11 +53,17 @@ class BikeclubForms {
           $form['field_rwgps_routes']['widget']['#title'] = 
             "RWGPS Routes - Please enter a <a href='/admin/config/club/rwgps-api'>RWGPS API key</a> to enable this field. The RideTools module is required.";
         }
-
-        // Recurring ride - remove "Add another" date.
+       
         if (in_array($form_id, ['node_recurring_ride_form','node_recurring_ride_edit_form',
                                 'node_recurring_ride_quick_node_clone_form'])) {
+
+          // Remove "Add another" date.
           unset($form['field_datetime']['widget']['add_more']);
+
+          // Change date cardinality so only 1 value is allowed (display is messy otherwise).
+          $form['field_datetime']['widget']['#cardinality'] = 1;
+          $form['field_datetime']['widget']['add_more']['#type'] = 'hidden';
+          $form['field_datetime']['widget'][0]['remove_button']['#type'] = 'hidden';
         }
         break;
 

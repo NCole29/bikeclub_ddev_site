@@ -16,8 +16,6 @@ class RideAccess {
    * Implements hook_ENTITY_TYPE_access().
    * 
    * Allow edit/delete access for ride leaders.
-   * Code is based on the drupal/node_co_authors module.
-   *
    */
   #[Hook('node_access')]
   function nodeAccess(NodeInterface $node, $operation, AccountInterface $account): AccessResultInterface {

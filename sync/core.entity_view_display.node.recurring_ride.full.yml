@@ -14,11 +14,12 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
+    - field.field.node.recurring_ride.field_registration_closing
+    - field.field.node.recurring_ride.field_registration_form
+    - field.field.node.recurring_ride.field_registration_limit
     - field.field.node.recurring_ride.field_registration_required
-    - field.field.node.recurring_ride.field_registration_rideform
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
-    - field.field.node.recurring_ride.field_rider_limit
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
     - image.style.medium_16_9
@@ -254,26 +255,6 @@ third_party_settings:
               items_per_page: 10
             weight: 9
             additional: {  }
-          8ec4d4b9-8905-4345-bd7a-d88bc77d6d7f:
-            uuid: 8ec4d4b9-8905-4345-bd7a-d88bc77d6d7f
-            region: first
-            configuration:
-              id: 'field_block:node:recurring_ride:field_registration_rideform'
-              label: 'Registration form'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_entity_view
-                label: above
-                settings:
-                  source_entity: true
-                  lazy: false
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -370,9 +351,10 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
+  field_registration_closing: true
+  field_registration_form: true
+  field_registration_limit: true
   field_registration_required: true
-  field_registration_rideform: true
   field_results_access: true
-  field_rider_limit: true
   field_rwgps_routes: true
   links: true

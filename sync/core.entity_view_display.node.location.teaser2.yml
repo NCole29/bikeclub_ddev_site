@@ -1,0 +1,61 @@
+uuid: 18c62875-06e8-4e5b-9edb-f77e15f19ec4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser2
+    - field.field.node.location.field_address
+    - field.field.node.location.field_coordinates
+    - field.field.node.location.field_location_info
+    - field.field.node.location.field_location_type
+    - field.field.node.location.field_restrooms
+    - node.type.location
+  module:
+    - address
+    - address_map_link
+    - layout_builder
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: PumLpGNwVD4Tu8KckJXhKwCt6GeuN6xIPaKWhzggxgc
+id: node.location.teaser2
+targetEntityType: node
+bundle: location
+mode: teaser2
+content:
+  field_address:
+    type: address_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings:
+      address_map_link:
+        link_address: true
+        map_link_type: google_maps
+        map_link_position: after
+        map_link_text: 'Google map'
+        map_link_new_window: true
+    weight: 0
+    region: content
+  field_location_info:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_restrooms:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_coordinates: true
+  field_location_type: true
+  links: true

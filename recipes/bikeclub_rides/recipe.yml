@@ -5,6 +5,9 @@ recipes:
   - bikeclub_content_type_base
   - bikeclub_locations
 install:
+  # Core
+  - content_moderation
+  - workflows
   # Contrib.
   - calendar_view
   - datetime
@@ -18,7 +21,6 @@ install:
   - webform_templates
   - webform_ui
   - webform_views
-  - webform_views_extras
   #Custom
   - bikeclub_ride_tools
 config:
@@ -26,7 +28,30 @@ config:
   import:
     smart_date: '*'
   actions:
-    user.role.site_admin:
+    webform.settings:
+      simpleConfigUpdate:
+        default_submission_views:
+          embed_administer:
+            title: 'Administer submissions'
+            view: 'webform_submissions_custom:embed_administer'
+            global_routes:
+              - entity.webform_submission.collection
+            webform_routes: {  }
+            node_routes: {  }
+        default_submission_views_replace:
+          global_routes:
+            - entity.webform_submission.collection
+            - entity.webform_submission.user
+          webform_routes:
+            - entity.webform.results_submissions
+            - entity.webform.user.drafts
+            - entity.webform.user.submissions
+          node_routes:
+            - entity.node.webform.results_submissions
+            - entity.node.webform.user.drafts
+            - entity.node.webform.user.submissions
+        webform_submission_bulk_form: false
+      user.role.site_admin:
       createIfNotExists:
         label: 'Site administrator'
       grantPermissions:

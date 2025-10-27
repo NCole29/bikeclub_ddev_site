@@ -11,11 +11,11 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_registration
-    - field.field.node.event.field_registration_closing_date
+    - field.field.node.event.field_registration_closing
     - field.field.node.event.field_registration_form
-    - field.field.node.event.field_registration_free_form
+    - field.field.node.event.field_registration_limit
     - field.field.node.event.field_registration_link
+    - field.field.node.event.field_registration_type
     - field.field.node.event.field_registrations_visible
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
@@ -39,8 +39,8 @@ third_party_settings:
         layout_id: layout_twocol_section
         layout_settings:
           label: ''
-          column_widths: 33-67
           context_mapping: {  }
+          column_widths: 33-67
         components:
           218b9e8d-04d7-4295-92a7-963860dc7990:
             uuid: 218b9e8d-04d7-4295-92a7-963860dc7990
@@ -103,29 +103,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          8c4f604b-f04f-4a86-9a6c-31272f5c36df:
-            uuid: 8c4f604b-f04f-4a86-9a6c-31272f5c36df
-            region: first
-            configuration:
-              id: 'field_block:node:event:field_registration_free_form'
-              label: 'Registration, Free event webform'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_link
-                label: visually_hidden
-                settings:
-                  label: 'Go to [webform:title] webform'
-                  dialog: narrow
-                  attributes:
-                    class:
-                      - register-button
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           3db4499b-5d38-4f6b-950a-1eb275131a0c:
             uuid: 3db4499b-5d38-4f6b-950a-1eb275131a0c
             region: first
@@ -171,26 +148,6 @@ third_party_settings:
                   target: _blank
                 third_party_settings: {  }
             weight: 6
-            additional: {  }
-          42931c5c-cb93-486b-983b-8cc88f9cc581:
-            uuid: 42931c5c-cb93-486b-983b-8cc88f9cc581
-            region: first
-            configuration:
-              id: 'field_block:node:event:field_registration_closing_date'
-              label: 'Registration will close on'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: long
-                third_party_settings: {  }
-            weight: 7
             additional: {  }
           96c1bacb-553b-4460-96ba-684dcba0a3db:
             uuid: 96c1bacb-553b-4460-96ba-684dcba0a3db
@@ -289,14 +246,6 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  field_registration_free_form:
-    type: webform_entity_reference_entity_view
-    label: above
-    settings:
-      source_entity: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_registration_link:
     type: link
     label: above
@@ -324,8 +273,9 @@ hidden:
   field_date: true
   field_padding: true
   field_page_access: true
-  field_registration: true
-  field_registration_closing_date: true
+  field_registration_closing: true
+  field_registration_limit: true
+  field_registration_type: true
   field_registrations_visible: true
   field_text: true
   field_type_of_page: true

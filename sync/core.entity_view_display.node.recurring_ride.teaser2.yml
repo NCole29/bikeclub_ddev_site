@@ -14,11 +14,12 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
+    - field.field.node.recurring_ride.field_registration_closing
+    - field.field.node.recurring_ride.field_registration_form
+    - field.field.node.recurring_ride.field_registration_limit
     - field.field.node.recurring_ride.field_registration_required
-    - field.field.node.recurring_ride.field_registration_rideform
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
-    - field.field.node.recurring_ride.field_rider_limit
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
     - node.type.recurring_ride
@@ -28,6 +29,7 @@ dependencies:
     - smart_date_recur
     - text
     - user
+    - webform
 third_party_settings:
   layout_builder:
     enabled: true
@@ -142,6 +144,26 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          fcf1c862-3d9c-4328-868a-6461b6ea1a4c:
+            uuid: fcf1c862-3d9c-4328-868a-6461b6ea1a4c
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_registration_form'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: webform_entity_reference_link
+                label: visually_hidden
+                settings:
+                  label: 'Go to [webform:title] webform'
+                  dialog: ''
+                  attributes:
+                    class:
+                      - register-button
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -197,6 +219,18 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  field_registration_form:
+    type: webform_entity_reference_link
+    label: visually_hidden
+    settings:
+      label: 'Go to [webform:title] webform'
+      dialog: ''
+      attributes:
+        class:
+          - register-button
+    third_party_settings: {  }
+    weight: 5
+    region: first
   field_ride_leader:
     type: entity_reference_label
     label: above
@@ -213,10 +247,10 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
+  field_registration_closing: true
+  field_registration_limit: true
   field_registration_required: true
-  field_registration_rideform: true
   field_ride_picture: true
-  field_rider_limit: true
   field_rwgps_routes: true
   field_time: true
   links: true

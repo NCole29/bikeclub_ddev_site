@@ -1,14 +1,12 @@
-uuid: 688145d6-f703-4864-bd7e-38666d3d61c3
+uuid: 9f8356d1-ad99-4dce-b391-85f4aa931dc2
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
     - node
-_core:
-  default_config_hash: 9-v8cjCrQhS7dh-kehvCUZahuLkmVqi2QmdGe19aR8A
-id: node.field_registration_closing_date
-field_name: field_registration_closing_date
+id: node.field_registration_closing
+field_name: field_registration_closing
 entity_type: node
 type: datetime
 settings:

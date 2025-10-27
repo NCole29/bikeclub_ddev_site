@@ -12,7 +12,7 @@ field_name: field_time
 entity_type: node
 bundle: recurring_ride
 label: Time
-description: 'Click "Add another item" to provide multiple starting times as multiple rows of text. '
+description: ''
 required: false
 translatable: false
 default_value: {  }

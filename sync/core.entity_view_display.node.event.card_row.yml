@@ -11,11 +11,11 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_registration
-    - field.field.node.event.field_registration_closing_date
+    - field.field.node.event.field_registration_closing
     - field.field.node.event.field_registration_form
-    - field.field.node.event.field_registration_free_form
+    - field.field.node.event.field_registration_limit
     - field.field.node.event.field_registration_link
+    - field.field.node.event.field_registration_type
     - field.field.node.event.field_registrations_visible
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
@@ -100,17 +100,6 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  field_registration_free_form:
-    type: webform_entity_reference_link
-    label: hidden
-    settings:
-      label: 'Go to [webform:title] webform'
-      dialog: narrow
-      attributes:
-        style: register-button
-    third_party_settings: {  }
-    weight: 6
-    region: content
   field_summary:
     type: text_default
     label: hidden
@@ -128,9 +117,10 @@ hidden:
   field_contact_form: true
   field_contact_person: true
   field_page_access: true
-  field_registration: true
-  field_registration_closing_date: true
+  field_registration_closing: true
+  field_registration_limit: true
   field_registration_link: true
+  field_registration_type: true
   field_registrations_visible: true
   field_text: true
   field_type_of_page: true

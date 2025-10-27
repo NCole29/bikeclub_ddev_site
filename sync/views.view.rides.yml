@@ -2511,7 +2511,7 @@ display:
           empty: false
           content:
             value: "<strong>Before adding a ride with the above links, search to see if it exists.</strong><br>\r\nTo clone existing rides, select Clone under Operations or view the page and Clone. Do not change the ride name unless you are making substantial changes to the ride and routes."
-            format: full_html
+            format: basic_html
           tokenize: false
         result:
           id: result
@@ -4339,7 +4339,7 @@ display:
           empty: false
           content:
             value: "<strong>Before adding a ride with the above links, search to see if it exists.</strong><br>\r\nTo clone existing rides, select Clone under Operations or view the page and Clone. Do not change the ride name unless you are making substantial changes to the ride and routes."
-            format: full_html
+            format: basic_html
           tokenize: false
         result:
           id: result

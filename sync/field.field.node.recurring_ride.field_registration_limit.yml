@@ -1,17 +1,15 @@
-uuid: 00a44470-0547-4ccc-b886-0e45b483d366
+uuid: e3e4b90c-65d7-43c5-b10d-a7b2724c00b8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_rider_limit
+    - field.storage.node.field_registration_limit
     - node.type.recurring_ride
-_core:
-  default_config_hash: 2XgmoccVckARK4T9ECok5HYkwwj3wAXn0AejuJhhwxk
-id: node.recurring_ride.field_rider_limit
-field_name: field_rider_limit
+id: node.recurring_ride.field_registration_limit
+field_name: field_registration_limit
 entity_type: node
 bundle: recurring_ride
-label: 'Rider limit'
+label: 'Registration limit'
 description: ''
 required: false
 translatable: false

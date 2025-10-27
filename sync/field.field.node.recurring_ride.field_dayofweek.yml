@@ -12,7 +12,7 @@ field_name: field_dayofweek
 entity_type: node
 bundle: recurring_ride
 label: 'Day of week'
-description: 'Integer equal to 0 (Sunday) to 6 (Saturday). Field is used to display Weekday and Weekend rides on home page (Rides view), and by Club Schedule module. '
+description: 'Integer equal to 0 (Sunday) to 6 (Saturday). Field is filled programmatically and used to display Weekday and Weekend rides on home page (Rides view), and by Club Schedule module. '
 required: false
 translatable: false
 default_value: {  }

@@ -1,26 +1,25 @@
-uuid: 94ae748d-6dae-4a99-9b9d-430423ce30ef
+uuid: fcf6913b-aedf-4d64-8d1a-7d219c208514
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_rideform
+    - field.storage.node.field_registration_form
     - node.type.recurring_ride
+    - webform.webform.ride_registration
   module:
     - webform
-_core:
-  default_config_hash: OBAHmljmMkY30eZ0ggX5mZOxHhGJlU9AUYqGwe1JrcU
-id: node.recurring_ride.field_registration_rideform
-field_name: field_registration_rideform
+id: node.recurring_ride.field_registration_form
+field_name: field_registration_form
 entity_type: node
 bundle: recurring_ride
 label: 'Registration form'
-description: ''
+description: 'Do not schedule or close the webform for recurring rides because this will close the form for all ride dates.'
 required: false
 translatable: false
 default_value:
   -
-    target_uuid: 21baa292-9cee-4758-848a-8c5723cbb789
-    default_data: ''
+    target_uuid: 617afa87-8967-4a23-a094-938d077b014d
+    default_data: null
     status: open
     open: ''
     close: ''

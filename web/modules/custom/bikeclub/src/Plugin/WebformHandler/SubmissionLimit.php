@@ -5,8 +5,6 @@ namespace Drupal\bikeclub\Plugin\WebformHandler;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\webform\Plugin\WebformHandlerBase;
 use Drupal\webform\WebformSubmissionInterface;
-//use Drupal\webform\WebformSubmissionStorage;
-//use Drupal\webform\Entity\WebformSubmission;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -41,7 +39,7 @@ class SubmissionLimit extends WebformHandlerBase {
   public function postSave(WebformSubmissionInterface $webform_submission, $update = true) {
  
     $source_entity = $webform_submission->getSourceEntity();
-    $limit = $source_entity->get('field_rider_limit')->value;
+    $limit = $source_entity->get('field_registration_limit')->value;
 
     if (empty($limit)) {
       return;
@@ -64,7 +62,7 @@ class SubmissionLimit extends WebformHandlerBase {
       $node = $this->entityTypeManager->getStorage('node')->load($nid); 
     
       // Close the form.
-      $node->field_registration_rideform->status = 'closed';
+      $node->field_registration_form->status = 'closed';
       $node->save();
     }
   }

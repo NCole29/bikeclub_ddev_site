@@ -10,11 +10,11 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_registration
-    - field.field.node.event.field_registration_closing_date
+    - field.field.node.event.field_registration_closing
     - field.field.node.event.field_registration_form
-    - field.field.node.event.field_registration_free_form
+    - field.field.node.event.field_registration_limit
     - field.field.node.event.field_registration_link
+    - field.field.node.event.field_registration_type
     - field.field.node.event.field_registrations_visible
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
@@ -108,11 +108,9 @@ third_party_settings:
         required_fields: true
     group_registration:
       children:
-        - field_registration
-        - field_registration_free_form
-        - field_registration_form
+        - field_registration_type
+        - group_webform
         - field_registration_link
-        - field_registrations_visible
       label: Registration
       region: content
       parent_name: group_tabs
@@ -140,7 +138,25 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: ''
+        description: "Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field.\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding address at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>.</li>"
+        required_fields: true
+    group_webform:
+      children:
+        - field_registration_form
+        - field_registration_limit
+        - field_registrations_visible
+      label: Webform
+      region: content
+      parent_name: group_registration
+      weight: 28
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: "The free event webform saves data to Drupal and does not require CiviCRM.\r\nPaid event webforms are integrated with CiviCRM. See instructions on a paid event webform (<a href=\"/admin/structure/webform\">Webforms</a>) to set or change the price."
         required_fields: true
 _core:
   default_config_hash: fNXy5rQWTep9XGevZWHKHQRYl6GGT8KLvjVWWHCWc8s
@@ -247,25 +263,35 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_registration:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_registration_form:
     type: webform_entity_reference_select
-    weight: 15
+    weight: 28
     region: content
     settings:
       default_data: false
       webforms: {  }
     third_party_settings:
+      conditional_fields: {  }
+  field_registration_limit:
+    type: number
+    weight: 29
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_link:
+    type: link_default
+    weight: 29
+    region: content
+    settings:
+      placeholder_url: 'e.g., /civicrm/event/register?reset=1&id=XX'
+      placeholder_title: 'e.g., Register now'
+    third_party_settings:
       conditional_fields:
-        ac43495c-17bf-4424-a44b-bd474ccaec54:
+        251e96c5-dc0f-46d5-b4d5-e59757ad9cdf:
           entity_type: node
           bundle: event
-          dependee: field_registration
+          dependee: field_registration_type
           settings:
             state: visible
             reset: false
@@ -280,64 +306,15 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
-  field_registration_free_form:
-    type: webform_entity_reference_select
-    weight: 14
+  field_registration_type:
+    type: options_select
+    weight: 27
     region: content
-    settings:
-      default_data: true
-      webforms:
-        - free_event
-    third_party_settings:
-      conditional_fields:
-        7e8ad0e5-2ed9-41ac-86ab-4982c291eeff:
-          entity_type: node
-          bundle: event
-          dependee: field_registration
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                value: '1'
-            effect: show
-            effect_options: {  }
-            selector: ''
-  field_registration_link:
-    type: link_default
-    weight: 16
-    region: content
-    settings:
-      placeholder_url: 'e.g., /civicrm/event/register?reset=1&id=XX'
-      placeholder_title: 'e.g., Register now'
-    third_party_settings:
-      conditional_fields:
-        dd9c8822-ee89-4bf5-8ee2-d6cd148aac8f:
-          entity_type: node
-          bundle: event
-          dependee: field_registration
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                value: '3'
-            effect: show
-            effect_options: {  }
-            selector: ''
+    settings: {  }
+    third_party_settings: {  }
   field_registrations_visible:
     type: entity_reference_autocomplete
-    weight: 17
+    weight: 30
     region: content
     settings:
       match_operator: CONTAINS
@@ -345,25 +322,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        6f534e87-e2a6-4761-89a6-a60b38065675:
-          entity_type: node
-          bundle: event
-          dependee: field_registration
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: AND
-            values_set: 3
-            value: ''
-            values: "1\r\n2"
-            value_form:
-              -
-                value: '1'
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_summary:
     type: text_textarea
     weight: 12
@@ -429,6 +388,34 @@ content:
     settings: {  }
     third_party_settings:
       conditional_fields: {  }
+  group_webform:
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        032af4c0-b16d-49c3-bbd2-5653001f038c:
+          entity_type: node
+          bundle: event
+          dependee: field_registration_type
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
   promote:
     type: boolean_checkbox
     weight: 9
@@ -443,7 +430,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 2
+    weight: 1
     region: content
     settings:
       display_label: true
@@ -483,7 +470,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -492,13 +479,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 7
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
-  field_registration_closing_date: true
+  field_registration_closing: true
   layout_builder__layout: true
   path: true
   publish_on: true

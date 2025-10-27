@@ -13,11 +13,12 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
+    - field.field.node.recurring_ride.field_registration_closing
+    - field.field.node.recurring_ride.field_registration_form
+    - field.field.node.recurring_ride.field_registration_limit
     - field.field.node.recurring_ride.field_registration_required
-    - field.field.node.recurring_ride.field_registration_rideform
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
-    - field.field.node.recurring_ride.field_rider_limit
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
     - node.type.recurring_ride
@@ -53,6 +54,8 @@ third_party_settings:
     group_location_and_routes:
       children:
         - field_location
+        - field_lunch_same
+        - field_lunch_place
         - field_rwgps_routes
         - group_lunch
       label: 'Location and routes'
@@ -73,7 +76,7 @@ third_party_settings:
         - field_additional_information
         - field_ride_picture
         - field_developed_by
-      label: 'Description, picture, additional info'
+      label: Description
       region: content
       parent_name: group_tab_container
       weight: 3
@@ -82,8 +85,9 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
-        description: 'Documents, such as cue sheets, may be added in the description field by clicking the media icon on the editor toolbar.'
+        description: "Documents, such as cue sheets, may be added in the description field by clicking the media icon on the editor toolbar.\r\nUse the additional information field could be used for information that stands out from the general ride description such as (1) directions, (2) parking information, (3) cookout information, (4) road conditions."
         required_fields: true
     group_ride_leader_s_:
       children:
@@ -130,13 +134,12 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         open: true
-        description: "Keep \"Duration = None\" because only the Start date and time are displayed regardless of duration.<br>\r\n<strong>Does start time vary with time of year?</strong> Save the ride, then edit the ride and click <strong>MANAGE INSTANCES</strong> in the Date field to change the time for specific dates. (You must save the ride to generate the string of dates according to the recurring date specifications before you can manage instances.)"
+        description: "Do not fill duration because it is not displayed.\r\n<strong>Does start time vary with time of year?</strong> Save the ride, then edit the ride and click <strong>MANAGE INSTANCES</strong> in the Date field to change the time for specific dates. You must save the ride to generate the string of dates before you can manage instances."
         required_fields: false
     group_lunch:
-      children:
-        - field_lunch_same
-        - field_lunch_place
+      children: {  }
       label: Lunch
       region: hidden
       parent_name: group_location_and_routes
@@ -152,13 +155,12 @@ third_party_settings:
     group_registration:
       children:
         - field_registration_required
-        - field_registration_rideform
-        - field_rider_limit
-        - field_results_access
+        - field_registration_form
+        - field_registration_limit
       label: Registration
-      region: hidden
+      region: content
       parent_name: group_tab_container
-      weight: 5
+      weight: 4
       format_type: tab
       format_settings:
         classes: ''
@@ -190,7 +192,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_datetime:
-    type: smartdate_default
+    type: smartdate_inline
     weight: 10
     region: content
     settings:
@@ -206,7 +208,8 @@ content:
       hide_date: true
       allday: false
       remove_seconds: true
-      duration_overlay: true
+      duration_overlay: false
+      separator: to
     third_party_settings:
       datetimehideseconds:
         hide: true
@@ -248,7 +251,7 @@ content:
     third_party_settings: {  }
   field_lunch_place:
     type: entity_reference_autocomplete
-    weight: 17
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
@@ -277,7 +280,7 @@ content:
             selector: ''
   field_lunch_same:
     type: options_select
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -288,14 +291,7 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_registration_required:
-    type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_registration_rideform:
+  field_registration_form:
     type: webform_entity_reference_select
     weight: 8
     region: content
@@ -305,7 +301,7 @@ content:
         - ride_registration
     third_party_settings:
       conditional_fields:
-        28a7a8c6-5e45-430a-bcbd-9cb681409b0d:
+        28bc496b-ecd0-408b-8622-83e734c4cf8c:
           entity_type: node
           bundle: recurring_ride
           dependee: field_registration_required
@@ -322,6 +318,38 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
+  field_registration_limit:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        77d84086-9ee8-480e-ae2d-4a1ee173c3ec:
+          entity_type: node
+          bundle: recurring_ride
+          dependee: field_registration_required
+          settings:
+            state: visible
+            reset: false
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_registration_required:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_results_access:
     type: entity_reference_autocomplete
     weight: 10
@@ -365,31 +393,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_rider_limit:
-    type: number
-    weight: 9
+  field_rwgps_routes:
+    type: entity_reference_autocomplete
+    weight: 17
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
-    third_party_settings:
-      conditional_fields:
-        e48c16fc-7378-4cba-954d-caef8db7bf64:
-          entity_type: node
-          bundle: recurring_ride
-          dependee: field_registration_required
-          settings:
-            state: visible
-            reset: false
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
+    third_party_settings: {  }
   field_time:
     type: string_textfield
     weight: 9
@@ -442,7 +455,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -450,7 +463,7 @@ hidden:
   created: true
   field_day: true
   field_dayofweek: true
-  field_rwgps_routes: true
+  field_registration_closing: true
   path: true
   promote: true
   publish_on: true

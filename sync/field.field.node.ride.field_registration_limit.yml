@@ -1,17 +1,15 @@
-uuid: 13da4194-0f9c-43dd-9932-61abf519a7da
+uuid: e9590fca-131f-4e16-b345-bdb4178a2086
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_rider_limit
+    - field.storage.node.field_registration_limit
     - node.type.ride
-_core:
-  default_config_hash: co5jcNlOsgZXm8uvKfSqqVvyuBbMUochbS0kAdj1Rxo
-id: node.ride.field_rider_limit
-field_name: field_rider_limit
+id: node.ride.field_registration_limit
+field_name: field_registration_limit
 entity_type: node
 bundle: ride
-label: 'Rider limit'
+label: 'Registration limit'
 description: ''
 required: false
 translatable: false

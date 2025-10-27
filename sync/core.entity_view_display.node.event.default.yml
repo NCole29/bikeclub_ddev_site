@@ -10,11 +10,11 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_registration
-    - field.field.node.event.field_registration_closing_date
+    - field.field.node.event.field_registration_closing
     - field.field.node.event.field_registration_form
-    - field.field.node.event.field_registration_free_form
+    - field.field.node.event.field_registration_limit
     - field.field.node.event.field_registration_link
+    - field.field.node.event.field_registration_type
     - field.field.node.event.field_registrations_visible
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
@@ -92,7 +92,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: full
+                  view_mode: teaser2
                 third_party_settings: {  }
             weight: 3
             additional: {  }
@@ -119,29 +119,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 6
             additional: {  }
-          af9beefb-02bd-438d-9067-5a78e8501f73:
-            uuid: af9beefb-02bd-438d-9067-5a78e8501f73
-            region: first
-            configuration:
-              id: 'field_block:node:event:field_registration_free_form'
-              label: 'Registration, Free event webform'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_link
-                label: visually_hidden
-                settings:
-                  label: 'Register for [webform:title]'
-                  dialog: narrow
-                  attributes:
-                    class:
-                      - register-button
-                third_party_settings: {  }
-            weight: 8
-            additional: {  }
           bb1f35bd-1016-4ab5-a92f-145402ef2b4f:
             uuid: bb1f35bd-1016-4ab5-a92f-145402ef2b4f
             region: first
@@ -166,26 +143,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          e9bcb79c-9d78-4776-8205-baa7a66184cf:
-            uuid: e9bcb79c-9d78-4776-8205-baa7a66184cf
-            region: first
-            configuration:
-              id: 'field_block:node:event:field_registration_closing_date'
-              label: 'Registration closing date'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: long
-                third_party_settings: {  }
-            weight: 9
-            additional: {  }
           e5ac2c91-0a5c-433a-98c2-717cf12db1f4:
             uuid: e5ac2c91-0a5c-433a-98c2-717cf12db1f4
             region: first
@@ -201,11 +158,11 @@ third_party_settings:
                 type: webform_entity_reference_link
                 label: visually_hidden
                 settings:
-                  label: 'Register for [webform:title]'
+                  label: Register
                   dialog: ''
                   attributes:
                     class:
-                      - register-button
+                      - button
                 third_party_settings: {  }
             weight: 7
             additional: {  }
@@ -276,6 +233,46 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 8
+            additional: {  }
+          616d2eee-79e8-4815-bd24-38d3ff344601:
+            uuid: 616d2eee-79e8-4815-bd24-38d3ff344601
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_registration_limit'
+              label: 'Registration limit'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
+          d8269348-9a6d-4ba1-9dd4-2e1a7c4d174f:
+            uuid: d8269348-9a6d-4ba1-9dd4-2e1a7c4d174f
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_registration_closing'
+              label: 'Registration closing date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: date_and_12_hr_time
+                third_party_settings: {  }
+            weight: 12
             additional: {  }
         third_party_settings: {  }
       -
@@ -369,12 +366,14 @@ content:
     third_party_settings: {  }
     weight: 12
     region: first
-  field_registration:
-    type: list_default
+  field_registration_closing:
+    type: datetime_default
     label: above
-    settings: {  }
+    settings:
+      timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    weight: 13
+    weight: 23
     region: first
   field_registration_form:
     type: webform_entity_reference_link
@@ -388,13 +387,21 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_registration_free_form:
-    type: webform_entity_reference_entity_view
+  field_registration_limit:
+    type: number_integer
     label: above
     settings:
-      source_entity: true
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    weight: 16
+    weight: 22
+    region: first
+  field_registration_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
     region: first
   field_registrations_visible:
     type: entity_reference_label
@@ -431,6 +438,5 @@ content:
     weight: 0
     region: content
 hidden:
-  field_registration_closing_date: true
   field_registration_link: true
   layout_builder__layout: true

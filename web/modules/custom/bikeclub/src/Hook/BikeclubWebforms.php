@@ -38,9 +38,8 @@ class BikeclubWebforms {
     //\Drupal::messenger()->addStatus('Form ID: ' . $form_id);
 
     switch ($form_id) {
+      // Shorten the default "delete confirmation" message to make if "friendlier" for users.
       case 'webform_submission_free_event_delete_form':
-        // Shorten the default "delete confirmation" message to make if "friendlier" for users.
-       
         $title = $form['#title']->getArguments('%label');  // Get event title and remove "Submission #XXX".
         $event_name = explode(':',reset($title));
         $form['#title'] = 'Cancel registration for ' . $event_name[0];
@@ -50,6 +49,7 @@ class BikeclubWebforms {
         $form['description'] = NULL;
       break;
 
+      // Warn if renewing membership and user is not logged-in user (can only happen for admins).
       case 'webform_submission_renew_membership_add_form':
         $user = $form['elements']['contact_pagebreak']['civicrm_1_contact_1_contact_existing']['#value'];
 
@@ -59,7 +59,7 @@ class BikeclubWebforms {
       break;
     }
 
-    // Ride registration form_id contains node info, so can't condition on form_id.
+    // Ride registration - populate the form with source_entity info: Ride name and date.
     if ($form_state->getFormObject() instanceof WebformSubmissionForm) {
       $webform_id = $form_state->getFormObject()->getWebform()->id();
 
@@ -71,12 +71,12 @@ class BikeclubWebforms {
           $nid = $source_entity->id();
           $node = $this->entityTypeManager->getStorage('node')->load($nid);
 
-          // Get the ride date to populate the webform.
+          // "Ride" date is singular, get it from the node.
           if ($node->bundle() == 'ride') {
             $date_string = $node->get('field_date')->value; 
           }
+          // "Recurring ride" has multiple dates - get NEXT date from the "ride_dates" View.
           elseif ($node->bundle() == 'recurring_ride') {
-            // View display returns the next ride date for $nid.
             $date_view = $this->entityTypeManager->getStorage('view')->load('ride_dates');
             $view = $this->view_executable->get($date_view);
             $view->setDisplay('register_next_recurring');
