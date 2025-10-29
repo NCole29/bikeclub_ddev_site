@@ -67,8 +67,8 @@ class BikeclubNodes {
         }
 
         // Put webform closing date (default timezone) in node field (UTC) for display. 
-        if ($regType == 1 and !empty($node->field_registration_form->close)) { 
-          $node->field_registration_closing = $this->convert2UTC($node->field_registration_form->close,);
+        if ($regType == 1) { 
+          $node->field_registration_closing = $this->convertWebformDate($node->field_registration_form->close,);
         }
         break;
 
@@ -104,6 +104,14 @@ class BikeclubNodes {
           UpdateRecurDates::addDates($node,0); // 0 = don't add all, just future dates.
         } 
        break;
+
+      // Webform nodes.
+      case 'webform': 
+        // Put webform close date in node field closing.
+        if (!empty($node->field_webform)) { 
+          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close,);
+        }
+        break;
     } 
 
 
@@ -118,9 +126,9 @@ class BikeclubNodes {
           $node->field_registration_closing = NULL;
           $node->field_rider_limit = NULL;
         } 
-        elseif (!empty($node->field_registration_form->close)) { 
+        elseif (!empty($node->field_registration_form)) { 
           // Put webform closing date (default timezone) in node field (UTC) for display. 
-          $node->field_registration_closing = $this->convert2UTC($node->field_registration_form->close,);
+          $node->field_registration_closing = $this->convertWebformDate($node->field_registration_form->close,);
         }
     }
   }
@@ -163,14 +171,19 @@ class BikeclubNodes {
   /**
    * Convert webform date stored in site's default timezone to Drupal date (UTC). 
    */ 
-  public function convert2UTC($webformDate) {
-    // Convert webform date (site default timezone) to UTC timezone.
-    $timezone = $this->config->get('system.date')->get('timezone.default');
-    $datetime = new DrupalDateTime($webformDate, $timezone);
-    $datetime->setTimezone(new \DateTimeZone('UTC'));
+  public function convertWebformDate($webformDate) {
 
-    // Return UTC date in Drupal date string format.
-    return $datetime->format('Y-m-d\TH:i:s');
+    if (empty($webformDate)) {
+      return NULL;
+    } else {
+      // Convert webform date (site default timezone) to UTC timezone.
+      $timezone = $this->config->get('system.date')->get('timezone.default');
+      $datetime = new DrupalDateTime($webformDate, $timezone);
+      $datetime->setTimezone(new \DateTimeZone('UTC'));
+
+      // Return UTC date in Drupal date string format.
+      return $datetime->format('Y-m-d\TH:i:s');
+    }
   }
  
 }

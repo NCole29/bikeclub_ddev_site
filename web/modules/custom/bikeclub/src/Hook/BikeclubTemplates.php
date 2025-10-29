@@ -14,6 +14,14 @@ class BikeclubTemplates {
   #[Hook('theme')]
   public function addTemplates() {
     return [
+      'node__card_row' => [
+        'template' => 'node--card-row',
+        'base hook' => 'node',
+      ],
+      'node__teaser' => [
+        'template' => 'node--teaser',
+        'base hook' => 'node',
+      ],
       'node__teaser2' => [
         'template' => 'node--teaser2',
         'base hook' => 'node',
@@ -26,10 +34,7 @@ class BikeclubTemplates {
         'template' => 'address-plain',
         'base hook' => 'field',
       ],      
-      'node__card_row' => [
-        'template' => 'node--card-row',
-        'base hook' => 'node',
-      ],
+
       // Adding 'uri' to variables so its available in paragraph templates.
       'fontawesomeicons' => [
         'variables' => [

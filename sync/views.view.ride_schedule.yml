@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_activity
+    - field.storage.node.field_location
     - field.storage.node.field_ride_leader
   module:
     - address
@@ -506,6 +508,7 @@ display:
         - url
         - url.query_args
         - user.permissions
+      tags: {  }
   ride_schedule:
     id: ride_schedule
     display_title: 'Ride schedules'
@@ -592,7 +595,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/admin/club_schedule/{{ schedule_id }}/edit?destination=/ride_schedule">{{ field_schedule_date }}</a>'
+            text: '<a href="/admin/bikeclub_ride_tools/{{ schedule_id }}/edit?destination=/ride_schedule">{{ field_schedule_date }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -722,55 +725,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: custom
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<span class="vertical-separator"></span>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
         title:
           id: title
           table: node_field_data
@@ -1343,7 +1297,7 @@ display:
             placeholder: null
           is_grouped: true
           group_info:
-            label: 'Ride scheduled?'
+            label: 'Ride page created?'
             description: ''
             identifier: title
             optional: true
@@ -1394,6 +1348,17 @@ display:
           admin_label: 'field_location: Content'
           plugin_id: standard
           required: false
+        user_id:
+          id: user_id
+          table: club_schedule
+          field: user_id
+          relationship: none
+          group_type: group
+          admin_label: User
+          entity_type: club_schedule
+          entity_field: user_id
+          plugin_id: standard
+          required: false
       group_by: false
       display_description: ''
       header:
@@ -1406,7 +1371,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<h3>Calendar dates joined with non-recurring rides</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n    <li>Assigned ride leader: Use this column to assign ride leaders to dates (by clicking the date) before a ride page is created.</li> \r\n    <li>Run out of calendar dates? The database is populated with 3 years of dates. Add more at <a href=\"/admin/config/club/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.</li>\r\n</details>"
+          content: "<h3>Calendar dates joined with non-recurring rides</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n   <strong>Assigned ride leader:</strong> Click the date to assign a ride leader to a date, thereby creating a line-up of ride leaders before you create ride pages.</br> \r\n    <strong>Run out of calendar dates?</strong> The database is populated with 3 years of dates. Add more at <a href=\"admin/config/bikeclub/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.\r\n</details><p>"
           tokenize: false
       display_extenders: {  }
       path: ride_schedule
@@ -1437,7 +1402,6 @@ display:
         - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.club_schedule.field_schedule_date'
         - 'config:field.storage.node.field_activity'
         - 'config:field.storage.node.field_location'
         - 'config:field.storage.node.field_ride_leader'
@@ -1448,13 +1412,15 @@ display:
     position: 2
     display_options:
       fields:
-        field_schedule_date:
-          id: field_schedule_date
-          table: club_schedule__field_schedule_date
-          field: field_schedule_date
+        schedule_date:
+          id: schedule_date
+          table: club_schedule
+          field: schedule_date
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: club_schedule
+          entity_field: schedule_date
           plugin_id: field
           label: ''
           exclude: false
@@ -1498,13 +1464,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: smartdate_default
+          type: datetime_default
           settings:
             timezone_override: ''
-            format: date_only
-            force_chronological: false
-            add_classes: false
-            time_wrapper: false
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1520,20 +1483,21 @@ display:
         options:
           perm: 'create ride content'
       sorts:
-        field_schedule_date_value:
-          id: field_schedule_date_value
-          table: club_schedule__field_schedule_date
-          field: field_schedule_date_value
+        schedule_date:
+          id: schedule_date
+          table: club_schedule
+          field: schedule_date
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: datetime
+          entity_type: club_schedule
+          entity_field: schedule_date
+          plugin_id: standard
           order: ASC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: second
       filters: {  }
       filter_groups:
         operator: AND
@@ -1543,8 +1507,7 @@ display:
         type: entity_reference
         options:
           search_fields:
-            field_schedule_date: field_schedule_date
-            schedule_id: '0'
+            schedule_date: schedule_date
       row:
         type: entity_reference
         options:
@@ -1569,5 +1532,4 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      tags:
-        - 'config:field.storage.club_schedule.field_schedule_date'
+      tags: {  }

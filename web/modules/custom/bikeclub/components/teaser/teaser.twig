@@ -1,0 +1,20 @@
+{# image is above content for mobile screens and to left otherwise #}
+<article class="teaser">
+  <div class="teaser-container">
+    {% if image %}
+      <div>
+        {{ image}}
+      </div>
+    {% endif %}
+    <div class="teaser-content">
+     <h2 class="teaser-title"><a href="{{ url }}">{{ heading }}</a></h2>
+      {% if date or location %}
+        {{ date }}
+        {{ location }}
+      {% endif %}
+    </div>
+    <div class="teaser-content">
+      {{ content }}
+    </div>
+  </div>
+</article>

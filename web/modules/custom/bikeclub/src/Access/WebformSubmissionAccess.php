@@ -40,14 +40,22 @@ class WebformSubmissionAccess implements AccessInterface {
 
       // Grant access if user is a ride leader or provided access to event/webform submissions.
       // Authenticated users must have permission to 'View webform submissions for own node'.
+      $fields = [
+        'field_ride_leader',
+        'field_registrations_visible',
+        'field_results_visible',
+      ];
 
-      if ($node->hasField('field_ride_leader')) {
-        $allowed_access = array_column($node->field_ride_leader->getValue(), 'target_id');
-      } 
-      elseif ($node->hasField('field_registrations_visible')) {
-        $allowed_access = array_column($node->field_registrations_visible->getValue(), 'target_id');
+      foreach ($fields as $field) {
+        if ($node->hasField($field)) {
+          $allowed_access = array_column($node->$field->getValue(), 'target_id');
+
+          if (empty($allowed_access)) {
+            return; // Stop here if field is on the node and its empty.
+          }
+        } 
       }
-
+     
       if (in_array($account->id(), $allowed_access, TRUE)) {
         $allowedAccess = AccessResult::allowed()
           ->cachePerUser()

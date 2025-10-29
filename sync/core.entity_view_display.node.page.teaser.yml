@@ -14,8 +14,10 @@ dependencies:
     - field.field.node.page.field_text
     - field.field.node.page.field_type_of_page
     - field.field.node.page.layout_builder__layout
+    - image.style.thumbnail_20_7
     - node.type.page
   module:
+    - media
     - text
     - user
 _core:
@@ -25,15 +27,25 @@ targetEntityType: node
 bundle: page
 mode: teaser
 content:
+  banner_image:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail_20_7
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_summary:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
-  banner_image: true
   field_components: true
   field_contact_form: true
   field_contact_person: true
