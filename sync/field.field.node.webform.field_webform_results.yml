@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_results
+    - node.type.webform
+id: node.webform.field_webform_results
+field_name: field_webform_results
+entity_type: node
+bundle: webform
+label: 'Webform submissions are visible to'
+description: "Enter names of members to allow them to view submissions.<br>\r\nDo not add the website coordinator and club president because they have access to all webform results."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        member: member
+        administrator: '0'
+        board: '0'
+        events_coordinator: '0'
+        civicrm: '0'
+        ride_leader: '0'
+        rides_coordinator: '0'
+        content_creator: '0'
+        editor: '0'
+        site_admin: '0'
+    include_anonymous: false
+field_type: entity_reference

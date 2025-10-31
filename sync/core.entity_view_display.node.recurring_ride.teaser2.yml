@@ -14,9 +14,9 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
-    - field.field.node.recurring_ride.field_registration_closing
-    - field.field.node.recurring_ride.field_registration_form
-    - field.field.node.recurring_ride.field_registration_limit
+    - field.field.node.recurring_ride.field_webform_closing
+    - field.field.node.recurring_ride.field_webform
+    - field.field.node.recurring_ride.field_webform_limit
     - field.field.node.recurring_ride.field_registration_required
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
@@ -148,7 +148,7 @@ third_party_settings:
             uuid: fcf1c862-3d9c-4328-868a-6461b6ea1a4c
             region: first
             configuration:
-              id: 'field_block:node:recurring_ride:field_registration_form'
+              id: 'field_block:node:recurring_ride:field_webform'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
@@ -171,8 +171,6 @@ third_party_settings:
           label: ''
         components: {  }
         third_party_settings: {  }
-_core:
-  default_config_hash: p0rsLzDNQRaFQJUoRX4BObHsS5sX4I_FX6n7BRTGrVw
 id: node.recurring_ride.teaser2
 targetEntityType: node
 bundle: recurring_ride
@@ -219,7 +217,7 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_link
     label: visually_hidden
     settings:
@@ -247,8 +245,8 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
-  field_registration_closing: true
-  field_registration_limit: true
+  field_webform_closing: true
+  field_webform_limit: true
   field_registration_required: true
   field_ride_picture: true
   field_rwgps_routes: true

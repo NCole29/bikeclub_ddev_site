@@ -1,14 +1,11 @@
-uuid: 6f487ecd-02f7-433c-af87-e680b03663e0
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - webform
-_core:
-  default_config_hash: 4BFlz_Lr8onSA5RyfBKBPKpgmhEpL8fmt4WhlPr3YW4
-id: node.field_registration_form
-field_name: field_registration_form
+id: node.field_webform
+field_name: field_webform
 entity_type: node
 type: webform
 settings:

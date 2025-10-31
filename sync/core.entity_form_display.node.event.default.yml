@@ -10,12 +10,12 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_registration_closing
-    - field.field.node.event.field_registration_form
-    - field.field.node.event.field_registration_limit
+    - field.field.node.event.field_webform_closing
+    - field.field.node.event.field_webform
+    - field.field.node.event.field_webform_limit
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_registration_type
-    - field.field.node.event.field_registrations_visible
+    - field.field.node.event.field_webform_results
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
     - field.field.node.event.field_type_of_page
@@ -142,9 +142,9 @@ third_party_settings:
         required_fields: true
     group_webform:
       children:
-        - field_registration_form
-        - field_registration_limit
-        - field_registrations_visible
+        - field_webform
+        - field_webform_limit
+        - field_webform_results
       label: Webform
       region: content
       parent_name: group_registration
@@ -158,8 +158,6 @@ third_party_settings:
         open: true
         description: "The free event webform saves data to Drupal and does not require CiviCRM.\r\nPaid event webforms are integrated with CiviCRM. See instructions on a paid event webform (<a href=\"/admin/structure/webform\">Webforms</a>) to set or change the price."
         required_fields: true
-_core:
-  default_config_hash: fNXy5rQWTep9XGevZWHKHQRYl6GGT8KLvjVWWHCWc8s
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -263,7 +261,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_select
     weight: 28
     region: content
@@ -272,7 +270,7 @@ content:
       webforms: {  }
     third_party_settings:
       conditional_fields: {  }
-  field_registration_limit:
+  field_webform_limit:
     type: number
     weight: 29
     region: content
@@ -312,7 +310,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_registrations_visible:
+  field_webform_results:
     type: entity_reference_autocomplete
     weight: 30
     region: content
@@ -485,7 +483,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_registration_closing: true
+  field_webform_closing: true
   layout_builder__layout: true
   path: true
   publish_on: true

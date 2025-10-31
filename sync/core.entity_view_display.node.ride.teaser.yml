@@ -15,9 +15,6 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing
-    - field.field.node.ride.field_registration_form
-    - field.field.node.ride.field_registration_limit
     - field.field.node.ride.field_registration_required
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
@@ -36,8 +33,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-_core:
-  default_config_hash: O4B9jjVtCJsTDlFFwumj_7vbVEbJwzKcNw3i59gJoKw
 id: node.ride.teaser
 targetEntityType: node
 bundle: ride
@@ -123,7 +118,7 @@ content:
     third_party_settings: {  }
     weight: 12
     region: content
-  field_registration_closing:
+  field_webform_closing:
     type: datetime_default
     label: above
     settings:
@@ -132,7 +127,7 @@ content:
     third_party_settings: {  }
     weight: 21
     region: first
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_link
     label: visually_hidden
     settings:
@@ -144,16 +139,7 @@ content:
     third_party_settings: {  }
     weight: 19
     region: first
-  field_registration_free_form:
-    type: webform_entity_reference_entity_view
-    label: above
-    settings:
-      source_entity: true
-      lazy: false
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_registration_limit:
+  field_webform_limit:
     type: number_integer
     label: above
     settings:
@@ -162,26 +148,6 @@ content:
     third_party_settings: {  }
     weight: 20
     region: first
-  field_registration_link:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 15
-    region: content
-  field_results_access:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 16
-    region: content
   field_ride_leader:
     type: entity_reference_label
     label: above

@@ -1,16 +1,15 @@
-uuid: 84453d8d-b786-40c0-af02-818dae14ff46
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_closing
-    - node.type.ride
+    - field.storage.node.field_webform_closing
+    - node.type.recurring_ride
   module:
     - datetime
-id: node.ride.field_registration_closing
-field_name: field_registration_closing
+id: node.recurring_ride.field_webform_closing
+field_name: field_webform_closing
 entity_type: node
-bundle: ride
+bundle: recurring_ride
 label: 'Registration closing date'
 description: "Use the the registration form's webform settings to schedule open and close dates. This field is programmatically filled with the webform settings close date, if filled, and displayed on the webpage."
 required: false

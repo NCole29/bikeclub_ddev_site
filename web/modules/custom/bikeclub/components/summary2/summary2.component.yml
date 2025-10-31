@@ -1,5 +1,5 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
-name: teaser
+name: summary2
 description: Teasers arranged in rows.
 props:
   type: object
@@ -10,15 +10,21 @@ props:
     url:
       type: string
       title: URL
-    image:
-      type: string
-      label: The image URL or data.
     date:
       type: string
       label: Date
     location:
       type: string
-      title: URL
+      title: Location
+    webform:
+      type: string
+      title: Register
+    contact:
+      type: string
+      title: 'Contact form'
+    contactp:
+      type: string
+      title: 'Contact person'
 slots:
-  content:
-    title: Content
+  summary:
+    title: 'Summary for home page'

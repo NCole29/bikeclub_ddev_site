@@ -14,9 +14,9 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing
-    - field.field.node.ride.field_registration_form
-    - field.field.node.ride.field_registration_limit
+    - field.field.node.ride.field_webform_closing
+    - field.field.node.ride.field_webform
+    - field.field.node.ride.field_webform_limit
     - field.field.node.ride.field_registration_required
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
@@ -235,7 +235,7 @@ third_party_settings:
             uuid: cf3b2d67-20b8-4fbc-a8e3-eafd20a836fd
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_form'
+              id: 'field_block:node:ride:field_webform'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
@@ -255,16 +255,13 @@ third_party_settings:
             uuid: 30f53726-0284-4b04-bdf0-5e2b693512b1
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_limit'
-              label: 'Registration limit'
+              id: 'field_block:node:ride:field_webform_limit'
               label_display: '0'
-              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
-                view_mode: view_mode
               formatter:
                 type: number_integer
-                label: inline
+                label: above
                 settings:
                   thousand_separator: ''
                   prefix_suffix: true
@@ -275,39 +272,18 @@ third_party_settings:
             uuid: 1077d5cc-05b7-46f0-a456-6531a1b3f82c
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_closing'
-              label: 'Registration closing date'
+              id: 'field_block:node:ride:field_webform_closing'
               label_display: '0'
-              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
-                view_mode: view_mode
               formatter:
                 type: datetime_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format_type: date_and_12_hr_time
+                  format_type: medium
                 third_party_settings: {  }
             weight: 7
-            additional: {  }
-          527566e6-f81e-4d30-9f4e-10c0f83871fa:
-            uuid: 527566e6-f81e-4d30-9f4e-10c0f83871fa
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_schedule_date'
-              label: 'Schedule date'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_id
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 8
             additional: {  }
         third_party_settings: {  }
       -
@@ -316,8 +292,6 @@ third_party_settings:
           label: ''
         components: {  }
         third_party_settings: {  }
-_core:
-  default_config_hash: O4B9jjVtCJsTDlFFwumj_7vbVEbJwzKcNw3i59gJoKw
 id: node.ride.default
 targetEntityType: node
 bundle: ride
@@ -396,14 +370,7 @@ content:
     third_party_settings: {  }
     weight: 18
     region: content
-  field_registration:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_registration_closing:
+  field_webform_closing:
     type: datetime_default
     label: above
     settings:
@@ -412,7 +379,7 @@ content:
     third_party_settings: {  }
     weight: 21
     region: first
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_link
     label: visually_hidden
     settings:
@@ -424,16 +391,7 @@ content:
     third_party_settings: {  }
     weight: 19
     region: first
-  field_registration_free_form:
-    type: webform_entity_reference_entity_view
-    label: above
-    settings:
-      source_entity: true
-      lazy: false
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_registration_limit:
+  field_webform_limit:
     type: number_integer
     label: above
     settings:
@@ -442,26 +400,6 @@ content:
     third_party_settings: {  }
     weight: 20
     region: first
-  field_registration_link:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 15
-    region: content
-  field_results_access:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 16
-    region: content
   field_ride_leader:
     type: entity_reference_label
     label: above

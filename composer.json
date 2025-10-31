@@ -68,6 +68,7 @@
         "drupal/devel": "^5.4",
         "drupal/devel_kint_extras": "^1.1",
         "drupal/diff": "^1.8",
+        "drupal/dxpr_theme": "^8.0@RC",
         "drupal/entity_browser": "^2.0",
         "drupal/entity_reference_revisions": "^1.0",
         "drupal/faqfield": "^8.0",

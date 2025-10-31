@@ -22,13 +22,16 @@ h1.page-title-text {
 /* Fix layout builder region overlap */ 
 .layout--twocol-section > .layout__region {
   flex: 0 1 100%;
-  padding:  1rem!important;
+  padding: 0 1rem 0 1rem!important;
 }
 
-/* Title of items in Views list (e.g., upcoming rides & events) */
+/* TEASERS */
 .views-field-title a {
   font-weight: bold;
 }
+hr {
+  margin-block: 0;
+} 
 
 /* Add bold and larger size */
 label, .field__label {

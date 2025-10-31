@@ -1,14 +1,13 @@
-uuid: e3e4b90c-65d7-43c5-b10d-a7b2724c00b8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_limit
-    - node.type.recurring_ride
-id: node.recurring_ride.field_registration_limit
-field_name: field_registration_limit
+    - field.storage.node.field_webform_limit
+    - node.type.ride
+id: node.ride.field_webform_limit
+field_name: field_webform_limit
 entity_type: node
-bundle: recurring_ride
+bundle: ride
 label: 'Registration limit'
 description: ''
 required: false

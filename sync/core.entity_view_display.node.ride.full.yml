@@ -15,9 +15,9 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing
-    - field.field.node.ride.field_registration_form
-    - field.field.node.ride.field_registration_limit
+    - field.field.node.ride.field_webform_closing
+    - field.field.node.ride.field_webform
+    - field.field.node.ride.field_webform_limit
     - field.field.node.ride.field_registration_required
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
@@ -201,11 +201,15 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: datetime_default
+                type: smartdate_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format_type: ride_date
+                  format: day_and_date
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: false
+                  localize: false
                 third_party_settings: {  }
             weight: 8
             additional: {  }
@@ -259,69 +263,6 @@ third_party_settings:
               items_per_page: null
             weight: 14
             additional: {  }
-          e26bb22d-3ea7-40ba-8fe9-9ae63435c0ae:
-            uuid: e26bb22d-3ea7-40ba-8fe9-9ae63435c0ae
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_registration_form'
-              label: 'Registration form'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_link
-                label: visually_hidden
-                settings:
-                  label: Register
-                  dialog: ''
-                  attributes:
-                    class:
-                      - button
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          4ca13916-5bb6-44ce-bfb3-e40e9431f96c:
-            uuid: 4ca13916-5bb6-44ce-bfb3-e40e9431f96c
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_registration_limit'
-              label: 'Registration limit'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_integer
-                label: inline
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: false
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
-          42fe2f80-9b90-4721-8b9b-872eb4d3d5ed:
-            uuid: 42fe2f80-9b90-4721-8b9b-872eb4d3d5ed
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_registration_closing'
-              label: 'Registration closing date'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: date_and_12_hr_time
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -342,8 +283,6 @@ third_party_settings:
             weight: 0
             additional: {  }
         third_party_settings: {  }
-_core:
-  default_config_hash: Fjzr3h6ObGt-Nnc0uLKEsKCR3nRVxc_aeH-L_C9R0io
 id: node.ride.full
 targetEntityType: node
 bundle: ride
@@ -415,11 +354,10 @@ hidden:
   field_lunch_same: true
   field_multiple_times: true
   field_nonmembers: true
-  field_registration_closing: true
-  field_registration_form: true
-  field_registration_limit: true
+  field_webform_closing: true
+  field_webform: true
+  field_webform_limit: true
   field_registration_required: true
-  field_results_access: true
   field_ride_picture: true
   field_rwgps_routes: true
   field_schedule_date: true

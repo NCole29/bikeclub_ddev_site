@@ -40,21 +40,15 @@ class SubmissionLimit extends WebformHandlerBase {
  
     $source_entity = $webform_submission->getSourceEntity();
 
-    $fields = [
-      'field_registration_limit',
-      'field_webform_limit',
-    ];
-    foreach ($fields as $field) {
-      if ($source_entity->has($field)) {
-        $limit = $source_entity->get($field)->value;
-      }
+    if ($source_entity->has('field_webform_limit')) {
+      $limit = $source_entity->get('field_webform_limit')->value;
     }
 
     if (empty($limit)) {
       return;
     }
 
-    // Get webform and node IDs.
+    // Get webform ID and node ID.
     $webform_id = $webform_submission->getWebform()->id(); 
     $nid = $source_entity->get('nid')->value;
       
@@ -72,7 +66,7 @@ class SubmissionLimit extends WebformHandlerBase {
       $node = $this->entityTypeManager->getStorage('node')->load($nid); 
     
       // Close the form.
-      $node->field_registration_form->status = 'closed';
+      $node->field_webform->status = 'closed';
       $node->save();
     }
   }

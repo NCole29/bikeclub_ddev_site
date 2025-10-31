@@ -14,9 +14,9 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
-    - field.field.node.recurring_ride.field_registration_closing
-    - field.field.node.recurring_ride.field_registration_form
-    - field.field.node.recurring_ride.field_registration_limit
+    - field.field.node.recurring_ride.field_webform_closing
+    - field.field.node.recurring_ride.field_webform
+    - field.field.node.recurring_ride.field_webform_limit
     - field.field.node.recurring_ride.field_registration_required
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
@@ -31,7 +31,7 @@ targetEntityType: node
 bundle: recurring_ride
 mode: card_row
 content:
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_link
     label: hidden
     settings:
@@ -58,8 +58,8 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
-  field_registration_closing: true
-  field_registration_limit: true
+  field_webform_closing: true
+  field_webform_limit: true
   field_registration_required: true
   field_ride_leader: true
   field_ride_picture: true

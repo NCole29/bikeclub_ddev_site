@@ -1,0 +1,15 @@
+{# image is above content for mobile screens and to left otherwise #}
+<article class="summary">
+  <div class="summary-container">
+    <div class="summary-content">
+     <h2 class="summary-title"><a href="{{ url }}">{{ heading }}</a></h2>
+      {% if date or location %}
+        {{ date }}
+        {{ location }}
+      {% endif %}
+    </div>
+    <div class="summary-content" style="display:inline-block;">
+      {{ content }}
+    </div>
+  </div>
+</article>

@@ -1,17 +1,14 @@
-uuid: d51a1e92-66a5-4032-85c1-26bc06489ec7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_form
+    - field.storage.node.field_webform
     - node.type.event
     - webform.webform.free_event
   module:
     - webform
-_core:
-  default_config_hash: GWA6ZHoaomMv-trtoNV9iMN7oSWq7Z7Fo6AgGiFuWEs
-id: node.event.field_registration_form
-field_name: field_registration_form
+id: node.event.field_webform
+field_name: field_webform
 entity_type: node
 bundle: event
 label: 'Registration form'

@@ -1,15 +1,14 @@
-uuid: fcf6913b-aedf-4d64-8d1a-7d219c208514
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_form
+    - field.storage.node.field_webform
     - node.type.recurring_ride
     - webform.webform.ride_registration
   module:
     - webform
-id: node.recurring_ride.field_registration_form
-field_name: field_registration_form
+id: node.recurring_ride.field_webform
+field_name: field_webform
 entity_type: node
 bundle: recurring_ride
 label: 'Registration form'

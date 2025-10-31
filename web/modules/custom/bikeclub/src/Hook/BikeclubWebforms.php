@@ -92,7 +92,7 @@ class BikeclubWebforms {
           $date_time = new DrupalDateTime($date_string, $timezone);
           $timestamp = $date_time->getTimestamp();
 
-          // "ride_date" is displayed on form. Numeric "date" is saved to database (to enable sorting).
+          // $ride_date is displayed on form. $date is saved to database in format to enable sorting.
           $ride_date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'l, F j, Y \a\t H:i');
           $date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'Y-m-d');
 

@@ -14,9 +14,9 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing
-    - field.field.node.ride.field_registration_form
-    - field.field.node.ride.field_registration_limit
+    - field.field.node.ride.field_webform_closing
+    - field.field.node.ride.field_webform
+    - field.field.node.ride.field_webform_limit
     - field.field.node.ride.field_registration_required
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
@@ -127,8 +127,8 @@ third_party_settings:
     group_registration:
       children:
         - field_registration_required
-        - field_registration_form
-        - field_registration_limit
+        - field_webform
+        - field_webform_limit
       label: Registration
       region: content
       parent_name: group_ta
@@ -142,8 +142,6 @@ third_party_settings:
         open: false
         description: "A registration link is shown on the ride page. Use this if a count of riders is required.\r\nRegistrations are visible to the ride leader(s) for this ride, and the rides coordinators."
         required_fields: true
-_core:
-  default_config_hash: bPtH50RMEO_zLFys8aE_c5gB24TD2STU3W8PbA7nAj4
 id: node.ride.default
 targetEntityType: node
 bundle: ride
@@ -249,7 +247,7 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_select
     weight: 30
     region: content
@@ -276,7 +274,7 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
-  field_registration_limit:
+  field_webform_limit:
     type: number
     weight: 32
     region: content
@@ -396,7 +394,7 @@ hidden:
   field_cancel: true
   field_day: true
   field_dayofweek: true
-  field_registration_closing: true
+  field_webform_closing: true
   field_schedule_date: true
   path: true
   promote: true

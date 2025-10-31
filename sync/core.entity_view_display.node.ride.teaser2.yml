@@ -15,9 +15,9 @@ dependencies:
     - field.field.node.ride.field_lunch_place
     - field.field.node.ride.field_lunch_same
     - field.field.node.ride.field_multiple_times
-    - field.field.node.ride.field_registration_closing
-    - field.field.node.ride.field_registration_form
-    - field.field.node.ride.field_registration_limit
+    - field.field.node.ride.field_webform_closing
+    - field.field.node.ride.field_webform
+    - field.field.node.ride.field_webform_limit
     - field.field.node.ride.field_registration_required
     - field.field.node.ride.field_ride_leader
     - field.field.node.ride.field_ride_picture
@@ -164,7 +164,7 @@ third_party_settings:
             uuid: a528fd15-26b4-40f7-b5ca-f214d4cd381b
             region: first
             configuration:
-              id: 'field_block:node:ride:field_registration_form'
+              id: 'field_block:node:ride:field_webform'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
@@ -187,8 +187,6 @@ third_party_settings:
           label: ''
         components: {  }
         third_party_settings: {  }
-_core:
-  default_config_hash: 7eIaISgPjgp_mRvs8RD2lHR83pimd5aGzqcJJ8p1ScY
 id: node.ride.teaser2
 targetEntityType: node
 bundle: ride
@@ -219,7 +217,7 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_registration_form:
+  field_webform:
     type: webform_entity_reference_link
     label: visually_hidden
     settings:
@@ -249,11 +247,8 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
-  field_registration: true
-  field_registration_closing: true
-  field_registration_free_form: true
-  field_registration_limit: true
-  field_registration_link: true
+  field_webform_closing: true
+  field_webform_limit: true
   field_registration_required: true
   field_results_access: true
   field_ride_picture: true

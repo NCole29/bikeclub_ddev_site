@@ -1,0 +1,47 @@
+uuid: 13faf5af-429f-44ad-8a62-19ada031c553
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser2
+    - field.field.node.webform.banner_image
+    - field.field.node.webform.field_components
+    - field.field.node.webform.field_page_access
+    - field.field.node.webform.field_webform_closing
+    - field.field.node.webform.field_summary
+    - field.field.node.webform.field_text
+    - field.field.node.webform.field_type_of_page
+    - field.field.node.webform.field_webform
+    - field.field.node.webform.layout_builder__layout
+    - node.type.webform
+  module:
+    - datetime
+    - user
+id: node.webform.teaser2
+targetEntityType: node
+bundle: webform
+mode: teaser2
+content:
+  field_webform_closing:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  banner_image: true
+  field_components: true
+  field_page_access: true
+  field_summary: true
+  field_text: true
+  field_type_of_page: true
+  layout_builder__layout: true
+  field_webform: true

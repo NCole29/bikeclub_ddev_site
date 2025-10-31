@@ -42,8 +42,7 @@ class WebformSubmissionAccess implements AccessInterface {
       // Authenticated users must have permission to 'View webform submissions for own node'.
       $fields = [
         'field_ride_leader',
-        'field_registrations_visible',
-        'field_results_visible',
+        'field_webform_results',
       ];
 
       foreach ($fields as $field) {

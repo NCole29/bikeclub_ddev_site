@@ -18,14 +18,14 @@ class BikeclubTemplates {
         'template' => 'node--card-row',
         'base hook' => 'node',
       ],
-      'node__teaser' => [
-        'template' => 'node--teaser',
+      'node__summary' => [
+        'template' => 'node--summary',
         'base hook' => 'node',
       ],
-      'node__teaser2' => [
-        'template' => 'node--teaser2',
+      'node__summary_2' => [
+        'template' => 'node--summary-2',
         'base hook' => 'node',
-      ],
+      ],  
       'field__address' => [
         'template' => 'field--address',
         'base hook' => 'field',
@@ -34,7 +34,6 @@ class BikeclubTemplates {
         'template' => 'address-plain',
         'base hook' => 'field',
       ],      
-
       // Adding 'uri' to variables so its available in paragraph templates.
       'fontawesomeicons' => [
         'variables' => [

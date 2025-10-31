@@ -1,19 +1,18 @@
-uuid: 0461324c-5367-476b-be16-81569eb9d926
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_registration_limit
-field_name: field_registration_limit
+    - user
+id: node.field_webform_results
+field_name: field_webform_results
 entity_type: node
-type: integer
+type: entity_reference
 settings:
-  unsigned: false
-  size: normal
+  target_type: user
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

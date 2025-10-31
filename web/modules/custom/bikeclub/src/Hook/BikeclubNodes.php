@@ -47,6 +47,11 @@ class BikeclubNodes {
       $this->renameImages->fixBanners($node);
     }
 
+    // Clear personal contact form if selection has changed.
+    if ($node->hasField('field_contact_form')  & $node->field_contact_form->target_id <> 'personal') {
+      unset($node->field_contact_person);
+    }    
+
     // CODE PER CONTENT TYPE.
     // Conditional_fields module does not "zero out" entity reference fields so it's done here.
     $node_type = $node->bundle();
@@ -57,18 +62,18 @@ class BikeclubNodes {
 
         // Clear registration values when updated.
         //  (Conditional fields module doesn't do this for entity reference fields.)
-        if ($regType <> 1) { // 1 = webform
-          unset($node->field_registration_closing);
-          unset($node->field_registration_form);
-          unset($node->field_registration_limit);
-          unset($node->field_registration_visible);
-        } elseif ($regType <> 2) { // 2 = link
+        if ($regType <> 1) {       // 1 = webform
+          unset($node->field_webform);
+          unset($node->field_webform_closing);
+          unset($node->field_webform_limit);
+          unset($node->field_webform_results);
+        } elseif ($regType <> 2) {   // 2 = link
           unset($node->field_registration_link);
         }
 
-        // Put webform closing date (default timezone) in node field (UTC) for display. 
-        if ($regType == 1) { 
-          $node->field_registration_closing = $this->convertWebformDate($node->field_registration_form->close,);
+        // Save webform closing date in Drupal field for display.
+        if ($regType == 1 && !empty($node->field_webform) && !empty($node->field_webform->close)) { 
+          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close);
         }
         break;
 
@@ -122,13 +127,13 @@ class BikeclubNodes {
 
         // Clear the registration fields upon update.
         if ($node->field_registration_required->value == 0) {
-          $node->field_registration_form = NULL;
-          $node->field_registration_closing = NULL;
-          $node->field_rider_limit = NULL;
+          $node->field_webform = NULL;
+          $node->field_webform_closing = NULL;
+          $node->field_webform_limit = NULL;
         } 
-        elseif (!empty($node->field_registration_form)) { 
-          // Put webform closing date (default timezone) in node field (UTC) for display. 
-          $node->field_registration_closing = $this->convertWebformDate($node->field_registration_form->close,);
+        elseif (!empty($node->field_webform) && !empty($node->field_webform->close)) { 
+          // Save webform closing date in Drupal field for display.
+          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close);
         }
     }
   }
@@ -173,17 +178,11 @@ class BikeclubNodes {
    */ 
   public function convertWebformDate($webformDate) {
 
-    if (empty($webformDate)) {
-      return NULL;
-    } else {
-      // Convert webform date (site default timezone) to UTC timezone.
-      $timezone = $this->config->get('system.date')->get('timezone.default');
-      $datetime = new DrupalDateTime($webformDate, $timezone);
-      $datetime->setTimezone(new \DateTimeZone('UTC'));
+    $timezone = $this->config->get('system.date')->get('timezone.default');
+    $datetime = new DrupalDateTime($webformDate, $timezone);
+    $datetime->setTimezone(new \DateTimeZone('UTC'));
 
-      // Return UTC date in Drupal date string format.
-      return $datetime->format('Y-m-d\TH:i:s');
-    }
+    return $datetime->format('Y-m-d\TH:i:s');
   }
  
 }

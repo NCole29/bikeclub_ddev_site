@@ -1,12 +1,11 @@
-uuid: 9f8356d1-ad99-4dce-b391-85f4aa931dc2
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
     - node
-id: node.field_registration_closing
-field_name: field_registration_closing
+id: node.field_webform_closing
+field_name: field_webform_closing
 entity_type: node
 type: datetime
 settings:
