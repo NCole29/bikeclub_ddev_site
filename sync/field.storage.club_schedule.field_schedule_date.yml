@@ -1,17 +1,17 @@
-uuid: fee60199-1fd7-4a21-9b65-a71fe65d70e4
+uuid: 3e6cb16f-4c54-4179-a940-22551f889a86
 langcode: en
 status: true
 dependencies:
   module:
     - bikeclub_ride_tools
-    - node
-id: node.field_schedule_date
+    - datetime
+id: club_schedule.field_schedule_date
 field_name: field_schedule_date
-entity_type: node
-type: entity_reference
+entity_type: club_schedule
+type: datetime
 settings:
-  target_type: club_schedule
-module: core
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

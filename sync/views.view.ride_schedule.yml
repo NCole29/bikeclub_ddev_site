@@ -1,8 +1,9 @@
-uuid: 4076df6b-f5d1-4233-8164-ed794b9c843d
+uuid: a56b599a-9b70-43d6-9de1-8f73deca7b08
 langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.club_schedule.field_schedule_date
     - field.storage.node.field_activity
     - field.storage.node.field_location
     - field.storage.node.field_ride_leader
@@ -11,7 +12,6 @@ dependencies:
     - bikeclub_ride_tools
     - datetime
     - node
-    - smart_date
     - user
 id: ride_schedule
 label: 'Ride schedule'
@@ -29,15 +29,15 @@ display:
     display_options:
       title: 'Friday schedule'
       fields:
-        schedule_id:
-          id: schedule_id
+        id:
+          id: id
           table: club_schedule
-          field: schedule_id
+          field: id
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: club_schedule
-          entity_field: schedule_id
+          entity_field: id
           plugin_id: field
           label: 'Schedule date ID'
           exclude: true
@@ -173,7 +173,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/admin/club_schedule/{{ schedule_id }}/edit?destination=/admin/structure/views/view/schedule_ride_dates/preview/sunday_schedule%3F_wrapper_format%3Ddrupal_ajax">{{ field_schedule_date }}</a>'
+            text: '<a href="/admin/club_schedule/{{id }}/edit?destination=/admin/structure/views/view/schedule_ride_dates/preview/sunday_schedule%3F_wrapper_format%3Ddrupal_ajax">{{ field_schedule_date }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -388,7 +388,7 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            schedule_id: schedule_id
+            id: id
             field_schedule_date: field_schedule_date
             ride_leader: ride_leader
             nothing: nothing
@@ -401,7 +401,7 @@ display:
             operations: operations
           default: '-1'
           info:
-            schedule_id:
+            id:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -505,7 +505,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.permissions
       tags: {  }
@@ -517,18 +516,16 @@ display:
     display_options:
       title: 'Ride Schedules'
       fields:
-        schedule_id:
-          id: schedule_id
-          table: club_schedule
-          field: schedule_id
+        field_schedule_date_1:
+          id: field_schedule_date_1
+          table: club_schedule__field_schedule_date
+          field: field_schedule_date
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: club_schedule
-          entity_field: schedule_id
           plugin_id: field
-          label: 'Schedule date ID'
-          exclude: true
+          label: 'Schedule date'
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -560,7 +557,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -569,87 +566,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_schedule_date:
-          id: field_schedule_date
-          table: club_schedule
-          field: schedule_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Calendar date'
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="/admin/bikeclub_ride_tools/{{ schedule_id }}/edit?destination=/ride_schedule">{{ field_schedule_date }}</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_default
+          type: datetime_default
           settings:
             timezone_override: ''
-            format: date_only
-            force_chronological: false
-            add_classes: false
-            time_wrapper: false
-            localize: false
-            parts:
-              start: start
-              end: end
-              duration: '0'
-            duration:
-              separator: ' | '
-              unit: ''
-              decimals: 2
-              suffix: h
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1151,6 +1071,7 @@ display:
         type: perm
         options:
           perm: 'create ride content'
+      arguments: {  }
       filters:
         weekday:
           id: weekday
@@ -1221,10 +1142,10 @@ display:
                 title: Saturday
                 operator: '='
                 value: Saturday
-        schedule_date:
-          id: schedule_date
-          table: club_schedule
-          field: schedule_date
+        field_schedule_date_value:
+          id: field_schedule_date_value
+          table: club_schedule__field_schedule_date
+          field: field_schedule_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1233,7 +1154,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '2023'
+            value: ''
             type: date_year
           group: 1
           exposed: true
@@ -1247,7 +1168,7 @@ display:
             operator_list: {  }
             identifier: field_schedule_date_value
             required: false
-            remember: true
+            remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -1276,14 +1197,14 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: title_op
-            label: Title
-            description: null
+            label: 'Ride name'
+            description: ''
             use_operator: false
             operator: title_op
             operator_limit_selection: false
@@ -1294,27 +1215,19 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
-          is_grouped: true
+            placeholder: ''
+          is_grouped: false
           group_info:
-            label: 'Ride page created?'
+            label: ''
             description: ''
-            identifier: title
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: 'Yes'
-                operator: 'not empty'
-                value: ''
-              2:
-                title: 'No'
-                operator: empty
-                value: ''
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1325,6 +1238,7 @@ display:
         group_by: false
         relationships: false
         fields: false
+        arguments: false
         filters: false
         filter_groups: false
         header: false
@@ -1402,6 +1316,7 @@ display:
         - url.query_args
         - user.permissions
       tags:
+        - 'config:field.storage.club_schedule.field_schedule_date'
         - 'config:field.storage.node.field_activity'
         - 'config:field.storage.node.field_location'
         - 'config:field.storage.node.field_ride_leader'
@@ -1412,15 +1327,13 @@ display:
     position: 2
     display_options:
       fields:
-        schedule_date:
-          id: schedule_date
-          table: club_schedule
-          field: schedule_date
+        field_schedule_date:
+          id: field_schedule_date
+          table: club_schedule__field_schedule_date
+          field: field_schedule_date
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: club_schedule
-          entity_field: schedule_date
           plugin_id: field
           label: ''
           exclude: false
@@ -1482,22 +1395,7 @@ display:
         type: perm
         options:
           perm: 'create ride content'
-      sorts:
-        schedule_date:
-          id: schedule_date
-          table: club_schedule
-          field: schedule_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: club_schedule
-          entity_field: schedule_date
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
+      sorts: {  }
       filters: {  }
       filter_groups:
         operator: AND
@@ -1507,7 +1405,7 @@ display:
         type: entity_reference
         options:
           search_fields:
-            schedule_date: schedule_date
+            field_schedule_date: field_schedule_date
       row:
         type: entity_reference
         options:
@@ -1532,4 +1430,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.club_schedule.field_schedule_date'

@@ -301,6 +301,22 @@ third_party_settings:
               items_per_page: null
             weight: 7
             additional: {  }
+          9f205e62-a851-4c8d-9853-3fb13d7bc18c:
+            uuid: 9f205e62-a851-4c8d-9853-3fb13d7bc18c
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_schedule_date'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -414,6 +430,14 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
+  field_schedule_date:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: first
   field_time:
     type: string
     label: above
@@ -459,5 +483,4 @@ hidden:
   field_registration_required: true
   field_ride_picture: true
   field_rwgps_routes: true
-  field_schedule_date: true
   links: true

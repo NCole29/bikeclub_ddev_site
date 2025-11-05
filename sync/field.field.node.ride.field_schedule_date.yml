@@ -1,20 +1,18 @@
-uuid: 93e389b9-8d5c-4220-8fa0-4c50d0d0df1f
+uuid: 2fa70142-0f01-4a43-aa89-8ce49945a357
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_schedule_date
     - node.type.ride
-_core:
-  default_config_hash: 1rBchiyFcSd41THhT8OotshXnMyzSSE0s_9KfAL9QE8
 id: node.ride.field_schedule_date
 field_name: field_schedule_date
 entity_type: node
 bundle: ride
 label: 'Schedule date'
-description: 'Field is hidden and filled automatically (see bikeclub_ride_tools/src/Hook/RideNodes.php) by matching the ride date with the "Schedule of ride dates" (custom entity) to provide a link with the schedule. '
+description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
