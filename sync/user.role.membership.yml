@@ -1,11 +1,23 @@
 uuid: 79a094f9-9924-4c90-83fc-9c938d08034f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - bikeclub_ride_tools
+    - media
+    - system
+    - toolbar
 _core:
   default_config_hash: 923VnUcziSj_6yd76UnD87l9i0EugeGQMviMZ_L1gWk
 id: membership
 label: 'Membership Coordinator'
 weight: 4
 is_admin: false
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access toolbar'
+  - 'create media'
+  - 'enter waivers'
+  - 'view own unpublished media'
+  - 'view the administration theme'
+  - 'view user email addresses'

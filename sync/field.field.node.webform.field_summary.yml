@@ -1,9 +1,10 @@
+uuid: ace28969-d2c0-4fe8-a0d8-9e0ff2fdf8b4
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_summary
-    - filter.format.summary_fields    
+    - filter.format.summary_fields
     - node.type.webform
   module:
     - text
@@ -12,7 +13,7 @@ field_name: field_summary
 entity_type: node
 bundle: webform
 label: 'Summary for home page'
-description: "Summary should be brief, but there is no character limit.<br>\r\nClick media icon to insert images. \"Edit media\" to select image alignment. Images are displayed at thumbnail size. To add text before or after an image, hover cursor over the media box and click the red arrows."
+description: ''
 required: false
 translatable: true
 default_value: {  }

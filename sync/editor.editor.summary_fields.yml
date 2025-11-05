@@ -23,6 +23,7 @@ settings:
       - alignment
       - link
       - style
+      - drupalMedia
       - blockQuote
       - removeFormat
       - sourceEditing
@@ -47,17 +48,17 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'Light button'
-          element: '<p class="light-button">'
+          label: 'Small text (85%)'
+          element: '<p class="small">'
         -
-          label: 'Dark button'
-          element: '<p class="dark-button">'
+          label: 'Medium text (95%)'
+          element: '<p class="medium">'
         -
-          label: 'Light centered'
-          element: '<p class="light-centered">'
+          label: 'Regular text (100%)'
+          element: '<p class="regular">'
         -
-          label: 'Dark centered'
-          element: '<p class="dark-centered">'
+          label: Button
+          element: '<p class="button">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: club

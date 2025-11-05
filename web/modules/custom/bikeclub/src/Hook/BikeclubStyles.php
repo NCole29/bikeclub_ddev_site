@@ -7,9 +7,6 @@ namespace Drupal\bikeclub\Hook;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Theme\ThemeManagerInterface;
 
-/**
- * Hook implementations for themes.
- */
 class BikeclubStyles {
   /**
    * Implements hook_page_attachments().
@@ -20,8 +17,6 @@ class BikeclubStyles {
    
     // Get the name of the active theme.
     $activeTheme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
-
-
     
     switch ($activeTheme) {
       case('olivero'): 

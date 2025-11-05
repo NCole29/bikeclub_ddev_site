@@ -14,24 +14,21 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
-    - field.field.node.recurring_ride.field_webform
-    - field.field.node.recurring_ride.field_webform_limit
     - field.field.node.recurring_ride.field_registration_required
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
-    - image.style.medium_16_9
+    - field.field.node.recurring_ride.field_webform
+    - field.field.node.recurring_ride.field_webform_closing
+    - field.field.node.recurring_ride.field_webform_limit
     - node.type.recurring_ride
   module:
-    - datetime
+    - bikeclub
     - layout_builder
-    - media
-    - options
     - smart_date_recur
     - text
     - user
-    - webform
 third_party_settings:
   layout_builder:
     enabled: false
@@ -47,18 +44,11 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_additional_information:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 9
+    weight: 3
     region: content
   field_datetime:
     type: smartdate_recurring
-    label: above
+    label: inline
     settings:
       timezone_override: ''
       format_type: medium
@@ -80,103 +70,45 @@ content:
       show_next: false
       current_upcoming: false
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_dayofweek:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 10
+    weight: 0
     region: content
   field_description:
-    type: text_default
+    type: text_trimmed
     label: visually_hidden
-    settings: {  }
+    settings:
+      trim_length: 300
     third_party_settings: {  }
-    weight: 1
+    weight: 4
     region: content
   field_location:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_lunch_same:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_webform_closing:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 15
-    region: first
-  field_webform:
-    type: webform_entity_reference_link
-    label: visually_hidden
-    settings:
-      label: Register
-      dialog: ''
-      attributes:
-        class:
-          - button
-    third_party_settings: {  }
-    weight: 13
-    region: first
-  field_webform_limit:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 14
-    region: first
-  field_ride_leader:
     type: entity_reference_label
     label: above
     settings:
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
-  field_ride_picture:
-    type: media_thumbnail
-    label: visually_hidden
-    settings:
-      image_link: ''
-      image_style: medium_16_9
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_time:
-    type: string
+  field_ride_leader:
+    type: user_contact_link
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
 hidden:
+  field_additional_information: true
   field_day: true
+  field_dayofweek: true
   field_developed_by: true
   field_lunch_place: true
+  field_lunch_same: true
   field_multiple_times: true
   field_registration_required: true
   field_results_access: true
+  field_ride_picture: true
   field_rwgps_routes: true
+  field_time: true
+  field_webform: true
+  field_webform_closing: true
+  field_webform_limit: true
   links: true

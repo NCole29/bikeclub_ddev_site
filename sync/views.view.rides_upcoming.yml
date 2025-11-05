@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser2
+    - core.entity_view_mode.node.teaser
     - field.storage.node.field_cancel
     - field.storage.node.field_date
     - field.storage.node.field_location
@@ -16,8 +16,6 @@ dependencies:
     - node
     - smart_date
     - user
-_core:
-  default_config_hash: xlTO_IS6VG4d1fr9U_4RMV0f0RpUwm24GYk5Qge_AvU
 id: rides_upcoming
 label: 'Rides, upcoming'
 module: views
@@ -241,7 +239,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser2
+          view_mode: teaser
       query:
         type: views_query
         options:
@@ -1933,7 +1931,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser2
+          view_mode: teaser
       defaults:
         empty: false
         title: false
@@ -2116,7 +2114,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser2
+          view_mode: teaser
       defaults:
         empty: false
         title: false

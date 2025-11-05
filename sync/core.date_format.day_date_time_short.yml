@@ -1,0 +1,8 @@
+uuid: cedde295-9637-47cd-baa1-426edc868de7
+langcode: en
+status: true
+dependencies: {  }
+id: day_date_time_short
+label: 'Day, date, time - short'
+locked: false
+pattern: 'D, M j Y, g:ia'

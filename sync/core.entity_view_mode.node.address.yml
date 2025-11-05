@@ -1,0 +1,11 @@
+uuid: 5c2bd62b-0975-46a7-876b-2c204211114c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.address
+label: Address
+description: 'Display Location name and address only'
+targetEntityType: node
+cache: true

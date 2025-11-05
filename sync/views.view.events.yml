@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser2
+    - core.entity_view_mode.node.card_row
     - field.storage.node.field_date
     - field.storage.node.field_location
     - field.storage.node.field_summary
@@ -11,6 +11,7 @@ dependencies:
   module:
     - datetime
     - node
+    - smart_date
     - text
     - user
 _core:
@@ -361,7 +362,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser2
+          view_mode: card_row
       defaults:
         empty: false
         pager: false
@@ -791,7 +792,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser2
+          view_mode: card_row
       defaults:
         empty: false
         title: false
@@ -832,7 +833,7 @@ display:
         - 'config:field.storage.node.field_summary'
   upcoming_events:
     id: upcoming_events
-    display_title: Block-Events
+    display_title: Block-Upcoming
     display_plugin: block
     position: 2
     display_options:
@@ -1001,7 +1002,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: date_and_12_hr_time
+            format_type: day_date_time_short
           group_column: value
           group_columns: {  }
           group_rows: true

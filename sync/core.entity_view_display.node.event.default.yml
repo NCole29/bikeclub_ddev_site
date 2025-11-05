@@ -10,15 +10,15 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_webform_closing
-    - field.field.node.event.field_webform
-    - field.field.node.event.field_webform_limit
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_registration_type
-    - field.field.node.event.field_webform_results
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
     - field.field.node.event.field_type_of_page
+    - field.field.node.event.field_webform
+    - field.field.node.event.field_webform_closing
+    - field.field.node.event.field_webform_limit
+    - field.field.node.event.field_webform_results
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -92,7 +92,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: teaser2
+                  view_mode: address
                 third_party_settings: {  }
             weight: 3
             additional: {  }
@@ -131,15 +131,11 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: smartdate_default
+                type: datetime_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format: day_and_date
-                  force_chronological: false
-                  add_classes: false
-                  time_wrapper: false
-                  localize: false
+                  format_type: day_date_time
                 third_party_settings: {  }
             weight: 2
             additional: {  }
@@ -239,12 +235,15 @@ third_party_settings:
             region: first
             configuration:
               id: 'field_block:node:event:field_webform_limit'
+              label: 'Registration limit'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: number_integer
-                label: above
+                label: inline
                 settings:
                   thousand_separator: ''
                   prefix_suffix: true
@@ -256,32 +255,20 @@ third_party_settings:
             region: first
             configuration:
               id: 'field_block:node:event:field_webform_closing'
+              label: 'Registration closing date'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: datetime_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format_type: medium
+                  format_type: day_date_time
                 third_party_settings: {  }
             weight: 12
-            additional: {  }
-          6426899a-6f70-4998-9357-6a4ea3bc11b6:
-            uuid: 6426899a-6f70-4998-9357-6a4ea3bc11b6
-            region: first
-            configuration:
-              id: 'field_block:node:event:field_registration_type'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: list_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 13
             additional: {  }
         third_party_settings: {  }
       -
@@ -373,50 +360,12 @@ content:
     third_party_settings: {  }
     weight: 12
     region: first
-  field_webform_closing:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 23
-    region: first
-  field_webform:
-    type: webform_entity_reference_link
-    label: hidden
-    settings:
-      label: 'Register for event'
-      dialog: narrow
-      attributes:
-        class:
-          - register-button
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_webform_limit:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 22
-    region: first
   field_registration_type:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 24
-    region: first
-  field_webform_results:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 19
     region: first
   field_summary:
     type: text_default
@@ -438,6 +387,44 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 11
+    region: first
+  field_webform:
+    type: webform_entity_reference_link
+    label: hidden
+    settings:
+      label: 'Register for event'
+      dialog: narrow
+      attributes:
+        class:
+          - register-button
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_webform_closing:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 23
+    region: first
+  field_webform_limit:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 22
+    region: first
+  field_webform_results:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 19
     region: first
   links:
     settings: {  }

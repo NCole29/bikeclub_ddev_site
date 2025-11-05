@@ -16,6 +16,39 @@
   padding: 0.95rem 0.5rem 0 0!important;
 }
 
+/* Styles for CKeditor */
+p.small {
+  font-size: 85%;
+  line-height: 1.1;
+}
+p.medium {
+  font-size: 95%;
+  line-height: 1.1;
+}
+p.regular {
+  font-size: 100%;
+  line-height: 1.5;
+}
+p.button {
+  display: inline-block;
+  width: fit-content;
+  margin:auto;
+  border: 1px solid #134a84;
+  border-radius: 0.3rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #ffffff!important;
+  background-color: #134a84 ;
+}
+p.button a {
+  color: #ffffff!important;
+}
+
 /* Remove margins between Location title and address (top), and address and Google link (bottom)  */
 .address {
   margin-top: 0;

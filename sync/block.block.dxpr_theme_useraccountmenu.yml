@@ -1,0 +1,34 @@
+uuid: dcd584e0-f91c-4558-b646-9cea99055942
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - menu_block
+  theme:
+    - dxpr_theme
+id: dxpr_theme_useraccountmenu
+theme: dxpr_theme
+region: navigation_collapsible
+weight: -8
+provider: null
+plugin: 'menu_block:account'
+settings:
+  id: 'menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'account:'
+  render_parent: false
+  suggestion: account
+  hide_on_nonactive: false
+visibility: {  }

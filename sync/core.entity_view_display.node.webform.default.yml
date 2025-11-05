@@ -8,22 +8,23 @@ dependencies:
     - field.field.node.webform.field_contact_form
     - field.field.node.webform.field_contact_person
     - field.field.node.webform.field_page_access
-    - field.field.node.webform.field_webform_closing
-    - field.field.node.webform.field_webform_results
     - field.field.node.webform.field_summary
     - field.field.node.webform.field_text
     - field.field.node.webform.field_type_of_page
     - field.field.node.webform.field_webform
+    - field.field.node.webform.field_webform_closing
+    - field.field.node.webform.field_webform_limit
+    - field.field.node.webform.field_webform_results
     - field.field.node.webform.layout_builder__layout
     - node.type.webform
   module:
     - datetime
     - entity_reference_revisions
     - layout_builder
+    - layout_builder_restrictions
     - layout_discovery
     - text
     - user
-    - webform
 third_party_settings:
   layout_builder:
     enabled: true
@@ -78,29 +79,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          4830bf78-3a47-4d9d-880e-9b34b8ab6b9a:
-            uuid: 4830bf78-3a47-4d9d-880e-9b34b8ab6b9a
-            region: content
-            configuration:
-              id: 'field_block:node:webform:webform'
-              label: Webform
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: webform_entity_reference_link
-                label: hidden
-                settings:
-                  label: 'Go to [webform:title] webform'
-                  dialog: ''
-                  attributes:
-                    class:
-                      - register-button
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           396d7f3f-6e9f-4ff4-8426-7cf566296f86:
             uuid: 396d7f3f-6e9f-4ff4-8426-7cf566296f86
             region: content
@@ -116,23 +94,7 @@ third_party_settings:
                   timezone_override: ''
                   format_type: long
                 third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          1d7d7fe6-93b2-4162-9d97-b6d021ac25c2:
-            uuid: 1d7d7fe6-93b2-4162-9d97-b6d021ac25c2
-            region: content
-            configuration:
-              id: 'field_block:node:webform:field_webform_results'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 6
+            weight: 7
             additional: {  }
           bd88c087-c29a-4d52-8de6-70313344851b:
             uuid: bd88c087-c29a-4d52-8de6-70313344851b
@@ -148,7 +110,7 @@ third_party_settings:
                 settings:
                   link: true
                 third_party_settings: {  }
-            weight: 7
+            weight: 8
             additional: {  }
           3f9cce34-4420-484c-9625-5384bb5b103e:
             uuid: 3f9cce34-4420-484c-9625-5384bb5b103e
@@ -166,9 +128,58 @@ third_party_settings:
                 label: above
                 settings: {  }
                 third_party_settings: {  }
-            weight: 8
+            weight: 9
+            additional: {  }
+          4ed40c3f-ef2f-49e7-9946-8c8fbd086461:
+            uuid: 4ed40c3f-ef2f-49e7-9946-8c8fbd086461
+            region: content
+            configuration:
+              id: 'field_block:node:webform:field_webform'
+              label: Webform
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: webform_entity_reference_link
+                label: visually_hidden
+                settings:
+                  label: 'Go to [webform:title]'
+                  dialog: ''
+                  attributes:
+                    style: button
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          274485d3-57aa-4ddd-9423-8c6296929f66:
+            uuid: 274485d3-57aa-4ddd-9423-8c6296929f66
+            region: content
+            configuration:
+              id: 'field_block:node:webform:field_webform_limit'
+              label: 'webform limit'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 6
             additional: {  }
         third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.webform.default
 targetEntityType: node
 bundle: webform
@@ -199,13 +210,12 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
-  field_webform_limit:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
   field_webform_closing:
     type: datetime_default
@@ -216,6 +226,14 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_webform_limit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_webform_results:
     type: entity_reference_label
     label: above
@@ -224,19 +242,12 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_text:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
-  field_webform:
+  webform:
     type: webform_entity_reference_entity_view
     label: hidden
     settings:
@@ -247,7 +258,9 @@ content:
     region: content
 hidden:
   banner_image: true
+  body: true
   field_page_access: true
   field_summary: true
   field_type_of_page: true
+  field_webform: true
   layout_builder__layout: true

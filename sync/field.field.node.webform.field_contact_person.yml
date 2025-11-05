@@ -1,3 +1,4 @@
+uuid: 21e42e4c-4414-4ada-b015-0ff0437be80c
 langcode: en
 status: true
 dependencies:
@@ -9,7 +10,7 @@ field_name: field_contact_person
 entity_type: node
 bundle: webform
 label: Contact
-description: "The contact's name appears without a link to their contact form if they disabled the personal contact form in their account settings."
+description: "The contact's name appears <strong>without</strong> a link to their contact form if they disabled the personal contact form in their account settings."
 required: false
 translatable: false
 default_value: {  }
@@ -26,5 +27,11 @@ settings:
       type: role
       role:
         member: member
+        events_coordinator: '0'
+        administrator: '0'
+        ride_leader: '0'
+        membership: '0'
+        site_admin: '0'
+        rides_coordinator: '0'
     include_anonymous: false
 field_type: entity_reference

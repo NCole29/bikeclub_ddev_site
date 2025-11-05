@@ -27,8 +27,8 @@ _core:
   default_config_hash: 5L2puimuIGPlfnJJIOMtVQuO-40jTZ_s4xy-omDASh8
 name: 'FAQ page'
 type: faqs
-description: 'Provide questions-and-answers in collapsible fields. Additional text may be included and placed in a layout above, below, right, or left of the FAQs.'
-help: null
+description: '<em>FAQs</em> provide content in a question-and-answer format in collapsible fields. Additional text may be placed above and/or below the FAQs.'
+help: 'FAQs display permanent website content. Click "Menu settings" at left to provide a menu link to the page, or link to this page from another page or block.'
 new_revision: true
 preview_mode: 1
 display_submitted: true

@@ -1,0 +1,47 @@
+uuid: 6be86c56-e4d4-440e-a89e-16e4f2f97976
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.summary
+    - field.field.node.announcement.field_contact_form
+    - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_summary
+    - field.field.node.announcement.field_text
+    - node.type.announcement
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: dpAW7yNltumctksIRg5RnXnIi1FXMwTMt0KMg8xJ-ro
+id: node.announcement.summary
+targetEntityType: node
+bundle: announcement
+mode: summary
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_summary:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_contact_form: true
+  field_contact_person: true
+  field_text: true

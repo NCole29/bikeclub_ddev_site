@@ -2,6 +2,9 @@
 
 use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface;
 
 /**
  * Implements hook_install().
@@ -9,6 +12,49 @@ use Drupal\Core\Field\BaseFieldDefinition;
  * @see system_install()
  */
 function bikeclub_ride_tools_install() {
+  
+  // Add permissions to roles. 
+  $roles = [
+    'anonymous' => [
+      'view club_route entity',
+    ],
+    'authenticated' => [
+      'view club_route entity',
+    ],
+    'ride_leader' => [
+      'add club_route entity',
+      'enter waivers',
+      'view club_schedule entity',
+    ],
+    'rides_coordinator' => [
+      'add club_route entity',
+      'delete club_route entity',
+      'edit club_route entity',
+      'enter waivers',
+      'edit club_schedule entity',
+      'view club_schedule entity',
+    ],
+    'site_admin' => [
+      'add club_route entity',
+      'delete club_route entity',
+      'edit club_route entity',
+      'edit club_schedule entity',
+      'view club_schedule entity',
+    ],
+    'membership' => ['enter waivers'],
+  ];
+
+  foreach ($roles as $role => $permissions) {
+    $role = \Drupal\user\Entity\Role::load($role);
+
+    if ($role) {
+      foreach ($permissions as $permission) {
+        $role->grantPermission($permission);
+      }
+      $role->save();
+    }
+  }
+
   LoadSchedule::loadSchedule(0);
   drupal_flush_all_caches();
 }
@@ -69,4 +115,126 @@ function bikeclub_ride_tools_update_9004() {
   );
 
   return t('The custom field "ride_start" has been added to the club_route entity type.');
+}
+
+function bikeclub_ride_tools_update_9005() {
+  /* To rename schedule_id to id, first add id to the base field definitions.
+     Copy values from schedule_id to id. Then delete schedule_id. 
+  */
+
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();   
+  $field_storage_definition = BaseFieldDefinition::create('integer')
+    ->setLabel(t('ID'))
+    ->setDescription(t('The ID of the schedule date entity.'))
+    ->setReadOnly(TRUE);
+
+  $entity_definition_update_manager->installFieldStorageDefinition(
+    'id',                    // Field machine name
+    'club_schedule',         // Entity type ID
+    'bikeclub_ride_tools',   // Module name
+    $field_storage_definition
+  );
+
+   // Load all entities of the custom type and copy data from schedule_id to id.
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $entity_storage = $entity_type_manager->getStorage('club_schedule');
+ 
+  $entity_ids = $entity_storage
+    ->getQuery()
+    ->accessCheck(FALSE)
+    ->execute();
+  $entities = $entity_storage->loadMultiple($entity_ids);
+
+
+  foreach ($entities as $entity) {
+    $old_value = $entity->get('schedule_id')->value;
+    $entity->set('id', $old_value);
+    $entity->save();
+  }
+}
+
+// Uninstall the old schedule_id.
+function bikeclub_ride_tools_update_9007() {
+  $field_storage_definition = \Drupal::entityTypeManager()
+    ->getStorage('field_storage_config')
+    ->load('club_schedule.schedule_id');
+
+  if ($field_storage_definition) {
+    $field_storage_definition->delete();
+  }
+}
+
+// Remove the club_schedule entity type.
+function bikeclub_ride_tools_update_9008() {
+  $entity_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $entity_update_manager->getEntityType('club_schedule');
+  $entity_update_manager->uninstallEntityType($entity_type);
+}
+
+// Re-install the club_schedule entity type.
+function bikeclub_ride_tools_update_9009() {
+
+  // Get the entity type definition.
+  $entity_type_id = 'club_schedule'; 
+  $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
+  $entity_manager = \Drupal::service('entity.definition_update_manager');
+
+  // Install the entity type.
+  if (!$entity_manager->getEntityType($entity_type_id)) {
+    $entity_manager->installEntityType($entity_type);
+    return t('Installed the @entity_type_id entity type.', ['@entity_type_id' => $entity_type_id]);
+  }
+
+  return t('The @entity_type_id entity type was already installed.', ['@entity_type_id' => $entity_type_id]);
+}
+
+
+// Remove the club_schedule entity type.
+function bikeclub_ride_tools_update_9010() {
+  $entity_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $entity_update_manager->getEntityType('club_schedule');
+  $entity_update_manager->uninstallEntityType($entity_type);
+}
+
+// Re-install the club_schedule entity type.
+function bikeclub_ride_tools_update_9011() {
+
+  // Get the entity type definition.
+  $entity_type_id = 'club_schedule'; 
+  $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
+  $entity_manager = \Drupal::service('entity.definition_update_manager');
+
+  // Install the entity type.
+  if (!$entity_manager->getEntityType($entity_type_id)) {
+    $entity_manager->installEntityType($entity_type);
+    return t('Installed the @entity_type_id entity type.', ['@entity_type_id' => $entity_type_id]);
+  }
+
+  return t('The @entity_type_id entity type was already installed.', ['@entity_type_id' => $entity_type_id]);
+}
+
+
+// Remove the club_schedule entity type.
+function bikeclub_ride_tools_update_9012() {
+  $entity_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $entity_update_manager->getEntityType('club_schedule');
+  $entity_update_manager->uninstallEntityType($entity_type);
+}
+
+
+// Re-install the club_schedule entity type.
+function bikeclub_ride_tools_update_9013() {
+
+  // Get the entity type definition.
+  $entity_type_id = 'club_schedule'; 
+  $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
+  $entity_manager = \Drupal::service('entity.definition_update_manager');
+
+  // Install the entity type.
+  if (!$entity_manager->getEntityType($entity_type_id)) {
+    $entity_manager->installEntityType($entity_type);
+    return t('Installed the @entity_type_id entity type.', ['@entity_type_id' => $entity_type_id]);
+  }
+
+  return t('The @entity_type_id entity type was already installed.', ['@entity_type_id' => $entity_type_id]);
 }

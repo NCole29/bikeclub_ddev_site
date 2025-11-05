@@ -12,7 +12,7 @@ field_name: field_contact_person
 entity_type: node
 bundle: event
 label: Contact
-description: "The contact's name appears without a link to their contact form if they disabled the personal contact form in their account settings."
+description: "The contact's name appears <strong>without</strong> a link to their contact form if they disabled the personal contact form in their account settings."
 required: false
 translatable: false
 default_value: {  }

@@ -8,12 +8,13 @@ dependencies:
     - field.field.node.webform.field_contact_form
     - field.field.node.webform.field_contact_person
     - field.field.node.webform.field_page_access
-    - field.field.node.webform.field_webform_closing
-    - field.field.node.webform.field_webform_results
     - field.field.node.webform.field_summary
     - field.field.node.webform.field_text
     - field.field.node.webform.field_type_of_page
     - field.field.node.webform.field_webform
+    - field.field.node.webform.field_webform_closing
+    - field.field.node.webform.field_webform_limit
+    - field.field.node.webform.field_webform_results
     - field.field.node.webform.layout_builder__layout
     - node.type.webform
   module:
@@ -32,6 +33,7 @@ third_party_settings:
         - group_place_summary_on_home_page
         - group_banner
         - group_webform
+        - group_contact_link
       label: Tabs
       region: content
       parent_name: ''
@@ -50,8 +52,6 @@ third_party_settings:
         - field_text
         - field_components
         - field_page_access
-        - field_contact_form
-        - field_contact_person
       label: 'Page content'
       region: content
       parent_name: group_tabs
@@ -78,8 +78,9 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
-        description: "Summary is displayed on the home page while the page is published.<br>\r\nSchedule publication dates to unpublish the page, summary, and link to webform.<br>\r\nUse Webform settings to \"close\" the form, else anyone with the link can continue to submit results."
+        description: 'Check "Promoted to front page" and fill Summary. To remove the Summary from the home page, uncheck "Promoted to front page" or fill the "Scheduling options" (at left) to unpublish the page and summary.'
         required_fields: true
     group_banner:
       children:
@@ -93,14 +94,31 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
-        description: ''
+        description: 'Display one Banner image or three Gallery images across the top of the page above the Page title.'
         required_fields: true
     group_webform:
       children:
-        - webform
-        - field_webform_results
+        - group_form
       label: Webform
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contact_link:
+      children:
+        - field_contact_form
+        - field_contact_person
+      label: 'Contact link'
       region: hidden
       parent_name: group_tabs
       weight: 4
@@ -111,6 +129,24 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
+        description: "Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field.\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding address at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>."
+        required_fields: true
+    group_form:
+      children:
+        - field_webform
+        - field_webform_limit
+        - field_webform_results
+      label: Webform
+      region: hidden
+      parent_name: group_webform
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
         description: ''
         required_fields: true
 id: node.webform.default
@@ -173,9 +209,9 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        7a259b9b-047a-4b90-ba38-1b1616f688ed:
+        c78b43bd-18b4-4e2f-b6b1-0964c2ea012b:
           entity_type: node
-          bundle: page
+          bundle: webform
           dependee: field_contact_form
           settings:
             state: visible
@@ -196,24 +232,6 @@ content:
     weight: 6
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_webform_closing:
-    type: string_textfield
-    weight: 101
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_webform_results:
-    type: entity_reference_autocomplete
-    weight: 7
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_summary:
     type: text_textarea
@@ -273,6 +291,31 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_webform:
+    type: webform_entity_reference_select
+    weight: 6
+    region: content
+    settings:
+      default_data: true
+      webforms: {  }
+    third_party_settings: {  }
+  field_webform_limit:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_webform_results:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
@@ -339,7 +382,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

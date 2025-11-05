@@ -18,6 +18,10 @@ class BikeclubTemplates {
         'template' => 'node--card-row',
         'base hook' => 'node',
       ],
+      'node__location' => [
+        'template' => 'node--location',
+        'base hook' => 'node',
+      ],
       'node__summary' => [
         'template' => 'node--summary',
         'base hook' => 'node',

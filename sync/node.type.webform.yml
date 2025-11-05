@@ -1,3 +1,4 @@
+uuid: 85edf9c6-53ec-4e5c-8c45-d113e9e4ca19
 langcode: en
 status: true
 dependencies:
@@ -24,8 +25,8 @@ third_party_settings:
     parent: 'main:'
 name: 'Webform page'
 type: webform
-description: "<em>Webform pages</em> allow you to use the same webform multiple times and keep results separate - e.g., a volunteer signup form used each year:<br>\r\n-- Results for <strong>EACH</strong> year are on the Results tab of the webform page (go to Content).<br>\r\n-- Results for <strong>ALL</strong> years together are on the Results tab of the webform (go to Structure > Webform)."
-help: "<h5>Instructions</h5>\r\n<li>Use page <em>Components</em> to display information above the selected webform.</li>\r\n<li>Don't forget to set a Menu link, or link to this page from another page or block.</li>\r\n<li>Scheduling publication is optional.</li>\r\n"
+description: "<em>Webform pages</em> allow you to use the same webform multiple times and keep results separate - e.g., a volunteer signup form used each year. Results for <strong>EACH</strong> year are on the Results tab of the webform page (go to Content).<br>\r\n"
+help: "Click \"Menu settings\" at left to provide a menu link to the page, or link to this page from another page or block.<br>\r\nScheduling publication is optional.\r\n"
 new_revision: true
 preview_mode: 1
 display_submitted: false

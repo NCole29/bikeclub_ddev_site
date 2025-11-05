@@ -12,16 +12,10 @@ field_name: field_webform
 entity_type: node
 bundle: webform
 label: Webform
-description: '<big>Select the webform that you would like to attach to this page.<br>Schedule open and close dates for submission using the webform form settings.</big>'
+description: '<big>Select the webform that you would like to attach to this page.<br>Schedule open and close dates for submission using Webform settings.</big>'
 required: false
 translatable: false
-default_value:
-  -
-    target_uuid: c881b79e-81c7-459a-a0a8-19d4db37e7d6
-    default_data: ''
-    status: open
-    open: ''
-    close: ''
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:webform'

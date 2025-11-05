@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - menu_ui
     - scheduler
 third_party_settings:
   scheduler:
-    expand_fieldset: when_required
+    expand_fieldset: always
     fields_display_mode: fieldset
     publish_enable: true
     publish_past_date: publish
@@ -18,11 +19,15 @@ third_party_settings:
     unpublish_enable: true
     unpublish_required: true
     unpublish_revision: false
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 _core:
   default_config_hash: Pld5qTzvI6IeR4M5VAQgLsoPxe3VM8Hz_yDaX5JJdXY
 name: Announcement
 type: announcement
-description: '<em>Announcements</em> are displayed on the home page for a <strong>scheduled period of time</strong> with a link to <em>Read more</em>. To publish immediately, select a "publish on" date in the past.'
+description: '<em>Announcements</em> are displayed on the home page for a <strong>scheduled period of time</strong> with a link to <em>Read more</em>. '
 help: '<em>Announcements</em> are published for a <strong>scheduled period of time</strong>. The summary is displayed on the home page with a link to <em>Read more</em>.'
 new_revision: true
 preview_mode: 1

@@ -7,6 +7,7 @@ dependencies:
     - filter.format.summary_fields
     - filter.format.webform_default
   module:
+    - bikeclub_ride_tools
     - contact
     - file
     - filter
@@ -31,5 +32,6 @@ permissions:
   - 'use text format basic_html'
   - 'use text format summary_fields'
   - 'use text format webform_default'
+  - 'view club_route entity'
   - 'view media'
   - 'view webform submissions own node'

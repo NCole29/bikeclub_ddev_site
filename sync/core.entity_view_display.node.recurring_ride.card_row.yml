@@ -14,54 +14,94 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
-    - field.field.node.recurring_ride.field_webform_closing
-    - field.field.node.recurring_ride.field_webform
-    - field.field.node.recurring_ride.field_webform_limit
     - field.field.node.recurring_ride.field_registration_required
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
+    - field.field.node.recurring_ride.field_webform
+    - field.field.node.recurring_ride.field_webform_closing
+    - field.field.node.recurring_ride.field_webform_limit
     - node.type.recurring_ride
   module:
+    - bikeclub
+    - smart_date
+    - text
     - user
-    - webform
 id: node.recurring_ride.card_row
 targetEntityType: node
 bundle: recurring_ride
 mode: card_row
 content:
-  field_webform:
-    type: webform_entity_reference_link
-    label: hidden
+  field_activity:
+    type: entity_reference_label
+    label: inline
     settings:
-      label: 'Register for event'
-      dialog: ''
-      attributes:
-        style: register-button
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_datetime:
+    type: smartdate_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_description:
+    type: text_trimmed
+    label: visually_hidden
+    settings:
+      trim_length: 600
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_location:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_ride_leader:
+    type: user_contact_link
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  field_activity: true
   field_additional_information: true
-  field_datetime: true
   field_dayofweek: true
-  field_description: true
   field_developed_by: true
-  field_location: true
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
-  field_webform_closing: true
-  field_webform_limit: true
   field_registration_required: true
-  field_ride_leader: true
   field_ride_picture: true
   field_rwgps_routes: true
   field_time: true
+  field_webform: true
+  field_webform_closing: true
+  field_webform_limit: true

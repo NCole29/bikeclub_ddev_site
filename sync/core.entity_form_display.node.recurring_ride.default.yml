@@ -13,14 +13,14 @@ dependencies:
     - field.field.node.recurring_ride.field_lunch_place
     - field.field.node.recurring_ride.field_lunch_same
     - field.field.node.recurring_ride.field_multiple_times
-    - field.field.node.recurring_ride.field_webform_closing
-    - field.field.node.recurring_ride.field_webform
-    - field.field.node.recurring_ride.field_webform_limit
     - field.field.node.recurring_ride.field_registration_required
     - field.field.node.recurring_ride.field_ride_leader
     - field.field.node.recurring_ride.field_ride_picture
     - field.field.node.recurring_ride.field_rwgps_routes
     - field.field.node.recurring_ride.field_time
+    - field.field.node.recurring_ride.field_webform
+    - field.field.node.recurring_ride.field_webform_closing
+    - field.field.node.recurring_ride.field_webform_limit
     - node.type.recurring_ride
   module:
     - conditional_fields
@@ -289,58 +289,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_webform:
-    type: webform_entity_reference_select
-    weight: 8
-    region: content
-    settings:
-      default_data: false
-      webforms:
-        - ride_registration
-    third_party_settings:
-      conditional_fields:
-        28bc496b-ecd0-408b-8622-83e734c4cf8c:
-          entity_type: node
-          bundle: recurring_ride
-          dependee: field_registration_required
-          settings:
-            state: visible
-            reset: false
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-  field_webform_limit:
-    type: number
-    weight: 9
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings:
-      conditional_fields:
-        77d84086-9ee8-480e-ae2d-4a1ee173c3ec:
-          entity_type: node
-          bundle: recurring_ride
-          dependee: field_registration_required
-          settings:
-            state: visible
-            reset: false
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
   field_registration_required:
     type: boolean_checkbox
     weight: 7
@@ -414,6 +362,58 @@ content:
           entity_type: node
           bundle: recurring_ride
           dependee: field_multiple_times
+          settings:
+            state: visible
+            reset: false
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_webform:
+    type: webform_entity_reference_select
+    weight: 8
+    region: content
+    settings:
+      default_data: false
+      webforms:
+        - ride_registration
+    third_party_settings:
+      conditional_fields:
+        28bc496b-ecd0-408b-8622-83e734c4cf8c:
+          entity_type: node
+          bundle: recurring_ride
+          dependee: field_registration_required
+          settings:
+            state: visible
+            reset: false
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_webform_limit:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        77d84086-9ee8-480e-ae2d-4a1ee173c3ec:
+          entity_type: node
+          bundle: recurring_ride
+          dependee: field_registration_required
           settings:
             state: visible
             reset: false

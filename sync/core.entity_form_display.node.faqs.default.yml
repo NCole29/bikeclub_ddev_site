@@ -110,25 +110,7 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        f4bea69e-2271-4324-a4e2-2414c4b26ce6:
-          entity_type: node
-          bundle: page
-          dependee: field_contact_form
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: personal
-            effect: show
-            effect_options: {  }
-            selector: ''
-        ba0b0565-0525-4f93-8d66-3a8d6b8a675b:
+        2e049190-d128-40a7-aae5-3250e874a71f:
           entity_type: node
           bundle: faqs
           dependee: field_contact_form

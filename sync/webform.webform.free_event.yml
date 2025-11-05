@@ -253,4 +253,13 @@ handlers:
     conditions: {  }
     weight: 0
     settings: {  }
+  submission_limit:
+    id: SubmissionLimit
+    handler_id: submission_limit
+    label: 'Submission limit'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings: {  }
 variants: {  }

@@ -6,9 +6,6 @@ namespace Drupal\bikeclub\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 
-/**
- * Preprocess Hook implementations.
- */
 class BikeclubPreprocess {
   /**
    * Implements hook_preprocess_HOOK().
@@ -18,6 +15,6 @@ class BikeclubPreprocess {
     // Hide country name everywhere address is displayed.
     if ($vars['field_name'] == 'field_address') {
       $vars['items'][0]['content']['country']['#value'] = '';
-    }    
-  }
+    }
+  }  
 }

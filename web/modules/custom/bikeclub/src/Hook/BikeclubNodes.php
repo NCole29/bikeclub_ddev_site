@@ -43,14 +43,16 @@ class BikeclubNodes {
     if ($node->hasField('field_components') & isset($node->field_components->target_id)) {
       $this->renameImages->fixPmedia($node);
     }
-    if ($node->hasField('banner_image')  & isset($node->banner_image)) {
+    if ($node->hasField('banner_image') & isset($node->banner_image)) {
       $this->renameImages->fixBanners($node);
     }
 
     // Clear personal contact form if selection has changed.
-    if ($node->hasField('field_contact_form')  & $node->field_contact_form->target_id <> 'personal') {
-      unset($node->field_contact_person);
-    }    
+    if ($node->hasField('field_contact_form')){
+      if ($node->field_contact_form->target_id <> 'personal') {
+        unset($node->field_contact_person);
+      }    
+    }  
 
     // CODE PER CONTENT TYPE.
     // Conditional_fields module does not "zero out" entity reference fields so it's done here.

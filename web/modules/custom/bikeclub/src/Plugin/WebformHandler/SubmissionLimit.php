@@ -10,9 +10,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * @WebformHandler(
  *   id = "SubmissionLimit",
- *   label = @Translation("Check submission limit per source entity."),
+ *   label = @Translation("Submission limit"),
  *   category = @Translation("Custom"),
- *   description = @Translation("Limit is set in node field. Webform status is changed to 'closed' on node."),
+ *   description = @Translation("Set limit in node field. Webform status is changed to 'closed' on node."),
  * )
  */
 class SubmissionLimit extends WebformHandlerBase {
@@ -40,7 +40,7 @@ class SubmissionLimit extends WebformHandlerBase {
  
     $source_entity = $webform_submission->getSourceEntity();
 
-    if ($source_entity->has('field_webform_limit')) {
+    if ($source_entity->hasField('field_webform_limit')) {
       $limit = $source_entity->get('field_webform_limit')->value;
     }
 

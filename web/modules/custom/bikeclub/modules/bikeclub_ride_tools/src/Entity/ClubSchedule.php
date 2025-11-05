@@ -14,6 +14,8 @@ use Drupal\bikeclub_ride_tools\ClubScheduleInterface;
 
 /**
  * Defines the 'club_schedule' entity type.
+ * club_schedule date is not included here because the views_year_filter does
+ *  not recognize the Drupal date in a custom entity.
  *
  * @ContentEntityType(
  *   id = "club_schedule",
@@ -102,9 +104,9 @@ class ClubSchedule extends ContentEntityBase implements ClubScheduleInterface {
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
 
-    // schedule_id  is the unique record ID, assigned as primary index.
+    // id  is the unique record ID, assigned as primary index.
     $fields['schedule_id'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('Schedule date ID'))
+      ->setLabel(t('ID'))
       ->setDescription(t('The ID of the schedule date entity.'))
       ->setReadOnly(TRUE);
 
@@ -113,27 +115,6 @@ class ClubSchedule extends ContentEntityBase implements ClubScheduleInterface {
       ->setLabel(t('UUID'))
       ->setDescription(t('The UUID of the route entity.'))
       ->setReadOnly(TRUE);
-
-    $fields['schedule_date'] = BaseFieldDefinition::create('datetime')
-      ->setLabel(t('Schedule date'))
-      ->setDescription(t('Schedule date'))
-      ->setSettings([
-        'datetime_type' => 'date',
-      ])
-      ->setDisplayOptions('view', [
-        'label' => 'inline',
-        'type' => 'datetime_default',
-        'settings' => [
-          'format_type' => 'medium',
-        ],
-        'weight' => 0,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'datetime_default',
-        'weight' => 0,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
 
     $fields['weekday'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Weekday'))

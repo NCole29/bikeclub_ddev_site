@@ -3,7 +3,6 @@ module:
   address: 0
   address_map_link: 0
   admin_toolbar: 0
-  admin_toolbar_search: 0
   announcements_feed: 0
   automated_cron: 0
   automatic_updates: 0
@@ -20,9 +19,7 @@ module:
   comment: 0
   conditional_fields: 0
   config: 0
-  config_delete: 0
   config_ignore: 0
-  config_single_export: 0
   contact: 0
   contact_storage: 0
   content_moderation: 0
@@ -31,7 +28,7 @@ module:
   datetime: 0
   datetimehideseconds: 0
   dblog: 0
-  devel: 0
+  dxpr_theme_helper: 0
   dynamic_page_cache: 0
   editor: 0
   entity_browser: 0
@@ -49,7 +46,6 @@ module:
   geocoder_geofield: 0
   geofield: 0
   geofield_map: 0
-  gin_toolbar: 0
   help: 0
   history: 0
   honeypot: 0
@@ -57,7 +53,6 @@ module:
   image_widget_crop: 0
   jquery_ui: 0
   jquery_ui_accordion: 0
-  kint: 0
   layout_builder: 0
   layout_builder_admin_theme: 0
   layout_builder_restrictions: 0
@@ -68,9 +63,9 @@ module:
   link: 0
   linkit: 0
   login_emailusername: 0
-  masquerade: 0
   media: 0
   media_library: 0
+  media_library_form_element: 0
   menu_block: 0
   menu_link_content: 0
   menu_ui: 0
@@ -123,3 +118,5 @@ theme:
   stable9: 0
   olivero: 0
   gin: 0
+  bootstrap5: 0
+  dxpr_theme: 0

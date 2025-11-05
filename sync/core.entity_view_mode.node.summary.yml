@@ -1,0 +1,11 @@
+uuid: 6457580c-0e3e-4861-b47c-a943c001a9c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.summary
+label: Summary
+description: "Displays \"Summary for home page\" on home page or other list view.\r\nStyling is set in bikeclub/components."
+targetEntityType: node
+cache: true

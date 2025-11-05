@@ -24,7 +24,6 @@ class LoadSchedule {
         ->execute();
       $startYr = substr($maxdate[0]['schedule_date_max'],0,4) + 1;
     }
-
     for ($year = $startYr; $year < ($startYr + 3); $year++) {         
       $jan1 = strtotime("First day Of January $year");
 
@@ -36,7 +35,7 @@ class LoadSchedule {
 
         $newDate = $storage->create([
           'weekday' => $weekday,
-          'schedule_date' => $date,
+          'field_schedule_date' => $date,
           'created' => $now,
           'changed' => $now,
           'langcode' => "en",

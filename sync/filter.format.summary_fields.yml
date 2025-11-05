@@ -36,7 +36,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p class="light-button dark-button light-centered dark-centered text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <blockquote> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol reversed start> <li> <drupal-media data-entity-type data-entity-uuid alt data-align><a data-entity-type data-entity-uuid data-entity-substitution> <drupal-media data-view-mode><a data-entity-type data-entity-uuid data-entity-substitution> <drupal-media data-view-mode>'
+      allowed_html: '<br> <p class="small medium regular button text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <blockquote> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol reversed start> <li> <drupal-media data-entity-type data-entity-uuid alt data-align>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_image_secure:
@@ -71,6 +71,7 @@ filters:
     weight: 0
     settings:
       title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -80,5 +81,4 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types:
-        image_crop_16_9: image_crop_16_9
         image_crop_4_3: image_crop_4_3

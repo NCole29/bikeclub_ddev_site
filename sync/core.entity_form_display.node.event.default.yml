@@ -10,15 +10,15 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_location
     - field.field.node.event.field_page_access
-    - field.field.node.event.field_webform_closing
-    - field.field.node.event.field_webform
-    - field.field.node.event.field_webform_limit
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_registration_type
-    - field.field.node.event.field_webform_results
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
     - field.field.node.event.field_type_of_page
+    - field.field.node.event.field_webform
+    - field.field.node.event.field_webform_closing
+    - field.field.node.event.field_webform_limit
+    - field.field.node.event.field_webform_results
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -49,7 +49,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: 'Check "Promoted to front page" and fill summary.'
+        description: 'Check "Promoted to front page" and fill Summary. The Summary is displayed on the home page until the date of the event.'
         required_fields: true
     group_banner_image:
       children:
@@ -65,7 +65,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: '<em>Banner image</em> displays one or more images across the top of the page. Click <strong>Add media</strong> and select Banner or Gallery.<br> - <strong>Banner</strong> presents a single image or a slideshow of multiple images that span the page width.<br> - <strong>Gallery</strong> fits multiple images within the screen width.'
+        description: 'Display one Banner image or three Gallery images across the top of the page above the Page title.'
         required_fields: true
     group_tabs:
       children:
@@ -73,6 +73,7 @@ third_party_settings:
         - group_place_announcement_on_home
         - group_banner_image
         - group_registration
+        - group_contact_link
       label: Tabs
       region: content
       parent_name: ''
@@ -93,7 +94,6 @@ third_party_settings:
         - field_text
         - field_components
         - field_page_access
-        - group_contact_link
       label: 'Page content'
       region: content
       parent_name: group_tabs
@@ -114,7 +114,7 @@ third_party_settings:
       label: Registration
       region: content
       parent_name: group_tabs
-      weight: 13
+      weight: 14
       format_type: tab
       format_settings:
         classes: ''
@@ -129,8 +129,8 @@ third_party_settings:
         - field_contact_person
       label: 'Contact link'
       region: hidden
-      parent_name: group_page_content
-      weight: 7
+      parent_name: group_tabs
+      weight: 13
       format_type: tab
       format_settings:
         classes: ''
@@ -138,7 +138,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: "Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field.\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding address at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>.</li>"
+        description: "Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field.\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding address at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>."
         required_fields: true
     group_webform:
       children:
@@ -261,25 +261,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_webform:
-    type: webform_entity_reference_select
-    weight: 28
-    region: content
-    settings:
-      default_data: false
-      webforms: {  }
-    third_party_settings:
-      conditional_fields: {  }
-  field_webform_limit:
-    type: number
-    weight: 29
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_registration_link:
     type: link_default
-    weight: 29
+    weight: 30
     region: content
     settings:
       placeholder_url: 'e.g., /civicrm/event/register?reset=1&id=XX'
@@ -310,17 +294,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_webform_results:
-    type: entity_reference_autocomplete
-    weight: 30
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      conditional_fields: {  }
   field_summary:
     type: text_textarea
     weight: 12
@@ -380,6 +353,33 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_webform:
+    type: webform_entity_reference_select
+    weight: 4
+    region: content
+    settings:
+      default_data: false
+      webforms: {  }
+    third_party_settings:
+      conditional_fields: {  }
+  field_webform_limit:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_webform_results:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields: {  }
   group_place_announcement_on_home:
     weight: 26
     region: content
@@ -477,7 +477,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

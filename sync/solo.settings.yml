@@ -7,7 +7,7 @@ site_global_regions_gap: '16'
 site_global_font_size: '16'
 color_coded_system_tabs: true
 site_breadcrumb_scroll: true
-count_main: 2
+count_main: 1
 count_top: 0
 count_bottom: 0
 count_footer: 0

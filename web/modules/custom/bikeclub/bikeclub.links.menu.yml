@@ -13,3 +13,9 @@ bikeclub.custom_config:
   parent: system.admin_config
   weight: 0
 
+# Put "Add content" on top Admin menu.
+bikeclub.add_content:
+  title: 'Add content'
+  route_name: node.add_page
+  parent: system.admin_content
+  weight: -10

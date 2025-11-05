@@ -7,8 +7,13 @@ dependencies:
     - node.type.recurring_ride
     - node.type.ride
   module:
+    - bikeclub_ride_tools
     - filter
+    - media
     - node
+    - quick_node_clone
+    - system
+    - toolbar
 _core:
   default_config_hash: KhoEV-DXvv9nDZfo5jv09vQeHejAvjiKD9nXrN36SSA
 id: rides_coordinator
@@ -16,10 +21,28 @@ label: 'Rides coordinator'
 weight: 5
 is_admin: false
 permissions:
+  - 'access administration pages'
+  - 'access toolbar'
+  - 'add club_route entity'
+  - 'clone recurring_ride content'
+  - 'clone ride content'
+  - 'create media'
   - 'create recurring_ride content'
   - 'create ride content'
   - 'delete any recurring_ride content'
   - 'delete any ride content'
+  - 'delete club_route entity'
   - 'edit any recurring_ride content'
   - 'edit any ride content'
+  - 'edit club_route entity'
+  - 'edit club_schedule entity'
+  - 'enter waivers'
+  - 'revert recurring_ride revisions'
+  - 'revert ride revisions'
   - 'use text format ride_page'
+  - 'view club_schedule entity'
+  - 'view own unpublished media'
+  - 'view recurring_ride revisions'
+  - 'view ride revisions'
+  - 'view the administration theme'
+  - 'view user email addresses'

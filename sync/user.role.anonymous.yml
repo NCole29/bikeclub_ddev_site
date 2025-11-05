@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - bikeclub_ride_tools
     - contact
     - media
     - system
@@ -16,4 +17,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'access user contact forms'
+  - 'view club_route entity'
   - 'view media'

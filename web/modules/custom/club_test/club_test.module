@@ -3,7 +3,7 @@
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 
-use Drupal\user\Entity\Role;
+//use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -21,6 +21,13 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
+   $storage = \Drupal::entityTypeManager()->getStorage('club_schedule');
+   kint($storage);
+   die;
+  }
+}
+ 
+/*
     $update_manager = \Drupal::service('entity.definition_update_manager');
   
     $entity_id = 'webform_submission';
@@ -41,6 +48,4 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
     }
    
     die;
-  }
-}
- 
+*/

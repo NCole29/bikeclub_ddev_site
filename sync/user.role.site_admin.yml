@@ -16,17 +16,26 @@ dependencies:
     - node.type.recurring_ride
     - node.type.ride
   module:
+    - bikeclub_ride_tools
     - block_content
     - filter
     - layout_builder
     - media
     - node
+    - quick_node_clone
+    - system
+    - toolbar
 id: site_admin
 label: 'Site administrator'
 weight: 4
 is_admin: false
 permissions:
+  - 'access administration pages'
   - 'access media overview'
+  - 'access toolbar'
+  - 'add club_route entity'
+  - 'clone recurring_ride content'
+  - 'clone ride content'
   - 'configure editable event node layout overrides'
   - 'create announcement content'
   - 'create event content'
@@ -46,6 +55,7 @@ permissions:
   - 'delete any paragraphs_block block content'
   - 'delete any recurring_ride content'
   - 'delete any ride content'
+  - 'delete club_route entity'
   - 'edit any announcement content'
   - 'edit any event content'
   - 'edit any faqs content'
@@ -54,9 +64,18 @@ permissions:
   - 'edit any paragraphs_block block content'
   - 'edit any recurring_ride content'
   - 'edit any ride content'
+  - 'edit club_route entity'
+  - 'edit club_schedule entity'
+  - 'revert recurring_ride revisions'
+  - 'revert ride revisions'
   - 'update any media'
   - 'use text format basic_html'
   - 'use text format ride_page'
   - 'use text format summary_fields'
   - 'view any paragraphs_block block content history'
+  - 'view club_schedule entity'
   - 'view own unpublished media'
+  - 'view recurring_ride revisions'
+  - 'view ride revisions'
+  - 'view the administration theme'
+  - 'view user email addresses'

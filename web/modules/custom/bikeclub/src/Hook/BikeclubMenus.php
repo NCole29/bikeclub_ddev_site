@@ -117,20 +117,21 @@ class BikeclubMenus {
    */
   #[Hook('preprocess_menu')]
   public function bikeclub_preprocess_menu(&$variables) {
+
     // Convert menu to HTML if contains `fas fa-` or `fab fa-`.
     // Include: use Drupal\Core\Render\Markup;
     foreach ($variables['items'] as $menu_id => $menu) {
-      $title = $variables['items'][$menu_id]['title'];
 
-      if (is_string($title)) {
-        if ( (strpos($title, 'fas fa-') > 0) ||
+      if (array_key_exists('title', $menu)) {
+        $title = $menu['title'];
+        if (is_string($title) &&
+           ( (strpos($title, 'fas fa-') > 0) ||
              (strpos($title, 'fab fa-') > 0) ||
-             (strpos($title, 'fa fa-') > 0) ) {
+             (strpos($title, 'fa fa-') > 0) )) {
 
-          $variables['items'][$menu_id]['title'] = Markup::create('<i class="' . $title . '"></i>');
+            $variables['items'][$menu_id]['title'] = Markup::create('<i class="' . $title . '"></i>');
         }
       }
     }  
   } 
-
 }

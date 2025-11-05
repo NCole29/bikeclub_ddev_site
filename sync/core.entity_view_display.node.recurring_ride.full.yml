@@ -349,10 +349,10 @@ hidden:
   field_lunch_place: true
   field_lunch_same: true
   field_multiple_times: true
-  field_webform_closing: true
-  field_webform: true
-  field_webform_limit: true
   field_registration_required: true
   field_results_access: true
   field_rwgps_routes: true
+  field_webform: true
+  field_webform_closing: true
+  field_webform_limit: true
   links: true

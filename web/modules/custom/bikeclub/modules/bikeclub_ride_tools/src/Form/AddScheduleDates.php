@@ -23,8 +23,8 @@ class AddScheduleDates extends FormBase {
   public function getDates() {
     $minmax = \Drupal::entityQueryAggregate('club_schedule')
     ->accessCheck(FALSE)
-    ->aggregate('schedule_date', 'MIN', NULL)
-    ->aggregate('schedule_date', 'MAX', NULL)
+    ->aggregate('field_schedule_date', 'MIN', NULL)
+    ->aggregate('field_schedule_date', 'MAX', NULL)
     ->execute();
     
     return $minmax;
@@ -34,25 +34,33 @@ class AddScheduleDates extends FormBase {
     // Get range of dates in the club_schedule table.
     $minmax = $this->getDates();
 
-    // Get the date formatter service
-    $date_formatter = \Drupal::service('date.formatter');
+    if (!is_null($minmax[0]["field_schedule_date_min"])) {
+      // Get the date formatter service
+      $date_formatter = \Drupal::service('date.formatter');
 
-    $min = $minmax[0]["schedule_date_min"];
-    $max = $minmax[0]["schedule_date_max"];
+      $min = $minmax[0]["field_schedule_date_min"];
+      $max = $minmax[0]["field_schedule_date_max"];
 
-    // Create DrupalDateTime objects.
-    $min_datetime = new DrupalDateTime($min, 'UTC'); 
-    $max_datetime = new DrupalDateTime($max, 'UTC'); 
+      // Create DrupalDateTime objects.
+      $min_datetime = new DrupalDateTime($min); 
+      $max_datetime = new DrupalDateTime($max); 
 
-    // Format the date
-    $min_date = $date_formatter->format($min_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
-    $max_date = $date_formatter->format($max_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
+      // Format the date
+      $min_date = $date_formatter->format($min_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
+      $max_date = $date_formatter->format($max_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
 
-    $form['instructions'] = [
-      '#type' => 'markup',
-      '#markup' => "<p>The database contains Schedule dates from <strong>$min_date</strong> to <strong>$max_date</strong>.<br>Click the button below to add 
-      an additional 3 years of dates to the database.</p>" 
-    ];
+      $form['instructions'] = [
+        '#type' => 'markup',
+        '#markup' => "<p>The database contains Schedule dates from <strong>$min_date</strong> to <strong>$max_date</strong>.<br>Click the button below to add 
+        an additional 3 years of dates to the database.</p>" 
+      ];
+    } else {
+      $form['instructions'] = [
+        '#type' => 'markup',
+        '#markup' => "<p>Click the button below to add 3 years of dates to the database.</p>" 
+      ];
+    }
+
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
@@ -63,7 +71,7 @@ class AddScheduleDates extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    LoadSchedule::loadSchedule(1); // 1 indicates NOT initial load.
+    LoadSchedule::loadSchedule(0); // 1 indicates NOT initial load.
     \Drupal::messenger()->addMessage(t("Three years of dates have been added."));
     $form_state->setRedirect('<front>');
   }

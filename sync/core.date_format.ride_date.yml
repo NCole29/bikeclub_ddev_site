@@ -1,8 +1,0 @@
-uuid: 0daf3031-1ff8-40aa-bd43-9b8e19413f1e
-langcode: en
-status: true
-dependencies: {  }
-id: ride_date
-label: 'Ride date'
-locked: false
-pattern: 'l, M d, Y - g:i a'

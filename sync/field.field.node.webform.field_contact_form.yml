@@ -1,3 +1,4 @@
+uuid: 0e24457f-af70-4dbf-8e2e-f0d42f61c891
 langcode: en
 status: true
 dependencies:
@@ -9,7 +10,7 @@ field_name: field_contact_form
 entity_type: node
 bundle: webform
 label: Contact
-description: "Use contact forms to send email without revealing email addresses on the site.<br>\r\n<li>Personal contact form - a field is opened to select one or more persons.</li>\r\n<li>Other (\"sitewide\") contact forms are setup at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>.</li>\r\nUse sitewide contact forms for links that appear on multiple pages, especially if the forwarding email address(es) may change over time ( e.g., for club officers). \r\n"
+description: "\r\n"
 required: false
 translatable: false
 default_value: {  }

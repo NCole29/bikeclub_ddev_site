@@ -1,11 +1,43 @@
 uuid: 3fc5641e-7527-439d-bb73-47a188d6a472
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.ride_page
+    - node.type.recurring_ride
+    - node.type.ride
+  module:
+    - bikeclub_ride_tools
+    - filter
+    - media
+    - node
+    - quick_node_clone
+    - system
+    - toolbar
 _core:
   default_config_hash: irvXcajeMTf6LBI5_BJzgmmrRtRnDzEoVD9DoPZ5IKU
 id: ride_leader
 label: 'Ride leader'
 weight: 3
 is_admin: false
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'add club_route entity'
+  - 'clone recurring_ride content'
+  - 'clone ride content'
+  - 'create media'
+  - 'create recurring_ride content'
+  - 'create ride content'
+  - 'delete own recurring_ride content'
+  - 'delete own ride content'
+  - 'edit own recurring_ride content'
+  - 'edit own ride content'
+  - 'enter waivers'
+  - 'use text format ride_page'
+  - 'view club_schedule entity'
+  - 'view own unpublished media'
+  - 'view recurring_ride revisions'
+  - 'view ride revisions'
+  - 'view the administration theme'

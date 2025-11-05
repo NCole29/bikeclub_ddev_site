@@ -93,6 +93,7 @@
         "drupal/menu_block": "^1.14",
         "drupal/paragraphs": "^1.0",
         "drupal/pathauto": "^1.13",
+        "drupal/permission_spreadsheet": "^2.1",
         "drupal/project_browser": "^2.1",
         "drupal/quick_node_clone": "^1.22",
         "drupal/recipe_installer_kit": "^1.0.0-alpha3",

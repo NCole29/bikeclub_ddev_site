@@ -3,12 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card_row
     - core.entity_view_mode.node.rss
+    - core.entity_view_mode.node.summary
     - core.entity_view_mode.node.teaser
     - node.type.announcement
     - node.type.event
     - node.type.page
+    - node.type.webform
   module:
     - datetime
     - node
@@ -442,6 +443,7 @@ display:
           value:
             announcement: announcement
             page: page
+            webform: webform
           group: 2
           exposed: false
           expose:
@@ -533,7 +535,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: card_row
+          view_mode: summary
       defaults:
         pager: false
         style: false
@@ -553,7 +555,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Announcements</n2>'
+            value: "<h2><strong>Announcements</strong></h2>\r\n"
             format: basic_html
           tokenize: false
       display_extenders: {  }

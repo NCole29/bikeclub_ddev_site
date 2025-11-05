@@ -22,14 +22,15 @@ third_party_settings:
       label: 'Schedule publication'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 4
       format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         open: true
-        description: "<big>Announcement is published immediately with the pre-populated date/time in the past; change to the future to delay publication. \"Unpublish on\" must be in the future.</big>\r\n  "
+        description: "<big>To publish immediately, set \"publish on\" in the past. \"Unpublish on\" must be in the future.</big>\r\n  "
         required_fields: true
     group_contact_link:
       children:
@@ -46,7 +47,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         open: false
-        description: ''
+        description: 'Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding address at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
         required_fields: true
 _core:
   default_config_hash: rW8cXHe-DiiTvsQ4HYWRQtlYrvhlpcCUrpMZIvZYvA8
@@ -72,25 +73,7 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        f4bea69e-2271-4324-a4e2-2414c4b26ce6:
-          entity_type: node
-          bundle: page
-          dependee: field_contact_form
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: personal
-            effect: show
-            effect_options: {  }
-            selector: ''
-        0fd7c82e-84ad-47cc-b60c-443af2e116c5:
+        e1d46a43-4c2a-4fe1-97a5-098a98e59f20:
           entity_type: node
           bundle: announcement
           dependee: field_contact_form
@@ -132,7 +115,7 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 7
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -145,7 +128,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 8
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -165,7 +148,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -89,7 +89,12 @@ class RenameImages {
   public function fixRideImage($mid) {
     $media = Media::load($mid);
     $alt = $media->get('thumbnail')[0]->get('alt')->getString();
-    $image_cat = $this->getImageCatId($node);
+
+    // Get taxonomy term ID.
+    $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+    $term = $termStorage->loadByProperties(['vid' => 'image_category', 'name' => 'Ride']);
+    $term = reset($term);
+    $image_cat = $term->id();
 
     if ($alt) {
       $media->set('name',$alt)->save();

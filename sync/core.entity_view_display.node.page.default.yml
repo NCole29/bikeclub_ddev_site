@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.page.field_components
     - field.field.node.page.field_contact_form
     - field.field.node.page.field_contact_person
-    - field.field.node.page.field_padding
     - field.field.node.page.field_page_access
     - field.field.node.page.field_summary
     - field.field.node.page.field_text
@@ -63,7 +62,7 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:page:field_contact_person'
-              label: Contact
+              label: 'Contact person'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -71,7 +70,7 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: user_contact_link
-                label: inline
+                label: above
                 settings: {  }
                 third_party_settings: {  }
             weight: 9
@@ -152,16 +151,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_padding:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 6
     region: content
   field_type_of_page:
     type: list_default
