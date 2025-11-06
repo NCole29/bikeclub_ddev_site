@@ -1,4 +1,4 @@
-uuid: 66892341-15c0-45de-b7e3-b36f9db89a52
+uuid: 128cf0e7-6fd8-45e2-8ded-0fbe8188afa3
 langcode: en
 status: true
 dependencies:
@@ -27,8 +27,12 @@ dependencies:
     - node.type.ride
     - views.view.ride_routes
   module:
+    - bikeclub
+    - datetime
     - layout_builder
+    - layout_builder_restrictions
     - layout_discovery
+    - options
     - text
     - user
     - views
@@ -44,8 +48,72 @@ third_party_settings:
           context_mapping: {  }
           column_widths: 50-50
         components:
-          7e0a7ab0-ae7f-4f6b-9662-42ef3b3afd4e:
-            uuid: 7e0a7ab0-ae7f-4f6b-9662-42ef3b3afd4e
+          96c47450-8790-4da7-b16b-2e7713e1d111:
+            uuid: 96c47450-8790-4da7-b16b-2e7713e1d111
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_date'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: medium
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          ecc3ee6d-e003-478d-9466-733b59186879:
+            uuid: ecc3ee6d-e003-478d-9466-733b59186879
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_time'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          c8c7f937-5d1e-4a23-8a43-c02becbdea43:
+            uuid: c8c7f937-5d1e-4a23-8a43-c02becbdea43
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_activity'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          6c245432-6fbf-40d2-80dd-8efaecfd8be5:
+            uuid: 6c245432-6fbf-40d2-80dd-8efaecfd8be5
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_ride_leader'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: user_contact_link
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          8875565c-af5e-4c47-9db9-823224154a51:
+            uuid: 8875565c-af5e-4c47-9db9-823224154a51
             region: second
             configuration:
               id: 'field_block:node:ride:field_cancel'
@@ -63,82 +131,59 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: '<h2>****  Canceled  ****</h2>'
                 third_party_settings: {  }
-            weight: 4
+            weight: 0
             additional: {  }
-          d2b9eabe-27db-4f0d-9252-9e28081dc5bc:
-            uuid: d2b9eabe-27db-4f0d-9252-9e28081dc5bc
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_activity'
-              label: 'Ride type'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          9339ed92-2b31-4097-870f-43b50e73effc:
-            uuid: 9339ed92-2b31-4097-870f-43b50e73effc
-            region: second
-            configuration:
-              id: 'field_block:node:ride:field_time'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 9
-            additional: {  }
-          2aa2ffda-04f5-4bac-8a2a-0ad131b8b8fc:
-            uuid: 2aa2ffda-04f5-4bac-8a2a-0ad131b8b8fc
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_ride_leader'
-              label: Leader(s)
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_contact
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
-          9d6209e0-63e9-42b9-b09f-5c2a45cf0690:
-            uuid: 9d6209e0-63e9-42b9-b09f-5c2a45cf0690
+          5e9cdd0f-e5bf-4691-89b4-fc7b2a90869f:
+            uuid: 5e9cdd0f-e5bf-4691-89b4-fc7b2a90869f
             region: second
             configuration:
               id: 'field_block:node:ride:field_location'
-              label: 'Starting location'
               label_display: '0'
-              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
-                view_mode: view_mode
               formatter:
                 type: entity_reference_entity_view
                 label: above
                 settings:
                   view_mode: address
+                  link: false
                 third_party_settings: {  }
-            weight: 10
+            weight: 3
             additional: {  }
-          930d064d-721f-4dc0-8a0f-4d941ec0798b:
-            uuid: 930d064d-721f-4dc0-8a0f-4d941ec0798b
+          9bcac7a5-1348-4581-aa71-02d5617ca9b0:
+            uuid: 9bcac7a5-1348-4581-aa71-02d5617ca9b0
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_lunch_same'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: list_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          4fa5f0c5-a040-4661-8baa-cb7636d70ad4:
+            uuid: 4fa5f0c5-a040-4661-8baa-cb7636d70ad4
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_lunch_place'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: address
+                  link: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          f1d628d7-0c65-4c63-b603-75e488a51705:
+            uuid: f1d628d7-0c65-4c63-b603-75e488a51705
             region: second
             configuration:
               id: 'field_block:node:ride:field_additional_information'
@@ -150,10 +195,10 @@ third_party_settings:
                 label: above
                 settings: {  }
                 third_party_settings: {  }
-            weight: 13
+            weight: 6
             additional: {  }
-          58f10125-4069-40f5-bc25-a90bf56c2c4e:
-            uuid: 58f10125-4069-40f5-bc25-a90bf56c2c4e
+          998b459e-fc8d-4f07-bf13-6d84a9130dcd:
+            uuid: 998b459e-fc8d-4f07-bf13-6d84a9130dcd
             region: first
             configuration:
               id: 'field_block:node:ride:field_ride_picture'
@@ -174,8 +219,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          42d4572a-2f53-4289-ad83-66e7e0c3cde1:
-            uuid: 42d4572a-2f53-4289-ad83-66e7e0c3cde1
+          9e3d38d3-68f4-4a81-bc57-557603752525:
+            uuid: 9e3d38d3-68f4-4a81-bc57-557603752525
             region: first
             configuration:
               id: 'field_block:node:ride:field_description'
@@ -189,78 +234,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
-          0e11bf74-b875-48bb-b684-060152492cfa:
-            uuid: 0e11bf74-b875-48bb-b684-060152492cfa
-            region: second
-            configuration:
-              id: 'field_block:node:ride:field_date'
-              label: Date
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: day_date_time
-                third_party_settings: {  }
-            weight: 8
-            additional: {  }
-          3a981a25-2b38-43ac-aa5c-3c4532e0babb:
-            uuid: 3a981a25-2b38-43ac-aa5c-3c4532e0babb
-            region: second
-            configuration:
-              id: 'field_block:node:ride:field_lunch_place'
-              label: 'Lunch location'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 12
-            additional: {  }
-          f38cc5eb-1499-4c87-89a2-ab7c46b4bb09:
-            uuid: f38cc5eb-1499-4c87-89a2-ab7c46b4bb09
-            region: second
-            configuration:
-              id: 'field_block:node:ride:field_lunch_same'
-              label: 'Lunch place'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: list_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 11
-            additional: {  }
-          132f36e9-74cf-45ef-ad81-3b7da4ed5bad:
-            uuid: 132f36e9-74cf-45ef-ad81-3b7da4ed5bad
-            region: second
-            configuration:
-              id: 'views_block:ride_routes-route_list'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: null
-            weight: 14
-            additional: {  }
-          d2a61a07-5093-4541-9528-71b7234f385d:
-            uuid: d2a61a07-5093-4541-9528-71b7234f385d
+          8f71edea-9a37-4c78-80c4-82d19860ce99:
+            uuid: 8f71edea-9a37-4c78-80c4-82d19860ce99
             region: first
             configuration:
               id: 'field_block:node:ride:field_webform'
@@ -280,30 +255,10 @@ third_party_settings:
                     class:
                       - button
                 third_party_settings: {  }
-            weight: 5
+            weight: 4
             additional: {  }
-          82e3fa87-051b-4500-961e-5b4be5d70b81:
-            uuid: 82e3fa87-051b-4500-961e-5b4be5d70b81
-            region: first
-            configuration:
-              id: 'field_block:node:ride:field_webform_closing'
-              label: 'Registration closing date'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: day_date_time_short
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-          0575362f-d2d6-44f8-9ef5-e2e44e647cc5:
-            uuid: 0575362f-d2d6-44f8-9ef5-e2e44e647cc5
+          ef227e79-7a26-4c90-ac01-32abf227bf66:
+            uuid: ef227e79-7a26-4c90-ac01-32abf227bf66
             region: first
             configuration:
               id: 'field_block:node:ride:field_webform_limit'
@@ -318,9 +273,42 @@ third_party_settings:
                 label: inline
                 settings:
                   thousand_separator: ''
-                  prefix_suffix: false
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          b831d902-1459-489a-a999-3c4d0780c077:
+            uuid: b831d902-1459-489a-a999-3c4d0780c077
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_webform_closing'
+              label: 'Registration closing date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: medium
                 third_party_settings: {  }
             weight: 6
+            additional: {  }
+          687d7636-de2d-40aa-a712-78d21d46b0cb:
+            uuid: 687d7636-de2d-40aa-a712-78d21d46b0cb
+            region: second
+            configuration:
+              id: 'views_block:ride_routes-route_list'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 7
             additional: {  }
         third_party_settings: {  }
       -
@@ -328,8 +316,8 @@ third_party_settings:
         layout_settings:
           label: ''
         components:
-          8018cc43-61aa-40ca-8a45-0033fa50e5b5:
-            uuid: 8018cc43-61aa-40ca-8a45-0033fa50e5b5
+          2543149a-8b71-4625-9bec-4339ad5787b3:
+            uuid: 2543149a-8b71-4625-9bec-4339ad5787b3
             region: content
             configuration:
               id: 'views_block:ride_routes-route_maps'
@@ -342,6 +330,13 @@ third_party_settings:
             weight: 0
             additional: {  }
         third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.ride.full
 targetEntityType: node
 bundle: ride
@@ -349,11 +344,11 @@ mode: full
 content:
   field_activity:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
-      link: false
+      link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   field_additional_information:
     type: text_default
@@ -364,36 +359,61 @@ content:
     region: content
   field_cancel:
     type: boolean
-    label: visually_hidden
+    label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 5
+    region: content
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_description:
     type: text_default
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 6
     region: content
   field_location:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
+      view_mode: address
       link: false
     third_party_settings: {  }
     weight: 7
     region: content
-  field_ride_leader:
-    type: entity_reference_label
+  field_lunch_place:
+    type: entity_reference_entity_view
     label: above
     settings:
+      view_mode: address
       link: false
     third_party_settings: {  }
-    weight: 5
+    weight: 9
+    region: content
+  field_lunch_same:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_ride_leader:
+    type: user_contact_link
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_time:
     type: string
@@ -401,18 +421,17 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
-  field_date: true
-  field_datetime: true
-  field_day: true
   field_dayofweek: true
   field_developed_by: true
-  field_lunch_place: true
-  field_lunch_same: true
   field_multiple_times: true
-  field_nonmembers: true
   field_registration_required: true
   field_ride_picture: true
   field_rwgps_routes: true
@@ -420,4 +439,3 @@ hidden:
   field_webform: true
   field_webform_closing: true
   field_webform_limit: true
-  links: true

@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_location
     - field.storage.node.field_ride_leader
   module:
-    - address
     - bikeclub_ride_tools
     - datetime
     - node
@@ -201,10 +200,66 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            operations: operations
+            schedule_id: schedule_id
+            schedule_date: schedule_date
+            ride_leader: ride_leader
+            title: title
+            field_ride_leader: field_ride_leader
+            field_activity: field_activity
+            field_location: field_location
+            status: status
           default: '-1'
           info:
-            operations:
+            schedule_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            schedule_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            ride_leader:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ride_leader:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_activity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_location:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -697,56 +752,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_address_locality:
-          id: field_address_locality
-          table: node__field_address
-          field: field_address_locality
-          relationship: reverse__node__field_schedule_date
-          group_type: group
-          admin_label: ''
-          plugin_id: subdivision
-          label: 'City / town'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          display_name: true
         status:
           id: status
           table: node_field_data
@@ -1071,7 +1076,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<h3>Calendar dates joined with non-recurring rides</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n    Assigned ride leader - Use this column to assign ride leaders to dates (by clicking the date) before a ride page is created.<br>\r\n    Run out of calendar dates? The database is populated with 3 years of dates. Add more at <a href=\"/admin/config/club/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.\r\n</details>"
+          content: "<h3>Calendar dates joined with non-recurring rides</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n   <dl>\r\n    <dd>Assigned ride leader - Use this column to assign ride leaders to dates (by clicking the date) before a ride page is created.</dd>\r\n    <dd>Run out of calendar dates? The database is populated with 3 years of dates. Add more at <a href=\"/admin/config/club/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.</dd>\r\n</details></dl>\r\n<p></p>"
           tokenize: false
       display_comment: 'Views_year_filter configuration must enable bootstrap datepicker.'
       display_extenders: {  }

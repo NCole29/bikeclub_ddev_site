@@ -45,16 +45,3 @@ bikeclub.custom_entities:
     _title: 'Custom entities'
   requirements:
     _permission: 'access toolbar'
-
-# Link to personal contact form outside "user" page.
-entity.user_contactlink.contact_form:
-  path: '/contact/{user}/contact'
-  defaults:
-    _title: 'Contact person'
-    _controller: '\Drupal\contact\Controller\ContactController::contactPersonalPage'
-  requirements:
-    _permission: 'access content'
-  options:
-    parameters:
-      user:
-        type: entity:user

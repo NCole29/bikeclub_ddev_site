@@ -348,7 +348,7 @@ content:
           dependee: field_registration_required
           settings:
             state: visible
-            reset: false
+            reset: true
             condition: checked
             grouping: AND
             values_set: 1

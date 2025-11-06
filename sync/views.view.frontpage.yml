@@ -485,7 +485,7 @@ display:
           value:
             min: ''
             max: ''
-            value: +1day
+            value: '-1day'
             type: offset
           group: 2
           exposed: false

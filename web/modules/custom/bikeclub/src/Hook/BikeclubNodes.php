@@ -114,29 +114,27 @@ class BikeclubNodes {
 
       // Webform nodes.
       case 'webform': 
-        // Put webform close date in node field closing.
-        if (!empty($node->field_webform)) { 
-          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close,);
-        }
-        break;
+        $this->clearWebformFields($node);
+      break;
     } 
 
-
     if ($node_type == 'ride' or $node_type == 'recurring_ride') {
-       if ($node->field_ride_picture->target_id) {
-          $this->renameImages->fixRideImage($node->field_ride_picture->target_id);
-        }
 
-        // Clear the registration fields upon update.
-        if ($node->field_registration_required->value == 0) {
-          $node->field_webform = NULL;
-          $node->field_webform_closing = NULL;
-          $node->field_webform_limit = NULL;
-        } 
-        elseif (!empty($node->field_webform) && !empty($node->field_webform->close)) { 
-          // Save webform closing date in Drupal field for display.
-          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close);
-        }
+      // Set image name = alt text and set image category.  
+      if ($node->field_ride_picture->target_id) {
+        $this->renameImages->fixRideImage($node->field_ride_picture->target_id);
+      }
+
+      // Clear Times if multiple time is unchecked.
+      if ($node->field_multiple_times->value == 0) {
+        unset($node->field_time);
+      }
+
+      // Clear the registration fields upon update.
+      if ($node->field_registration_required->value == 0) {
+        unset($node->field_webform);
+      }
+      $this->clearWebformFields($node);
     }
   }
 
@@ -175,6 +173,23 @@ class BikeclubNodes {
     }
   }
 
+  /**
+   * Clear webform fields
+   */
+  public function clearWebformFields($node) {
+
+    if (empty($node->field_webform)) {
+      unset($node->field_webform_limit);
+      unset($node->field_webform_closing);
+    }
+    elseif ($node->field_webform->status <> 'scheduled'){
+      unset($node->field_webform_closing);
+    }
+    elseif ($node->field_webform->status == 'scheduled') { 
+      $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close,);
+    }
+  }
+  
   /**
    * Convert webform date stored in site's default timezone to Drupal date (UTC). 
    */ 

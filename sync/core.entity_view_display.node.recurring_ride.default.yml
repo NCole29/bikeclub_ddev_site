@@ -129,7 +129,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_contact
+                type: user_contact_link
                 label: above
                 settings: {  }
                 third_party_settings: {  }

@@ -65,7 +65,7 @@ class UserContactFormatter extends EntityReferenceFormatterBase implements Conta
     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
  
       $contact_id = $entity->id();
-          
+
       // Is personal contact form enabled? If no, display plain text.
       $enabled = $this->userData->get('contact', $contact_id, 'enabled');
 
@@ -78,7 +78,7 @@ class UserContactFormatter extends EntityReferenceFormatterBase implements Conta
         ];
       } 
       else {
-        $url = \Drupal\Core\Url::fromRoute('entity.user_contactlink.contact_form', ['user' => $contact_id ]);
+        $url = \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $contact_id ]);
         $elements[$delta] = [
           '#type' => 'link',
           '#title' => $entity->label(),
@@ -89,6 +89,7 @@ class UserContactFormatter extends EntityReferenceFormatterBase implements Conta
         ];  
       }
     }  
+
     return $elements;
   }
 

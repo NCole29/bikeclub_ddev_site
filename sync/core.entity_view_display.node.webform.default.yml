@@ -148,7 +148,8 @@ third_party_settings:
                   label: 'Go to [webform:title]'
                   dialog: ''
                   attributes:
-                    style: button
+                    class:
+                      - button
                 third_party_settings: {  }
             weight: 5
             additional: {  }
