@@ -76,8 +76,8 @@ p.button a {
 /*---------------------------------------------------------------------------
   Plain table - no shading, border on bottom only
   Leader table - enforce equal column width
-  Report tables  - alternate row shading, right align, small font
-  Schedule table - same as report + border between shedule and ride fields
+  Report table  - alternate row shading, right align, small font
+  Schedule table - same as report + border between schedule and ride fields
   --------------------------------------------------------------------------*/
 .narrow-table {
   width: 50% !important;

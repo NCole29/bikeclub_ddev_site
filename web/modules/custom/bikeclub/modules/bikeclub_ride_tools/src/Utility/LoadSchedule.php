@@ -35,7 +35,7 @@ class LoadSchedule {
 
         $newDate = $storage->create([
           'weekday' => $weekday,
-          'field_schedule_date' => $date,
+          'schedule_date' => $date,
           'created' => $now,
           'changed' => $now,
           'langcode' => "en",

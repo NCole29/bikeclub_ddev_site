@@ -109,7 +109,7 @@ entity.club_schedule.canonical:
     _permission: 'view club_schedule entity'
 
 entity.club_schedule.edit_form:
-  path: '/admin/bikeclub_ride_tools/{club_schedule}/edit'
+  path: '/admin/club_schedule/{club_schedule}/edit'
   defaults:
     _entity_form: club_schedule.default
     _title: 'Edit schedule date'

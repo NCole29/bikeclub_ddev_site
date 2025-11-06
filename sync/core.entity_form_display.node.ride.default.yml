@@ -281,16 +281,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_schedule_date:
-    type: entity_reference_autocomplete
-    weight: 47
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_time:
     type: string_textfield
     weight: 37
@@ -404,6 +394,7 @@ hidden:
   field_cancel: true
   field_day: true
   field_dayofweek: true
+  field_schedule_date: true
   field_webform_closing: true
   path: true
   promote: true

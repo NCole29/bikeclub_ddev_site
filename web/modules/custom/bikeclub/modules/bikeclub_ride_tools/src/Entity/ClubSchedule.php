@@ -116,6 +116,27 @@ class ClubSchedule extends ContentEntityBase implements ClubScheduleInterface {
       ->setDescription(t('The UUID of the route entity.'))
       ->setReadOnly(TRUE);
 
+    $fields['schedule_date'] = BaseFieldDefinition::create('datetime')
+      ->setLabel(t('Schedule date'))
+      ->setDescription(t('Schedule date'))
+      ->setSettings([
+        'datetime_type' => 'date',
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'datetime_default',
+        'settings' => [
+          'format_type' => 'medium',
+        ],
+        'weight' => 0,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'datetime_default',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['weekday'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Weekday'))
       ->setDefaultValue('')

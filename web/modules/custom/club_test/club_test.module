@@ -21,8 +21,14 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
-   $storage = \Drupal::entityTypeManager()->getStorage('club_schedule');
-   kint($storage);
+  $field = 'field_schedule_date';
+  $entity_type_id = 'club_schedule';
+  
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $definition = $update_manager->getFieldStorageDefinition($field, $entity_type_id);
+
+
+   kint($definition);
    die;
   }
 }

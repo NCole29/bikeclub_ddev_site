@@ -11,4 +11,19 @@ use Drupal\views\EntityViewsDataInterface;
   */
 
 class ClubScheduleViews extends EntityViewsData implements EntityViewsDataInterface {
+
+  /**
+  * {@inheritdoc}
+  */
+  public function getViewsData() {
+    $data = parent::getViewsData();
+
+    $data['club_schedule']['schedule_date']['filter'] = [
+      'id' => 'datetime',
+      'field_name' => 'schedule_date',
+    ];
+ 
+    return $data;
+  }
+
 }

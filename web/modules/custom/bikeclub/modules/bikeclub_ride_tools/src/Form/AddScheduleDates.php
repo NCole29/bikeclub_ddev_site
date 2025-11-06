@@ -14,6 +14,13 @@ use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 class AddScheduleDates extends FormBase {
 
   /**
+   * The load type.
+   *
+   * @var integer
+   */
+  protected $loadType;
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId() {
@@ -23,8 +30,8 @@ class AddScheduleDates extends FormBase {
   public function getDates() {
     $minmax = \Drupal::entityQueryAggregate('club_schedule')
     ->accessCheck(FALSE)
-    ->aggregate('field_schedule_date', 'MIN', NULL)
-    ->aggregate('field_schedule_date', 'MAX', NULL)
+    ->aggregate('schedule_date', 'MIN', NULL)
+    ->aggregate('schedule_date', 'MAX', NULL)
     ->execute();
     
     return $minmax;
@@ -34,12 +41,15 @@ class AddScheduleDates extends FormBase {
     // Get range of dates in the club_schedule table.
     $minmax = $this->getDates();
 
-    if (!is_null($minmax[0]["field_schedule_date_min"])) {
+    if (!is_null($minmax[0]["schedule_date_min"])) {
+
+      $this->loadType = 1; // Not an initial load.
+
       // Get the date formatter service
       $date_formatter = \Drupal::service('date.formatter');
 
-      $min = $minmax[0]["field_schedule_date_min"];
-      $max = $minmax[0]["field_schedule_date_max"];
+      $min = $minmax[0]["schedule_date_min"];
+      $max = $minmax[0]["schedule_date_max"];
 
       // Create DrupalDateTime objects.
       $min_datetime = new DrupalDateTime($min); 
@@ -55,6 +65,7 @@ class AddScheduleDates extends FormBase {
         an additional 3 years of dates to the database.</p>" 
       ];
     } else {
+      $this->loadType = 0; // Initial load.
       $form['instructions'] = [
         '#type' => 'markup',
         '#markup' => "<p>Click the button below to add 3 years of dates to the database.</p>" 
@@ -71,7 +82,8 @@ class AddScheduleDates extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    LoadSchedule::loadSchedule(0); // 1 indicates NOT initial load.
+   
+    LoadSchedule::loadSchedule($this->loadType); 
     \Drupal::messenger()->addMessage(t("Three years of dates have been added."));
     $form_state->setRedirect('<front>');
   }
