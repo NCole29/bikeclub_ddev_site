@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\bikeclub\Hook;
 
 use Drupal\bikeclub\Utility\RenameImages;
+use Drupal\bikeclub\Utility\RWGPSClient;
 use Drupal\bikeclub\Utility\UpdateRecurDates;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -24,61 +25,45 @@ class BikeclubNodes {
     protected ConfigFactoryInterface $config,
     protected EntityTypeManagerInterface $entityTypeManager,
     protected MessengerInterface $messenger,
-    protected RenameImages $renameImages
+    protected RenameImages $renameImages,
+    protected RwgpsClient $rwgpsClient
   ) {
   }
   
   /**
    * Implements hook_NODE_presave().
-   * 
-   * Presave operations for media, events, and locations. 
    */
   #[Hook('node_presave')]
   public function nodePresave(EntityInterface $node) {
   
-    // Replace image name with Alt text.
-    if ($node->hasField('field_text') & isset($node->field_text)) {
-      $this->renameImages->fixMedia($node);
-    }
-    if ($node->hasField('field_components') & isset($node->field_components->target_id)) {
-      $this->renameImages->fixPmedia($node);
-    }
-    if ($node->hasField('banner_image') & isset($node->banner_image)) {
-      $this->renameImages->fixBanners($node);
-    }
-
-    // Clear personal contact form if selection has changed.
-    if ($node->hasField('field_contact_form')){
-      if ($node->field_contact_form->target_id <> 'personal') {
-        unset($node->field_contact_person);
-      }    
-    }  
-
     // CODE PER CONTENT TYPE.
     // Conditional_fields module does not "zero out" entity reference fields so it's done here.
     $node_type = $node->bundle();
   
     switch ($node_type) {
-      case 'event':
-        $regType = $node->get('field_registration_type')->value;
+      case 'announcement':
+      case 'page':
+        $this->fixImage($node);
+        $this->clearContact($node); 
+      break;
 
-        // Clear registration values when updated.
-        //  (Conditional fields module doesn't do this for entity reference fields.)
+      case 'event':
+        $this->fixImage($node);
+        $this->clearContact($node);
+
+        $regType = $node->get('field_registration_type')->value;
         if ($regType <> 1) {       // 1 = webform
           unset($node->field_webform);
-          unset($node->field_webform_closing);
-          unset($node->field_webform_limit);
-          unset($node->field_webform_results);
         } elseif ($regType <> 2) {   // 2 = link
           unset($node->field_registration_link);
         }
+        $this->clearWebformFields($node);
+      break;
 
-        // Save webform closing date in Drupal field for display.
-        if ($regType == 1 && !empty($node->field_webform) && !empty($node->field_webform->close)) { 
-          $node->field_webform_closing = $this->convertWebformDate($node->field_webform->close);
-        }
-        break;
-
+      case 'faqs':
+        $this->clearContact($node);
+      break;
+        
       case 'location':
         // Display message if Geocoder Provider is not configured.
         $googleAPI = $this->config->get('geocoder.geocoder_provider.googlemaps')->get('configuration.apiKey');
@@ -90,14 +75,31 @@ class BikeclubNodes {
 
           $this->messenger->addWarning(t($content, [ '@link' => $link ]));
         }
-        break;
+      break;
 
       case 'ride':
-        // Fill day-of-week for displaying weekend vs weekday rides.
-        if ($node->field_date->value) {
+        if (!empty($node->field_date->value)) {
+          // Fill day-of-week for displaying weekend vs weekday rides.
           $node->field_dayofweek = DateHelper::dayOfWeek($node->field_date->value);
-        }
-        break;
+
+          // Fill schedule date (entity reference field).
+          $date_formatter = \Drupal::service('date.formatter');
+          $date = $date_formatter->format($node->get('field_date')->date->getTimestamp(), 'custom', 'Y-m-d');
+
+          $query = $this->entityTypeManager->getStorage('club_schedule')->getQuery();
+          $id = $query
+            ->accessCheck(FALSE)
+            ->condition('schedule_date', $date, '=')
+            ->execute();
+          $id = reset($id);
+
+          if ($id) {
+            $node->field_schedule_date->target_id = $id;
+          }   
+        }  
+
+        $this->updateRideFields($node);  
+      break;
 
       case 'recurring_ride':
         // Get numeric day-of-week from timestamp. 
@@ -105,37 +107,22 @@ class BikeclubNodes {
         $date_time = (int) $node->field_datetime->value;
         $node->field_dayofweek = date('w',$date_time);
 
-        // Edited content.
+        $this->updateRideFields($node);
+
+        // Update recurring_dates for edited content.
         if ($node->id()) {
           UpdateRecurDates::deleteDates($node->id()); // Delete future dates.
           UpdateRecurDates::addDates($node,0); // 0 = don't add all, just future dates.
         } 
-       break;
+      break;
 
       // Webform nodes.
       case 'webform': 
+        $this->fixImage($node);
+        $this->clearContact($node);
         $this->clearWebformFields($node);
       break;
     } 
-
-    if ($node_type == 'ride' or $node_type == 'recurring_ride') {
-
-      // Set image name = alt text and set image category.  
-      if ($node->field_ride_picture->target_id) {
-        $this->renameImages->fixRideImage($node->field_ride_picture->target_id);
-      }
-
-      // Clear Times if multiple time is unchecked.
-      if ($node->field_multiple_times->value == 0) {
-        unset($node->field_time);
-      }
-
-      // Clear the registration fields upon update.
-      if ($node->field_registration_required->value == 0) {
-        unset($node->field_webform);
-      }
-      $this->clearWebformFields($node);
-    }
   }
 
   /**
@@ -173,12 +160,74 @@ class BikeclubNodes {
     }
   }
 
+  /** 
+   * Set image name/category.
+   * Applies to Announcement, Basic page, Event, Webform node.
+   */
+  public function fixImage($node) {
+        
+    // Replace image name with Alt text.
+    if ($node->hasField('field_text') & isset($node->field_text)) {
+      $this->renameImages->fixMedia($node);
+    }
+    if ($node->hasField('field_components') & isset($node->field_components->target_id)) {
+      $this->renameImages->fixPmedia($node);
+    }
+    if ($node->hasField('banner_image') & isset($node->banner_image)) {
+      $this->renameImages->fixBanners($node);
+    }
+  }
+
+  /** 
+   * Clear personal contact field if contact form not Personal.
+   * Applies to all content types except Rides.
+   */
+  public function clearContact($node) {
+    // Clear personal contact form if selection has changed.
+    if (isset($node->field_contact_person) && $node->field_contact_form->target_id <> 'personal') {
+      unset($node->field_contact_person);
+    }    
+  }
+
   /**
-   * Clear webform fields
+   * Update ride fields.
+   */
+  public function updateRideFields($node) {
+
+    // Set image name & category.  
+    if (isset($node->field_ride_picture->target_id)) {
+      $this->renameImages->fixRideImage($node->field_ride_picture->target_id);
+    }
+
+    // Clear Times if multiple time is unchecked.
+    if (isset($node->field_time) && $node->field_multiple_times->value == 0) {
+      unset($node->field_time);
+    }
+
+    // Clear the registration fields upon update.
+    if (isset($node->field_webform) && $node->field_registration_required->value == 0) {
+      unset($node->field_webform);
+    }
+    $this->clearWebformFields($node);
+
+    // Store routes when node is published (not when draft to keep junk out of route table.)
+    if ($node->status->value == 1 && !empty($node->field_rwgps_routes)) {
+      $ride_start = $node->field_location->target_id;
+
+      foreach ($node->field_rwgps_routes as $routeId) {
+        if (!empty($routeId->target_id)){
+          $this->rwgpsClient->getRouteInfo($routeId->target_id, $ride_start);
+        }
+      }
+    }  
+  }
+
+  /**
+   * Clear webform fields.
    */
   public function clearWebformFields($node) {
-
-    if (empty($node->field_webform)) {
+    
+    if (empty($node->field_webform->target_id)) {
       unset($node->field_webform_limit);
       unset($node->field_webform_closing);
     }

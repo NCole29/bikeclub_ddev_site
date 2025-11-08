@@ -20,24 +20,11 @@ class RideHelp {
       case 'help.page.bikeclub_ride_tools':
         $output = '';
         $output .= '<h2>' . t('About') . '</h2>';
-        $output .= '<p>' . t('The Bikeclub ride module creates content types for ride pages integrated with RWGPS; calendar and list displays of rides; tools for administering rides; ');
+        $output .= '<p>' . t('The Bikeclub ride tools module creates content types for ride pages integrated with RWGPS; calendar and list displays of rides; tools for administering rides; ');
         $output .= t('user roles for <em>Rides coordinator</em> and <em>Ride leader</em> (integrated with CiviCRM mailing lists); and optional ride registration forms.') . '</p>';
 
         $output .= '<h2>' . t('Uses') . '</h2>';
         $output .= '<dl>';
-
-        $output .= '<dt>' . t('Create ride pages') . '</dt>';
-
-        $output .= '<dd>' . t('This module provides three content types: (1) Ride - for rides that do no recur at regular intervals; ');
-        $output .= t('(2) Recurring ride - for rides that recur weekly, biweekly, or monthly; and (3) Recurring dates which are ') ;
-        $output .= t('automatically created/deleted when a Recurring ride is saved. Recurring dates use Drupal dates ');
-        $output .= t('(in contrast to timestamps used for Recurring rides) and speed calendar rendering.') ;
-        $output .= '</dd>';
-
-        $output .= '<dt>' . t('Optionally require Ride registration') . '</dt>';
-
-        $output .= '<dd>' . t('Ride registration is an option that can be used or not on each ride page (Ride and Recurring ride). The Ride leader(s) for that ride ');
-        $output .= t('are granted access to view registrations.');
 
         $output .= '<dt>' . t('Use Ride Tools') . '</dt>';
 

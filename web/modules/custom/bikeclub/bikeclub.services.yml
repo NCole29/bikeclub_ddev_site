@@ -5,10 +5,10 @@ services:
       - { name: event_subscriber }
 
   bikeclub.rwgpsClient:
-    class: Drupal\bikeclub\Utility\GetRwgpsClient
-    arguments: ['@config.factory','@http_client_factory','@entity_type.manager','@logger.factory','@messenger']
+    class: Drupal\bikeclub\Utility\RWGPSClient
+    arguments: ['@config.factory','@entity_type.manager','@http_client_factory','@messenger']
 
-  Drupal\bikeclub\Utility\GetRwgpsClient: '@bikeclub.rwgpsClient'
+  Drupal\bikeclub\Utility\RWGPSClient: '@bikeclub.rwgpsClient'
 
   bikeclub.renameImages:
     class: Drupal\bikeclub\Utility\RenameImages

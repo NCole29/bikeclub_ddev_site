@@ -47,9 +47,9 @@ content:
     type: faqfield_accordion
     label: visually_hidden
     settings:
-      active: 0
-      heightStyle: auto
-      collapsible: false
+      active: null
+      heightStyle: content
+      collapsible: true
       event: click
       animate:
         easing: linear

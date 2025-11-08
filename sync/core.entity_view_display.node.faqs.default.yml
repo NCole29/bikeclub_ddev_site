@@ -11,137 +11,14 @@ dependencies:
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
   module:
+    - bikeclub
     - faqfield
-    - layout_builder
-    - layout_discovery
     - user
-    - user_contacts
-third_party_settings:
-  layout_builder:
-    enabled: true
-    allow_custom: false
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Text above FAQs'
-          context_mapping: {  }
-        components:
-          bf87fc8e-6e0d-4ec9-8a74-01d8972d7952:
-            uuid: bf87fc8e-6e0d-4ec9-8a74-01d8972d7952
-            region: content
-            configuration:
-              id: 'field_block:node:faqs:field_text_above_faqs'
-              label: 'Text above FAQs'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: visually_hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          ab575744-db42-4261-80e5-9e444e1637fd:
-            uuid: ab575744-db42-4261-80e5-9e444e1637fd
-            region: content
-            configuration:
-              id: 'field_block:node:faqs:field_faq'
-              label: FAQ
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: faqfield_accordion
-                label: hidden
-                settings:
-                  active: 0
-                  heightStyle: content
-                  collapsible: true
-                  event: click
-                  animate:
-                    easing: linear
-                    duration: 200
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          612fe5c7-0d84-4aeb-ab9f-10e39d92a645:
-            uuid: 612fe5c7-0d84-4aeb-ab9f-10e39d92a645
-            region: content
-            configuration:
-              id: 'field_block:node:faqs:field_text_below_faqs'
-              label: 'Text below FAQs'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: visually_hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          fb6773ff-c1f6-40fc-8739-9430abac7f5c:
-            uuid: fb6773ff-c1f6-40fc-8739-9430abac7f5c
-            region: content
-            configuration:
-              id: 'extra_field_block:node:faqs:links'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 4
-            additional: {  }
-          00815753-932b-4843-b6b6-471fb18ce3ff:
-            uuid: 00815753-932b-4843-b6b6-471fb18ce3ff
-            region: content
-            configuration:
-              id: 'field_block:node:faqs:field_contact_form'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
-          f3310ae2-216e-493e-9ed9-952442cc6ba6:
-            uuid: f3310ae2-216e-493e-9ed9-952442cc6ba6
-            region: content
-            configuration:
-              id: 'field_block:node:faqs:field_contact_person'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_contact
-                label: inline
-                settings: {  }
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-        third_party_settings: {  }
-_core:
-  default_config_hash: ey3JneMRgm9IJFnItrdBoEIzHA_JE9PyYLlpGjtKS1c
 id: node.faqs.default
 targetEntityType: node
 bundle: faqs
 mode: default
 content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   field_contact_form:
     type: entity_reference_label
     label: inline
@@ -151,7 +28,7 @@ content:
     weight: 3
     region: content
   field_contact_person:
-    type: entity_reference_contact
+    type: user_contact_link
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -161,9 +38,9 @@ content:
     type: faqfield_accordion
     label: above
     settings:
-      active: 0
+      active: null
       heightStyle: auto
-      collapsible: false
+      collapsible: true
       event: click
       animate:
         easing: linear
@@ -194,5 +71,3 @@ content:
 hidden:
   field_text_above_faqs: true
   field_text_below_faqs: true
-  field_text_left_of_faqs: true
-  field_text_right_of_faqs: true

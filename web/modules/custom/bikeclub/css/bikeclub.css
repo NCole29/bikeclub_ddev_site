@@ -73,6 +73,11 @@ p.button a {
   text-decoration: none;
 }
 
+/* Remove "About text formats" from forms. */
+.filter-tips {
+    display: none!important;
+}
+
 /*---------------------------------------------------------------------------
   Plain table - no shading, border on bottom only
   Leader table - enforce equal column width

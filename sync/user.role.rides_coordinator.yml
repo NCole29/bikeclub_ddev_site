@@ -12,6 +12,7 @@ dependencies:
     - media
     - node
     - quick_node_clone
+    - role_delegation
     - system
     - toolbar
 _core:
@@ -24,6 +25,7 @@ permissions:
   - 'access administration pages'
   - 'access toolbar'
   - 'add club_route entity'
+  - 'assign ride_leader role'
   - 'clone recurring_ride content'
   - 'clone ride content'
   - 'create media'

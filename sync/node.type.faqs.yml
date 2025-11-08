@@ -31,4 +31,4 @@ description: '<em>FAQs</em> provide content in a question-and-answer format in c
 help: 'FAQs display permanent website content. Click "Menu settings" at left to provide a menu link to the page, or link to this page from another page or block.'
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

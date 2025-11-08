@@ -11,8 +11,8 @@ dependencies:
     - bikeclub_solo
 id: bikeclub_solo_welcome
 theme: bikeclub_solo
-region: content
-weight: -5
+region: welcome_text
+weight: -10
 provider: null
 plugin: 'block_content:e5ca9bb0-3ab7-4d5e-b7bc-e7a82587c61f'
 settings:

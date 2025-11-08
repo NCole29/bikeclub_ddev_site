@@ -2,7 +2,8 @@ bikeclub_styles:
   version: 1.x
   css:
     theme:
-      css/bikeclub.css: { }  
+      css/bikeclub.css: { }
+      css/accordion.css: { }   
 olivero_calendar:
   css:
     theme:

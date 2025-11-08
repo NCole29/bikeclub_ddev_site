@@ -78,29 +78,30 @@ class BikeclubMenus {
   public function bikeclub_menu_local_tasks_alter(&$data, $route_name, 
      \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
 
-   // $this->messenger->addError("Route: " . $route_name);
-
-    // Remove tabs from the user page.
-    unset($data['tabs'][0]['entity.user.edit_form']);
-    unset($data['tabs'][0]['shortcut.set_switch']);
-    unset($data['tabs'][0]['role_delegation.edit_form']);
-    unset($data['tabs'][0]['entity.webform_submission.user']);
-    unset($data['tabs'][0]['devel.entities:user.devel_tab']);
-    unset($data['tabs'][0]['tac_lite.user_access']);
-    unset($data['tabs'][0]['views_view:view.scheduler_scheduled_media.user_page']);
-    unset($data['tabs'][0]['views_view:view.scheduler_scheduled_content.user_page']);
+    //$this->messenger->addStatus("Route: " . $route_name);
 
     switch($route_name) {
       // Hide "Test" tab and rename "Results" to "Registrations".
       case 'entity.node.canonical':
         unset($data['tabs'][0]['entity.node.webform.test_form']);
         $data['tabs'][0]['entity.node.webform.results']['#link']['title'] = t('Registrations');
-        break;
+      break;
 
       // Remove tabs from the personal contact form page.
       case 'entity.user.contact_form':
         unset($data['tabs'][0]);
-        break;
+      break;
+
+      // Remove tabs from the user account page.
+      case 'entity.user.canonical':
+        unset($data['tabs'][0]['entity.user.edit_form']);
+        unset($data['tabs'][0]['entity.webform_submission.user']);
+        unset($data['tabs'][0]['devel.entities:user.devel_tab']);
+        unset($data['tabs'][0]['role_delegation.edit_form']);
+        unset($data['tabs'][0]['tac_lite.user_access']);
+        unset($data['tabs'][0]['views_view:view.scheduler_scheduled_content.user_page']);
+        unset($data['tabs'][0]['views_view:view.scheduler_scheduled_media.user_page']);
+      break;
 
       // Change tab title on the "My Accounts" page.
       case 'view.events_free.free_events':
@@ -108,7 +109,7 @@ class BikeclubMenus {
       case 'view.user_account.my_events':
       case 'view.user_account.my_payments':
         $data['tabs'][0]['entity.user.canonical']['#link']['title'] = 'Member Info';
-        break;
+      break;
     }
   }
 
@@ -118,8 +119,7 @@ class BikeclubMenus {
   #[Hook('preprocess_menu')]
   public function bikeclub_preprocess_menu(&$variables) {
 
-    // Convert menu to HTML if contains `fas fa-` or `fab fa-`.
-    // Include: use Drupal\Core\Render\Markup;
+    // Convert menu to HTML if contains fontawesome icons (`fas fa-` or `fab fa-`).
     foreach ($variables['items'] as $menu_id => $menu) {
 
       if (array_key_exists('title', $menu)) {

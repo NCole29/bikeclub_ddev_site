@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\bikeclub_ride_tools\Utility;
+namespace Drupal\bikeclub\Utility;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Messenger\MessengerInterface;
 /**
  * Provides a service to retrieve RWGPS route data.
  */
-class GetRwgpsClient {
+class RwgpsClient {
 
 /**
   * The config factory.

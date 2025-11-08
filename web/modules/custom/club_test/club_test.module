@@ -21,15 +21,12 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
-  $field = 'field_schedule_date';
-  $entity_type_id = 'club_schedule';
-  
-  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
-  $definition = $update_manager->getFieldStorageDefinition($field, $entity_type_id);
+  $module = 'diff';
+  $lastN = \Drupal::service('update.update_hook_registry')->getInstalledVersion($module);
 
+  echo 'Last hook_update_N for ' . $module . ": " . $lastN;
+  die;
 
-   kint($definition);
-   die;
   }
 }
  

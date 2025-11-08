@@ -28,6 +28,7 @@ module:
   datetime: 0
   datetimehideseconds: 0
   dblog: 0
+  diff: 0
   dxpr_theme_helper: 0
   dynamic_page_cache: 0
   editor: 0
@@ -80,6 +81,7 @@ module:
   quick_node_clone: 0
   redirect: 0
   responsive_image: 0
+  role_delegation: 0
   scheduler: 0
   smart_date: 0
   smart_date_recur: 0

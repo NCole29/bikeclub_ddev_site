@@ -65,7 +65,7 @@ class BikeclubForms {
           $form['field_datetime']['widget']['add_more']['#type'] = 'hidden';
           $form['field_datetime']['widget'][0]['remove_button']['#type'] = 'hidden';
         }
-        break;
+      break;
 
       case 'user_form':
         // If editing Own account, hide name (it's set in CiviCRM), status, and roles.

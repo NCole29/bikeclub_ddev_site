@@ -19,25 +19,26 @@ third_party_settings:
   field_group:
     group_contact_link:
       children:
-        - field_contact_person
         - field_contact_form
-      label: 'Contact link'
+        - field_contact_person
+        - field_page_access
+      label: 'Contact link and access'
       region: content
-      parent_name: group_text
-      weight: 4
-      format_type: details
+      parent_name: group_faqs
+      weight: 7
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        formatter: closed
         description: ''
         required_fields: true
     group_faqs:
       children:
         - group_text
-        - group_faq_s
+        - group_contact_link
       label: FAQs
       region: content
       parent_name: ''
@@ -55,28 +56,11 @@ third_party_settings:
         - title
         - field_text_above_faqs
         - field_text_below_faqs
-        - group_contact_link
-        - field_page_access
+        - field_faq
       label: 'Page content'
       region: hidden
       parent_name: group_faqs
-      weight: 2
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
-    group_faq_s:
-      children:
-        - field_faq
-      label: FAQs
-      region: hidden
-      parent_name: group_faqs
-      weight: 3
+      weight: 5
       format_type: tab
       format_settings:
         classes: ''
@@ -101,7 +85,7 @@ content:
     third_party_settings: {  }
   field_contact_person:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -130,7 +114,7 @@ content:
             selector: ''
   field_faq:
     type: faqfield_default
-    weight: 7
+    weight: 4
     region: content
     settings:
       answer_widget: text_format
@@ -146,7 +130,7 @@ content:
     third_party_settings: {  }
   field_page_access:
     type: options_select
-    weight: 5
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
