@@ -54,10 +54,10 @@ third_party_settings:
     group_location_and_routes:
       children:
         - field_location
+        - group_lunch
         - field_lunch_same
         - field_lunch_place
         - field_rwgps_routes
-        - group_lunch
       label: 'Location and routes'
       region: content
       parent_name: group_tab_container
@@ -126,7 +126,7 @@ third_party_settings:
       children:
         - field_datetime
       label: Date/time
-      region: hidden
+      region: content
       parent_name: group_date_and_time
       weight: 10
       format_type: details
@@ -136,12 +136,12 @@ third_party_settings:
         id: ''
         label_as_html: false
         open: true
-        description: "Do not fill duration because it is not displayed.\r\n<strong>Does start time vary with time of year?</strong> Save the ride, then edit the ride and click <strong>MANAGE INSTANCES</strong> in the Date field to change the time for specific dates. You must save the ride to generate the string of dates before you can manage instances."
+        description: "<strong>Do not</strong> fill duration; only the start time is displayed.<br>\r\n<strong>Do not</strong> fill a second date field unless there is a large gap in the series of ride dates.<br>\r\n<strong>Does start time vary with time of year? Do you want to exclude a couple of dates from the series?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> in the Date field to \"Override\" and change the time for specific dates or \"Remove instance\" to delete specific dates. "
         required_fields: false
     group_lunch:
       children: {  }
       label: Lunch
-      region: hidden
+      region: content
       parent_name: group_location_and_routes
       weight: 15
       format_type: details

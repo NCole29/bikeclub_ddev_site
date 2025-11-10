@@ -129,7 +129,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: "Use contact forms to send email without revealing email addresses on the site. If selecting the Personal contact form, enter one or more persons in the Contact field.\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding address at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>."
+        description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
         required_fields: true
     group_form:
       children:

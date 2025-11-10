@@ -28,20 +28,4 @@ entity.user.edit_myform:
   options:
     _admin_route: FALSE
 
-# Add Bikeclub config under Admin > Configuration. 
-bikeclub.custom_config:
-  path: '/admin/configuration/custom_config'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Bikeclub configuration'
-  requirements:
-    _permission: 'access toolbar'
 
-# Custom entities menu item under Structure.
-bikeclub.custom_entities:
-  path: '/admin/structure/custom_entities'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Custom entities'
-  requirements:
-    _permission: 'access toolbar'

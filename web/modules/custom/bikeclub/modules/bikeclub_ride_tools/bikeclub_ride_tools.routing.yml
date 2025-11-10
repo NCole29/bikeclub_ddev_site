@@ -1,25 +1,6 @@
-# Configuration settings
-bikeclub_ride_tools.rwgps_api:
-  path: '/admin/config/bikeclub/rwgps-api'
-  defaults:
-    _form: '\Drupal\bikeclub_ride_tools\Form\RwgpsAPIForm'
-    _title: 'RWGPS API Form'
-  requirements:
-    _permission: 'administer rwgps_api_form'
-  options:
-    _admin_route: TRUE
-
-bikeclub_ride_tools.add_schedule_dates:
-  path: '/admin/config/bikeclub/add-schedule-dates'
-  defaults:
-    _form: '\Drupal\bikeclub_ride_tools\Form\AddScheduleDates'
-    _title: 'Add Schedule Dates'
-  requirements:
-    _role: 'administrator'
-  options:
-    _admin_route: TRUE
-    
-# Top admin menu item
+# ------------------------------
+# Ride tools on top admin menu 
+# ------------------------------
 bikeclub_ride_tools.ride_tools:
   path: '/admin/ride-tools'
   defaults:
@@ -47,7 +28,9 @@ bikeclub_ride_tools.nonmember_waiver:
     _permission: 'create ride content'
     _access: 'TRUE'    
 
-# Custom entities menu item under Structure.
+# ------------------------------------------
+# Bikeclub entities under Admin > Structure
+# ------------------------------------------
 bikeclub_ride_tools.custom_entities:
   path: '/admin/structure/custom_entities'
   defaults:
@@ -115,3 +98,36 @@ entity.club_schedule.edit_form:
     _title: 'Edit schedule date'
   requirements:
     _permission: 'edit club_schedule entity'
+
+# --------------------------------------------
+# Bikeclub config under Admin > Configuration
+# --------------------------------------------
+bikeclub_ride_tools.custom_config:
+  path: '/admin/configuration/custom_config'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Bikeclub configuration'
+  requirements:
+    _permission: 'access toolbar'
+
+# Menu items under Custom config
+bikeclub_ride_tools.rwgps_api:
+  path: '/admin/config/bikeclub/rwgps-api'
+  defaults:
+    _form: '\Drupal\bikeclub_ride_tools\Form\RwgpsAPIForm'
+    _title: 'RWGPS API Form'
+  requirements:
+    _permission: 'administer rwgps_api_form'
+  options:
+    _admin_route: TRUE
+
+bikeclub_ride_tools.add_schedule_dates:
+  path: '/admin/config/bikeclub/add-schedule-dates'
+  defaults:
+    _form: '\Drupal\bikeclub_ride_tools\Form\AddScheduleDates'
+    _title: 'Add Schedule Dates'
+  requirements:
+    _role: 'administrator'
+  options:
+    _admin_route: TRUE
+    

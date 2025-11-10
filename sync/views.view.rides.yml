@@ -481,15 +481,27 @@ display:
           row_class: '<h2>'
           default_row_class: true
           columns:
+            nid: nid
             title: title
-            field_activity: field_activity
-            field_datetime: field_datetime
-            field_date: field_datetime
+            type: type
             field_location: field_location
-            field_address_locality: field_address_locality
-            field_address_administrative_area: field_address_administrative_area
+            field_dayofweek: field_dayofweek
+            field_datetime: field_datetime
+            field_datetime_1: field_datetime
+            field_ride_leader_1: field_ride_leader_1
+            name: name
+            status: status
+            changed: changed
+            operations: operations
           default: '-1'
           info:
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -497,19 +509,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_activity:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_datetime:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date:
+            type:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -523,16 +523,54 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_address_locality:
+            field_dayofweek:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_address_administrative_area:
+            field_datetime:
               sortable: false
               default_sort_order: asc
+              align: ''
+              separator: '-'
+              empty_column: false
+              responsive: ''
+            field_datetime_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ride_leader_1:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
               align: ''
               separator: ''
               empty_column: false
@@ -1663,7 +1701,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set day = field_dayofweek__value  %}\r\n{% if day == 0 %}  Sunday\r\n{% elseif day == 1 %} Monday\r\n{% elseif day == 2 %} Tuesday\r\n{% elseif day == 3 %} Wednesday\r\n{% elseif day == 4 %} Thursday\r\n{% elseif day == 5 %} Friday\r\n{% elseif day == 6 %} Saturday\r\n{% endif %}\r\n\r\n"
+            text: "{% set day = field_dayofweek__value  %}\r\n{% if day == 0 %}  Sun\r\n{% elseif day == 1 %} Mon\r\n{% elseif day == 2 %} Tue\r\n{% elseif day == 3 %} Wed\r\n{% elseif day == 4 %} Thu\r\n{% elseif day == 5 %} Fri\r\n{% elseif day == 6 %} Sat\r\n{% endif %}\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1721,7 +1759,7 @@ display:
           group_type: min
           admin_label: ''
           plugin_id: field
-          label: Start
+          label: Date
           exclude: false
           alter:
             alter_text: true

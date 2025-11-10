@@ -70,9 +70,9 @@ class BikeclubNodes {
         
         if (!$googleAPI) {
           $link = \Drupal\Core\Url::fromRoute('entity.geocoder_provider.collection')->toString();
-          $content = 'Please configure a <a href="@link">geocoder provider</a> to geocode addresses for map display on the website.
-          (The link to Google Maps works even if not geocoded.)';
-
+          $content = 'A Google Maps link will be displayed for this address. But addresses must be geocoded for display on maps on the website.
+          Please configure a <u><a href="@link">geocoder provider</a></u>.';
+          
           $this->messenger->addWarning(t($content, [ '@link' => $link ]));
         }
       break;

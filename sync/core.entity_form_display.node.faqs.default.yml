@@ -19,8 +19,7 @@ third_party_settings:
   field_group:
     group_contact_link:
       children:
-        - field_contact_form
-        - field_contact_person
+        - group_contact
         - field_page_access
       label: 'Contact link and access'
       region: content
@@ -37,8 +36,8 @@ third_party_settings:
         required_fields: true
     group_faqs:
       children:
-        - group_text
         - group_contact_link
+        - group_text
       label: FAQs
       region: content
       parent_name: ''
@@ -70,6 +69,23 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_contact:
+      children:
+        - field_contact_form
+        - field_contact_person
+      label: 'Contact link'
+      region: content
+      parent_name: group_contact_link
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
+        required_fields: true
 _core:
   default_config_hash: s73czjFRTASLcyEjS-haGIxG9iD4gT_vxQ7n7i0Yntk
 id: node.faqs.default
@@ -79,13 +95,13 @@ mode: default
 content:
   field_contact_form:
     type: options_select
-    weight: 7
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact_person:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -130,7 +146,7 @@ content:
     third_party_settings: {  }
   field_page_access:
     type: options_select
-    weight: 9
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

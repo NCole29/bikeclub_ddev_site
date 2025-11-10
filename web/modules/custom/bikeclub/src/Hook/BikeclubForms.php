@@ -42,28 +42,18 @@ class BikeclubForms {
         // Change button text.
         $form['field_ride_leader']['widget']['add_more']['#value'] = "Add another leader";
     
-        // Remove instructions "begin typing" ...
-        $form['field_registration_link']['widget'][0]['uri']['#description'] = NULL;
-
         // Disable Route field if RWGPS API key is empty.
         $rwgps = $this->config->get('bikeclub.adminsettings')->get('rwgps_api');
-
         if (!$rwgps) {
           $form['field_rwgps_routes']['#disabled'] = TRUE;
           $form['field_rwgps_routes']['widget']['#title'] = 
-            "RWGPS Routes - Please enter a <a href='/admin/config/club/rwgps-api'>RWGPS API key</a> to enable this field. The RideTools module is required.";
+            "RWGPS Routes - Please enter a <a href='/admin/config/bikeclub/rwgps-api'>RWGPS API key</a> to enable this field. The RideTools module is required.";
         }
        
         if (in_array($form_id, ['node_recurring_ride_form','node_recurring_ride_edit_form',
                                 'node_recurring_ride_quick_node_clone_form'])) {
-
           // Remove "Add another" date.
           unset($form['field_datetime']['widget']['add_more']);
-
-          // Change date cardinality so only 1 value is allowed (display is messy otherwise).
-          $form['field_datetime']['widget']['#cardinality'] = 1;
-          $form['field_datetime']['widget']['add_more']['#type'] = 'hidden';
-          $form['field_datetime']['widget'][0]['remove_button']['#type'] = 'hidden';
         }
       break;
 

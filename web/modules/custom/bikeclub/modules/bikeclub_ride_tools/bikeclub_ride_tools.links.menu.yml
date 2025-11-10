@@ -1,4 +1,6 @@
-# Ride tools on the Admin menu.
+# ------------------------------
+# Ride tools on the Admin menu
+# ------------------------------
 bikeclub_ride_tools.ride_tools:
   title: 'Ride tools'
   description: 'Ride tools'
@@ -40,8 +42,9 @@ bikeclub_ride_tools.view_ride_schedule:
   enabled: 1
   menu_name: admin
 
-
-# Structure > Bikeclub entities.
+# ------------------------------
+# Structure > Bikeclub entities
+# ------------------------------
 bikeclub_ride_tools.custom_entities:
   title: 'Bikeclub entities'
   description: 'Manage custom entities.'
@@ -61,20 +64,22 @@ bikeclub_ride_tools.schedule_settings:
   route_name:  'bikeclub_ride_tools.schedule_settings'
   parent: 'bikeclub_ride_tools.custom_entities'
 
-
-# Configuration > Bikeclub config.
+# --------------------------------
+# Configuration > Bikeclub config
+# --------------------------------
 bikeclub_ride_tools.custom_config:
   title: 'Bikeclub config'
   description: 'Manage custom configuration.'
   route_name: 'bikeclub_ride_tools.custom_config'
   parent: 'system.admin_config'
+  weight: -15
   
 # Menu items under Configuration > Bikeclub config
 bikeclub_ride_tools.rwgps_api:
   title: 'RWGPS API'
   description: 'RWGPS API key'
   route_name: bikeclub_ride_tools.rwgps_api
-  parent: bikeclub.custom_config
+  parent: bikeclub_ride_tools.custom_config
   menu_name: admin
   enabled: 1
 
@@ -82,6 +87,6 @@ bikeclub_ride_tools.admin_settings:
   title: 'Add schedule dates'
   description: 'Add calendar dates for View Ride Schedules'
   route_name: bikeclub_ride_tools.add_schedule_dates
-  parent: bikeclub.custom_config
+  parent: bikeclub_ride_tools.custom_config
   menu_name: admin
   enabled: 1

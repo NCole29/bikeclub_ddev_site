@@ -85,6 +85,5 @@ class AddScheduleDates extends FormBase {
    
     LoadSchedule::loadSchedule($this->loadType); 
     \Drupal::messenger()->addMessage(t("Three years of dates have been added."));
-    $form_state->setRedirect('<front>');
   }
 }

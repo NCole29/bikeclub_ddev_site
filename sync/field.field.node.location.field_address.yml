@@ -14,14 +14,14 @@ field_name: field_address
 entity_type: node
 bundle: location
 label: Address
-description: 'Upon save, address is geocoded and Google Maps link is added.'
+description: "The address will be displayed with a Google Maps link. Addresses may be displayed on website maps if a a Geocoder provider is configured.\r\n"
 required: false
 translatable: false
 default_value:
   -
     langcode: null
     country_code: US
-    administrative_area: MA
+    administrative_area: ''
     locality: ''
     dependent_locality: null
     postal_code: ''

@@ -13,7 +13,7 @@ field_name: field_location_type
 entity_type: node
 bundle: location
 label: 'Type of location'
-description: "Type is used to filter locations on maps and lists. Use <strong>Remote ride start</strong> for locations outside the club's usual area; the homepage map excludes remote locations."
+description: "Use <strong>Remote ride start</strong> for locations outside the club's usual area; the map of ride starts excludes remote locations."
 required: false
 translatable: false
 default_value: {  }

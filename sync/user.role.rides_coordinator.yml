@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.ride_page
+    - node.type.location
     - node.type.recurring_ride
     - node.type.ride
   module:
@@ -28,12 +29,15 @@ permissions:
   - 'assign ride_leader role'
   - 'clone recurring_ride content'
   - 'clone ride content'
+  - 'create location content'
   - 'create media'
   - 'create recurring_ride content'
   - 'create ride content'
+  - 'delete any location content'
   - 'delete any recurring_ride content'
   - 'delete any ride content'
   - 'delete club_route entity'
+  - 'edit any location content'
   - 'edit any recurring_ride content'
   - 'edit any ride content'
   - 'edit club_route entity'

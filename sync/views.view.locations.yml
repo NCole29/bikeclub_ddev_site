@@ -1002,7 +1002,7 @@ display:
           empty: true
           bundle: location
           class: 'button button--action button--primary'
-          target: tray
+          target: ''
           width: 600
           form_mode: null
           params: ''
