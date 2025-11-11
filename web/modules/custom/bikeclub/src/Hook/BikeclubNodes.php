@@ -204,6 +204,11 @@ class BikeclubNodes {
       unset($node->field_time);
     }
 
+    // Clear lunch location if same as ride start.
+    if (isset($node->field_lunch_same) & $node->field_lunch_same->value == 0) {
+      unset($node->field_lunch_place);
+    }
+
     // Clear the registration fields upon update.
     if (isset($node->field_webform) && $node->field_registration_required->value == 0) {
       unset($node->field_webform);

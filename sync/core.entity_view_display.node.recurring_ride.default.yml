@@ -80,14 +80,14 @@ third_party_settings:
                 label: above
                 settings:
                   timezone_override: ''
-                  format: default
+                  format: day_date_and_time
                   force_chronological: false
                   add_classes: false
                   time_wrapper: false
                   localize: false
                   parts:
                     start: start
-                    end: end
+                    end: '0'
                     duration: '0'
                   duration:
                     separator: ' | '
@@ -150,7 +150,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: teaser2
+                  view_mode: address
                 third_party_settings: {  }
             weight: 3
             additional: {  }
@@ -236,7 +236,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: above
                 settings:
-                  view_mode: teaser2
+                  view_mode: address
                 third_party_settings: {  }
             weight: 5
             additional: {  }

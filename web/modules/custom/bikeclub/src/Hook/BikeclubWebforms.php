@@ -93,7 +93,7 @@ class BikeclubWebforms {
           $timestamp = $date_time->getTimestamp();
 
           // $ride_date is displayed on form. $date is saved to database in format to enable sorting.
-          $ride_date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'l, F j, Y \a\t H:i');
+          $ride_date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'l, F j, Y \a\t g:i a');
           $date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'Y-m-d');
 
           $form['elements']['ride_date']['#default_value'] = $ride_date;

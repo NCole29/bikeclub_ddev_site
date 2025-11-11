@@ -19,8 +19,9 @@ class BikeclubPreprocess {
     }
 
     // Hide field_lunch_same if "Other, enter below"
-    if ($vars['field_name'] == 'field_lunch_same' && 
-      $vars['items'][0]['content']['#markup']= 'Other, enter below') {
+    if (($vars['field_name'] == 'field_lunch_same') && 
+         $vars['items'][0]['content']['#markup'] == 'Other, enter below') {
+        
         $vars['label_hidden'] = TRUE;
         $vars['items'][0]['content']['#markup']= '';
     }

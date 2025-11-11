@@ -53,15 +53,18 @@ third_party_settings:
             region: second
             configuration:
               id: 'field_block:node:ride:field_date'
+              label: Date/time
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: datetime_default
                 label: above
                 settings:
                   timezone_override: ''
-                  format_type: medium
+                  format_type: day_date_time
                 third_party_settings: {  }
             weight: 1
             additional: {  }

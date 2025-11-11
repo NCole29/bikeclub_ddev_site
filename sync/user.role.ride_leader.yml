@@ -13,6 +13,7 @@ dependencies:
     - media
     - node
     - quick_node_clone
+    - smart_date_recur
     - system
     - toolbar
 _core:
@@ -39,6 +40,8 @@ permissions:
   - 'edit own recurring_ride content'
   - 'edit own ride content'
   - 'enter waivers'
+  - 'make smart dates recur'
+  - 'reschedule smart date recur instances'
   - 'use text format ride_page'
   - 'view club_schedule entity'
   - 'view own unpublished media'

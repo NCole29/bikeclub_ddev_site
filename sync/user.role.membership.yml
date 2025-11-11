@@ -5,6 +5,7 @@ dependencies:
   module:
     - bikeclub_ride_tools
     - media
+    - node
     - system
     - toolbar
 _core:
@@ -15,7 +16,10 @@ weight: 4
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access content overview'
   - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
   - 'create media'
   - 'enter waivers'
   - 'view own unpublished media'

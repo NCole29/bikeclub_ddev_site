@@ -5,4 +5,4 @@ dependencies: {  }
 id: day_date_time
 label: 'Day, date, and time'
 locked: false
-pattern: 'l, M d, Y - g:i a'
+pattern: 'l, M d, Y \a\t g:i a'

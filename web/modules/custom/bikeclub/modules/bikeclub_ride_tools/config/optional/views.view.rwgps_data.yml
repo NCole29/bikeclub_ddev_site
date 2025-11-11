@@ -2,17 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.club_route.field_ride_start
     - field.storage.node.field_location
-    - user.role.administrator
-    - user.role.rides_coordinator
-    - user.role.site_admin
   module:
     - bikeclub_ride_tools
     - node
     - user
-id: rwgps_routes
-label: 'RWGPS routes'
+    - views_bulk_operations
+id: rwgps_data
+label: 'RWGPS data'
 module: views
 description: 'Routes tab under Content, Route library, and routes shown from link on ride start map.'
 tag: ''
@@ -424,19 +421,26 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
             rwgps_id: rwgps_id
             name: name
             distance: distance
             elevation_gain: elevation_gain
             nothing_1: nothing_1
-            field_ride_start: field_ride_start
+            ride_start: ride_start
             locality: locality
-            state: state
+            state: locality
             nothing: nothing
             created_at: created_at
             updated_at: updated_at
+            published: published
           default: '-1'
           info:
+            views_bulk_operations_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             rwgps_id:
               sortable: true
               default_sort_order: asc
@@ -470,7 +474,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_ride_start:
+            ride_start:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -505,6 +509,13 @@ display:
               responsive: ''
             updated_at:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            published:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -554,8 +565,81 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      title: 'Club Routes - Admin'
+      title: 'RWGPS routes'
       fields:
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_bulk_operations_bulk_form
+          label: 'Views bulk operations'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
+          action_title: Action
+          clear_on_exposed: true
+          show_multipage_selection_box: default
+          show_select_all: default
+          selected_actions:
+            -
+              action_id: views_bulk_operations_delete_entity
+              preconfiguration:
+                add_confirmation: false
+                confirm_help_text: ''
+                label_override: ''
+                message_override: ''
+            -
+              action_id: 'entity:unpublish_action:club_route'
+              preconfiguration:
+                add_confirmation: false
+                confirm_help_text: ''
+                label_override: ''
+                message_override: ''
         rwgps_id:
           id: rwgps_id
           table: club_route
@@ -675,7 +759,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -867,15 +951,17 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-        field_ride_start:
-          id: field_ride_start
-          table: club_route__field_ride_start
-          field: field_ride_start
+        ride_start:
+          id: ride_start
+          table: club_route
+          field: ride_start
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: club_route
+          entity_field: ride_start
           plugin_id: field
-          label: 'Starting location'
+          label: 'Ride start'
           exclude: false
           alter:
             alter_text: false
@@ -908,7 +994,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -940,7 +1026,7 @@ display:
           entity_type: club_route
           entity_field: locality
           plugin_id: field
-          label: 'City / town'
+          label: 'Start location'
           exclude: false
           alter:
             alter_text: false
@@ -1163,8 +1249,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: mm_dd_yyyy
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: m/d/Y
             timezone: ''
             tooltip:
               date_format: ''
@@ -1175,6 +1261,7 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
+              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1239,8 +1326,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: mm_dd_yyyy
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: m/d/Y
             timezone: ''
             tooltip:
               date_format: ''
@@ -1251,6 +1338,7 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
+              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1261,17 +1349,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: reverse__node__field_rwgps_routes
+        published:
+          id: published
+          table: club_route
+          field: published
+          relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: title
+          entity_type: club_route
+          entity_field: published
           plugin_id: field
-          label: Ride
+          label: Published
           exclude: false
           alter:
             alter_text: false
@@ -1304,7 +1392,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1313,9 +1401,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: boolean
           settings:
-            link_to_entity: true
+            format: unicode-yes-no
+            format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1326,59 +1416,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        delete_club_route:
-          id: delete_club_route
-          table: club_route
-          field: delete_club_route
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: club_route
-          plugin_id: entity_link_delete
-          label: 'Delete Club route'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: delete
-          output_url_as_text: false
-          absolute: false
       pager:
         type: full
         options:
@@ -1402,12 +1439,9 @@ display:
             offset_label: Offset
           quantity: 9
       access:
-        type: role
+        type: perm
         options:
-          role:
-            administrator: administrator
-            rides_coordinator: rides_coordinator
-            site_admin: site_admin
+          perm: 'delete club_route entity'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1690,6 +1724,46 @@ display:
                   min: ''
                   max: ''
                   value: '3000'
+        published:
+          id: published
+          table: club_route
+          field: published
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: club_route
+          entity_field: published
+          plugin_id: boolean
+          operator: '='
+          value: All
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Published
+            description: ''
+            use_operator: false
+            operator: published_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: published
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1707,33 +1781,21 @@ display:
         filter_groups: false
         header: false
         footer: false
-      relationships:
-        reverse__node__field_rwgps_routes:
-          id: reverse__node__field_rwgps_routes
-          table: club_route
-          field: reverse__node__field_rwgps_routes
-          relationship: none
-          group_type: group
-          admin_label: field_rwgps_routes
-          entity_type: club_route
-          plugin_id: entity_reverse
-          required: false
+      relationships: {  }
       css_class: ''
       use_ajax: true
       display_description: ''
       header:
-        area:
-          id: area
+        area_text_custom:
+          id: area_text_custom
           table: views
-          field: area
+          field: area_text_custom
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: text
+          plugin_id: text_custom
           empty: false
-          content:
-            value: "Routes are maintained at RideWithGPS and synced here as they appear on ride pages.\r\nClick RWGPS ID to open the RWGPS route page. Click route name to view route data or edit starting location (for orphaned routes without a ride page).\r\nClick column headers to sort the table. Best viewed in landscape on phones. "
-            format: basic_html
+          content: "<details>\r\n   <summary>About route data</summary>\r\n   <dl>\r\n    <dd>A route created on RideWithGPS is downloaded and stored stored in the website's database when the route is entered on a ride page.</dd>\r\n    <dd>Route information is displayed on ride pages, the Route library page, and the map of ride starts provides links to routes from each starting  location.</dd>\r\n\t<dd>Old or obsolete routes may be unpublished or deleted using links on this page. Unpublished routes remain in this view and on historic ride pages but are not shown in the Route library or in links from starting locations. Deleted routes are not deleted from the RWGPS account.</dd>\r\n\t<dd><strong>After updating a route in RWGPS</strong> the route information is not automatically updated on the website. Edit and save the Ride page to download updated route information.\r\n</dl></details>\r\n<p></p>"
           tokenize: false
         result:
           id: result
@@ -1744,38 +1806,38 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: 'Total records: @total'
+          content: "Click column headers to sort the table. Best viewed in landscape on phones. <br>\r\nTotal records: @total"
       footer: {  }
       display_extenders: {  }
-      path: admin/content/routes
+      path: admin/content/rwgps-routes
       menu:
         type: tab
-        title: Routes
-        description: ''
+        title: 'RWGPS routes'
+        description: 'Routes downloaded for ride pages.'
         weight: 0
         expanded: false
         menu_name: admin
-        parent: ''
+        parent: system.admin_content
         context: '0'
-        as_local_task: false
-        local_task_link_title: ''
-        local_task_parent: 'views_view:view.block_content.page_1'
-        local_task_weight: 0
+        as_local_task: true
+        local_task_link_title: 'RWGPS routes'
+        local_task_parent: 'views_view:view.rides.rides'
+        local_task_weight: 9
+        local_task_custom_parent_route: ''
       tab_options:
         type: none
         title: 'Route library'
         description: 'Route library'
         weight: 0
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
-      tags:
-        - 'config:field.storage.club_route.field_ride_start'
+        - user.permissions
+      tags: {  }
   route_list:
     id: route_list
     display_title: 'Route list'
@@ -2861,8 +2923,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags:
-        - 'config:field.storage.club_route.field_ride_start'
+      tags: {  }
   routes_per_location:
     id: routes_per_location
     display_title: 'Routes per location'

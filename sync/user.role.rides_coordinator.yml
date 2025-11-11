@@ -14,6 +14,7 @@ dependencies:
     - node
     - quick_node_clone
     - role_delegation
+    - smart_date_recur
     - system
     - toolbar
 _core:
@@ -43,6 +44,8 @@ permissions:
   - 'edit club_route entity'
   - 'edit club_schedule entity'
   - 'enter waivers'
+  - 'make smart dates recur'
+  - 'reschedule smart date recur instances'
   - 'revert recurring_ride revisions'
   - 'revert ride revisions'
   - 'use text format ride_page'

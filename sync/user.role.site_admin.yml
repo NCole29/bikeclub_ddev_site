@@ -18,11 +18,13 @@ dependencies:
   module:
     - bikeclub_ride_tools
     - block_content
+    - content_moderation
     - filter
     - layout_builder
     - media
     - node
     - quick_node_clone
+    - smart_date_recur
     - system
     - toolbar
 id: site_admin
@@ -31,9 +33,12 @@ weight: 4
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access content overview'
   - 'access media overview'
   - 'access toolbar'
+  - 'access user profiles'
   - 'add club_route entity'
+  - 'administer users'
   - 'clone recurring_ride content'
   - 'clone ride content'
   - 'configure editable event node layout overrides'
@@ -66,6 +71,9 @@ permissions:
   - 'edit any ride content'
   - 'edit club_route entity'
   - 'edit club_schedule entity'
+  - 'enter waivers'
+  - 'make smart dates recur'
+  - 'reschedule smart date recur instances'
   - 'revert recurring_ride revisions'
   - 'revert ride revisions'
   - 'update any media'
@@ -73,6 +81,7 @@ permissions:
   - 'use text format ride_page'
   - 'use text format summary_fields'
   - 'view any paragraphs_block block content history'
+  - 'view any unpublished content'
   - 'view club_schedule entity'
   - 'view own unpublished media'
   - 'view recurring_ride revisions'
