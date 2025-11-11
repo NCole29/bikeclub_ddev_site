@@ -10,7 +10,7 @@ field_name: field_webform_limit
 entity_type: node
 bundle: recurring_ride
 label: 'Registration limit'
-description: ''
+description: "A registration limit for a recurring ride will apply to all ride dates. The limit is evaluated separately for each ride date.\r\nFor example, a limit of 25 means that 25 people may register for each date."
 required: false
 translatable: false
 default_value: {  }
