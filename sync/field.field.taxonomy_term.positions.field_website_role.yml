@@ -1,0 +1,28 @@
+uuid: c060ad30-438e-49e5-97c1-e2746f4b69ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_website_role
+    - taxonomy.vocabulary.positions
+  enforced:
+    module:
+      - bikeclub_leader
+_core:
+  default_config_hash: b59kew7P7R20ADTeMj7pcfjPFO6wQK5XpU1sW6Efr40
+id: taxonomy_term.positions.field_website_role
+field_name: field_website_role
+entity_type: taxonomy_term
+bundle: positions
+label: 'Website role'
+description: 'Default Drupal role providing access permissions.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user_role'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

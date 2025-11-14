@@ -529,7 +529,7 @@ display:
           uses_fields: false
           columns: 1
           cell_min_width: 100
-          grid_gutter: 3
+          grid_gutter: 5
           alignment: vertical
       row:
         type: 'entity:node'

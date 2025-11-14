@@ -1,0 +1,41 @@
+uuid: aa809132-eb8d-4868-a0b2-4463eadebdab
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+  enforced:
+    module:
+      - bikeclub_leader
+_core:
+  default_config_hash: HmfwRdd9sMqq6x_Mnptt7ZugLHMGF4pQ6zwPhGb4jx0
+id: taxonomy_term.field_position_category
+field_name: field_position_category
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Board members'
+      label: 'Board members'
+    -
+      value: Officers
+      label: Officers
+    -
+      value: Coordinators
+      label: Coordinators
+    -
+      value: 'Ride program coordinators'
+      label: 'Ride program coordinators'
+    -
+      value: 'Recurring ride coordinators'
+      label: 'Recurring ride coordinators'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

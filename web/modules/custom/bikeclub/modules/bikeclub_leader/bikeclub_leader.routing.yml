@@ -2,19 +2,15 @@
 entity.club_leader.canonical:
   path: '/admin/club_leader/{club_leader}'
   defaults:
-    # Calls the view controller defined in the annotation of the contact entity.
     _entity_view: 'club_leader'
     _title: 'Club leaders list'
   requirements:
-    # Calls the access controller of the entity, passing in the suffix ('view')
-    # as the $operation parameter to checkAccess().
     _permission: 'view club_leader entity'
 
 # Override the default 'list' builder.
 entity.club_leader.collection:
   path: '/admin/club_leader/list'
   defaults:
-  # Calls the list controller, defined in the annotation of the contact entity.
     _entity_list: 'club_leader'
     _title: 'Club leaders list'
   requirements:

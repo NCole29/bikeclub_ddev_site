@@ -34,7 +34,7 @@ class LeaderForms {
 
         // Disable Club positions if taxonomy is not filled.
         $positions = $this->entityTypeManager->getStorage('taxonomy_term')
-        ->loadByProperties(['vid' => 'positions']);
+          ->loadByProperties(['vid' => 'positions']);
   
         if (!$positions) {
           $path = '/admin/structure/taxonomy/manage/positions/overview';

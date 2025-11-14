@@ -152,12 +152,14 @@ class RenameImages {
    */
   public function setImageName($image_id) {
     $mediaStorage = $this->entityTypeManager->getStorage('media');
-
     $media = $mediaStorage->load($image_id);
-    $alt = $media->get('thumbnail')[0]->get('alt')->getString();
 
-    if ($alt) {
-      $media->set('name',$alt)->save();
+    if (isset($media)) {
+      $alt = $media->get('thumbnail')[0]->get('alt')->getString();
+
+      if ($alt) {
+          $media->set('name',$alt)->save();
+      }
     }
     return;
   }

@@ -1,0 +1,26 @@
+uuid: 64e5ef90-b6ee-4553-80dd-2456d29f5351
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_position_category
+    - taxonomy.vocabulary.positions
+  module:
+    - options
+  enforced:
+    module:
+      - bikeclub_leader
+_core:
+  default_config_hash: dG_t41pruzPqqSRNXkLJjgNiMU0fqxexFgx6SV7qRgk
+id: taxonomy_term.positions.field_position_category
+field_name: field_position_category
+entity_type: taxonomy_term
+bundle: positions
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

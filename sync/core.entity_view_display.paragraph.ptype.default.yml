@@ -3,18 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.ptype.field_text
     - paragraphs.paragraphs_type.ptype
 id: paragraph.ptype.default
 targetEntityType: paragraph
 bundle: ptype
 mode: default
-content:
-  field_text:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden: {  }

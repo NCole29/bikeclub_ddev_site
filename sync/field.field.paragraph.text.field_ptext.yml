@@ -1,0 +1,24 @@
+uuid: e49dad1a-1d8c-4046-86b2-2c26cc19d8d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ptext
+    - filter.format.basic_html
+    - paragraphs.paragraphs_type.text
+  module:
+    - text
+id: paragraph.text.field_ptext
+field_name: field_ptext
+entity_type: paragraph
+bundle: text
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

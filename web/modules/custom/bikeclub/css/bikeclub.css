@@ -16,14 +16,14 @@
   padding: 0.95rem 0.5rem 0 0!important;
 }
 
-/* Styles for CKeditor */
+/* Styles for CKeditor - Solo default has line-height: 2.0 */
 p.small {
   font-size: 85%;
-  line-height: 1.1;
+  line-height: 1.4;
 }
 p.medium {
   font-size: 95%;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 p.regular {
   font-size: 100%;

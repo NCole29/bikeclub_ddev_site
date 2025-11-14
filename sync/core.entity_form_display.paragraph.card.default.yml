@@ -9,13 +9,14 @@ dependencies:
     - field.field.paragraph.card.field_card_width
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
-    - field.field.paragraph.card.field_text
+    - field.field.paragraph.card.field_ptext
     - field.field.paragraph.card.field_title
     - paragraphs.paragraphs_type.card
   module:
     - field_group
     - link
     - media_library
+    - style_selector
     - text
 third_party_settings:
   field_group:
@@ -28,7 +29,7 @@ third_party_settings:
       label: Format
       region: content
       parent_name: group_tab_container
-      weight: 4
+      weight: 3
       format_type: tab
       format_settings:
         classes: ''
@@ -55,9 +56,9 @@ third_party_settings:
     group_content:
       children:
         - field_title
+        - field_ptext
         - field_link
         - field_image
-        - field_text
       label: Content
       region: content
       parent_name: group_tab_container
@@ -78,10 +79,20 @@ bundle: card
 mode: default
 content:
   field_background:
-    type: options_select
+    type: style_selector_tile_widget
     weight: 6
     region: content
-    settings: {  }
+    settings:
+      size: default
+      advanced:
+        color_prop: background-color
+        extra_classes: ''
+        empty_option: None
+        ui_settings:
+          alpha_grid: true
+          check_icon: true
+          empty_icon: true
+          text_icon: false
     third_party_settings: {  }
   field_box_shadow:
     type: boolean_checkbox
@@ -104,22 +115,22 @@ content:
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 8
+    weight: 9
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_text:
+  field_ptext:
     type: text_textarea
-    weight: 9
+    weight: 7
     region: content
     settings:
       rows: 5

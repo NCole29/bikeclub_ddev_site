@@ -1,0 +1,11 @@
+uuid: edece56d-7201-4396-af59-ca0c69227cee
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: kCpjc-9xKgCfggSiWNH3n3rVbSthIZnWRrH0yFoiZpc
+id: board
+label: Board
+weight: -6
+is_admin: false
+permissions: {  }

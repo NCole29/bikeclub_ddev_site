@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.callout.field_callout_border
     - field.field.paragraph.callout.field_callout_height
     - field.field.paragraph.callout.field_card_width
-    - field.field.paragraph.callout.field_text
+    - field.field.paragraph.callout.field_ptext
     - field.field.paragraph.callout.field_title
     - paragraphs.paragraphs_type.callout
   module:
@@ -34,7 +34,7 @@ third_party_settings:
     group_content:
       children:
         - field_title
-        - field_text
+        - field_ptext
       label: Content
       region: content
       parent_name: group_tab_container
@@ -108,7 +108,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_text:
+  field_ptext:
     type: text_textarea
     weight: 9
     region: content

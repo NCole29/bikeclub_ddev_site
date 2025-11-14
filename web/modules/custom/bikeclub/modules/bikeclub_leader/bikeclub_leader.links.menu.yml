@@ -1,9 +1,9 @@
-# Club leader settings link.
+# Menu item under Structure > Bikeclub entities
 bikeclub_leader.admin:
-  title: 'Club leader field settings'
-  description: 'Club leader information: name, position, start date, end date, and assigned Drupal role.'
+  title: 'Club leaders'
+  description: 'Club leader data'
   route_name:  bikeclub_leader.leader_settings
-  parent: system.admin_structure
+  parent: 'bikeclub_ride_tools.custom_entities' 
 
 # View replaces default entity.club_leader.collection.
 bikeclub_leader.leaders:

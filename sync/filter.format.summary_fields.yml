@@ -81,4 +81,5 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types:
+        image_crop_16_9: image_crop_16_9
         image_crop_4_3: image_crop_4_3

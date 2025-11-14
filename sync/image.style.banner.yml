@@ -24,11 +24,12 @@ effects:
     weight: 3
     data:
       width: 2015
-      upscale: true
       height: null
+      upscale: true
   81aac017-5e23-48e7-845c-dfe404c7bb84:
     uuid: 81aac017-5e23-48e7-845c-dfe404c7bb84
     id: image_convert
     weight: 3
     data:
       extension: webp
+pipeline: ''

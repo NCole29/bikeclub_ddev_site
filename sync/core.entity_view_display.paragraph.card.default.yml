@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.card.field_card_width
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
-    - field.field.paragraph.card.field_text
+    - field.field.paragraph.card.field_ptext
     - field.field.paragraph.card.field_title
     - image.style.large_4_3
     - paragraphs.paragraphs_type.card
@@ -34,13 +34,12 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_text:
-    type: text_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
+  field_ptext:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_title:
     type: string

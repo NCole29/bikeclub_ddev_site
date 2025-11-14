@@ -1,0 +1,23 @@
+uuid: e07a4d26-ec3c-4bf6-b593-4d1d1d27efdd
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+  enforced:
+    module:
+      - bikeclub_leader
+_core:
+  default_config_hash: 0XBPOefhte4tE6a2zhvGoTRslWYzRQ6lMLz2vnwPI3M
+id: taxonomy_term.field_disabled
+field_name: field_disabled
+entity_type: taxonomy_term
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

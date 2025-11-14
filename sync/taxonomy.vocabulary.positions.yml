@@ -1,0 +1,14 @@
+uuid: 2350624c-7611-4d39-81dc-c736549a8904
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - bikeclub_leader
+_core:
+  default_config_hash: DHNM0EyzQzwUWjEZAN_qUj1TCbOOhlHEaCsgYutPYw0
+name: 'Club positions'
+vid: positions
+description: 'Club leadership positions and associated website roles.'
+weight: 0
+new_revision: false

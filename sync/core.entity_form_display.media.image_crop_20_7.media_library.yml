@@ -33,10 +33,17 @@ content:
       show_crop_area: false
       show_default_crop: true
     third_party_settings: {  }
+  replace_file:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_image_category: true
   name: true
   path: true
+  publish_on: true
   status: true
   uid: true
+  unpublish_on: true
