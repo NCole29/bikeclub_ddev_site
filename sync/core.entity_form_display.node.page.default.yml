@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.page.field_contact_form
     - field.field.node.page.field_contact_person
     - field.field.node.page.field_page_access
+    - field.field.node.page.field_resize_banner_image
+    - field.field.node.page.field_resize_text_image
     - field.field.node.page.field_summary
     - field.field.node.page.field_text
     - field.field.node.page.field_type_of_page
@@ -17,6 +19,7 @@ dependencies:
     - conditional_fields
     - field_group
     - layout_paragraphs
+    - markup
     - media_library
     - path
     - text
@@ -24,6 +27,7 @@ third_party_settings:
   field_group:
     group_banner_image:
       children:
+        - group_resize_images
         - banner_image
       label: 'Banner image'
       region: content
@@ -36,13 +40,13 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: 'Display one Banner image or three Gallery images across the top of the page above the Page title.'
+        description: "Choose between a single banner image or three gallery images at the top of the page, above the Page Title.  To change the display order of gallery images: Click 'Show media item weights' and then rearrange them."
         required_fields: false
     group_tabs:
       children:
-        - group_banner_image
         - group_page_content
-        - group_place_summary_on_home_page
+        - group_summary
+        - group_banner_image
         - group_contact_link
       label: Tabs
       region: content
@@ -59,6 +63,7 @@ third_party_settings:
       children:
         - title
         - field_type_of_page
+        - group_resize
         - field_text
         - field_components
         - field_page_access
@@ -74,7 +79,7 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_place_summary_on_home_page:
+    group_summary:
       children:
         - promote
         - sticky
@@ -99,7 +104,7 @@ third_party_settings:
       label: 'Contact link'
       region: hidden
       parent_name: group_tabs
-      weight: 11
+      weight: 12
       format_type: tab
       format_settings:
         classes: ''
@@ -109,8 +114,38 @@ third_party_settings:
         formatter: closed
         description: "Contact forms allow site visitors to send emails to club members without revealing email addresses on the site.\r\n\r\nAfter selecting the Personal contact form, enter one or more persons in the Contact field. \r\n\r\nOther (\"sitewide\") contact forms are setup with one or more forwarding addresses at <a href=\"/admin/structure/contact\">Structure > Contact forms</a>."
         required_fields: true
-_core:
-  default_config_hash: xGbgRNcU2K7Ex-IILIGXKgu6mNH1RZhTpWa7fZBdMf8
+    group_resize_images:
+      children:
+        - field_resize_banner_image
+      label: 'How to resize banner images'
+      region: content
+      parent_name: group_banner_image
+      weight: 7
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_resize:
+      children:
+        - field_resize_text_image
+      label: 'About images in text fields'
+      region: content
+      parent_name: group_page_content
+      weight: 12
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -118,30 +153,20 @@ mode: default
 content:
   banner_image:
     type: media_library_widget
-    weight: 11
+    weight: 8
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-  co_authors:
-    type: entity_reference_autocomplete_tags
-    weight: 4
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_components:
     type: layout_paragraphs
-    weight: 6
+    weight: 14
     region: content
     settings:
       view_mode: default
@@ -173,14 +198,14 @@ content:
     label: hidden
   field_contact_form:
     type: options_select
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings:
       conditional_fields: {  }
   field_contact_person:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -209,7 +234,7 @@ content:
             selector: ''
   field_page_access:
     type: options_select
-    weight: 7
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -219,9 +244,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_resize_banner_image:
+    type: markup
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resize_text_image:
+    type: markup
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_summary:
     type: text_textarea
-    weight: 10
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -250,7 +287,7 @@ content:
             selector: ''
   field_text:
     type: text_textarea
-    weight: 5
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -277,7 +314,7 @@ content:
             selector: ''
   field_type_of_page:
     type: options_buttons
-    weight: 4
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -289,7 +326,7 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 8
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -303,7 +340,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 9
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -328,7 +365,7 @@ content:
             selector: ''
   title:
     type: string_textfield
-    weight: 3
+    weight: 10
     region: content
     settings:
       size: 60

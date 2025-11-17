@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.webform.field_contact_form
     - field.field.node.webform.field_contact_person
     - field.field.node.webform.field_page_access
+    - field.field.node.webform.field_resize_banner_image
+    - field.field.node.webform.field_resize_text_image
     - field.field.node.webform.field_summary
     - field.field.node.webform.field_text
     - field.field.node.webform.field_type_of_page
@@ -21,6 +23,7 @@ dependencies:
     - conditional_fields
     - field_group
     - layout_paragraphs
+    - markup
     - media_library
     - scheduler
     - text
@@ -49,6 +52,7 @@ third_party_settings:
       children:
         - title
         - field_type_of_page
+        - group_resize
         - field_text
         - field_components
         - field_page_access
@@ -84,6 +88,7 @@ third_party_settings:
         required_fields: true
     group_banner:
       children:
+        - group_resize_banner
         - banner_image
       label: 'Banner image'
       region: content
@@ -96,7 +101,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: 'Display one Banner image or three Gallery images across the top of the page above the Page title.'
+        description: "Choose between a single banner image or three gallery images at the top of the page, above the Page Title.  To change the display order of gallery images: Click 'Show media item weights' and then rearrange them."
         required_fields: true
     group_webform:
       children:
@@ -104,7 +109,7 @@ third_party_settings:
       label: Webform
       region: content
       parent_name: group_tabs
-      weight: 5
+      weight: 4
       format_type: tab
       format_settings:
         classes: ''
@@ -119,9 +124,9 @@ third_party_settings:
         - field_contact_form
         - field_contact_person
       label: 'Contact link'
-      region: hidden
+      region: content
       parent_name: group_tabs
-      weight: 4
+      weight: 5
       format_type: tab
       format_settings:
         classes: ''
@@ -137,9 +142,9 @@ third_party_settings:
         - field_webform_limit
         - field_webform_results
       label: Webform
-      region: hidden
+      region: content
       parent_name: group_webform
-      weight: 2
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
@@ -149,6 +154,38 @@ third_party_settings:
         open: true
         description: ''
         required_fields: true
+    group_resize:
+      children:
+        - field_resize_text_image
+      label: 'About images in text fields'
+      region: hidden
+      parent_name: group_page_content
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_resize_banner:
+      children:
+        - field_resize_banner_image
+      label: 'How to resize banner images'
+      region: hidden
+      parent_name: group_banner
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
 id: node.webform.default
 targetEntityType: node
 bundle: webform
@@ -156,14 +193,14 @@ mode: default
 content:
   banner_image:
     type: media_library_widget
-    weight: 8
+    weight: 4
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_components:
     type: layout_paragraphs
-    weight: 5
+    weight: 6
     region: content
     settings:
       view_mode: default
@@ -229,6 +266,18 @@ content:
             selector: ''
   field_page_access:
     type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resize_banner_image:
+    type: markup
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resize_text_image:
+    type: markup
     weight: 6
     region: content
     settings: {  }
@@ -261,7 +310,7 @@ content:
             selector: ''
   field_text:
     type: text_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -382,7 +431,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

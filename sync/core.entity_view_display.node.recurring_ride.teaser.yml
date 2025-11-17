@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.recurring_ride.field_about_ride_images
     - field.field.node.recurring_ride.field_activity
     - field.field.node.recurring_ride.field_additional_information
     - field.field.node.recurring_ride.field_datetime
@@ -96,6 +97,7 @@ content:
     weight: 2
     region: content
 hidden:
+  field_about_ride_images: true
   field_additional_information: true
   field_day: true
   field_dayofweek: true

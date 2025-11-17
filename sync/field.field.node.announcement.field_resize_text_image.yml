@@ -1,0 +1,24 @@
+uuid: 708aa258-6272-4408-aa20-3e46bd7a8993
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resize_text_image
+    - node.type.announcement
+  module:
+    - markup
+id: node.announcement.field_resize_text_image
+field_name: field_resize_text_image
+entity_type: node
+bundle: announcement
+label: 'Resize text image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: '<p>Images can be added in text editors using the "Insert Media" icon. The max image file size is 3MB, as images are resized automatically for optimal display across various devices, so uploading oversized files wastes server resources.</p><p>To prepare images for uploading:</p><ul><li>Mac Users - Use <a href="https://support.apple.com/guide/preview/crop-resize-or-rotate-an-image-prvw2015/mac#:~:text=Reduce%20an%20image&amp;apos;s%20file%20size,value%20in%20the%20Resolution%20field.">Apple''s built-in Preview application</a>.</li><li>Windows Users - Use the <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&amp;gl=US">Image Resizer PowerToy from Microsoft</a> (learn more about it <a href="https://learn.microsoft.com/en-us/windows/powertoys/image-resizer">here)</a>.</li></ul><p>Recommended Size Setting</p><ul><li>"Large" (fits within 1920 x 1080 pixels)&nbsp;</li></ul><p>After inserting an image, click the image within the editor to access size and alignment options.</p><p>&nbsp;</p>'
+    format: basic_html
+field_type: markup

@@ -1,0 +1,24 @@
+uuid: 769ff396-cbac-40ce-b9c5-c6d63bb9b6a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_ride_images
+    - node.type.recurring_ride
+  module:
+    - markup
+id: node.recurring_ride.field_about_ride_images
+field_name: field_about_ride_images
+entity_type: node
+bundle: recurring_ride
+label: 'About Ride images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: '<p>Use the <strong>"Ride picture"</strong> field to add an image to a ride page. This standardizes the format for all pages.&nbsp;</p><p><strong>Image Requirements &amp; Preparation</strong></p><ul><li><strong>Max File Size:</strong> 3MB. Images are automatically resized for all devices, so uploading files larger than 3MB wastes server resources. </li><li><strong>Recommended Dimensions:</strong> "Large" (fits within 1920 x 1080 pixels).</li></ul><p><strong>Tools for Resizing Images</strong></p><ul><li>Mac Users - Use <a href="https://support.apple.com/guide/preview/crop-resize-or-rotate-an-image-prvw2015/mac#:~:text=Reduce%20an%20image&amp;apos;s%20file%20size,value%20in%20the%20Resolution%20field.">Apple''s built-in Preview application</a>.</li><li>Windows Users - Use the <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&amp;gl=US">Image Resizer PowerToy from Microsoft</a> (learn more about it <a href="https://learn.microsoft.com/en-us/windows/powertoys/image-resizer">here)</a>.</li></ul><p>Important Note: The "Insert Media" icon found in text fields is for documents, not images.&nbsp;</p><p>&nbsp;</p>'
+    format: basic_html
+field_type: markup

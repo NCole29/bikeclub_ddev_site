@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card_row
+    - field.field.node.ride.field_about_ride_images
     - field.field.node.ride.field_activity
     - field.field.node.ride.field_additional_information
     - field.field.node.ride.field_cancel
@@ -81,6 +82,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_about_ride_images: true
   field_additional_information: true
   field_cancel: true
   field_dayofweek: true

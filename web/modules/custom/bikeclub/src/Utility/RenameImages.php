@@ -156,9 +156,9 @@ class RenameImages {
 
     if (isset($media)) {
       $alt = $media->get('thumbnail')[0]->get('alt')->getString();
-
-      if ($alt) {
-          $media->set('name',$alt)->save();
+      
+      if (!empty($alt)) {
+        $media->set('name',$alt)->save();
       }
     }
     return;

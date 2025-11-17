@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card_row
+    - field.field.node.recurring_ride.field_about_ride_images
     - field.field.node.recurring_ride.field_activity
     - field.field.node.recurring_ride.field_additional_information
     - field.field.node.recurring_ride.field_datetime
@@ -92,6 +93,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_about_ride_images: true
   field_additional_information: true
   field_dayofweek: true
   field_developed_by: true

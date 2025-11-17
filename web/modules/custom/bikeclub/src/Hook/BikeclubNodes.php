@@ -41,6 +41,10 @@ class BikeclubNodes {
     $node_type = $node->bundle();
   
     switch ($node_type) {
+      case 'banner':
+        $this->fixImage($node);
+      break;
+
       case 'announcement':
       case 'page':
         $this->fixImage($node);

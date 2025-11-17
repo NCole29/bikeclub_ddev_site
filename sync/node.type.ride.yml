@@ -27,7 +27,7 @@ _core:
 name: Ride
 type: ride
 description: 'Use <em>ride</em> to add a nonrecurring ride to the calendar. Rides automatically appear in the sidebar of the home page.'
-help: "Complete the form to create a <strong>NEW</strong> ride. To update an <strong>existing</strong> ride <a href=\"/admin/content/rides\">find the ride</a> and edit it (for the existing date) or clone it for a new date.<br>\r\nUse <strong>Ride Tools</strong> to cancel a ride, or restore a canceled ride."
+help: 'Use this form to create a <strong>NEW</strong> ride. To <strong>update an existing</strong> ride <a href="/admin/content/rides">find the ride</a> and edit it. To copy a ride (for a new year),  <a href="/admin/content/rides">find the ride</a> and clone it.'
 new_revision: true
 preview_mode: 1
 display_submitted: false

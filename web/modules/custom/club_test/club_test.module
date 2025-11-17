@@ -12,6 +12,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\views\ViewExecutableFactory;
+use Drupal\file_mdm\FileMetadataManagerInterface;
 
 /*
  * Implement hook_help.
@@ -21,12 +22,20 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
 
-  $module = 'diff';
-  $lastN = \Drupal::service('update.update_hook_registry')->getInstalledVersion($module);
+    $uri = 'public://NSC favicon.jpg';
+    $url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
 
-  echo 'Last hook_update_N for ' . $module . ": " . $lastN;
-  die;
+    kint($url);
 
+    $fmdm = \Drupal::service(FileMetadataManagerInterface::class);
+    $my_file_metadata = $fmdm->uri($uri);
+    
+    kint($my_file_metadata);
+
+    $mime = $my_file_metadata->getMetadata('getimagesize', 'mime');
+
+    kint($mime);
+    die;
   }
 }
  

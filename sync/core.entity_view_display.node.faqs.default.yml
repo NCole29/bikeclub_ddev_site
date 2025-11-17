@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.faqs.field_contact_person
     - field.field.node.faqs.field_faq
     - field.field.node.faqs.field_page_access
+    - field.field.node.faqs.field_resize_text_image
     - field.field.node.faqs.field_text_above_faqs
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
@@ -25,14 +26,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 0
     region: content
   field_contact_person:
     type: user_contact_link
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
   field_faq:
     type: faqfield_accordion
@@ -46,7 +47,7 @@ content:
         easing: linear
         duration: 200
     third_party_settings: {  }
-    weight: 101
+    weight: 3
     region: content
   field_faq_text:
     type: text_default
@@ -61,13 +62,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
 hidden:
+  field_resize_text_image: true
   field_text_above_faqs: true
   field_text_below_faqs: true

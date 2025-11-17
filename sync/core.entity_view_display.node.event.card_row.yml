@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.event.field_page_access
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_registration_type
+    - field.field.node.event.field_resize_banner_image
+    - field.field.node.event.field_resize_text_image
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
     - field.field.node.event.field_type_of_page
@@ -106,6 +108,8 @@ hidden:
   field_page_access: true
   field_registration_link: true
   field_registration_type: true
+  field_resize_banner_image: true
+  field_resize_text_image: true
   field_text: true
   field_type_of_page: true
   field_webform_closing: true

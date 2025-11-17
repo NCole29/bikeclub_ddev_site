@@ -1,17 +1,16 @@
-uuid: 56ebefe4-d017-481f-95de-4bf1549a44f0
+uuid: ff484632-ad12-46b7-afa8-67ed1bf437ea
 langcode: en
 status: true
 dependencies:
   module:
+    - markup
     - node
-_core:
-  default_config_hash: xEoyW4EVsd-UQnEO7IJDJDBDbjNg13JnL6-1-ovLf8s
-id: node.field_padding
-field_name: field_padding
+id: node.field_about_ride_images
+field_name: field_about_ride_images
 entity_type: node
-type: boolean
+type: markup
 settings: {  }
-module: core
+module: markup
 locked: false
 cardinality: 1
 translatable: true

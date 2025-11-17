@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.announcement.field_contact_form
     - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_resize_text_image
     - field.field.node.announcement.field_summary
     - field.field.node.announcement.field_text
     - node.type.announcement
@@ -52,4 +53,5 @@ content:
     weight: 0
     region: content
 hidden:
+  field_resize_text_image: true
   field_summary: true

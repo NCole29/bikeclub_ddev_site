@@ -12,7 +12,7 @@ field_name: field_ride_leader
 entity_type: node
 bundle: ride
 label: Leader(s)
-description: "Begin typing name in field to get a list of ride leaders and select from list. Leader must be a club member and designated ride leader. The ride leader's name appears without a link to their contact form if they disabled the personal contact form in their account settings."
+description: 'Start typing a name in the field to see a list of ride leaders (must be a club member and designated leader); then select from the list.  <em>Note: If a leader has disabled their personal contact form, their name will appear without a link.</em>'
 required: false
 translatable: true
 default_value: {  }
@@ -29,6 +29,7 @@ settings:
       type: role
       role:
         ride_leader: ride_leader
+        board: '0'
         events_coordinator: '0'
         administrator: '0'
         member: '0'

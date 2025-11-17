@@ -1,0 +1,19 @@
+uuid: 551ccaf5-2e6c-40a2-8e87-94fb33707ac9
+langcode: en
+status: true
+dependencies:
+  module:
+    - markup
+    - node
+id: node.field_resize_text_image
+field_name: field_resize_text_image
+entity_type: node
+type: markup
+settings: {  }
+module: markup
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

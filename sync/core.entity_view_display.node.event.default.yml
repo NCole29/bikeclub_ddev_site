@@ -12,6 +12,8 @@ dependencies:
     - field.field.node.event.field_page_access
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_registration_type
+    - field.field.node.event.field_resize_banner_image
+    - field.field.node.event.field_resize_text_image
     - field.field.node.event.field_summary
     - field.field.node.event.field_text
     - field.field.node.event.field_type_of_page
@@ -27,6 +29,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - markup
     - options
     - text
     - user
@@ -270,6 +273,21 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 12
             additional: {  }
+          e5a6940d-ac9f-4062-ba03-dd6e9ebc13ff:
+            uuid: e5a6940d-ac9f-4062-ba03-dd6e9ebc13ff
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_resize_text_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: markup
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -367,6 +385,20 @@ content:
     third_party_settings: {  }
     weight: 24
     region: first
+  field_resize_banner_image:
+    type: markup
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 25
+    region: first
+  field_resize_text_image:
+    type: markup
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_summary:
     type: text_default
     label: above

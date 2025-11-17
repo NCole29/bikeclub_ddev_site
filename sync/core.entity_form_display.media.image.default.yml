@@ -23,23 +23,24 @@ content:
     label: above
   field_media_image:
     type: image_image
-    weight: 0
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 2
+  name:
+    type: string_textfield
+    weight: 0
     region: content
     settings:
-      display_label: true
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
-  name: true
   path: true
   publish_on: true
+  status: true
   uid: true
   unpublish_on: true

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.ride.field_about_ride_images
     - field.field.node.ride.field_activity
     - field.field.node.ride.field_additional_information
     - field.field.node.ride.field_cancel
@@ -29,6 +30,7 @@ dependencies:
     - datetime
     - datetimehideseconds
     - field_group
+    - markup
     - media_library
     - text
     - webform
@@ -73,10 +75,10 @@ third_party_settings:
     group_description:
       children:
         - field_activity
-        - field_description
-        - field_additional_information
+        - group_ride_info
         - field_ride_picture
         - field_developed_by
+        - group_ride_images
       label: Description
       region: content
       parent_name: group_ta
@@ -88,7 +90,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: "Documents, such as cue sheets, may be added in the description or additional information fields by clicking the media icon on the editor toolbar.\r\nUse the additional information field could be used for information that stands out from the general ride description such as (1) directions, (2) parking information, (3) cookout information, (4) road conditions."
+        description: ''
         required_fields: true
     group_ride_leader_s_:
       children:
@@ -142,6 +144,39 @@ third_party_settings:
         open: false
         description: "A registration link is shown on the ride page. Use this if a count of riders is required.\r\nRegistrations are visible to the ride leader(s) for this ride, and the rides coordinators."
         required_fields: true
+    group_ride_images:
+      children:
+        - field_about_ride_images
+      label: 'Adding an image to a ride page'
+      region: hidden
+      parent_name: group_description
+      weight: 44
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_ride_info:
+      children:
+        - field_description
+        - field_additional_information
+      label: 'Ride info'
+      region: content
+      parent_name: group_description
+      weight: 42
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: "<big>Use the <strong>Description</strong> field to describe the routes.\r\nUse the <strong>Additional information</strong> field for items such as directions, parking information, details about planned cookouts, and road conditions.</big>"
+        required_fields: true
 id: node.ride.default
 targetEntityType: node
 bundle: ride
@@ -157,6 +192,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_about_ride_images:
+    type: markup
+    weight: 45
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_activity:
     type: options_select
     weight: 41
@@ -165,7 +206,7 @@ content:
     third_party_settings: {  }
   field_additional_information:
     type: text_textarea
-    weight: 43
+    weight: 44
     region: content
     settings:
       rows: 5
@@ -181,7 +222,7 @@ content:
         hide: true
   field_description:
     type: text_textarea
-    weight: 42
+    weight: 43
     region: content
     settings:
       rows: 5

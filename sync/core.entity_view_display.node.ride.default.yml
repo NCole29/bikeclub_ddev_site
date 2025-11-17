@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.ride.field_about_ride_images
     - field.field.node.ride.field_activity
     - field.field.node.ride.field_additional_information
     - field.field.node.ride.field_cancel
@@ -122,6 +123,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_about_ride_images: true
   field_dayofweek: true
   field_developed_by: true
   field_multiple_times: true

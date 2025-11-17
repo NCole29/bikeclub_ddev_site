@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.recurring_ride.field_about_ride_images
     - field.field.node.recurring_ride.field_activity
     - field.field.node.recurring_ride.field_additional_information
     - field.field.node.recurring_ride.field_datetime
@@ -29,6 +30,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - markup
     - media
     - options
     - smart_date_recur
@@ -310,6 +312,21 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 11
             additional: {  }
+          5acda7b4-5dc9-45fe-84b0-70ca4a777d73:
+            uuid: 5acda7b4-5dc9-45fe-84b0-70ca4a777d73
+            region: first
+            configuration:
+              id: 'field_block:node:recurring_ride:field_about_ride_images'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: markup
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 12
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -342,6 +359,13 @@ targetEntityType: node
 bundle: recurring_ride
 mode: default
 content:
+  field_about_ride_images:
+    type: markup
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: first
   field_activity:
     type: entity_reference_label
     label: inline

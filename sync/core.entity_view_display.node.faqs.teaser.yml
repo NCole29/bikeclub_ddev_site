@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.faqs.field_contact_person
     - field.field.node.faqs.field_faq
     - field.field.node.faqs.field_page_access
+    - field.field.node.faqs.field_resize_text_image
     - field.field.node.faqs.field_text_above_faqs
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
@@ -43,4 +44,5 @@ hidden:
   field_contact_person: true
   field_faq: true
   field_page_access: true
+  field_resize_text_image: true
   field_text_below_faqs: true

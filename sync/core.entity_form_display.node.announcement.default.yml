@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.node.announcement.field_contact_form
     - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_resize_text_image
     - field.field.node.announcement.field_summary
     - field.field.node.announcement.field_text
     - node.type.announcement
   module:
     - conditional_fields
     - field_group
+    - markup
     - scheduler
     - text
 third_party_settings:
@@ -22,7 +24,7 @@ third_party_settings:
       label: 'Schedule publication'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: details
       format_settings:
         classes: ''
@@ -39,7 +41,7 @@ third_party_settings:
       label: 'Contact link'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: details
       format_settings:
         classes: ''
@@ -48,6 +50,22 @@ third_party_settings:
         label_as_html: false
         open: false
         description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
+        required_fields: true
+    group_resize:
+      children:
+        - field_resize_text_image
+      label: 'About images in text fields'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
         required_fields: true
 _core:
   default_config_hash: rW8cXHe-DiiTvsQ4HYWRQtlYrvhlpcCUrpMZIvZYvA8
@@ -91,9 +109,15 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
+  field_resize_text_image:
+    type: markup
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_summary:
     type: text_textarea
-    weight: 1
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -115,7 +139,7 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -128,7 +152,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -148,7 +172,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.faqs.field_contact_person
     - field.field.node.faqs.field_faq
     - field.field.node.faqs.field_page_access
+    - field.field.node.faqs.field_resize_text_image
     - field.field.node.faqs.field_text_above_faqs
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
@@ -14,6 +15,7 @@ dependencies:
     - conditional_fields
     - faqfield
     - field_group
+    - markup
     - text
 third_party_settings:
   field_group:
@@ -24,7 +26,7 @@ third_party_settings:
       label: 'Contact link and access'
       region: content
       parent_name: group_faqs
-      weight: 7
+      weight: 3
       format_type: tab
       format_settings:
         classes: ''
@@ -36,8 +38,8 @@ third_party_settings:
         required_fields: true
     group_faqs:
       children:
-        - group_contact_link
         - group_text
+        - group_contact_link
       label: FAQs
       region: content
       parent_name: ''
@@ -53,13 +55,14 @@ third_party_settings:
     group_text:
       children:
         - title
+        - group_resize
         - field_text_above_faqs
         - field_text_below_faqs
         - field_faq
       label: 'Page content'
       region: hidden
       parent_name: group_faqs
-      weight: 5
+      weight: 2
       format_type: tab
       format_settings:
         classes: ''
@@ -85,6 +88,22 @@ third_party_settings:
         label_as_html: false
         open: false
         description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
+        required_fields: true
+    group_resize:
+      children:
+        - field_resize_text_image
+      label: 'About images in text fields'
+      region: hidden
+      parent_name: group_text
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
         required_fields: true
 _core:
   default_config_hash: s73czjFRTASLcyEjS-haGIxG9iD4gT_vxQ7n7i0Yntk
@@ -130,7 +149,7 @@ content:
             selector: ''
   field_faq:
     type: faqfield_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       answer_widget: text_format
@@ -150,9 +169,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_resize_text_image:
+    type: markup
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_text_above_faqs:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 2
@@ -160,7 +185,7 @@ content:
     third_party_settings: {  }
   field_text_below_faqs:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 2

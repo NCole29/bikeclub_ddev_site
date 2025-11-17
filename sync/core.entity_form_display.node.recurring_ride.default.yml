@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.recurring_ride.field_about_ride_images
     - field.field.node.recurring_ride.field_activity
     - field.field.node.recurring_ride.field_additional_information
     - field.field.node.recurring_ride.field_datetime
@@ -26,6 +27,7 @@ dependencies:
     - conditional_fields
     - datetimehideseconds
     - field_group
+    - markup
     - media_library
     - smart_date
     - smart_date_recur
@@ -72,10 +74,10 @@ third_party_settings:
     group_description:
       children:
         - field_activity
-        - field_description
-        - field_additional_information
+        - group_ride_images
         - field_ride_picture
         - field_developed_by
+        - group_ride_info
       label: Description
       region: content
       parent_name: group_tab_container
@@ -87,7 +89,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: "Documents, such as cue sheets, may be added in the description field by clicking the media icon on the editor toolbar.\r\nUse the additional information field could be used for information that stands out from the general ride description such as (1) directions, (2) parking information, (3) cookout information, (4) road conditions."
+        description: ''
         required_fields: true
     group_ride_leader_s_:
       children:
@@ -134,9 +136,9 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        label_as_html: false
+        label_as_html: true
         open: true
-        description: "<strong>Do not</strong> fill duration; only the start time is displayed.<br>\r\n<strong>Do not</strong> fill a second date field unless there is a large gap in the series of ride dates.<br>\r\n<strong>Does start time vary with time of year? Do you want to exclude a couple of dates from the series?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> in the Date field to \"Override\" and change the time for specific dates or \"Remove instance\" to delete specific dates. "
+        description: "<details>\r\n<summary>INSTRUCTIONS</summary>\r\n<ul>\r\n<li><strong>Duration and Times:</strong> Only the start time is displayed; leave the duration field blank.</li>\r\n<li><strong>Assigning different start times to different dates?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> to \"Override\" and change the time for specific dates.</li>\r\n<li><strong>Excluding specific dates from the series?</strong> After saving and editing the ride, click <strong>MANAGE INSTANCES</strong> to \"Override\" and \"Remove instance\" for specific dates. </li>\r\n</ul>\r\n<em>Important: A second date field appears after the page is saved and then edited. Leave the second date field empty unless there is a significant gap between the dates in the series.</em>\r\n</details>\r\n"
         required_fields: false
     group_lunch:
       children: {  }
@@ -160,7 +162,7 @@ third_party_settings:
       label: Registration
       region: content
       parent_name: group_tab_container
-      weight: 4
+      weight: 6
       format_type: tab
       format_settings:
         classes: ''
@@ -170,14 +172,53 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_ride_images:
+      children:
+        - field_about_ride_images
+      label: 'Adding an image to a ride page'
+      region: content
+      parent_name: group_description
+      weight: 24
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_ride_info:
+      children:
+        - field_description
+        - field_additional_information
+      label: 'Ride info'
+      region: hidden
+      parent_name: group_description
+      weight: 23
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: "<big>Use the <strong>Description</strong> field to describe the routes.\r\nUse the <strong>Additional information</strong> field for items such as directions, parking information, details about planned cookouts, and road conditions.</big>"
+        required_fields: true
 id: node.recurring_ride.default
 targetEntityType: node
 bundle: recurring_ride
 mode: default
 content:
+  field_about_ride_images:
+    type: markup
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_activity:
     type: options_select
-    weight: 18
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -231,7 +272,7 @@ content:
     third_party_settings: {  }
   field_developed_by:
     type: string_textfield
-    weight: 23
+    weight: 26
     region: content
     settings:
       size: 60
@@ -291,7 +332,7 @@ content:
     third_party_settings: {  }
   field_registration_required:
     type: boolean_checkbox
-    weight: 7
+    weight: 22
     region: content
     settings:
       display_label: true
@@ -334,7 +375,7 @@ content:
     third_party_settings: {  }
   field_ride_picture:
     type: media_library_widget
-    weight: 22
+    weight: 25
     region: content
     settings:
       media_types: {  }
@@ -377,7 +418,7 @@ content:
             selector: ''
   field_webform:
     type: webform_entity_reference_select
-    weight: 8
+    weight: 23
     region: content
     settings:
       default_data: false
@@ -404,7 +445,7 @@ content:
             selector: ''
   field_webform_limit:
     type: number
-    weight: 9
+    weight: 24
     region: content
     settings:
       placeholder: ''

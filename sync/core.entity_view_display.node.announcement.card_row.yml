@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.card_row
     - field.field.node.announcement.field_contact_form
     - field.field.node.announcement.field_contact_person
+    - field.field.node.announcement.field_resize_text_image
     - field.field.node.announcement.field_summary
     - field.field.node.announcement.field_text
     - node.type.announcement
@@ -44,4 +45,5 @@ content:
 hidden:
   field_contact_form: true
   field_contact_person: true
+  field_resize_text_image: true
   field_text: true

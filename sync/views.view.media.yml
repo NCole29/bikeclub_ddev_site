@@ -927,6 +927,17 @@ display:
           query_tags: {  }
       relationships: {  }
       header:
+        area_text_custom_1:
+          id: area_text_custom_1
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "<details>\r\n<summary>Information about Files and Media</summary>\r\n<p>Every uploaded media item appears in two places under Content:  <strong>Files</strong> and <strong>Media</strong>.</p>\r\n<ul>\r\n<li>The <strong>Files</strong> list displays technical server details like filename, file type, size, status, and dates, along with how many places the file is used on the website.</li>\r\n<li>The <strong>Media</strong> list displays information stored in the database. The item's name is automatically set to its \"alt text\" and a category may be assigned. Clicking a media name in this list reveals the original filename on the server.</li> \r\n</ul>\r\n</details>\r\n<details>\r\n<summary>Read before deleting items</summary>\r\n<ul>\r\n<li><strong>Files list:</strong> Only delete items if they are \"Used in 0 places\". Deleting files that are in use will create broken links on web pages because information about the item remains in the database.</li>\r\n<li><strong>Media list:</strong> Deleting an item here removes both the media file from the server and its corresponding database entry for most images.\r\nFor deleted images that were embedded in text fields, you must manually remove the broken links from the relevant content.</li>\r\n</ul>\r\n</details>"
+          tokenize: false
         area_text_custom:
           id: area_text_custom
           table: views
@@ -936,7 +947,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: 'Thumbnail shows original uploaded image, not the cropped version. Cropped versions are displayed when selecting an image to insert on a web page. Do not edit and crop images again from the links on this page.'
+          content: 'Thumbnails display the original, uncropped images. Cropped versions only appear during the image selection process for insertion on a web page. Please refrain from using the links on this page to further edit or crop images.'
           tokenize: false
       footer: {  }
       display_extenders: {  }

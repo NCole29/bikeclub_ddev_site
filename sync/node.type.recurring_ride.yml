@@ -27,7 +27,7 @@ _core:
 name: 'Recurring ride'
 type: recurring_ride
 description: 'Use <em>recurring ride</em> to add a recurring ride to the calendar. Rides automatically appear in the sidebar of the home page.'
-help: "Complete the form to create a <strong>NEW</strong> recurring ride. To <strong>update an existing</strong> ride <a href=\"/admin/content/rides\">find the ride</a> and edit it (for existing dates) or clone it for a new year.<br>\r\nUse <strong>Ride Tools</strong> to cancel a recurring ride on a specific date, or restore a canceled ride.<br>\r\nTo skip dates or set different times for different dates: Save, then Edit and use <strong>Manage instances</strong> in the Date field."
+help: 'Use this form to create a <strong>NEW</strong> recurring ride. To <strong>update an existing</strong> ride <a href="/admin/content/rides/recurring">find the ride</a> and edit it. To copy a ride (for a new year),  <a href="/admin/content/rides/recurring">find the ride</a> and clone it.'
 new_revision: true
 preview_mode: 1
 display_submitted: false

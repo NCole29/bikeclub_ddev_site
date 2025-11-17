@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.webform.field_contact_form
     - field.field.node.webform.field_contact_person
     - field.field.node.webform.field_page_access
+    - field.field.node.webform.field_resize_banner_image
+    - field.field.node.webform.field_resize_text_image
     - field.field.node.webform.field_summary
     - field.field.node.webform.field_text
     - field.field.node.webform.field_type_of_page
@@ -23,6 +25,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - markup
     - text
     - user
 third_party_settings:
@@ -173,6 +176,36 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 6
             additional: {  }
+          d13c639d-7874-4c82-bc90-93e86df6f72e:
+            uuid: d13c639d-7874-4c82-bc90-93e86df6f72e
+            region: content
+            configuration:
+              id: 'field_block:node:webform:field_resize_banner_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: markup
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          d9d7eec0-a97d-4d36-a9db-beb4f1097b2e:
+            uuid: d9d7eec0-a97d-4d36-a9db-beb4f1097b2e
+            region: content
+            configuration:
+              id: 'field_block:node:webform:field_resize_text_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: markup
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -210,6 +243,20 @@ content:
       link: true
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_resize_banner_image:
+    type: markup
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_resize_text_image:
+    type: markup
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_text:
     type: text_default

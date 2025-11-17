@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.banner.banner_image
-    - field.field.node.banner.field_padding
+    - field.field.node.banner.field_resize_banner_image
     - node.type.banner
   module:
     - user
@@ -30,4 +30,4 @@ content:
     weight: 0
     region: content
 hidden:
-  field_padding: true
+  field_resize_banner_image: true

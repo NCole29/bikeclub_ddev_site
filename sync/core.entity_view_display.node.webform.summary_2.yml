@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.webform.field_contact_form
     - field.field.node.webform.field_contact_person
     - field.field.node.webform.field_page_access
+    - field.field.node.webform.field_resize_banner_image
+    - field.field.node.webform.field_resize_text_image
     - field.field.node.webform.field_summary
     - field.field.node.webform.field_text
     - field.field.node.webform.field_type_of_page
@@ -69,6 +71,8 @@ hidden:
   field_contact_form: true
   field_contact_person: true
   field_page_access: true
+  field_resize_banner_image: true
+  field_resize_text_image: true
   field_text: true
   field_type_of_page: true
   field_webform: true
