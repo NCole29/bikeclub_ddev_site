@@ -21,7 +21,14 @@ use Drupal\file_mdm\FileMetadataManagerInterface;
 function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
+   
+  
+      die;
+  }
+}
 
+/*
+  //Tried to access file size but this did not work.
     $uri = 'public://NSC favicon.jpg';
     $url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
 
@@ -36,9 +43,7 @@ function club_test_help($route_name, RouteMatchInterface $route_match) {
 
     kint($mime);
     die;
-  }
-}
- 
+ */
 /*
     $update_manager = \Drupal::service('entity.definition_update_manager');
   

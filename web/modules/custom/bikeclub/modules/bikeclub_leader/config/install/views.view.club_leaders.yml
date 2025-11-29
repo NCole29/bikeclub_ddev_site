@@ -627,35 +627,36 @@ display:
       style:
         type: table
         options:
-          grouping:
-            -
-              field: year
-              rendered: true
-              rendered_strip: false
-            -
-              field: field_position_category
-              rendered: true
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
+            year: year
             position: position
             name_1: name_1
             start_date: start_date
             end_date: end_date
-            year: year
-            field_position_category: field_position_category
+            name: name
+            roles_target_id: roles_target_id
+            edit_club_leader: edit_club_leader
           default: '-1'
           info:
+            year:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             position:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             name_1:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -675,14 +676,21 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            year:
-              sortable: false
+            name:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_position_category:
+            roles_target_id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            edit_club_leader:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1527,6 +1535,71 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: leader
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: name
+          plugin_id: field
+          label: 'Drupal user'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: user_name
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         start_date:
           id: start_date
           table: club_leader
@@ -1581,8 +1654,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: short
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: m/d/Y
             timezone: ''
             tooltip:
               date_format: ''
@@ -1658,8 +1731,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: short
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: m/d/Y
             timezone: ''
             tooltip:
               date_format: long
@@ -1671,71 +1744,6 @@ display:
               granularity: 2
               refresh: 60
               description: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: leader
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: name
-          plugin_id: field
-          label: Name
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
-          settings:
-            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1799,6 +1807,72 @@ display:
           hide_alter_empty: true
           type: separator
           separator: ', '
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: leader
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: field
+          label: 'User ID'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         edit_club_leader:
           id: edit_club_leader
           table: club_leader
@@ -1811,8 +1885,8 @@ display:
           label: edit
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="/user/{{ uid }}/edit?destination=/admin/people/club_leaders">edit</a>'
             make_link: false
             path: ''
             absolute: false
@@ -1857,7 +1931,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 50
+          items_per_page: 30
           total_pages: null
           id: 0
           tags:
@@ -2083,7 +2157,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "Club leaders are displayed on the Contacts page. Leaders are assigned a Drupal role based on position, and the role is removed based on end date. See <a href=\"/admin/structure/taxonomy/manage/positions/overview\">default role per position.</a> Additional roles may be assigned to a person from the Drupal user account page (click their name in the Drupal user column), but must be cleared manually.<br>\r\nName is filled with the Drupal username but may be edited for the contacts page (click <strong>edit</strong> after saving entry).  \r\nPast leaders may appear on this page with a Drupal role if the person is also a current leader. "
+            value: "Leaders are assigned a Drupal role based on position. See <a href=\"/admin/structure/taxonomy/manage/positions/overview\">default role per position.</a> The default role is removed based on end date. Additional roles may be assigned to a leader from the Drupal user account page (click their name in the Drupal user column), but must be cleared manually.<br>\r\nName is filled with the Drupal username but may be edited for the contacts page (click <strong>edit</strong> after saving entry).  \r\nPast leaders may appear on this page with a Drupal role if the person is also a current leader. "
             format: basic_html
           tokenize: false
       display_extenders: {  }

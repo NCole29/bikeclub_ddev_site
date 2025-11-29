@@ -26,7 +26,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class NonmemberSubmitHandler extends WebformHandlerBase {
 
-
   /**
    * The entity type manager.
    *

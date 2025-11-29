@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62e18480426bcf8e1aee93547cfd2bc7",
+    "content-hash": "5f63d86447a263207d317385fa8c8dd6",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -7610,6 +7610,47 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/scheduler",
                 "issues": "https://www.drupal.org/project/issues/scheduler"
+            }
+        },
+        {
+            "name": "drupal/sdc_examples",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sdc_examples.git",
+                "reference": "76771bf1221c009c540e76ed88e3de0b305f5521"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "1.x-dev",
+                    "datestamp": "1729931888",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "e0ipso",
+                    "homepage": "https://www.drupal.org/user/550110"
+                }
+            ],
+            "description": "Provides example components.",
+            "homepage": "https://www.drupal.org/project/sdc_examples",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sdc_examples"
             }
         },
         {
@@ -17045,6 +17086,7 @@
         "drupal/address_map_link": 15,
         "drupal/conditional_fields": 15,
         "drupal/dxpr_theme": 5,
+        "drupal/sdc_examples": 20,
         "drupal/style_selector": 15,
         "drupal/webform": 10
     },

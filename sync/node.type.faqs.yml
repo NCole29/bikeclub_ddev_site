@@ -27,7 +27,7 @@ _core:
   default_config_hash: 5L2puimuIGPlfnJJIOMtVQuO-40jTZ_s4xy-omDASh8
 name: 'FAQ page'
 type: faqs
-description: '<em>FAQs</em> provide content in a question-and-answer format in collapsible fields. Additional text may be placed above and/or below the FAQs.'
+description: '<em>FAQs</em> provide permanent content in a question-and-answer format in collapsible fields with additional text optionally placed above and/or below the FAQs. FAQs pages are not automatically linked; you must manually create a link to them from another existing page or add them to a menu. Pages may be public or limited to Members or Administrators.'
 help: 'FAQs display permanent website content. Click "Menu settings" at left to provide a menu link to the page, or link to this page from another page or block.'
 new_revision: true
 preview_mode: 1

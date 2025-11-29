@@ -27,8 +27,8 @@ _core:
   default_config_hash: r87PloEoWhsTiDZcsrHPKg2CNWMUkONu5_YIytEgHe4
 name: Event
 type: event
-description: '<em>Events</em> may be used for free or paid events, with or without registration. Events are listed on the calendar, shown in the "Upcoming Events" block on the home page, and optionally shown in the main content section of the home page when the "Summary for home page" is filled. The Event appears on the home page through the date of the event.'
-help: '<em>Events</em> are listed on the calendar and displayed on the home page. The event is removed from the home page after the date of event so scheduling is not needed. '
+description: '<em>Events</em> can be used for both free and paid activities, and registration is optional. Events are displayed in three places: on the calendar, in the "Upcoming Events" block on the home page (if block is placed), and in the content section of the home page (if "Summary for home page" is filled). An event will appear on the home page until its scheduled date has passed. Events may be public or limited to Members or Administrators.'
+help: '<em>Events</em> are listed on the calendar and displayed on the home page. The event is removed from the home page after the date of the event so scheduling is disabled. '
 new_revision: true
 preview_mode: 1
 display_submitted: false

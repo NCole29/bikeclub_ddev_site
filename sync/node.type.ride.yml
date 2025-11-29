@@ -26,7 +26,7 @@ _core:
   default_config_hash: Do2obYQVS-EEvuKNwIHjcKWNAIqtZ-7iFPIPaibS4bY
 name: Ride
 type: ride
-description: 'Use <em>ride</em> to add a nonrecurring ride to the calendar. Rides automatically appear in the sidebar of the home page.'
+description: '<em>Rides</em> occur on a single date. Rides automatically appear on the calendar and in the sidebar of the home page. To repeat a <em>Ride</em> on a new date, use the Clone feature. '
 help: 'Use this form to create a <strong>NEW</strong> ride. To <strong>update an existing</strong> ride <a href="/admin/content/rides">find the ride</a> and edit it. To copy a ride (for a new year),  <a href="/admin/content/rides">find the ride</a> and clone it.'
 new_revision: true
 preview_mode: 1

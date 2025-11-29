@@ -25,7 +25,7 @@ third_party_settings:
     parent: 'main:'
 name: 'Webform page'
 type: webform
-description: "<em>Webform pages</em> allow you to use the same webform multiple times and keep results separate - e.g., a volunteer signup form used each year. Results for <strong>EACH</strong> year are on the Results tab of the webform page (go to Content).<br>\r\n"
+description: "<em>Webform pages</em> enable you to use the same webform for multiple events. For example, create a single webform for volunteer signups; then create a new Webform page each year to include the volunteer signup form. Submissions are stored separately and can be found by navigating to the \"Results\" tab on the webform's content page for that specific year.  Webform pages are displayed in the content section of the home page if \"Summary for home page\" is filled; or may be added to a menu. They may be public or limited to Members or Administrators, and publication may be scheduled. \r\n"
 help: "Click \"Menu settings\" at left to provide a menu link to the page, or link to this page from another page or block.<br>\r\nScheduling publication is optional.\r\n"
 new_revision: true
 preview_mode: 1

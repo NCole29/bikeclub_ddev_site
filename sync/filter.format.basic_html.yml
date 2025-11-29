@@ -105,4 +105,3 @@ filters:
         document: document
         image_crop_16_9: image_crop_16_9
         image_crop_4_3: image_crop_4_3
-        resize_images: resize_images

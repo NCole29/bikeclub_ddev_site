@@ -17,64 +17,52 @@ class LeaderHelp {
   #[Hook('help')]
   public function leaderHelp($route_name, RouteMatchInterface $route_match) {
     switch ($route_name) {
-      case 'help.page.club_leader':
+      case 'help.page.bikeclub_leader':
         $output = '';
         $output .= '<h2>' . t('About') . '</h2>';
-        $output .= '<p>' . t('The Bikeclub leader module allows you to maintain a list of current and past club officers, directors, and coordinators ') ;
-        $output .=  t('and automatically assign Drupal roles for the duration of their term. Current and past leaders are displayed on a public webpage.') . '</p>';
+        $output .= '<p>' . t("The <strong>Bikeclub leader module</strong> is used to  track the history of an club's leadership and automatically assign Drupal roles (website permissions) to current leaders for the duration of their terms.") . '</p>';
 
         $output .= '<h2>' . t('Uses') . '</h2>';
         $output .= '<dl>';
 
-        $output .= '<dt>' . t('<strong>Manage</strong> the <a href=":positions">Club positions</a> taxonomy.', [
-          ':positions' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', ['taxonomy_vocabulary' => 'positions',])->toString()]) . '</dt>';
+        $output .= '<dt>' . t('<strong>Club positions taxonomy</strong>') . '</dt>';
 
-        $output .= '<dd>' . t("Use this taxonomy to maintain the list of club positions. When entering new leaders, you'll select a position from this list. ") ;
-        $output .=  t('Use the category field to organize positions - e.g., Directors, Officers, Coordinators. The category is used to group positions for display. ');
-        $output .=  t('The order of positions in the taxonomy determines the order for display, within categories. Drag positions to reorder them in the taxonomy.') ;
-        $output .=  t('<p>Use the <em>Disabled</em> checkbox to prevent assignment of positions that are no longer in use. ');
-        $output .=  t('<strong>DO NOT delete positions</strong> that were used in the past because this will remove those past positions from the Past leader display.');
+        $output .= '<dd>' . t("Use the <a href=':positions'>Club positions</a> taxonomy</strong> to <strong>define, categorize, and organize</strong> club positions. ", 
+         [':positions' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', ['taxonomy_vocabulary' => 'positions',])->toString()]);
+        $output .= t("Leaders are displayed on web pages according to the order of positions within the taxonomy. Drag and drop positions to change their display order. ");
+        $output .= t("<p>Check the <strong>Disabled</strong> box to prevent a position from being assigned in the future. <strong>DO NOT delete</strong> positions that have been used previously; deleting them will permanently remove those positions from the <strong>Past leaders</strong> display.");
         $output .= '</dd>';
 
-       $output .= '<dt>' . t('<strong>Manage</strong> <a href=":leaders">Club leaders</a>.',
-         [':leaders' => Url::fromRoute('view.club_leaders.edit')->toString()]) . '</dt>';
+       $output .= '<dt>' . t('<strong>Add Club leaders</strong>') . '</dt>';
 
-        $output .= '<dd>' . t('Add club leaders by navigating to <a href=":people">People</a>, clicking the <a href=":leaders">Club leaders</a> tab, and clicking the Add leader button. ', [
-          ':people' => Url::fromRoute('entity.user.collection')->toString(),
+        $output .= '<dd>' . t('Add club leaders by navigating to <a href=":leaders">People > Club leaders</a>, and clicking the Add leader button. ', [
           ':leaders' => Url::fromRoute('view.club_leaders.edit')->toString()
         ]);
-        $output .= '<dd>' . t('About the Add leader form:') . '<ul>';
-        $output .= '<li>' . t('There are two name fields.') . '<ol>';
-        $output .= '<li>' . t('<em>Name</em> is an autocomplete field. It will return persons with a Drupal User account (only Drupal users can be assigned roles). ');
-        $output .= t('This field may be restricted to <em>Members</em> by changing the filter on the <a href=":eligible">Club leaders eligible</a> View.',
-          [':eligible' => Url::fromURI('internal:/admin/structure/views/view/club_leaders_eligible')->toString(),
-        ]) . '</li>';
-        $output .= '<li>' . t('<em>Edited name</em> is a text field. It may be used to standardize names loaded via the autocomplete field - for example, when members use a nickname, or to impose capitalization. ');
-        $output .= t('It is also used to load past leaders who are no longer members - i.e., during a data import using the Feeds module. ');
-        $output .= t('For current leaders, always fill the autocomplete field so that a Drupal role is assigned. If the <em>Edited name</em> field is also filled, it will be used for display.') . '</li></ul>';
-        $output .= '<li>' . t('<em>Start and end dates</em>: (a) define the term of service, (b) identify current vs. past leaders for display, and (c) are used to enable/disable the associated Drupal role for the term of service.') . '</li>';
-        $output .= '</ul>';
-        
-        $output .= '<p>' . t('For leaders who serve multiple consecutive terms, be sure to add a new record to the database for each term to provide a complete list of current and past leaders.');
-        $output .= ' Do not simply change the <em>End date</em> for leaders who are re-elected.</p>';
-        $output .= '</dd>';
+        $output .= '<dd>' . t('Fields:') . '<ul>';
+        $output .= '<li>' . t('<strong>Name (Autocomplete field)</strong>. Use this field to add leaders. The autocomplete field searches for an existing Drupal user account. ');
+        $output .= t('This field is restricted to <em>Members</em> with a filter on the <a href=":eligible">Club leaders eligible</a> View. This is the only name field available when adding new leaders, thus ensuring that a Drupal account exists.',
+          [':eligible' => Url::fromURI('internal:/admin/structure/views/view/club_leaders_eligible')->toString(),   ]) . '</li>';
 
+        $output .= '<li>' . t('<strong>Edited name (Text field)</strong>. Edit a leader record to access this optional text field and standardize the display name (e.g., correcting capitalization or using a formal name instead of a nickname). If both fields are filled, the Edited Name is used for public display. ');
+        $output .= t('This field should be used when manually loading past leaders who may no longer be members (e.g., during a data import via the Feeds module).'). '</li>';
 
-        $output .= '<dt>' . t('<strong>View</strong>  current and past <a href=":viewcl">Club leaders</a>. ', [
-          ':viewcl' => Url::fromRoute('view.club_leaders.current')->toString()]) . '</dt>';
-        $output .= '<dd>' . t('The Club Leaders View provides public pages. Add <em>Club leaders</em> to the main menu if it does not already exist, with link "/club-leaders".') . '</dd>';
+        $output .= '<li>' . t("<strong>Start and end dates</strong> define the specific duration of a leader's term. These dates identify current vs. past leaders for display; they also control the enabling and disabling of user permissions via the assignment of Drupal roles.");
+        $output .= t(' <strong>Do not extend the end date</strong>  when a leader is re-elected. It is crucial to create a new record for each separate term so that the list of past leaders by time period is complete.');
+        $output .= '</ul></dd>';
+
+        $output .= '<dt>' . t('<strong>View Club leaders</a></strong>') . '</dt>';
+        $output .= '<dd>' . t('The <a href=":viewcl">Club Leaders View</a> provides public pages. Add a link to the main menu if it does not already exist, with link "/club-leaders". This page provides tabs for current and past leaders.',
+         [':viewcl' => Url::fromRoute('view.club_leaders.current_leaders')->toString()]) .  '</dd>';
         $output .= '</dl>';
 
-
-        $output .= '<h2>' . t('Notes') . '</h2>';
-        $output .= '<dl><dt>This module:';
-        $output .= '<dd><ul>';
-        $output .= '<li>Creates a custom entity (ClubLeader), with code to assign the Drupal Role to a club leader when the leader record is saved</li>';
-        $output .= '<li>Includes a form hook to customize the <em>Club positions</em> taxonomy overview page</li>';
-        $output .= '<li>Includes <em>cleanup</em> code to remove assigned Drupal roles from users when their leader term concludes. 
+        $output .= '<h3>' . t('This module includes') . '</h3>';
+        $output .= '<ul>';
+        $output .= '<li>A custom entity (ClubLeader), with code to assign a Drupal Role to a club leader when the leader record is saved.</li>';
+        $output .= '<li>A form hook to customize the <em>Club positions</em> taxonomy overview page and to hide the edited name field when adding a new leader.</li>';
+        $output .= '<li>Custom code to remove assigned Drupal roles from users when their leader term concludes. 
         This code runs when a leader record is saved and checks the term dates and assigned roles of all leaders, taking account of the possibility of re-election.</li>';
-        $output .= '</ul></dd></dt></dl>';
-       
+        $output .= '</ul';
+
         return $output;
     }
   }

@@ -1,12 +1,33 @@
 uuid: a376408a-7f17-45d8-9be9-31cc0ea30850
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
 _core:
   default_config_hash: yL7HRFvwSfe_j4px9NaDM7te4canGGZLTunvi85uFhU
 name: 'Home page banner'
 type: banner
-description: '<em>Banner</em> displays one or more images across the top of the <strong>home page</strong>.'
+description: ' The <em>Banner</em> can display one or more images across the top of the home page. Create multiple banner pages and use the scheduling options to display different banners at specific times of the year. '
 help: null
 new_revision: true
 preview_mode: 1
