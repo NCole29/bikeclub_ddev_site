@@ -2,20 +2,48 @@
 
 namespace Drupal\bikeclub_report;
 
+use Drupal\Core\Database\Connection;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Render\RendererInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a page with revenue for memberships and events by year
  *
  */
-class RevenueReport {
+class RevenueReport implements ContainerInjectionInterface {
+
+  /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
+   * The renderer service.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  public function __construct(Connection $database, RendererInterface $renderer) {
+    $this->database = $database;
+    $this->renderer = $renderer;
+  }
+  
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('database'),
+      $container->get('renderer')
+    );
+  }
 
   public function getRevenue() {
 
-    $db = \Drupal::database();
-
     // Aggregate revenue by year and financial type (event, membership, other)
     // Sort by descending year so that the table displays descendign years.
-    $all = $db->query("SELECT year(receive_date) as year, financial_type_id as type,
+    $all = $this->database->query("SELECT year(receive_date) as year, financial_type_id as type,
         SUM(total_amount) as total, SUM(net_amount) as net, SUM(fee_amount) as fees
       FROM {civicrm_contribution}
       WHERE contribution_status_id = :cstatus and is_test = :test
@@ -27,7 +55,7 @@ class RevenueReport {
      ->fetchALL();
 
      // Get financial type labels.
-     $type_names = $db->query("SELECT id as type, name
+     $type_names = $this->database->query("SELECT id as type, name
       FROM `civicrm_financial_type`
       ORDER BY type")
       ->fetchALL();
@@ -127,7 +155,7 @@ class RevenueReport {
       ),
     ];
 
-    $tableHTML = \Drupal::service('renderer')->renderInIsolation($build);
+    $tableHTML = $this->renderer->renderInIsolation($build);
     return [
       '#type' => '#markup',
       '#markup' => $title . $tableHTML . $footer,

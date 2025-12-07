@@ -2,10 +2,13 @@
 
 namespace Drupal\bikeclub_ride_tools\Form;
 
+use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @file
@@ -14,11 +17,37 @@ use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 class AddScheduleDates extends FormBase {
 
   /**
-   * The load type.
+   * The schedule load type: initial(0) or not(1).
    *
    * @var integer
    */
   protected $loadType;
+
+  /**
+   * The date formatter service.
+   *
+   * @var \Drupal\Core\Datetime\DateFormatterInterface
+   */
+  protected $dateFormatter;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  public function __construct(DateFormatterInterface $date_formatter. EntityTypeManagerInterface $entity_type_manager) {
+    $this->dateFormatter = $date_formatter;
+    $this->entityTypeManager = $entity_type_manager;
+  }
+
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('date.formatter'),
+      $container->get('entity_type.manager')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -28,11 +57,12 @@ class AddScheduleDates extends FormBase {
   }
 
   public function getDates() {
-    $minmax = \Drupal::entityQueryAggregate('club_schedule')
-    ->accessCheck(FALSE)
-    ->aggregate('schedule_date', 'MIN', NULL)
-    ->aggregate('schedule_date', 'MAX', NULL)
-    ->execute();
+    //$minmax = \Drupal::entityQueryAggregate('club_schedule')
+    $query = $this->entityTypeManager->getStorage('club_schedule')->getAggregateQuery();
+    $query->accessCheck(FALSE)
+    $query->aggregate('schedule_date', 'MIN', NULL)
+    $query->aggregate('schedule_date', 'MAX', NULL)
+    $minmax = $query->execute();
     
     return $minmax;
   }
@@ -45,9 +75,6 @@ class AddScheduleDates extends FormBase {
 
       $this->loadType = 1; // Not an initial load.
 
-      // Get the date formatter service
-      $date_formatter = \Drupal::service('date.formatter');
-
       $min = $minmax[0]["schedule_date_min"];
       $max = $minmax[0]["schedule_date_max"];
 
@@ -56,8 +83,8 @@ class AddScheduleDates extends FormBase {
       $max_datetime = new DrupalDateTime($max); 
 
       // Format the date
-      $min_date = $date_formatter->format($min_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
-      $max_date = $date_formatter->format($max_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
+      $min_date = $this->dateFormatter->format($min_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
+      $max_date = $this->dateFormatter->format($max_datetime->getTimestamp(), 'custom', 'm-d-Y'); 
 
       $form['instructions'] = [
         '#type' => 'markup',
@@ -84,6 +111,6 @@ class AddScheduleDates extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
    
     LoadSchedule::loadSchedule($this->loadType); 
-    \Drupal::messenger()->addMessage(t("Three years of dates have been added."));
+    $this->messenger->addMessage(t("Three years of dates have been added."));
   }
 }

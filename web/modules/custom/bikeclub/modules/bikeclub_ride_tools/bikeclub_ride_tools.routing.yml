@@ -10,6 +10,7 @@ bikeclub_ride_tools.ride_tools:
     _permission: 'access toolbar'
 
 # Menu items under Ride tools
+# Link to View schedule is set in the View.
 bikeclub_ride_tools.cancel_ride:
   path: '/admin/cancel-ride'
   defaults:
@@ -28,20 +29,11 @@ bikeclub_ride_tools.nonmember_waiver:
     _permission: 'create ride content'
     _access: 'TRUE'    
 
-# ------------------------------------------
-# Bikeclub entities under Admin > Structure
-# ------------------------------------------
-bikeclub_ride_tools.custom_entities:
-  path: '/admin/structure/custom_entities'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Custom entities'
-  requirements:
-    _permission: 'access toolbar'
-
-# Menu items under Custom entities
+#------------------------------------------
+# Items under Structure > Bikeclub entities
+#------------------------------------------
 bikeclub_ride_tools.route_settings:
-  path: '/admin/structure/club_route_settings'
+  path: '/admin/structure/club_route'
   defaults:
     _form: '\Drupal\bikeclub_ride_tools\Form\ClubRouteSettingsForm'
     _title: 'RWGPS route'
@@ -49,14 +41,13 @@ bikeclub_ride_tools.route_settings:
     _permission: 'administer club_route entity'
 
 bikeclub_ride_tools.schedule_settings:
-  path: '/admin/structure/club_schedule_settings'
+  path: '/admin/structure/club_schedule'
   defaults:
     _form: '\Drupal\bikeclub_ride_tools\Form\ClubScheduleSettingsForm'
     _title: 'Ride schedule date'
   requirements:
     _permission: 'administer club_schedule entity'
 
-# Entity routes.
 # View, edit, delete - Route
 entity.club_route.canonical:
   path: '/admin/club_route/{club_route}'
@@ -99,18 +90,9 @@ entity.club_schedule.edit_form:
   requirements:
     _permission: 'edit club_schedule entity'
 
-# --------------------------------------------
-# Bikeclub config under Admin > Configuration
-# --------------------------------------------
-bikeclub_ride_tools.custom_config:
-  path: '/admin/configuration/custom_config'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Bikeclub configuration'
-  requirements:
-    _permission: 'access toolbar'
-
-# Menu items under Custom config
+#--------------------------------------------
+# Items under Configuration > Bikeclub config
+#--------------------------------------------
 bikeclub_ride_tools.rwgps_api:
   path: '/admin/config/bikeclub/rwgps-api'
   defaults:

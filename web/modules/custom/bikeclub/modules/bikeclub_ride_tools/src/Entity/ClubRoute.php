@@ -17,7 +17,7 @@ use Drupal\bikeclub_ride_tools\ClubRouteInterface;
  *
  * @ContentEntityType(
  *   id = "club_route",
- *   label = @Translation("Club route"),
+ *   label = @Translation("Club Routes - Data from RWGPS"),
  *   base_table = "club_route",
  *   entity_keys = {
  *     "id" = "rwgps_id",

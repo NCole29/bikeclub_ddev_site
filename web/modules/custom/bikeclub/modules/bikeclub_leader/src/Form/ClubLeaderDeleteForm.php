@@ -3,11 +3,9 @@
 namespace Drupal\bikeclub_leader\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
-use Drupal\user\Entity\Role;
-use Drupal\user\Entity\User;
-
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a form for deleting a club_leader entity.
@@ -15,6 +13,26 @@ use Drupal\user\Entity\User;
  * @ingroup club
  */
 class ClubLeaderDeleteForm extends ContentEntityConfirmFormBase {
+
+  /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+   public function __construct(EntityTypeManagerInterface $entity_type_manager) {
+    $this->entityTypeManager = $entity_type_manager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -50,8 +68,9 @@ class ClubLeaderDeleteForm extends ContentEntityConfirmFormBase {
 
     // Remove Drupal role associated with the position when club leader is deleted.
     if(!is_null($entity->position->target_id) ) {
-      $user = User::load($entity->leader->target_id);
-      $position = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($entity->position->target_id);
+      $user = $this->entityTypeManager->getStorage('user')->load($entity->leader->target_id);
+      
+      $position = $this->entityTypeManager()->getStorage('taxonomy_term')->load($entity->position->target_id);
       $position_role = $position->get('field_website_role')->target_id;
 
       // Remove Drupal role associated with the position when club leader is deleted.

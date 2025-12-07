@@ -19,7 +19,7 @@ class ClubRouteSettingsForm extends FormBase {
    *   The unique string identifying the form.
    */
   public function getFormId() {
-    return 'routes_settings';
+    return 'route_settings';
   }
 
   /**
@@ -35,9 +35,9 @@ class ClubRouteSettingsForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['route_settings']['#markup'] =
 	'Manage fields, form, and display for club routes.
-	<p>Base fields are not listed on the <a href="/admin/structure/club_route_settings/fields">Manage fields</a> tab because they cannot be deleted;
-	they are listed on the <a href="/admin/structure/club_route_settings/form-display">Manage form display</a> and <a href="/admin/structure/club_route_settings/display">Manage display</a> tabs.
-	<br/>New fields may be added on the <a href="/admin/structure/club_route_settings/fields">Manage fields</a> tab.</p>';
+	<p>Base fields are not listed on the <a href="/admin/structure/club_route/fields">Manage fields</a> tab because they cannot be deleted;
+	they are listed on the <a href="/admin/structure/club_route/form-display">Manage form display</a> and <a href="/admin/structure/club_route/display">Manage display</a> tabs.
+	<br/>New fields may be added on the <a href="/admin/structure/club_route/fields">Manage fields</a> tab.</p>';
 
     return $form;
   }

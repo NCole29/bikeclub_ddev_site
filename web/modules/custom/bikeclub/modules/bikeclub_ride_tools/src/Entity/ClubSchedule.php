@@ -8,8 +8,8 @@ use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\EntityOwnerTrait;
-use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\user\UserInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\bikeclub_ride_tools\ClubScheduleInterface;
 
 /**
@@ -19,7 +19,7 @@ use Drupal\bikeclub_ride_tools\ClubScheduleInterface;
  *
  * @ContentEntityType(
  *   id = "club_schedule",
- *   label = @Translation("Club: Scheduled ride date"),
+ *   label = @Translation("Club Schedule dates - for join with Ride dates"),
  *   base_table = "club_schedule",
  *   entity_keys = {
  *     "id" = "schedule_id",

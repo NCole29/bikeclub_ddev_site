@@ -3,7 +3,7 @@ bikeclub_leader.admin:
   title: 'Club leader entity'
   description: 'Club leader data'
   route_name:  bikeclub_leader.leader_settings
-  parent: 'bikeclub_ride_tools.custom_entities' 
+  parent: 'bikeclub.custom_entities' 
 
 # Menu item under People.
 bikeclub_leader.leaders:

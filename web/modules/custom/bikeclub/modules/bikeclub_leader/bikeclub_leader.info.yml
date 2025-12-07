@@ -1,4 +1,4 @@
-name: 'Bikeclub leader'
+name: 'Bikeclub Leaders'
 type: module
 description: 'Provides Club Leader entity type to track Officers and Coordinators and automatically assign Drupal roles.'
 package: Bikeclub

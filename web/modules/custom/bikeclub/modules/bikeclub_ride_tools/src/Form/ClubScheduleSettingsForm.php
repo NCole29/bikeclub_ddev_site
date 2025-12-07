@@ -19,7 +19,7 @@ class ClubScheduleSettingsForm extends FormBase {
    *   The unique string identifying the form.
    */
   public function getFormId() {
-    return 'club_schedule_settings';
+    return 'schedule_settings';
   }
 
   /**
@@ -35,10 +35,10 @@ class ClubScheduleSettingsForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['schedule_settings']['#markup'] =
-	'Manage fields, form, and display for Schedule of ride dates.
-	<p>Base fields are not listed on the <a href="/admin/structure/club_schedule_settings/fields">Manage fields</a> tab because they cannot be deleted;
-	they are listed on the <a href="/admin/structure/club_schedule_settings/form-display">Manage form display</a> and <a href="/admin/structure/club_schedule_settings/display">Manage display</a> tabs.
-	<br/>New fields may be added on the <a href="/admin/structure/club_schedule_settings/fields">Manage fields</a> tab.</p>';
+	'Manage fields, form, and display for schedule dates.
+	<p>Base fields are not listed on the <a href="/admin/structure/club_schedule/fields">Manage fields</a> tab because they cannot be deleted;
+	they are listed on the <a href="/admin/structure/club_schedule/form-display">Manage form display</a> and <a href="/admin/structure/club_schedule/display">Manage display</a> tabs.
+	<br/>New fields may be added on the <a href="/admin/structure/club_schedule/fields">Manage fields</a> tab.</p>';
 
     return $form;
   }

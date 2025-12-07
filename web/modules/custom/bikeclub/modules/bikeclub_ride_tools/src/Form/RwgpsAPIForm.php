@@ -35,7 +35,7 @@ class RwgpsAPIForm extends ConfigFormBase {
     $form['rwgps_api'] = [
       '#type' => 'textfield',
       '#title' => $this->t('RWGPS API key'),
-      '#description' => $this->t('Paste the RWGPS API key to enable retrieval of RWGPS route information.'),
+      '#description' => $this->t('Obtain an API key from RWGPS to enable retrieval of RWGPS route information.'),
       '#default_value' => $config->get('rwgps_api'),
     ];
 

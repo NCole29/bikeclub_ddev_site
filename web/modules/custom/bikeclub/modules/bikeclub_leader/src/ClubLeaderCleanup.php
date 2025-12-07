@@ -1,15 +1,18 @@
 <?php
 namespace Drupal\bikeclub_leader;
 
-use Drupal\user\Entity\Role;
-use Drupal\user\Entity\User;
+use Drupal\Core\Database\Connection;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
 * Remove roles at the end of the leader's term.
 * Cleanup process runs everytime a leader record is saved or edited.
 *
 */
-class ClubLeaderCleanup {
+class ClubLeaderCleanup implements ContainerInjectionInterface {
 
   /**
    * Roles assigned to positions.
@@ -37,7 +40,42 @@ class ClubLeaderCleanup {
    *
    * @var array
    */
-  protected $message;
+  protected $messageArray;
+
+  /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+    protected $database;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The messenger service.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  public function __construct(Connection $database, EntityTypeManagerInterface $entity_type_manager, MessengerInterface $messenger) {
+    $this->database = $database;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->messenger = $messenger;
+  }
+  
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('database'),
+      $container->get('entity_type.manager'),
+      $container->get('messenger')
+    );
+  }
 
   /**
    * Returns today's date.
@@ -56,7 +94,7 @@ class ClubLeaderCleanup {
    */
   public function assignedRoles() {
     // Associative array of [position, ROLE].
-    $query = \Drupal::database()->query(
+    $query = $this->database()->query(
       "SELECT entity_id, field_website_role_target_id 
        FROM {taxonomy_term__field_website_role}");
     $this->position_roles = $query->fetchAllKeyed();
@@ -75,7 +113,7 @@ class ClubLeaderCleanup {
    *   An array containing all user ids.
    */
   public function getLeaders($gtorlt) {
-    $query = \Drupal::database()->select('club_leader', 'c')
+    $query = $this->database()->select('club_leader', 'c')
       ->condition('c.leader', 0, '>')
       ->condition('c.end_date', $this->today(), $gtorlt)
       ->fields('c', ['leader'])
@@ -89,8 +127,8 @@ class ClubLeaderCleanup {
    * @return string
    */
   public function setRoleLabel($role) {
-    $entity = Role::load($role);
-    return $entity->label();
+    $roleEntity = $this->entityTypeManager->getStorage('user_role')->load($role);
+    return $roleEntity->label();
   }
 
   /**
@@ -100,7 +138,7 @@ class ClubLeaderCleanup {
   public function getRolesToRemove($id) {
 
     // List of current positions for user.
-    $query = \Drupal::database()->select('club_leader','c')
+    $query = $this->database()->select('club_leader','c')
       ->fields('c', ['position'])
       ->condition('leader', $id)
       ->condition('end_date', $this->today(), '>=');
@@ -120,7 +158,7 @@ class ClubLeaderCleanup {
    * Remove roles from user account.
    */  
   public function removeRoles($id, $roles) {
-    $user = User::load($id);    
+    $user = $this->entityTypeManager->getStorage('user')->load($id);   
     $roles_removed = []; // Initialize for each user.
 
     foreach($roles as $role) {
@@ -131,7 +169,7 @@ class ClubLeaderCleanup {
       }
     }
     if ($roles_removed) {
-      $this->message[] = $user->label() . ' - ' . implode(", ", $roles_removed);
+      $this->messageArray[] = $user->label() . ' - ' . implode(", ", $roles_removed);
     }
   }
 
@@ -169,7 +207,7 @@ class ClubLeaderCleanup {
         } 
       } 
       if($this->message) {
-        \Drupal::messenger()->addMessage("Roles were removed for past leader positions:<br>" . implode("<br>",$this->message));
+        $this->messenger()->addMessage("Roles were removed for past leader positions:<br>" . implode("<br>",$this->messageArray));
       }
     } 
   }

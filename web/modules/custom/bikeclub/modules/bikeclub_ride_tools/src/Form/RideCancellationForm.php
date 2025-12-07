@@ -5,11 +5,29 @@
  */
 namespace Drupal\bikeclub_ride_tools\Form;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\Node;
+use Drupal\Core\Session\AccountInterface; 
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class RideCancellationForm extends FormBase {
+
+  protected AccountInterface $currentUser;
+  protected EntityTypeManagerInterface $entityTypeManager;
+
+  public function __construct(AccountInterface $currentUser, EntityTypeManagerInterface $entityTypeManager) {
+    $this->currentUser = $currentUser;
+    $this->entityTypeManager = $entity_type_manager;
+  }
+
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('current_user'),
+      $container->get('entity_type.manager')
+    );
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -18,7 +36,7 @@ class RideCancellationForm extends FormBase {
   }
 
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $roles = \Drupal::currentUser()->getRoles();
+    $roles = $this->currentUser->getRoles();
 
     // Applies to all forms.
     $form['instructions'] = [
@@ -109,14 +127,15 @@ class RideCancellationForm extends FormBase {
    }
   
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    // Leave empty. Default check that one and only one field was filled.
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     if ($form_state->getValue('ride')) {
-      $node = Node::load($form_state->getValue('ride'));
+      $node = $this->entityTypeManager->getStorage('node')->load($form_state->getValue('ride'));
     } else {
-      $node = Node::load($form_state->getValue('recur_ride'));
+      $node = $this->entityTypeManager->getStorage('node')->load($form_state->getValue('recur_ride'));
     }
     $cancel = $form_state->getValue('cancel');
 
@@ -126,9 +145,9 @@ class RideCancellationForm extends FormBase {
     $rideName = $node->getTitle();
 
     if ($cancel == 1) {
-     \Drupal::messenger()->addMessage(t("$rideName has been cancelled"));
+      $this->messenger()->addMessage(t("$rideName has been cancelled"));
     } else {
-      \Drupal::messenger()->addMessage(t("$rideName cancellation is undone"));
+      $this->messenger()->addMessage(t("$rideName cancellation is undone"));
     }
     $form_state->setRedirect('<front>');
   }

@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 
 /**
- * Access controller for the Wed date (club_schedule) entity.
+ * Access controller for the club_schedule entity.
  */
 class ClubScheduleAccessControlHandler extends EntityAccessControlHandler {
 

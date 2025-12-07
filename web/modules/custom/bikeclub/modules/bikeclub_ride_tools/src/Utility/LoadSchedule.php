@@ -3,22 +3,43 @@
 namespace Drupal\bikeclub_ride_tools\Utility;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadSchedule {
+class LoadSchedule implements ContainerInjectionInterface {
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
+    $this->entityTypeManager = $entity_type_manager;
+  }
+  
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager')
+    );
+  }
+
   /**
    * Add records to the club_schedule table for each day, for 5 years.
    * $load = 0 (initial load), 1 (subsequent loads) 
    */
   public static function loadSchedule($load) {
     $now = time();
-    $storage = \Drupal::entityTypeManager()->getStorage('club_schedule');
+    $entity_storage = $this->entityTypeManager()->getStorage('club_schedule');
 
     if ($load == 0) {
       // Initial load during install starts with current year.
       $startYr = date("Y");
     } else {
       // Start with year after max year in data table.
-      $maxdate = \Drupal::entityQueryAggregate('club_schedule')
+      $query = $entity_storage->->getAggregateQuery();
+      $maxdate = $query
         ->accessCheck(FALSE)
         ->aggregate('schedule_date', 'MAX', NULL)
         ->execute();

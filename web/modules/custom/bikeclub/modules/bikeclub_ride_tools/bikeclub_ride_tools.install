@@ -35,9 +35,11 @@ function bikeclub_ride_tools_install() {
       'view club_schedule entity',
     ],
     'site_admin' => [
+      'administer rwgps_api_form',
       'add club_route entity',
       'delete club_route entity',
       'edit club_route entity',
+      'enter waivers',
       'edit club_schedule entity',
       'view club_schedule entity',
     ],

@@ -2,7 +2,9 @@
 
 namespace Drupal\bikeclub_ride_tools\Plugin\WebformHandler;
 
+use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\webform\Entity\Webform;
@@ -18,7 +20,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   id = "nonmember_submit",
  *   label = @Translation("Nonmember submission handler"),
  *   category = @Translation("Custom"),
- *   description = @Translation("Alters webform submission data."),
+ *   description = @Translation("Transform data from custom composite element. If CiviCRM is installed, create a contact record if it does not exist and add nonmember tag."),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_SINGLE,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
@@ -40,6 +42,20 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    */
   protected $messenger;
 
+  /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $connection;
+
+  /**
+   * The module handler.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
    /**
    * {@inheritdoc}
    */
@@ -47,6 +63,8 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
     $instance->entityTypeManager = $container->get('entity_type.manager');
     $instance->messenger = $container->get('messenger');
+    $instance->connection = $container->get('database');
+    $instance->moduleHandler  = $container->get('module_handler');
     return $instance;
   }
 
@@ -61,12 +79,6 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
       return;
     }
 
-    // Are CiviCRM and CiviCRM_entity installed?
-    $civi_installed = \Drupal::service('module_handler')->moduleExists('civicrm_entity'); 
-    if ($civi_installed) {
-     $tag_id = $this->getTagId('Nonmember rider');
-    }
-
     // Get the submission data.
     $data = $webform_submission->getData();
 
@@ -74,14 +86,22 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
     $ride_date = $data['ride_date'];
     $nonmembers = $data['nonmember']; // This is the custom composite element with array of riders.    
 
+    // Are CiviCRM and CiviCRM_entity installed?
+    $civi_installed = $this->moduleHandler->moduleExists('civicrm_entity'); 
+
+    if ($civi_installed) {
+      // Get the 'Nonmember' tag id.
+      $tag_id = $this->getTagId('Nonmember rider');
+    }  
+
     // Fill array to get one record per rider with ride and ride_date.
     foreach ($nonmembers as $nonmember) {
 
       if ($civi_installed) {
-        // Get contact_id and tag if not already tagged.
-        $contact_id = $this->getContactID($nonmember, $tag_id);
+        // Get contact_id and tag the contact if not already tagged.
+        $contact_id = $this->getContactId($nonmember, $tag_id);
 
-        // Create contact and tag.
+        // If no contact, create contact and tag.
         if (!$contact_id) {
          $contact_id = $this->create_contact($nonmember, $tag_id);
         }
@@ -116,10 +136,9 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
   }
 
   /**
-   * Get CiviCRM Tag ID.
+   * Get CiviCRM Tag Id.
    *
    * @param string $tag_name
-   *   The CiviCRM Contact ID for the name entered in the registration form.
    */
   function getTagId($tag_name) {
     $query = $this->entityTypeManager->getStorage('civicrm_tag')->getQuery();
@@ -134,9 +153,9 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    * Assign tag to Contact.
    * 
    * @param int $contact_id
-   *   The CiviCRM Contact ID for the name entered in the registration form.
+   *   The CiviCRM Contact Id for the name entered in the nonmember form.
    * @param int $tag_id
-   *   The CiviCRM Tag ID for 'Nonmember rider'.
+   *   The CiviCRM Tag Id for 'Nonmember rider'.
    */
   function assign_tag ($contact_id, $tag_id) {
     // Define the data for the tag entity.
@@ -160,14 +179,15 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    */
   function getContactId($nonmember, $tag_id) {
 
-    // Use email to lookup contact_id.
-    $query = \Drupal::database()->select('civicrm_email', 't')
+    // Use email to lookup contact_id. 
+    $query = $this->connection->select('civicrm_email', 't')
       ->fields('t', ['contact_id'])
       ->condition('t.email', $nonmember['email']);
+
     $contact_id = $query->execute()->fetchField();
 
      if ($contact_id and $tag_id) {
-      // Check if contact is already tagged?
+      // Check if contact is already tagged.
       $query = $this->entityTypeManager->getStorage('civicrm_entity_tag')->getQuery();
       $hasTag = $query
         ->condition('tag_id', $tag_id)
@@ -188,11 +208,11 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    * @param array $nonmember
    *   Data entered in Webform.
    * @param int $tag_id
-   *   The CiviCRM Tag ID for 'Nonmember rider'.
+   *   The CiviCRM Tag Id for 'Nonmember rider'.
    */
   function create_contact($nonmember,$tag_id) {
 
-    // Create a new CiviCRM Contact entity.
+    // Create a new CiviCRM contact entity.
     $contact_data = [
       'contact_type' => 'Individual', 
       'first_name' => $nonmember['first_name'],
@@ -216,9 +236,9 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
       $civicrmEmail->save();
 
       $this->assign_tag($contact_id, $tag_id);
-
-      $message = 'CiviCRM Contact created for ' . $nonmember['first_name'] . ' ' . $nonmember['last_name'];
-        $this->messenger->addStatus($message);
+    
+      $message = $nonmember['first_name'] . ' ' . $nonmember['last_name'] . ' was not found in CiviCRM; a contact record has been created.';
+        $this->messenger->addStatus($message_prefix . $message);
       } catch (\Exception $e) {
         $this->messenger->addError('Error creating CiviCRM Contact: ' . $e->getMessage());
       }

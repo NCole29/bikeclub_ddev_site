@@ -14,18 +14,14 @@ use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
 use Drupal\bikeclub_leader\ClubLeaderInterface;
 use Drupal\bikeclub_leader\ClubLeaderCleanup;
-use Drupal\smart_date\Plugin\Field\FieldWidget;
 
-use Drupal\Core\datetime\DrupalDateTime;
-use Drupal\user\Entity\Role;
-use Drupal\user\Entity\User;
 
 /**
  * Defines the 'club_leader' entity.
  *
  * @ContentEntityType(
  *   id = "club_leader",
- *   label = @Translation("Club leader"),
+ *   label = @Translation("Club Leaders - Officers, Coordinators, Directors"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\bikeclub_leader\ClubLeaderListBuilder",
@@ -303,7 +299,7 @@ class ClubLeader extends ContentEntityBase implements ClubLeaderInterface {
    * {@inheritdoc}
    */
   public function getRole($position) {
-    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($position);
+    $term = $this->entityTypeManager()->getStorage('taxonomy_term')->load($position);
     $this->role = $term->get('field_website_role')->target_id;
 	  return $this->role;
   }
@@ -319,7 +315,7 @@ class ClubLeader extends ContentEntityBase implements ClubLeaderInterface {
     if ($this->original) {
       if ($this->position->target_id <> $this->original->position->target_id) {
 
-        $user = User::load($this->original->leader->target_id);
+        $user = $this->entityTypeManager->getStorage('user')->load($this->original->leader->target_id);
         $orig_role = $this->getRole($this->original->position->target_id);
         $new_role = $this->getRole($this->position->target_id);
     
@@ -348,7 +344,7 @@ class ClubLeader extends ContentEntityBase implements ClubLeaderInterface {
     // If leader is Drupal user, assign or remove website ROLE associated with position (see taxonomy).
     if ( !empty($this->leader) & !is_null($this->position)) {
 	    $position_role = $this->getRole($this->position->target_id);
-      $user = User::load($this->leader->target_id);
+      $user = $this->entityTypeManager->getStorage('user')->load($this->leader->target_id);
 
       $today = strtotime(date('d-m-Y'));
       $isCurrent = ($this->end_date->value > $today);

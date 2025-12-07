@@ -34,13 +34,11 @@ class ClubLeaderSettingsForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['club_leader_settings']['#markup'] =
-    'New fields may be added on the <strong>Manage fields</strong> tab. To add new fields to public displays, edit the <e>Club Leaders</em> View.
-    <p>Base fields (person name, position, start and end dates) cannot be deleted so they are not listed on the Manage fields page. Base fields may be rearranged on the <strong>Manage form display</strong> and <strong>Manage display</strong> tabs but this does not impact public displays of club leaders which are governed by Views.
-    </p>
+    'Manage fields, form, and display for club leaders.
+    <p>Base fields are not listed on the <a href="/admin/structure/club_leader/fields">Manage fields</a> tab because they cannot be deleted;
+    they are listed on the <a href="/admin/structure/club_leader/form-display">Manage form display</a> and <a href="/admin/structure/club_leader/display">Manage display</a> tabs.
+    <br/>New fields may be added on the <a href="/admin/structure/club_leader/fields">Manage fields</a> tab.</p>';
   
-    <p>View and edit the list of <a href="/admin/structure/taxonomy/manage/positions/overview">club positions</a>.</p>
-  
-	<p>Historic data are maintained in the system. Start and end dates determine which persons are on the list of <strong>current</strong> versus <strong>past</strong> leaders. These dates are also used to disable a person\'s administrative Drupal role when their term ends</p>';																																										   
     return $form;
   }
 

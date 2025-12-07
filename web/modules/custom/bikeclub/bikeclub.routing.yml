@@ -1,3 +1,25 @@
+# ------------------------------------------
+# Bikeclub entities under Admin > Structure
+# ------------------------------------------
+bikeclub.custom_entities:
+  path: '/admin/structure/custom_entities'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Custom entities'
+  requirements:
+    _permission: 'access toolbar'
+
+# --------------------------------------------
+# Bikeclub config under Admin > Configuration
+# --------------------------------------------
+bikeclub.custom_config:
+  path: '/admin/configuration/custom_config'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Bikeclub configuration'
+  requirements:
+    _permission: 'access toolbar'
+
 # Custom webform submission delete.
 entity.bikeclub.user.submission.delete:
   path: '/webform/{webform}/submissions/{webform_submission}/delete'
@@ -27,5 +49,3 @@ entity.user.edit_myform:
     _permission: 'edit my contact'
   options:
     _admin_route: FALSE
-
-

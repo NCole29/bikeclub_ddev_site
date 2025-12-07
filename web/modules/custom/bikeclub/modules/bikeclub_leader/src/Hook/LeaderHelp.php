@@ -20,7 +20,7 @@ class LeaderHelp {
       case 'help.page.bikeclub_leader':
         $output = '';
         $output .= '<h2>' . t('About') . '</h2>';
-        $output .= '<p>' . t("The <strong>Bikeclub leader module</strong> is used to  track the history of an club's leadership and automatically assign Drupal roles (website permissions) to current leaders for the duration of their terms.") . '</p>';
+        $output .= '<p>' . t("The <strong>Bikeclub Leader module</strong> is used to  track the history of an club's leadership and automatically assign Drupal roles (website permissions) to current leaders for the duration of their terms.") . '</p>';
 
         $output .= '<h2>' . t('Uses') . '</h2>';
         $output .= '<dl>';
@@ -35,7 +35,7 @@ class LeaderHelp {
 
        $output .= '<dt>' . t('<strong>Add Club leaders</strong>') . '</dt>';
 
-        $output .= '<dd>' . t('Add club leaders by navigating to <a href=":leaders">People > Club leaders</a>, and clicking the Add leader button. ', [
+        $output .= '<dd>' . t('Add club leaders by navigating to <a href=":leaders">People > Club leaders</a>, and clicking the "Add leader" button. ', [
           ':leaders' => Url::fromRoute('view.club_leaders.edit')->toString()
         ]);
         $output .= '<dd>' . t('Fields:') . '<ul>';
@@ -57,10 +57,10 @@ class LeaderHelp {
 
         $output .= '<h3>' . t('This module includes') . '</h3>';
         $output .= '<ul>';
-        $output .= '<li>A custom entity (ClubLeader), with code to assign a Drupal Role to a club leader when the leader record is saved.</li>';
+        $output .= '<li>The <strong>ClubLeader</strong> custom entity.</li>';
         $output .= '<li>A form hook to customize the <em>Club positions</em> taxonomy overview page and to hide the edited name field when adding a new leader.</li>';
-        $output .= '<li>Custom code to remove assigned Drupal roles from users when their leader term concludes. 
-        This code runs when a leader record is saved and checks the term dates and assigned roles of all leaders, taking account of the possibility of re-election.</li>';
+        $output .= '<li>Custom code to assign a Drupal Role to a club leader when the leader record is saved, and remove assigned Drupal roles from users when their leader term concludes. 
+        The "removal" code identifies leaders whose term has ended every time a leader record is saved since saving a new leader generally corresponds with the end of existing terms.</li>';
         $output .= '</ul';
 
         return $output;

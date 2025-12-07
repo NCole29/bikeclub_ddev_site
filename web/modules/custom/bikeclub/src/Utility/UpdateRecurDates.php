@@ -2,15 +2,16 @@
 
 namespace Drupal\bikeclub\Utility;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\node\Entity\Node;
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Component\Datetime\DateTimePlus;
 use Drupal\Core\Datetime\DateHelper;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Component\Datetime\DateTimePlus;
 
 /**
- * Calendar is very slow with Smart Dates, faster with Drupal dates.
- * So insert one record per recurring ride date into Recurring Dates content type 
+ * Calendar is very slow with Smart Dates and faster with Drupal dates, but
+ *  recurring rides needs smart_date_recur.
+ * Solution: insert one record per recurring ride date into Recurring Dates content type 
  *   title          = ride name
  *   field_recurid  = entity reference for recurring ride
  *   field_location = starting location ID 
@@ -24,54 +25,66 @@ use Drupal\Core\Datetime\DateHelper;
  * Recurring ride registrations are "attached" to ride_date nodes, so we can't delete past dates
  */
 
-final class UpdateRecurDates {
+class UpdateRecurDates implements ContainerInjectionInterface {
 
+	protected $entityTypeManager;
+
+	public function __construct(EntityTypeManagerInterface $entity_type_manager) {
+    $this->entityTypeManager = $entity_type_manager;
+  }
+
+	public static function create(ContainerInterface $container) {
+		return new static(
+			$container->get('entity_type.manager')
+		);
+	}
+
+	/**
+	 * Delete future dates prior to replacing them.
+	 */
 	public static function deleteDates($nid) {
-		// Recuring date node IDs for the recurring ride.
-		// Delete future dates prior to replacing them.
-		$recurids = \Drupal::entityQuery("node")
+
+		$storage_handler = $this->entityTypeManager->getStorage('node');
+
+		$recurids = $storage_handler->getQuery()
 		  ->accessCheck(FALSE)
   		->condition('field_recurid', $nid)
   		->execute();
 
-		$storage_handler = \Drupal::entityTypeManager()->getStorage("node");
-
 		if (!empty($recurids)) {
 			$recur_dates = $storage_handler->loadMultiple($recurids);
-	 	  $now = \Drupal::time()->getRequestTime();
+	 	  $now = time();
 			$rdates = [];
 			
 			foreach ($recur_dates as $rdate) {
 				$date = $rdate->get('field_date')->value;
-				//echo '<br/>Date: ' . $date;
 
 				if (strtotime($date) > $now) {
-					//echo '<br/>Future date: ' . $date;
 					$rdates[] = $rdate;
 				} 
 			}
 			if (!is_null($rdates)) {
-			 $storage_handler->delete($rdates); // must be array
+			 $storage_handler->delete($rdates); 
 			}
 		}
 	}
 
+	/**
+	 * CREATE one 'recurring_date' node for each recurring_ride instance
+	 *  using Drupal dates instead of Smart Date timestamp. 
+	 */
 	public static function addDates($node, $all) {
-
-		// CREATE one 'recurring_date' node for each recurring_ride instance
-		// with Drupal date instead of Smart Date timestamp. 
-		
 		$dates  = $node->field_datetime;
+		$now = time();
 
 		foreach($dates as $date) {
-			$now = \Drupal::time()->getRequestTime();
 
 			// Add all dates (all=1) or replace future dates (all=0).
 			$mindate = ($all == 1) ? 0 : $now;
 
 			if ($date->value > $mindate) {
 			
-				// If no ttimezone conversion, 4 hrs are subtracted assuming timestamp is UTC.
+				// If no timezone conversion, 4 hrs are subtracted assuming timestamp is UTC.
 				// Specify 'default' timezone and Drupal converts that to UTC upon save.
 
 				// Get the default timezone value.
@@ -79,9 +92,7 @@ final class UpdateRecurDates {
 				$instance = $datetime->format('Y-m-d\TH:i:s');
 				$dayofweek = DateHelper::dayOfWeek($instance);
 
-			//	$drupal_date_time = DrupalDateTime::createFromTimestamp($date->value, 'America/New_York');
-				$drupal_date_time = new DrupalDateTime('@' . $date->value, 'America/New_York'); // wrong day
-
+				$drupal_date_time = new DrupalDateTime('@' . $date->value, 'America/New_York'); 
 
 				$new_node = Node::create([
 					'type' => 'recurring_dates',
