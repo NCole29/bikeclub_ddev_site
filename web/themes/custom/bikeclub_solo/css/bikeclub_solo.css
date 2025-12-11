@@ -1,11 +1,18 @@
+/*----------------------------------------------------
+  Modify SOLO theme
+  Note: modifications to the css/templates of contrib  
+   modules are in bikeclub/css and bikeclub/templates
+  ----------------------------------------------------
 
-/* User account menu has dark text on dark background. Change to header bgcolor. */
+
+/* Change dark background on account menu */
 .header-inner nav .navigation__menubar > li > button,
 .header-inner nav .navigation__menubar > li > a,
 .solo-inner .navigation__menubar-account li a {
   background-color: inherit; /* white;*/
 }
 
+/* Increase logo size */
 .site-logo-img {
   height:100px!important;
 }
@@ -25,7 +32,7 @@ h1.page-title-text {
   padding: 0 1rem 0 1rem!important;
 }
 
-/* TEASERS */
+/* Teasers */
 .views-field-title a {
   font-weight: bold;
 }
@@ -33,16 +40,36 @@ hr {
   margin-block: 0;
 } 
 
-/* Add bold and larger size */
 label, .field__label {
   font-weight: 600;
   font-size: 120%;
 }
+
 .field {
   margin-top: 0.5rem;
 }
 
-/* Style the select options in bikeclub-solo theme cancellation color form */
+/* Remove bottom margins to reduce white space.
+   Barely noticeable on desktop but helps on phone. 
+ */
+.region-inner {
+  padding-bottom: 0!important;
+}
+
+.solo-inner:not( .primary-menu-inner,
+.primary-sidebar-menu-inner,
+.system-messages-inner,
+.highlighted-inner,
+.active-top-1 > .solo-inner,
+.active-main-1 > .solo-inner,
+.active-bottom-1 > .solo-inner,
+.active-footer-1 > .solo-inner) {
+  padding-bottom: 0!important;
+}
+
+/* -----------------------------------------------------------------------
+  Style the select options in bikeclub-solo theme cancellation color form 
+  ------------------------------------------------------------------------ */
 select option[value='#ffb5ba'] { background-color: #ffb5ba; color: #ffffff;}
 select option[value='#be0032'] { background-color: #be0032; color: #ffffff;}
 select option[value='#f38400'] { background-color: #f38400; color: #ffffff;}

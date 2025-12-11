@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   id = "nonmember_submit",
  *   label = @Translation("Nonmember submission handler"),
  *   category = @Translation("Custom"),
- *   description = @Translation("Transform data from custom composite element. If CiviCRM is installed, create a contact record if it does not exist and add nonmember tag."),
+ *   description = @Translation("Alters webform submission data."),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_SINGLE,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
@@ -79,6 +79,12 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
       return;
     }
 
+    // Are CiviCRM and CiviCRM_entity installed?
+    $civi_installed = $this->moduleHandler->moduleExists('civicrm_entity'); 
+    if ($civi_installed) {
+     $tag_id = $this->getTagId('Nonmember rider');
+    }
+
     // Get the submission data.
     $data = $webform_submission->getData();
 
@@ -86,34 +92,34 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
     $ride_date = $data['ride_date'];
     $nonmembers = $data['nonmember']; // This is the custom composite element with array of riders.    
 
-    // Are CiviCRM and CiviCRM_entity installed?
-    $civi_installed = $this->moduleHandler->moduleExists('civicrm_entity'); 
-
-    if ($civi_installed) {
-      // Get the 'Nonmember' tag id.
-      $tag_id = $this->getTagId('Nonmember rider');
-    }  
-
     // Fill array to get one record per rider with ride and ride_date.
     foreach ($nonmembers as $nonmember) {
 
       if ($civi_installed) {
-        // Get contact_id and tag the contact if not already tagged.
-        $contact_id = $this->getContactId($nonmember, $tag_id);
+        // Get contact_id and tag if not already tagged.
+        $contact_id = $this->getContactID($nonmember, $tag_id);
 
-        // If no contact, create contact and tag.
+        // Create contact and tag.
         if (!$contact_id) {
          $contact_id = $this->create_contact($nonmember, $tag_id);
         }
-      }
 
-      $newdata[] = [
-        'ride' => $data['ride'],
-        'ride_date' => $data['ride_date'],
-        'name' => $nonmember['first_name'] . ' ' . $nonmember['last_name'],
-        'email' => $nonmember['email'],
-        'civicrm_contact' => $contact_id
-      ];
+        $newdata[] = [
+          'ride' => $data['ride'],
+          'ride_date' => $data['ride_date'],
+          'name' => $nonmember['first_name'] . ' ' . $nonmember['last_name'],
+          'email' => $nonmember['email'],
+          'civicrm_contact' => $contact_id,
+        ];
+      }
+      else {
+        $newdata[] = [
+          'ride' => $data['ride'],
+          'ride_date' => $data['ride_date'],
+          'name' => $nonmember['first_name'] . ' ' . $nonmember['last_name'],
+          'email' => $nonmember['email'],
+        ];
+      }
     }
 
     $i = 0;
@@ -136,9 +142,10 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
   }
 
   /**
-   * Get CiviCRM Tag Id.
+   * Get CiviCRM Tag ID.
    *
    * @param string $tag_name
+   *   The CiviCRM Contact ID for the name entered in the registration form.
    */
   function getTagId($tag_name) {
     $query = $this->entityTypeManager->getStorage('civicrm_tag')->getQuery();
@@ -153,9 +160,9 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    * Assign tag to Contact.
    * 
    * @param int $contact_id
-   *   The CiviCRM Contact Id for the name entered in the nonmember form.
+   *   The CiviCRM Contact ID for the name entered in the registration form.
    * @param int $tag_id
-   *   The CiviCRM Tag Id for 'Nonmember rider'.
+   *   The CiviCRM Tag ID for 'Nonmember rider'.
    */
   function assign_tag ($contact_id, $tag_id) {
     // Define the data for the tag entity.
@@ -183,14 +190,14 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
     $query = $this->connection->select('civicrm_email', 't')
       ->fields('t', ['contact_id'])
       ->condition('t.email', $nonmember['email']);
-
     $contact_id = $query->execute()->fetchField();
 
      if ($contact_id and $tag_id) {
-      // Check if contact is already tagged.
+      // Check if contact is already tagged?
       $query = $this->entityTypeManager->getStorage('civicrm_entity_tag')->getQuery();
       $hasTag = $query
         ->condition('tag_id', $tag_id)
+        ->condition('entity_table', 'civicrm_contact')
         ->condition('entity_id', $contact_id)
         ->execute();   
       $hasTag = reset($hasTag);
@@ -208,15 +215,16 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
    * @param array $nonmember
    *   Data entered in Webform.
    * @param int $tag_id
-   *   The CiviCRM Tag Id for 'Nonmember rider'.
+   *   The CiviCRM Tag ID for 'Nonmember rider'.
    */
   function create_contact($nonmember,$tag_id) {
 
-    // Create a new CiviCRM contact entity.
+    // Create a new CiviCRM Contact entity.
     $contact_data = [
       'contact_type' => 'Individual', 
       'first_name' => $nonmember['first_name'],
       'last_name' => $nonmember['last_name'],
+      'source' => 'Nonmember rider',
     ];
     $contact = $this->entityTypeManager->getStorage('civicrm_contact')
       ->create($contact_data);
@@ -236,9 +244,9 @@ class NonmemberSubmitHandler extends WebformHandlerBase {
       $civicrmEmail->save();
 
       $this->assign_tag($contact_id, $tag_id);
-    
-      $message = $nonmember['first_name'] . ' ' . $nonmember['last_name'] . ' was not found in CiviCRM; a contact record has been created.';
-        $this->messenger->addStatus($message_prefix . $message);
+
+      $message = 'CiviCRM Contact created for ' . $nonmember['first_name'] . ' ' . $nonmember['last_name'];
+        $this->messenger->addStatus($message);
       } catch (\Exception $e) {
         $this->messenger->addError('Error creating CiviCRM Contact: ' . $e->getMessage());
       }

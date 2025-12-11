@@ -1,23 +1,10 @@
-/* ----------
+/* ----------------------------------------------------------
    Olivero  - set colors consistent with theme
    Default text is dark so make it white.
    Expand calendar width beyond the default content region
-  ----------*/
-/*
-
-Write custom code to set calendar colors when Olivero theme settings change.
-
-$dark = \Drupal::config('olivero.settings')->get('base_primary_color');
+  -----------------------------------------------------------*/
 
 
-.calendar-view-table {
-  --calendar-view-color-light: #edf4fc;
-  --calendar-view-color-dark: #134a85;
-}
-.calendar-view-table th {
-  color: #fff !important;
- }
-*/
  /* Olivero main region is too narrow for calendar */
 @media(min-width: 49rem) {
   .calendar-view-table {

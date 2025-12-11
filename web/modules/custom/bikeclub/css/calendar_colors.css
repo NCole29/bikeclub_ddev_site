@@ -1,0 +1,30 @@
+.calendar-view-table {
+  --calendar-view-color-light: #edf4fc;
+  --calendar-view-color-dark: #134a85;
+  /* Original:
+  --calendar-view-columns: 7;
+  --calendar-view-color-white: #fff;
+  --calendar-view-color-lighter: #f8f8f8;
+  --calendar-view-color-light: #f4f4f4; 
+  --calendar-view-color-grey: #ccc;
+  --calendar-view-color-gray: #555;
+  --calendar-view-color-evil: #666;
+  --calendar-view-color-dark: #333;
+  --calendar-view-day-rows-gap: 0.5rem;
+  */
+}
+
+/* White text in header when background is dark */
+.calendar-view-table th {
+  color: #fff !important;
+}
+
+/* Hide caption as it results in duplicate display of current month */
+.calendar-view-table caption {
+  display: none!important;
+}
+
+/* Remove borders around Previous and Next */
+.pager__item a {
+  border: 0 !important;
+}

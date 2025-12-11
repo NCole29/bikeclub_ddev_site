@@ -49,7 +49,7 @@ class ClubRouteAccessControlHandler extends EntityAccessControlHandler {
     if ($account->hasPermission($admin_permission)) {
       return AccessResult::allowed();
     }
-    return AccessResult::allowedIfHasPermission($account, 'add club_contact entity');
+    return AccessResult::allowedIfHasPermission($account, 'add club_route entity');
   }
 
 }

@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\bikeclub_ride_tools\ClubScheduleInterface;
+use Drupal\bikeclub_ride_tools\ClubInterface;
 
 /**
  * Defines the 'club_schedule' entity type.
@@ -46,7 +46,7 @@ use Drupal\bikeclub_ride_tools\ClubScheduleInterface;
  * )
  *
  */
-class ClubSchedule extends ContentEntityBase implements ClubScheduleInterface {
+class ClubSchedule extends ContentEntityBase implements ClubInterface {
 
   use EntityChangedTrait, EntityOwnerTrait, EntityPublishedTrait;
   /**

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Drupal\bikeclub\Hook;
 
-use Drupal\bikeclub\Utility\RenameImages;
-use Drupal\bikeclub\Utility\RWGPSClient;
-use Drupal\bikeclub\Utility\UpdateRecurDates;
+use Drupal\bikeclub\Controller\RenameImages;
+use Drupal\bikeclub\Controller\RWGPSClient;
+use Drupal\bikeclub\Controller\UpdateRecurDates;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Datetime\DateHelper;
@@ -106,6 +106,8 @@ class BikeclubNodes {
       break;
 
       case 'recurring_ride':
+        $update_recur_dates = \Drupal::service('bikeclub.update_recur_dates');
+
         // Get numeric day-of-week from timestamp. 
         // Typecast field_datetime because its a 'bigint' type that Drupal returns as string. 
         $date_time = (int) $node->field_datetime->value;
@@ -113,10 +115,10 @@ class BikeclubNodes {
 
         $this->updateRideFields($node);
 
-        // Update recurring_dates for edited content.
+        // Update recurring_dates.
         if ($node->id()) {
-          UpdateRecurDates::deleteDates($node->id()); // Delete future dates.
-          UpdateRecurDates::addDates($node,0); // 0 = don't add all, just future dates.
+          $update_recur_dates->deleteDates($node->id()); // Delete future dates.
+          $update_recur_dates->addDates($node, 0);// 0 = don't add all, just future dates.
         } 
       break;
 
@@ -135,7 +137,8 @@ class BikeclubNodes {
   #[Hook('node_insert')]
   function nodeInsert(EntityInterface $node) {
     if ($node->bundle() == 'recurring_ride') {
-      UpdateRecurDates::addDates($node, 1);
+      $update_recur_dates = \Drupal::service('bikeclub.update_recur_dates');
+      $update_recur_dates->addDates($node, 1);
     }
   }
 

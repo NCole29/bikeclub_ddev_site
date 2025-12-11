@@ -1,4 +1,0 @@
-services:
-  add_duration:
-    class: Drupal\bikeclub_report\AddDuration
-    arguments: ['@database']

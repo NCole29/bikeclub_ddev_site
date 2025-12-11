@@ -57,49 +57,34 @@ function bikeclub_ride_tools_install() {
     }
   }
 
+  // Two versions of webform and View are provided, depending on whether CiviCRM is installed.
+  if (\Drupal::moduleHandler()->moduleExists('civicrm')) {
+    $subfolder = 'civicrm/';
+  } else {
+    $subfolder = 'nocivicrm/';
+  }  
+
+  $folder = \Drupal::service('extension.list.module')
+    ->getPath('bikeclub_ride_tools') . '/config/static/' . $subfolder;
+
+  $webform  = Yaml::parse((string) file_get_contents($folder . 'webform.webform.nonmembers.yml'));
+  $template = Yaml::parse((string) file_get_contents($folder . 'webform.webform.template_nonmembers.yml'));
+  $view     = Yaml::parse((string) file_get_contents($folder . 'views.view.nonmembers.yml'));
+
+  \Drupal::entityTypeManager()->getStorage('webform')
+    ->create($webform)
+    ->save();
+
+  \Drupal::entityTypeManager()->getStorage('webform')
+    ->create($template)
+    ->save();
+
+  \Drupal::entityTypeManager()->getStorage('view')
+    ->create($view)
+    ->save();
+
+  // Load three years of calendar dates in club_schedule table.    
   LoadSchedule::loadSchedule(0);
   drupal_flush_all_caches();
-}
-
-// DELETE UPDATE CODE TO MAKE THIS EASIER TO NAVIGATE
-// FIRST DOWNLOADED FILE TO MODULES FOLDER
-
-
-// Remove the club_schedule entity type.
-function bikeclub_ride_tools_update_9014() {
-  $entity_update_manager = \Drupal::entityDefinitionUpdateManager();
-  $entity_type = $entity_update_manager->getEntityType('club_schedule');
-  $entity_update_manager->uninstallEntityType($entity_type);
-}
-
-
-// Re-install the club_schedule entity type.
-function bikeclub_ride_tools_update_9015() {
-
-  // Get the entity type definition.
-  $entity_type_id = 'club_schedule'; 
-  $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
-  $entity_manager = \Drupal::service('entity.definition_update_manager');
-
-  // Install the entity type.
-  if (!$entity_manager->getEntityType($entity_type_id)) {
-    $entity_manager->installEntityType($entity_type);
-    return t('Installed the @entity_type_id entity type.', ['@entity_type_id' => $entity_type_id]);
-  }
-
-  return t('The @entity_type_id entity type was already installed.', ['@entity_type_id' => $entity_type_id]);
-}
-
-/* remove extra date field */
-function bikeclub_ride_tools_update_9016() {
-
-  $field = 'field_schedule_date';
-  $entity_type_id = 'club_schedule';
-  
-  $update_manager = \Drupal::entityDefinitionUpdateManager();
-  $definition = $update_manager->getFieldStorageDefinition($field, $entity_type_id);
-  $update_manager->uninstallFieldStorageDefinition($definition);
-  
-  return 'Field ' . $field . ' was uninstalled from entity_type ' . $entity_type_id;
 }
 

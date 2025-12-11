@@ -4,12 +4,9 @@ bikeclub_styles:
     theme:
       css/bikeclub.css: { }
       css/accordion.css: { }   
+      css/calendar_colors.css: { }  
 olivero_calendar:
   css:
     theme:
       css/olivero_calendar.css: { }  
-solo_calendar:
-  css:
-    theme:
-      css/solo_calendar.css: { }  
       

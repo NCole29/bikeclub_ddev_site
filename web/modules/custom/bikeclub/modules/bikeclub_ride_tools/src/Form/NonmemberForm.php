@@ -14,7 +14,7 @@ class NonmemberForm extends FormBase {
   protected AccountInterface $currentUser;
   protected EntityTypeManagerInterface $entityTypeManager;
 
-  public function __construct(AccountInterface $currentUser, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(AccountInterface $currentUser, EntityTypeManagerInterface $entity_type_manager) {
     $this->currentUser = $currentUser;
     $this->entityTypeManager = $entity_type_manager;
   }
@@ -34,9 +34,7 @@ class NonmemberForm extends FormBase {
   }
 
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $roles = $this->currentUser->getRoles();
 
-    // Applies to all forms.
     $form['instructions'] = [
       '#type' => 'markup',
       '#markup' => "<h4>Rides scheduled within the <u>last 5 days</u> may be selected.</h4>",
@@ -45,65 +43,72 @@ class NonmemberForm extends FormBase {
       '#type' => 'fieldset',
     ];
 
-    // Admin - 1 form field to select ride or recurring ride.
-    if (in_array('administrator', $roles) or in_array('civicrm', $roles)) {
-      $display = 'all_past_rides';
+    if($this->currentUser->hasPermission('enter waivers')) {
+      // Admin - one form field to select any past ride.
+      if ($this->currentUser->hasRole('rides_coordinator') |
+          $this->currentUser->hasRole('site_admin') |
+          $this->currentUser->hasRole('administrator') ) {
 
-      $form['layout']['ride'] = [
-        '#type' => 'entity_autocomplete',
-        '#title' => t('Ride name'),
-        '#description' => t('Enter part of the ride name and select from list. Recurring rides appear first, alphabetically, followed by non-recurring rides.'),
-        '#target_type' => 'node',
-        '#required' => TRUE,
-        '#selection_handler' => 'views',
-        '#selection_settings' => [
-          'view' => [
-            'view_name' => 'ride_dates',
-            'display_name' => $display,
-            'arguments' => [],
-          ],
-        ],
-      ];
-    }
-    // Ride leaders - 2 form fields for rides and recurring (due to join of recurring_dates with recurring_rides).
-    else if(in_array('ride_leader',$roles)) {
-      $display1 = 'own_past_rides'; 
-      $display2 = 'own_past_recurring'; 
+        $display = 'all_past_rides';
 
-      $form['layout']['select_one'] = [
-        '#type' => 'markup',
-        '#markup' => "<p>Select one ride. Separate fields are needed due to how recurring dates are stored.",
-      ];
-      $form['layout']['ride'] = [
-        '#type' => 'entity_autocomplete',
-        '#title' => t('Non-recurring ride'),
-        '#description' => t('Enter part of the ride name and select from list.'),
-        '#target_type' => 'node',
-        '#required' => FALSE,
-        '#selection_handler' => 'views',
-        '#selection_settings' => [
-          'view' => [
-            'view_name' => 'ride_dates',
-            'display_name' => $display1,
-            'arguments' => [],
+        $form['layout']['ride'] = [
+          '#type' => 'entity_autocomplete',
+          '#title' => t('Ride name'),
+          '#description' => t('Enter part of the ride name and select from list. Recurring rides appear first, alphabetically, followed by non-recurring rides.'),
+          '#target_type' => 'node',
+          '#required' => TRUE,
+          '#selection_handler' => 'views',
+          '#selection_settings' => [
+            'view' => [
+              'view_name' => 'ride_dates',
+              'display_name' => $display,
+              'arguments' => [],
+            ],
           ],
-        ],
-      ];
-      $form['layout']['recur_ride'] = [
-        '#type' => 'entity_autocomplete',
-        '#title' => t('Recurring ride'),
-        '#description' => t('Enter part of the ride name and select from list.'),
-        '#target_type' => 'node',
-        '#required' => FALSE,
-        '#selection_handler' => 'views',
-        '#selection_settings' => [
-          'view' => [
-            'view_name' => 'ride_dates',
-            'display_name' => $display2,
-            'arguments' => [],
+        ];
+      }
+      else if($this->currentUser->hasRole('ride_leader')) {
+        // Ride leaders - two form fields for rides and recurring 
+        // (due to join of recurring_dates with recurring_rides along with filter on ride leader).
+  
+        $display1 = 'own_past_rides'; 
+        $display2 = 'own_past_recurring'; 
+
+        $form['layout']['select_one'] = [
+          '#type' => 'markup',
+          '#markup' => "<p>Select one ride. Separate fields are needed due to how recurring dates are stored.",
+        ];
+        $form['layout']['ride'] = [
+          '#type' => 'entity_autocomplete',
+          '#title' => t('Non-recurring ride'),
+          '#description' => t('Enter part of the ride name and select from list.'),
+          '#target_type' => 'node',
+          '#required' => FALSE,
+          '#selection_handler' => 'views',
+          '#selection_settings' => [
+            'view' => [
+              'view_name' => 'ride_dates',
+              'display_name' => $display1,
+              'arguments' => [],
+            ],
           ],
-        ],
-      ];
+        ];
+        $form['layout']['recur_ride'] = [
+          '#type' => 'entity_autocomplete',
+          '#title' => t('Recurring ride'),
+          '#description' => t('Enter part of the ride name and select from list.'),
+          '#target_type' => 'node',
+          '#required' => FALSE,
+          '#selection_handler' => 'views',
+          '#selection_settings' => [
+            'view' => [
+              'view_name' => 'ride_dates',
+              'display_name' => $display2,
+              'arguments' => [],
+            ],
+          ],
+        ];
+      }
     }
 
     // Applies to all forms.
@@ -117,22 +122,24 @@ class NonmemberForm extends FormBase {
   }
 
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    // Leave empty. Default check that one and only one field was filled.
+    // Leave empty; default check that one and only one field is filled.
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
+   $node_storage = $this->entityTypeManager->getStorage('node');
+
     if ($form_state->getValue('ride')) {
-      $node = $this->entityTypeManager->getStorage('node')->load($form_state->getValue('ride'));
+      $node = $node_storage->load($form_state->getValue('ride'));
     } else {
-      $node = $this->entityTypeManager->getStorage('node')->load($form_state->getValue('recur_ride'));
+      $node = $node_storage->load($form_state->getValue('recur_ride'));
     }
 
     $ride_name = $node->getTitle();
     $ride_date = $node->field_date->value;
     
-    //\Drupal::messenger()->addMessage(t("Bundle: $bundle, $rideName ($ride_id) $ride_date"));
+																							  
 
-    $url = Url::fromUserInput("/enter-waivers?civicrm_1_activity_1_activity_subject=$ride_name&civicrm_1_activity_1_activity_activity_date_time=$ride_date");
+    $url = \Drupal\core\Url::fromUserInput("/nonmembers?ride=$ride_name&ride_date=$ride_date");
     $form_state->setRedirectUrl($url);
   }
 }

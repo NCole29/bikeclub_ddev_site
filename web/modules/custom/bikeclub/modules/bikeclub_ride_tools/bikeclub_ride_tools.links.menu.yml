@@ -29,7 +29,7 @@ bikeclub_ride_tools.cancel_ride:
 bikeclub_ride_tools.nonmember_waiver:
   title: 'Nonmember waiver'
   description: "Enter nonmembers who signed a waiver at the ride start. This triggers an automatic 'Welcome' email."
-  route_name: bikeclub_ride_tools.nonmember_waiver
+  route_name: bikeclub_ride_tools.nonmember_form
   parent: bikeclub_ride_tools.ride_tools
   enabled: 1
   menu_name: admin

@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\user\UserInterface;
-use Drupal\bikeclub_ride_tools\ClubRouteInterface;
+use Drupal\bikeclub_ride_tools\ClubInterface;
 
 /**
  * Defines the 'club_route' entity type.
@@ -48,7 +48,7 @@ use Drupal\bikeclub_ride_tools\ClubRouteInterface;
  * )
  *
  */
-class ClubRoute extends ContentEntityBase implements ClubRouteInterface {
+class ClubRoute extends ContentEntityBase implements ClubInterface {
 
   use EntityChangedTrait, EntityOwnerTrait, EntityPublishedTrait;
   /**

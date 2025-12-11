@@ -20,7 +20,7 @@ use Drupal\webform\WebformSubmissionForm;
 class BikeclubWebforms {
 
  /**
-  * Constructor for BikeclubNode Hooks.
+  * Constructor for BikeclubWebform Hooks.
   */
   public function __construct(
     protected EntityTypeManagerInterface $entityTypeManager,

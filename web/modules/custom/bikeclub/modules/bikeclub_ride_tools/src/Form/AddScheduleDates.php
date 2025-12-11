@@ -2,7 +2,6 @@
 
 namespace Drupal\bikeclub_ride_tools\Form;
 
-use Drupal\bikeclub_ride_tools\Utility\LoadSchedule;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Form\FormBase;
@@ -10,10 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-/**
- * @file
- * Contains /admin/config/bikeclub/add-schedule-dates
- */
 class AddScheduleDates extends FormBase {
 
   /**
@@ -22,6 +17,13 @@ class AddScheduleDates extends FormBase {
    * @var integer
    */
   protected $loadType;
+
+  /**
+   * club_schedule entity storage.
+   *
+   * @var integer
+   */
+  protected $schedule_storage;
 
   /**
    * The date formatter service.
@@ -37,7 +39,7 @@ class AddScheduleDates extends FormBase {
    */
   protected $entityTypeManager;
 
-  public function __construct(DateFormatterInterface $date_formatter. EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(DateFormatterInterface $date_formatter, EntityTypeManagerInterface $entity_type_manager) {
     $this->dateFormatter = $date_formatter;
     $this->entityTypeManager = $entity_type_manager;
   }
@@ -57,11 +59,12 @@ class AddScheduleDates extends FormBase {
   }
 
   public function getDates() {
-    //$minmax = \Drupal::entityQueryAggregate('club_schedule')
-    $query = $this->entityTypeManager->getStorage('club_schedule')->getAggregateQuery();
-    $query->accessCheck(FALSE)
-    $query->aggregate('schedule_date', 'MIN', NULL)
-    $query->aggregate('schedule_date', 'MAX', NULL)
+    $this->schedule_storage = $this->entityTypeManager->getStorage('club_schedule'); 
+    $query = $this->schedule_storage->getAggregateQuery();
+    $query
+      ->accessCheck(FALSE)
+      ->aggregate('schedule_date', 'MIN', NULL)
+      ->aggregate('schedule_date', 'MAX', NULL);
     $minmax = $query->execute();
     
     return $minmax;
@@ -108,9 +111,49 @@ class AddScheduleDates extends FormBase {
     return $form;
   }
 
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-   
-    LoadSchedule::loadSchedule($this->loadType); 
-    $this->messenger->addMessage(t("Three years of dates have been added."));
+  /**
+   * Add records to the club_schedule table for each day, for 5 years.
+   * $load = 0 (initial load), 1 (subsequent loads) 
+   */
+  public function loadSchedule($load) {
+    $now = time();
+
+    if ($load == 0) {
+      // Initial load during install starts with current year.
+      $startYr = date("Y");
+    } else {
+      // Start with year after max year in data table.
+      $query = $this->schedule_storage->getAggregateQuery();
+      $maxdate = $query
+        ->accessCheck(FALSE)
+        ->aggregate('schedule_date', 'MAX', NULL)
+        ->execute();
+      $startYr = substr($maxdate[0]['schedule_date_max'],0,4) + 1;
+    }
+    for ($year = $startYr; $year < ($startYr + 3); $year++) {         
+      $jan1 = strtotime("First day Of January $year");
+
+      for($x = 0; $x < 365; $x++){
+        $timestamp = strtotime("+$x day", $jan1);
+        $weekday = date('l', $timestamp);
+
+        $date = DrupalDateTime::createFromTimestamp($timestamp, 'UTC')->format('Y-m-d'); 		
+
+        $newDate = $this->schedule_storage->create([
+          'weekday' => $weekday,
+          'schedule_date' => $date,
+          'created' => $now,
+          'changed' => $now,
+          'langcode' => "en",
+        ]);
+        $newDate->save();
+      }
+    }
   }
+
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $this->loadSchedule($this->loadType); 
+    $this->messenger()->addStatus($this->t('Three years of dates have been added.'));
+  }
+  
 }

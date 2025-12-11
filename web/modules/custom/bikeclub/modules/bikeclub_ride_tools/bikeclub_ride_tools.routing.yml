@@ -20,11 +20,11 @@ bikeclub_ride_tools.cancel_ride:
     _permission: 'create ride content'
     _access: 'TRUE'
 
-bikeclub_ride_tools.nonmember_waiver:
-  path: '/admin/nonmember-waiver'
+bikeclub_ride_tools.nonmember_form:
+  path: '/admin/nonmember-form'
   defaults:
     _form: '\Drupal\bikeclub_ride_tools\Form\NonmemberForm'
-    _title: 'Enter nonmembers from waiver form'
+    _title: 'Select a ride to enter nonmembers from waiver form'
   requirements:
     _permission: 'create ride content'
     _access: 'TRUE'    
