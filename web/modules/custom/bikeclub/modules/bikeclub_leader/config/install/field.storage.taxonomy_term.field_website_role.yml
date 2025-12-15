@@ -4,9 +4,7 @@ dependencies:
   module:
     - taxonomy
     - user
-  enforced:
-    module:
-      - bikeclub_leader
+    - bikeclub_leader
 id: taxonomy_term.field_website_role
 field_name: field_website_role
 entity_type: taxonomy_term

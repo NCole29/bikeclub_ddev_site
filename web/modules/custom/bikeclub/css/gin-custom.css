@@ -1,0 +1,17 @@
+
+/* Fix truncated page titles in admin */
+#block-gin-page-title {
+  .page-title {
+    max-width: 100%;
+  }
+}
+
+/* Custom background color (light yellow) for the details component */
+/* yellow:#FFFDD0 */
+.info-details {
+  background-color: #e1eafc !important;
+  border: 1px solid #9e9c9c;
+  font-size: 14px;
+}
+
+

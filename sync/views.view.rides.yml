@@ -489,7 +489,7 @@ display:
           default: '-1'
           info:
             nid:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -529,7 +529,7 @@ display:
               empty_column: false
               responsive: ''
             changed:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''

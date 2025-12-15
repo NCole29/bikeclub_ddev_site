@@ -44,9 +44,9 @@ third_party_settings:
         required_fields: false
     group_tabs:
       children:
+        - group_banner_image
         - group_page_content
         - group_summary
-        - group_banner_image
         - group_contact_link
       label: Tabs
       region: content
@@ -117,13 +117,13 @@ third_party_settings:
     group_resize_images:
       children:
         - field_resize_banner_image
-      label: 'How to resize banner images'
+      label: 'HOW TO PREPARE BANNER IMAGES FOR UPLOAD'
       region: content
       parent_name: group_banner_image
       weight: 7
       format_type: details
       format_settings:
-        classes: ''
+        classes: info-details
         show_empty_fields: false
         id: ''
         label_as_html: false
@@ -133,13 +133,13 @@ third_party_settings:
     group_resize:
       children:
         - field_resize_text_image
-      label: 'About images in text fields'
+      label: 'HOW TO ADD IMAGES IN THE TEXT EDITORS'
       region: content
       parent_name: group_page_content
       weight: 12
       format_type: details
       format_settings:
-        classes: ''
+        classes: info-details
         show_empty_fields: false
         id: ''
         label_as_html: false

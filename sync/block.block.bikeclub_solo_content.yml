@@ -11,7 +11,7 @@ _core:
 id: bikeclub_solo_content
 theme: bikeclub_solo
 region: content
-weight: -3
+weight: -8
 provider: null
 plugin: system_main_block
 settings:

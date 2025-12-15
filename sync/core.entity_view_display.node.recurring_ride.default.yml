@@ -312,21 +312,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 11
             additional: {  }
-          5acda7b4-5dc9-45fe-84b0-70ca4a777d73:
-            uuid: 5acda7b4-5dc9-45fe-84b0-70ca4a777d73
-            region: first
-            configuration:
-              id: 'field_block:node:recurring_ride:field_about_ride_images'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: markup
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 12
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol

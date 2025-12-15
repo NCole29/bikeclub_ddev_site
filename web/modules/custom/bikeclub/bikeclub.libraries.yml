@@ -5,8 +5,8 @@ bikeclub_styles:
       css/bikeclub.css: { }
       css/accordion.css: { }   
       css/calendar_colors.css: { }  
+      css/gin-custom.css: { }
 olivero_calendar:
   css:
     theme:
       css/olivero_calendar.css: { }  
-      

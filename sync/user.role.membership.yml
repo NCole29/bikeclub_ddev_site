@@ -12,7 +12,7 @@ _core:
   default_config_hash: 923VnUcziSj_6yd76UnD87l9i0EugeGQMviMZ_L1gWk
 id: membership
 label: 'Membership Coordinator'
-weight: 4
+weight: -3
 is_admin: false
 permissions:
   - 'access administration pages'

@@ -17,7 +17,7 @@ field_name: field_position_category
 entity_type: taxonomy_term
 bundle: positions
 label: Category
-description: ''
+description: 'To add or edit categories, <a href="/admin/structure/taxonomy/manage/positions/overview/fields">edit the category field</a> on the ''Club positions'' taxonomy.'
 required: false
 translatable: false
 default_value: {  }

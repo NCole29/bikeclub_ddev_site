@@ -6,9 +6,8 @@ dependencies:
     - field.field.taxonomy_term.positions.field_position_category
     - field.field.taxonomy_term.positions.field_website_role
     - taxonomy.vocabulary.positions
-  enforced:
-    module:
-      - bikeclub_leader
+  module:
+    - bikeclub_leader
 id: taxonomy_term.positions.default
 targetEntityType: taxonomy_term
 bundle: positions

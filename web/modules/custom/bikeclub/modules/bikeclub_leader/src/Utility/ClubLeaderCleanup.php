@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\bikeclub_leader;
+namespace Drupal\bikeclub_leader\Utility;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;

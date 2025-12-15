@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @WebformHandler(
  *   id = "AddUserId",
  *   label = @Translation("Add User Id"),
- *   category = @Translation("Custom"),
+ *   category = @Translation("Bikeclub"),
  *   description = @Translation("Use email submitted in form to lookup user id and reset submission owner."),
  * )
  */

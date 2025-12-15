@@ -20,7 +20,7 @@ _core:
   default_config_hash: irvXcajeMTf6LBI5_BJzgmmrRtRnDzEoVD9DoPZ5IKU
 id: ride_leader
 label: 'Ride leader'
-weight: 3
+weight: -5
 is_admin: false
 permissions:
   - 'access administration pages'

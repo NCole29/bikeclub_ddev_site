@@ -4,13 +4,6 @@
   Color modifications are done through the UI in bikeclub_solo theme settings.
 */
 
-/* Fix truncated page titles in admin */
-#block-gin-page-title {
-  .page-title {
-    max-width: 100%;
-  }
-}
-
 /* Style is applied in Hook/BikeclubMenus.php */
 .home-button {
   padding: 0.95rem 0.5rem 0 0!important;

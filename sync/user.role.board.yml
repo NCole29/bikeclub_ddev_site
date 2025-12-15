@@ -6,6 +6,6 @@ _core:
   default_config_hash: kCpjc-9xKgCfggSiWNH3n3rVbSthIZnWRrH0yFoiZpc
 id: board
 label: Board
-weight: -6
+weight: -10
 is_admin: false
 permissions: {  }

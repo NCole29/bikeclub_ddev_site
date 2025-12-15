@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: null
+dependencies: { }
 id: board
 label: Board
 weight: -6

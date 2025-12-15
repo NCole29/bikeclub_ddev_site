@@ -6,9 +6,7 @@ dependencies:
   module:
     - taxonomy
     - user
-  enforced:
-    module:
-      - bikeclub_leader
+    - bikeclub_leader
 id: club_leaders_positions
 label: 'Club leaders positions'
 module: views

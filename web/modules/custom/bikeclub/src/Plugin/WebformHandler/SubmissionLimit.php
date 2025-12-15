@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @WebformHandler(
  *   id = "SubmissionLimit",
  *   label = @Translation("Submission limit"),
- *   category = @Translation("Custom"),
+ *   category = @Translation("Bikeclub"),
  *   description = @Translation("Set limit in node field. Webform status is changed to 'closed' on node."),
  * )
  */

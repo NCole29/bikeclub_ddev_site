@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.announcement.field_text
     - node.type.announcement
   module:
-    - text
     - user
 _core:
   default_config_hash: 0T3OPJcO5psMj1KU6lBqPx1OyDGLzEb1JsUrRKfrGiE
@@ -20,9 +19,7 @@ targetEntityType: node
 bundle: announcement
 mode: teaser
 content:
-  field_summary:
-    type: text_default
-    label: hidden
+  links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
@@ -31,5 +28,5 @@ hidden:
   field_contact_form: true
   field_contact_person: true
   field_resize_text_image: true
+  field_summary: true
   field_text: true
-  links: true

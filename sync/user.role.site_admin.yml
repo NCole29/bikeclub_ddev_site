@@ -20,6 +20,7 @@ dependencies:
     - block_content
     - content_moderation
     - filter
+    - help
     - layout_builder
     - media
     - node
@@ -29,15 +30,17 @@ dependencies:
     - toolbar
 id: site_admin
 label: 'Site administrator'
-weight: 4
+weight: -1
 is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access help pages'
   - 'access media overview'
   - 'access toolbar'
   - 'access user profiles'
   - 'add club_route entity'
+  - 'administer rwgps_api_form'
   - 'administer users'
   - 'clone recurring_ride content'
   - 'clone ride content'

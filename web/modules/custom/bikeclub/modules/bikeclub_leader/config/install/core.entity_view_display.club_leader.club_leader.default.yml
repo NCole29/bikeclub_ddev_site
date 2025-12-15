@@ -4,22 +4,12 @@ dependencies:
   module:
     - datetime
     - taxonomy
-  enforced:
-    module:
-      - bikeclub_leader
+    - bikeclub_leader
 id: club_leader.club_leader.default
 targetEntityType: club_leader
 bundle: club_leader
 mode: default
 content:
-  board_term:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 3
-    region: content
   leader:
     type: entity_reference_label
     label: inline

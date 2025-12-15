@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @WebformHandler(
  *   id = "nonmember_submit",
  *   label = @Translation("Nonmember submission handler"),
- *   category = @Translation("Custom"),
+ *   category = @Translation("Bikeclub"),
  *   description = @Translation("Alters webform submission data."),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_SINGLE,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,

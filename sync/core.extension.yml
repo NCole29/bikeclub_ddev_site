@@ -10,6 +10,7 @@ module:
   big_pipe: 0
   bikeclub: 0
   bikeclub_leader: 0
+  bikeclub_reports: 0
   bikeclub_ride_tools: 0
   block: 0
   block_content: 0

@@ -13,7 +13,7 @@ use Drupal\user\EntityOwnerInterface;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
 use Drupal\bikeclub_leader\ClubLeaderInterface;
-use Drupal\bikeclub_leader\ClubLeaderCleanup;
+use Drupal\bikeclub_leader\Utility\ClubLeaderCleanup;
 
 
 /**
@@ -24,7 +24,6 @@ use Drupal\bikeclub_leader\ClubLeaderCleanup;
  *   label = @Translation("Club Leaders - Officers, Coordinators, Directors"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\bikeclub_leader\ClubLeaderListBuilder",
  *     "views_data" = "Drupal\bikeclub_leader\ClubLeaderViews",
  *     "form" = {
  *       "default" = "Drupal\bikeclub_leader\Form\ClubLeaderForm",
@@ -40,10 +39,8 @@ use Drupal\bikeclub_leader\ClubLeaderCleanup;
  *     "published" = "published"
  *   },
  *   links = {
- *     "canonical" =   "/admin/structure/club_leader/{club_leader}",
  *     "edit-form" =   "/admin/structure/club_leader/{club_leader}/edit",
- *     "delete-form" = "/admin/structure/club_leader/{club_leader}/delete",
- *     "collection" =  "/admin/structure/club_leader/list"
+ *     "delete-form" = "/admin/structure/club_leader/{club_leader}/delete"
  *   },
  *   field_ui_base_route = "bikeclub_leader.leader_settings",
  * )

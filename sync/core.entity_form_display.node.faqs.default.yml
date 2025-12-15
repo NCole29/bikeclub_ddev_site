@@ -38,8 +38,8 @@ third_party_settings:
         required_fields: true
     group_faqs:
       children:
-        - group_text
         - group_contact_link
+        - group_text
       label: FAQs
       region: content
       parent_name: ''
@@ -55,10 +55,10 @@ third_party_settings:
     group_text:
       children:
         - title
-        - group_resize
         - field_text_above_faqs
         - field_text_below_faqs
         - field_faq
+        - group_resize
       label: 'Page content'
       region: hidden
       parent_name: group_faqs
@@ -92,13 +92,13 @@ third_party_settings:
     group_resize:
       children:
         - field_resize_text_image
-      label: 'About images in text fields'
+      label: 'HOW TO ADD IMAGES IN THE TEXT EDITORS'
       region: hidden
       parent_name: group_text
       weight: 2
       format_type: details
       format_settings:
-        classes: ''
+        classes: info-details
         show_empty_fields: false
         id: ''
         label_as_html: false

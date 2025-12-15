@@ -11,8 +11,8 @@ dependencies:
     - bikeclub_solo
 id: bikeclub_solo_views_block__rides_upcoming_weekday_rides
 theme: bikeclub_solo
-region: sidebar_first
-weight: -6
+region: top_second
+weight: -10
 provider: null
 plugin: 'views_block:rides_upcoming-weekday_rides'
 settings:

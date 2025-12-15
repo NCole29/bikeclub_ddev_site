@@ -48,19 +48,19 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
         required_fields: true
     group_resize:
       children:
         - field_resize_text_image
-      label: 'About images in text fields'
+      label: 'HOW TO ADD IMAGES IN THE TEXT EDITORS'
       region: content
       parent_name: ''
       weight: 1
       format_type: details
       format_settings:
-        classes: ''
+        classes: info-details
         show_empty_fields: false
         id: ''
         label_as_html: false

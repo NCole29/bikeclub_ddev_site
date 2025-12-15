@@ -3,9 +3,7 @@ status: true
 dependencies:
   module:
     - taxonomy
-  enforced:
-    module:
-      - bikeclub_leader
+    - bikeclub_leader
 id: taxonomy_term.field_disabled
 field_name: field_disabled
 entity_type: taxonomy_term

@@ -1,4 +1,4 @@
-uuid: 77102b97-83d5-4325-9a94-93babb520b9a
+uuid: 115aba2c-f0c2-4285-958a-aec0ec0ce01e
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
 id: ride_schedule
 label: 'Ride schedule'
 module: views
-description: ''
+description: 'Scheduled rides and available dates'
 tag: ''
 base_table: club_schedule
 base_field: schedule_id
@@ -1077,7 +1077,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<h3>Calendar dates joined with non-recurring rides</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n   <dl>\r\n    <dd>Assigned ride leader - Use this column to assign ride leaders to dates (by clicking the date) before a ride page is created.</dd>\r\n    <dd>Run out of calendar dates? The database is populated with 3 years of dates. Add more at <a href=\"/admin/config/club/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.</dd>\r\n</details></dl>\r\n<p></p>"
+          content: "<h3>Scheduled rides and available dates</h3> \r\n<details>\r\n   <summary>Info for Administrators / Ride Coordinators</summary>\r\n   <dl>\r\n    <dd>Assigned ride leader - Use this column to assign ride leaders to dates (by clicking the date) before a ride page is created.</dd>\r\n    <dd>Run out of calendar dates? The database is populated with 3 years of dates. Add more at <a href=\"/admin/config/club/add-schedule-dates\">Configuration > Bikeclub config > Add schedule dates</a>.</dd>\r\n</details></dl>\r\n<p></p>"
           tokenize: false
       display_comment: 'Views_year_filter configuration must enable bootstrap datepicker.'
       display_extenders: {  }

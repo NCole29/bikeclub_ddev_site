@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - role_delegation
     - user
 _core:
   default_config_hash: FFLg74mnzRE10lgg5fspPCZWLnIEcvCnJMlNzj8OEtw
@@ -887,7 +888,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: true
-          content: "<h5>Displaying @start - @end of @total current and past members.</h5> \r\n<li>To view account,  click Username.</li>\r\n<li>To edit account, click Edit under Operations (subject to permission).</li>"
+          content: "<h5>Displaying @start - @end of @total current and past members.</h5> \r\n<ul>\r\n<li>To view account,  click Username.</li>\r\n<li>To edit account, click Edit under Operations (subject to permission).</li>\r\n</ul>"
       display_comment: ''
       hide_attachment_summary: false
       display_extenders: {  }

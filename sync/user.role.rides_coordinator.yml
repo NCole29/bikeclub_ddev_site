@@ -21,7 +21,7 @@ _core:
   default_config_hash: KhoEV-DXvv9nDZfo5jv09vQeHejAvjiKD9nXrN36SSA
 id: rides_coordinator
 label: 'Rides coordinator'
-weight: 5
+weight: -2
 is_admin: false
 permissions:
   - 'access administration pages'

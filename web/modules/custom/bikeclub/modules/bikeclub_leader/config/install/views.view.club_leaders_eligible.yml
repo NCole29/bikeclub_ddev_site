@@ -3,9 +3,7 @@ status: true
 dependencies:
   module:
     - user
-  enforced:
-    module:
-      - bikeclub_leader
+    - bikeclub_leader
 id: club_leaders_eligible
 label: 'Club leaders eligible'
 module: views
