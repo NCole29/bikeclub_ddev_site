@@ -1,0 +1,10 @@
+uuid: 18fa4da5-481b-45fc-8d34-c9e8d3e46ff3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 38P9sF578T2u-vU0_t1FS8dDITlpnIuZDqdUmYG9F0M
+id: club-reports
+label: 'Club Reports'
+description: 'Menu block'
+locked: false

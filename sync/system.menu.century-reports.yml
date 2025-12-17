@@ -1,0 +1,10 @@
+uuid: 850be083-487a-469e-b504-e0d407b37921
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BrA04QhKIOXdg-pzm2o8mzaipWHOHQIscRmYgswfq2M
+id: century-reports
+label: 'Century reports'
+description: 'Menu block'
+locked: false

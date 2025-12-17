@@ -1,0 +1,25 @@
+uuid: c6cec7fe-6de3-4ee5-ab5c-c37582587d6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.statistic
+_core:
+  default_config_hash: MkgCeNQxr6MZb5vrYNsRsCHcuwiswnh3q_XSqvS_Bh0
+id: node.statistic.field_year
+field_name: field_year
+entity_type: node
+bundle: statistic
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

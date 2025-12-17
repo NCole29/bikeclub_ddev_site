@@ -1,0 +1,13 @@
+uuid: c7ff12a6-c991-440e-90b9-555a95f8d556
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iyJT30aKzgFpfw1a9x-Sp7kfYyBB7TNnv31sHC5zpgY
+name: Statistic
+type: statistic
+description: 'Statistics for annual membership and the total number of rides scheduled (and not cancelled) are generated automatically at year-end. Other statistics can be entered manually.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

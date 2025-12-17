@@ -1,0 +1,10 @@
+uuid: b33306a9-318b-4afe-b2b9-83b82861ef1b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dZy6gxMgPs9gUbc2QLEv_X82kloLTNAFa_NgQ8cVJok
+id: other-events
+label: 'Other events'
+description: 'Menu block'
+locked: false

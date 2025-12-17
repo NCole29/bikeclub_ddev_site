@@ -1,0 +1,25 @@
+uuid: a5d001d6-6a30-4b86-b2f2-4410576ebfe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number
+    - node.type.statistic
+_core:
+  default_config_hash: ywJIdQKd5A0GO6__a6TUAkRcXUEiwqEDHINu92TVMkQ
+id: node.statistic.field_number
+field_name: field_number
+entity_type: node
+bundle: statistic
+label: Number
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,31 @@
+uuid: caa66d7d-4bbe-4417-b365-3874c7621e05
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Y3P6W7VeQ6gOmiL75DF85RSfJQaPj1nPF18Ie_DdN9M
+id: years
+label: Years
+category: 'Date and time'
+likert: false
+options: |-
+  2020: '2020'
+  2021: '2021'
+  2022: '2022'
+  2023: '2023'
+  2024: '2024'
+  2025: '2025'
+  2026: '2026'
+  2027: '2027'
+  2028: '2028'
+  2029: '2029'
+  2030: '2030'
+  2031: '2031'
+  2032: '2032'
+  2033: '2033'
+  2034: '2034'
+  2035: '2035'
+  2036: '2036'
+  2037: '2037'
+  2038: '2038'
+  2039: '2039'

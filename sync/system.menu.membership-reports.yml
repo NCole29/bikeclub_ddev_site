@@ -1,0 +1,10 @@
+uuid: 13252933-69ce-44de-8cca-61149c65cf85
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iLvHDpIoD2NclEf5dZsNj1-Houj4W4partH0hNiajlk
+id: membership-reports
+label: 'Membership reports'
+description: 'Menu block'
+locked: false
