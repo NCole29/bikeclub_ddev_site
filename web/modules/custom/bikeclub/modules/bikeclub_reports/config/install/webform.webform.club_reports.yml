@@ -1,6 +1,9 @@
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  config:
+    - webform.webform_options.months_abbrev
+    - webform.webform_options.years
 weight: 0
 open: null
 close: null

@@ -2689,9 +2689,24 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 7
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'There are no scheduled rides.'
+            format: basic_html
+          tokenize: false
       sorts:
         field_date_value:
           id: field_date_value
@@ -3040,6 +3055,7 @@ display:
           separator: ''
           hide_empty: false
       defaults:
+        empty: false
         title: false
         pager: false
         use_more: false
@@ -3700,7 +3716,21 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 0
+          items_per_page: 7
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'There are no scheduled rides.'
+            format: basic_html
+          tokenize: false
       filters:
         status:
           id: status
@@ -4034,6 +4064,7 @@ display:
           separator: ''
           hide_empty: false
       defaults:
+        empty: false
         title: false
         pager: false
         use_more: false

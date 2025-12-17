@@ -138,7 +138,7 @@ third_party_settings:
         id: ''
         label_as_html: true
         open: true
-        description: "<details>\r\n<summary>INSTRUCTIONS</summary>\r\n<ul>\r\n<li><strong>Duration and Times:</strong> Only the start time is displayed; leave the duration field blank.</li>\r\n<li><strong>Assigning different start times to different dates?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> to \"Override\" and change the time for specific dates.</li>\r\n<li><strong>Excluding specific dates from the series?</strong> After saving and editing the ride, click <strong>MANAGE INSTANCES</strong> to \"Override\" and \"Remove instance\" for specific dates. </li>\r\n</ul>\r\n<em>Important: A second date field appears after the page is saved and then edited. Leave the second date field empty unless there is a significant gap between the dates in the series.</em>\r\n</details>\r\n"
+        description: "<details class=\"info-details\">\r\n<summary>HOW TO ADD AND EDIT RECURRING DATES</summary>\r\n<ul>\r\n<li><strong>Duration and Times:</strong> Fill only the Start time. The end time will be set automatically to the Start time and Duration is not needed because only the start time is displayed.</li>\r\n<li><strong>Assigning different start times to different dates?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> to \"Override\" and change the time for specific dates.</li>\r\n<li><strong>Excluding specific dates from the series?</strong> After saving and editing the ride, click <strong>MANAGE INSTANCES</strong> to \"Override\" and \"Remove instance\" for specific dates. </li>\r\n</ul>\r\n<em>Important: A second date field appears after the page is saved and then edited. Leave the second date field empty unless there is a significant gap between the dates in the series.</em>\r\n</details>\r\n"
         required_fields: false
     group_lunch:
       children: {  }
@@ -175,10 +175,10 @@ third_party_settings:
     group_ride_images:
       children:
         - field_about_ride_images
-      label: 'Adding an image to a ride page'
+      label: 'HOW TO ADD AN IMAGE TO A RIDE PAGE'
       region: content
       parent_name: group_description
-      weight: 24
+      weight: 23
       format_type: details
       format_settings:
         classes: info-details
@@ -195,7 +195,7 @@ third_party_settings:
       label: 'Ride info'
       region: hidden
       parent_name: group_description
-      weight: 23
+      weight: 25
       format_type: details
       format_settings:
         classes: ''
@@ -375,7 +375,7 @@ content:
     third_party_settings: {  }
   field_ride_picture:
     type: media_library_widget
-    weight: 25
+    weight: 24
     region: content
     settings:
       media_types: {  }

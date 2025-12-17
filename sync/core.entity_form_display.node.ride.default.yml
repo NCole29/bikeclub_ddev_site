@@ -75,10 +75,10 @@ third_party_settings:
     group_description:
       children:
         - field_activity
-        - group_ride_info
-        - field_ride_picture
-        - field_developed_by
         - group_ride_images
+        - field_ride_picture
+        - group_ride_info
+        - field_developed_by
       label: Description
       region: content
       parent_name: group_ta
@@ -147,10 +147,10 @@ third_party_settings:
     group_ride_images:
       children:
         - field_about_ride_images
-      label: 'Adding an image to a ride page'
+      label: 'HOW TO ADD AN IMAGE TO A RIDE PAGE'
       region: hidden
       parent_name: group_description
-      weight: 44
+      weight: 47
       format_type: details
       format_settings:
         classes: info-details
@@ -167,7 +167,7 @@ third_party_settings:
       label: 'Ride info'
       region: content
       parent_name: group_description
-      weight: 42
+      weight: 49
       format_type: details
       format_settings:
         classes: ''
@@ -194,19 +194,19 @@ content:
     third_party_settings: {  }
   field_about_ride_images:
     type: markup
-    weight: 45
+    weight: 48
     region: content
     settings: {  }
     third_party_settings: {  }
   field_activity:
     type: options_select
-    weight: 41
+    weight: 46
     region: content
     settings: {  }
     third_party_settings: {  }
   field_additional_information:
     type: text_textarea
-    weight: 44
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -222,7 +222,7 @@ content:
         hide: true
   field_description:
     type: text_textarea
-    weight: 43
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -230,7 +230,7 @@ content:
     third_party_settings: {  }
   field_developed_by:
     type: string_textfield
-    weight: 46
+    weight: 50
     region: content
     settings:
       size: 60
@@ -307,7 +307,7 @@ content:
     third_party_settings: {  }
   field_ride_picture:
     type: media_library_widget
-    weight: 45
+    weight: 48
     region: content
     settings:
       media_types: {  }
