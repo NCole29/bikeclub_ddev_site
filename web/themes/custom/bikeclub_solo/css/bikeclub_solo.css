@@ -56,6 +56,12 @@ label, .field__label {
   padding-bottom: 0!important;
 }
 
+/* Reduce form width (improves webform fit on page) */ 
+.solo-input,
+.solo-select {
+  width: fit-content !important; /* was 100% and impacts webforms*/
+}
+
 .solo-inner:not( .primary-menu-inner,
 .primary-sidebar-menu-inner,
 .system-messages-inner,

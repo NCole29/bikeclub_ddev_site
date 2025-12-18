@@ -48,20 +48,22 @@ class ReportHooks {
   #[Hook('cron')]
   public function reports_cron(): void {
 
+    $current_time = \Drupal::time()->getRequestTime();
+    $current_month_day = \Drupal::service('date.formatter')->format($current_time, 'custom', 'm-d');
+    $target_month_day = '12-31'; // Target date for execution.
+
+    if ($current_month_day != $target_month_day) {
+      return;
+    }
+
     // Use the State API to track the last time the annual task was performed.
     $state = \Drupal::state();
     $last_execution_year = $state->get('bikeclub_reports.annual_stats_last_execution_year', 0);
-
-    // Get the current time as a timestamp. Format it to get current_year and current_month_day.
-    $current_time = \Drupal::time()->getRequestTime();
     $current_year = (int) \Drupal::service('date.formatter')->format($current_time, 'custom', 'Y');
-    $current_month_day = \Drupal::service('date.formatter')->format($current_time, 'custom', 'm-d');
-
-    $target_month_day = '12-31'; // Target date for execution.
-
+    
     // Execute on December 31st if task hasn't been run in the current year.
-    if ($current_month_day === $target_month_day && $current_year > $last_execution_year) {
-     
+    if ($current_year > $last_execution_year) {
+
       $controller = \Drupal::service('bikeclub_reports.annual_stats');
       $controller->tabulate();
 

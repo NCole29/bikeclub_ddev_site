@@ -1,5 +1,5 @@
 /*
-  This file has CSS to modify module styles. These may apply to all themes.
+  This file has CSS to modify styles in core & contrib modules. These changes apply to all themes.
   Additional CSS is in themes/bikeclub_solo (SOLO subtheme) to modify the Solo theme defaults.
   Color modifications are done through the UI in bikeclub_solo theme settings.
 */
@@ -9,7 +9,7 @@
   padding: 0.95rem 0.5rem 0 0!important;
 }
 
-/* Styles for CKeditor - Solo default has line-height: 2.0 */
+/* CKEDITOR - Add styles for selection in editor */
 p.small {
   font-size: 85%;
   line-height: 1.4;
@@ -42,28 +42,36 @@ p.button a {
   color: #ffffff!important;
 }
 
-/* Remove margins between Location title and address (top), and address and Google link (bottom)  */
+/* ADDRESS module - Remove margins. */
 .address {
   margin-top: 0;
   margin-bottom: 0;  
 }
 
-/* ----------
-   CALENDAR
-  ----------*/
+/* CALENDAR_VIEW module - Revise pager display and remove caption display (it duplicates pager) */
 .calendar-view-pager li {
   list-style-type: none; 
 }
-
-/* Increase font size for pager from 0.8125rem, remove text-transform: uppercase; */
 .calendar-view-pager__reset a,
 .calendar-view-pager .pager__item > * {
   padding: 1rem 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* was 0.8125rem */
   line-height: 0;
-  text-transform: capitalize;
+  text-transform: capitalize; /* was uppercase */
   font-weight: bold;
   text-decoration: none;
+}
+.pager__item a {
+  border: 0 !important;
+}
+.calendar-view-table caption {
+  display: none!important;
+}
+
+/* WEBFORM module - Change element width in Flex containers. */
+.webform-flex--container > .form-item > input:not([type="checkbox"]),
+.webform-flex--container > .form-item > select {
+    width: fit-content!important; /* was 100% */
 }
 
 /* Remove "About text formats" from forms. */
@@ -71,7 +79,7 @@ p.button a {
     display: none!important;
 }
 
-/*---------------------------------------------------------------------------
+/*-  CUSTOM TABLE STYLES - used in Views
   Plain table - no shading, border on bottom only
   Leader table - enforce equal column width
   Report table  - alternate row shading, right align, small font

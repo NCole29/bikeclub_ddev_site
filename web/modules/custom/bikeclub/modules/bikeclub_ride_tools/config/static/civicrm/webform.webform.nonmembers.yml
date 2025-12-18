@@ -99,7 +99,7 @@ settings:
   page: true
   page_submit_path: /nonmembers
   page_confirm_path: ''
-  page_theme_name: ''
+  page_theme_name: gin
   form_title: webform
   form_submit_once: false
   form_open_message: ''

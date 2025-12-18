@@ -17,7 +17,6 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
-        "bikeclub": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub" },
         "bikeclub_announcements": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_announcements" },
         "bikeclub_banner": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_banner" },
         "bikeclub_civicrm": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_civicrm" },
@@ -39,7 +38,6 @@
         "bikeclub_webform_nodes": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_webform_nodes" }  
     },
     "require": {
-        "bikeclub/bikeclub": "dev-main",
         "civicrm/civicrm-core": "^6.2",
         "civicrm/civicrm-drupal-8": "^6.2",
         "civicrm/civicrm-packages": "^6.2",
