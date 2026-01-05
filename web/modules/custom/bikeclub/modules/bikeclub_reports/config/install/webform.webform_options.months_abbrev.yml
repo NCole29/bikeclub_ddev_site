@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 id: months_abbrev
 label: 'Months (abbrev)'
-category: 'Date and time'
+category: Bikeclub
 likert: false
 options: |-
   '01': Jan

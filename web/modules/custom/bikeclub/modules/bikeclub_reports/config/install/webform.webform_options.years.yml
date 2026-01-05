@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 id: years
 label: Years
-category: 'Date and time'
+category: Bikeclub
 likert: false
 options: |-
   2020: '2020'

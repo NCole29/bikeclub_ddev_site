@@ -2,8 +2,17 @@
   Modify SOLO theme
   Note: modifications to the css/templates of contrib  
    modules are in bikeclub/css and bikeclub/templates
-  ----------------------------------------------------
+  ----------------------------------------------------*/
 
+/* Fix admin-menu - without padding it hides the site menu */
+#toolbar-administration {
+  padding-bottom: 24px;
+}
+
+/* system message on Appearance > solo had black bckgrnd and was unreadable */
+ul.settings-message {
+  background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 3%, #ffffff 100%) !important;
+}
 
 /* Change dark background on account menu */
 .header-inner nav .navigation__menubar > li > button,
@@ -15,6 +24,7 @@
 /* Increase logo size */
 .site-logo-img {
   height:100px!important;
+  padding-bottom: 16px;
 }
 
 h1.page-title-text {
@@ -23,8 +33,20 @@ h1.page-title-text {
 
 /* There's a cumulative effect so we get more than 400 */
 .page-wrapper h2 {
-  font-weight: 400!important;
+  font-weight: 600!important;
 }
+
+/* reduce weight on h3 (was 700) */
+h3 {
+  font-weight: 400;
+}
+
+@media(max-width: 767px) {
+  h2 {
+    font-size:20px!important;
+  }
+}
+
 
 /* Fix layout builder region overlap */ 
 .layout--twocol-section > .layout__region {
@@ -41,8 +63,8 @@ hr {
 } 
 
 label, .field__label {
-  font-weight: 600;
-  font-size: 120%;
+  font-weight: 400;
+  font-size: 110%;
 }
 
 .field {

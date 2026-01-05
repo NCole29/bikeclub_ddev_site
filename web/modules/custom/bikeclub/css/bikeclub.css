@@ -9,6 +9,10 @@
   padding: 0.95rem 0.5rem 0 0!important;
 }
 
+.fontawesome-icons {
+  text-align: center;
+}
+
 /* CKEDITOR - Add styles for selection in editor */
 p.small {
   font-size: 85%;

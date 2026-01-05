@@ -8,8 +8,8 @@ dependencies:
     - user
     - webform
     - webform_views
-id: website_change_log
-label: 'Website change log'
+id: club_website_changes
+label: 'Club website changes'
 module: views
 description: ''
 tag: ''

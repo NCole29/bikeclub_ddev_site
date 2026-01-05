@@ -4,7 +4,7 @@ description: Cards arranged in rows.
 props:
   type: object
   properties:
-    heading:
+    title:
       type: string
       title: Heading
     url:

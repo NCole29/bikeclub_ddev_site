@@ -29,7 +29,11 @@ class BikeclubTemplates {
       'node__summary_2' => [
         'template' => 'node--summary-2',
         'base hook' => 'node',
-      ],  
+      ],
+     'paragraph__hero_banner' => [
+        'template' => 'paragraph--hero-banner',
+        'base hook' => 'paragraph',
+      ],
       'field__address' => [
         'template' => 'field--address',
         'base hook' => 'field',

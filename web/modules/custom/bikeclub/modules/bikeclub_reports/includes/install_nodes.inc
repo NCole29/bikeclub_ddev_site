@@ -28,16 +28,16 @@ function club_nodes() {
   // Pages [page_title, section_type, blocks [region => block_id]].
   // One-column layout: all blocks are in the same region, which we call 'content'.
   // Two-column layout: blocks are placed in 'first' and 'second' column regions.
-  // See src/Plugin/Block/Membership.php for member_count block.
   $pages = [
     ['title' => 'Membership Statistics',
      'link' => 'membership-statistics',
      'type' => 'layout_twocol',
      'menu_parent' => $reports_menu,
      'blocks' => [
-        ['first', 'views_block:civicrm_contacts-members_by_status'],
+        ['first', 'views_block:civicrm_contacts-total_current_and_new'],
         ['first', 'views_block:civicrm_contacts-members_by_type'],
-        ['second', 'member_count'],]
+        ['first', 'views_block:civicrm_contacts-members_by_status'],
+        ['second', 'views_block:club_statistics-annual_membership'],]
     ],
   ];
 
