@@ -31,14 +31,12 @@ h1.page-title-text {
   padding-block:0!important;
 }
 
-/* There's a cumulative effect so we get more than 400 */
 .page-wrapper h2 {
   font-weight: 600!important;
 }
 
-/* reduce weight on h3 (was 700) */
 h3 {
-  font-weight: 400;
+  font-weight: 400; /* was 700 */
 }
 
 @media(max-width: 767px) {
@@ -47,8 +45,7 @@ h3 {
   }
 }
 
-
-/* Fix layout builder region overlap */ 
+/* Region overlapped so add padding */ 
 .layout--twocol-section > .layout__region {
   flex: 0 1 100%;
   padding: 0 1rem 0 1rem!important;
@@ -58,17 +55,14 @@ h3 {
 .views-field-title a {
   font-weight: bold;
 }
+
 hr {
   margin-block: 0;
 } 
 
 label, .field__label {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 110%;
-}
-
-.field {
-  margin-top: 0.5rem;
 }
 
 /* Remove bottom margins to reduce white space.

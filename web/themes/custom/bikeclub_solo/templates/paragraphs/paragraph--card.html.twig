@@ -1,0 +1,11 @@
+
+{{ include('bikeclub:card', {
+  heading: paragraph.field_title.value,
+  bgcolor: paragraph.field_card_bgcolor.value,
+  height: paragraph.field_height.value, 
+  image: content.field_image,
+  link: paragraph.field_link.uri,
+  content: content|without(content.field_image)
+}, with_context = false) }}
+
+

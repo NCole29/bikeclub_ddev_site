@@ -14,10 +14,6 @@ class BikeclubTemplates {
   #[Hook('theme')]
   public function addTemplates() {
     return [
-      'node__card_row' => [
-        'template' => 'node--card-row',
-        'base hook' => 'node',
-      ],
       'node__location' => [
         'template' => 'node--location',
         'base hook' => 'node',
@@ -26,8 +22,8 @@ class BikeclubTemplates {
         'template' => 'node--summary',
         'base hook' => 'node',
       ],
-      'node__summary_2' => [
-        'template' => 'node--summary-2',
+      'node__summary_card' => [
+        'template' => 'node--summary-card',
         'base hook' => 'node',
       ],
      'paragraph__hero_banner' => [

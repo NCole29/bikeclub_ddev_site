@@ -1,0 +1,46 @@
+.callout:after,
+.callout:before {
+  content: "";
+  display: table;
+  clear: both;
+ }
+.callout {
+  margin-top:0.5rem;
+  width:auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-left: 6px solid #134a85;
+}
+.callout-text { 
+  line-height: 24px;
+  font-size: 14px;
+  padding-left:1rem;
+  padding-right:1rem;
+}
+.height-auto {
+  height:auto;
+}
+.height-100 {
+  height:100%;
+}
+.bg-white {
+	background-color:white;
+}
+.bg-light-blue {
+	background-color:#edf4fc;
+}
+.button {
+  display: flex;
+  justify-content: center; 
+  width: fit-content;
+  border-radius:0;
+  margin:auto;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #134a84 ;
+}
+.button a {
+  color: #ffffff!important;
+}

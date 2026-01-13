@@ -9,10 +9,11 @@
 }
 .summary .summary-title {
   text-align: left;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  line-height: 1.75rem;
+}
+.summary h3 {
+  font-size: 1.25rem;
 }
 .summary .summary-image {
   float: left;
@@ -24,9 +25,6 @@
 }
 .summary .summary-content p {
   line-height: 1.6;
-}
-.summary .summary-content .field {
-  /*margin-block-end: 0;*/
 }
 
 .media--type-image-crop-4-3,

@@ -1,0 +1,41 @@
+.my-banner {
+  max-width: 1500px;
+  position: relative;
+  color: white!important;
+  padding: 0;
+  margin: 0;
+}
+
+.field--name-field-title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.my-banner--body > * {
+  margin-bottom: 0;
+}
+
+.field--name-field-ptext {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+.field--name-field-ptext p {
+  color:white;
+}
+
+.field--name-field-button a {
+  margin: 0;
+  padding: 1em 2em;
+  background-color: #d4253d;
+  border-radius: 15rem;
+  opacity: 1;
+  text-decoration: none;
+  color: white!important;
+  text-transform: uppercase;
+}
+
+.field--name-field-button a:hover {
+  background-color: #d4253d;
+  color: white!important;
+  font-weight: 700;
+}

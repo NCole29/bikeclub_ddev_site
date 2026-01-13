@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce3e49381a469c45b3ff2c051cedadec",
+    "content-hash": "61d3b39d3472dd69e434e9d9f491517f",
     "packages": [
         {
             "name": "adrienrn/php-mimetyper",
@@ -3651,56 +3651,6 @@
             }
         },
         {
-            "name": "drupal/bootstrap5",
-            "version": "4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bootstrap5.git",
-                "reference": "4.0.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.6.zip",
-                "reference": "4.0.6",
-                "shasum": "600973f96a3ed1eb54b133d96b25b55f8ea58f9a"
-            },
-            "require": {
-                "drupal/core": "^10.1 || ^11.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "4.0.6",
-                    "datestamp": "1759216769",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Vladimir Roudakov (vladimiraus)",
-                    "homepage": "https://www.drupal.org/u/vladimiraus",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "vladimiraus",
-                    "homepage": "https://www.drupal.org/user/673120"
-                }
-            ],
-            "description": "Master theme using Bootstrap 5: powerful front-end framework for faster and easier web development.",
-            "homepage": "https://www.drupal.org/project/bootstrap5",
-            "support": {
-                "source": "https://git.drupalcode.org/project/bootstrap5",
-                "issues": "https://www.drupal.org/project/issues/bootstrap5"
-            }
-        },
-        {
             "name": "drupal/calendar_view",
             "version": "2.1.10",
             "source": {
@@ -5069,126 +5019,6 @@
             }
         },
         {
-            "name": "drupal/dxpr_theme",
-            "version": "8.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme.git",
-                "reference": "8.0.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-8.0.0-rc1.zip",
-                "reference": "8.0.0-rc1",
-                "shasum": "35e0e679b881d7646c9c623f03bad6fd862cb978"
-            },
-            "require": {
-                "drupal/bootstrap5": "^3 || ^4",
-                "drupal/core": "^9.3 || ^10 || ^11",
-                "drupal/dxpr_theme_helper": "*",
-                "drupal/media_library_form_element": "^2.1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "8.0.0-rc1",
-                    "datestamp": "1760965968",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "jurriaanroelofs",
-                    "homepage": "https://www.drupal.org/user/52638"
-                }
-            ],
-            "description": "Low-code Drupal Framework Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
-            }
-        },
-        {
-            "name": "drupal/dxpr_theme_helper",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme_helper.git",
-                "reference": "2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme_helper-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "ca86e955570ee90754f1b468bc6f013611f3d7b5"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10 || ^11"
-            },
-            "require-dev": {
-                "drush/drush": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1759322129",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Helper module  to support DXPR Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme_helper",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme_helper",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
-            }
-        },
-        {
             "name": "drupal/entity_browser",
             "version": "2.15.0",
             "source": {
@@ -6254,6 +6084,53 @@
             }
         },
         {
+            "name": "drupal/layout_bg",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/layout_bg.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/layout_bg-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "fa37cc6636eb07e4c303e4371faca197ee0dc587"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1720204583",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "danflanagan8",
+                    "homepage": "https://www.drupal.org/user/3615359"
+                }
+            ],
+            "description": "Provides Layout plugins that make background images easy.",
+            "homepage": "https://www.drupal.org/project/layout_bg",
+            "support": {
+                "source": "https://git.drupalcode.org/project/layout_bg"
+            }
+        },
+        {
             "name": "drupal/layout_builder_admin_theme",
             "version": "2.0.2",
             "source": {
@@ -6843,77 +6720,6 @@
             "homepage": "https://www.drupal.org/project/media_file_delete",
             "support": {
                 "source": "https://git.drupalcode.org/project/media_file_delete"
-            }
-        },
-        {
-            "name": "drupal/media_library_form_element",
-            "version": "2.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/media_library_form_element.git",
-                "reference": "2.1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_library_form_element-2.1.4.zip",
-                "reference": "2.1.4",
-                "shasum": "575d5a69e4b9e310336aeb3ee169ec2d7c8b3f2b"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.4",
-                    "datestamp": "1759255782",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Kim Kennof",
-                    "homepage": "https://www.drupal.org/u/nightlife2008",
-                    "email": "kim.kennof@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "AUSY, a randstad company",
-                    "homepage": "https://www.ausy.be",
-                    "email": "info@ausy.be",
-                    "role": "Sponsor"
-                },
-                {
-                    "name": "mark_fullmer",
-                    "homepage": "https://www.drupal.org/user/2612816"
-                },
-                {
-                    "name": "nightlife2008",
-                    "homepage": "https://www.drupal.org/user/333515"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                }
-            ],
-            "description": "This module provides a Media Library Form API element to be used in all sorts of forms.",
-            "homepage": "https://www.drupal.org/project/media_library_form_element",
-            "keywords": [
-                "Drupal",
-                "Form API",
-                "Media",
-                "Media Library"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/media_library_form_element",
-                "issues": "https://www.drupal.org/project/issues/media_library_form_element"
             }
         },
         {
@@ -8003,34 +7809,41 @@
             }
         },
         {
-            "name": "drupal/ui_patterns",
-            "version": "2.0.13",
+            "name": "drupal/twig_tweak",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/ui_patterns.git",
-                "reference": "2.0.13"
+                "url": "https://git.drupalcode.org/project/twig_tweak.git",
+                "reference": "3.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.13.zip",
-                "reference": "2.0.13",
-                "shasum": "6562a37727e6117e978c3254be38f85a32e8b2f0"
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.4.1.zip",
+                "reference": "3.4.1",
+                "shasum": "ceaa5ea8f357ce8827c728f22871265f0f7cd74f"
             },
             "require": {
-                "drupal/core": "^10.3.4 || ^11",
-                "justinrainbow/json-schema": "^5.2 || ^6.3"
+                "drupal/core": "^10.3 || ^11.0",
+                "ext-json": "*",
+                "php": ">=8.1",
+                "twig/twig": "^3.10.3"
             },
-            "require-dev": {
-                "drupal/ui_patterns_library": "*"
+            "suggest": {
+                "symfony/var-dumper": "Better dump() function for debugging Twig variables"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.13",
-                    "datestamp": "1763032756",
+                    "version": "3.4.1",
+                    "datestamp": "1748530577",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
                     }
                 }
             },
@@ -8040,46 +7853,19 @@
             ],
             "authors": [
                 {
-                    "name": "ademarco",
-                    "homepage": "https://www.drupal.org/user/186696"
-                },
-                {
-                    "name": "bircher",
-                    "homepage": "https://www.drupal.org/user/1344166"
-                },
-                {
-                    "name": "christian.wiedemann",
-                    "homepage": "https://www.drupal.org/user/861002"
-                },
-                {
-                    "name": "duaelfr",
-                    "homepage": "https://www.drupal.org/user/931394"
-                },
-                {
-                    "name": "g4mbini",
-                    "homepage": "https://www.drupal.org/user/2533498"
-                },
-                {
-                    "name": "grimreaper",
-                    "homepage": "https://www.drupal.org/user/2388214"
-                },
-                {
-                    "name": "just_like_good_vibes",
-                    "homepage": "https://www.drupal.org/user/792018"
-                },
-                {
-                    "name": "pdureau",
-                    "homepage": "https://www.drupal.org/user/1903334"
-                },
-                {
-                    "name": "pescetti",
-                    "homepage": "https://www.drupal.org/user/436244"
+                    "name": "chi",
+                    "homepage": "https://www.drupal.org/user/556138"
                 }
             ],
-            "description": "Define and expose self-contained UI components and use them seamlessly in development and site-building.",
-            "homepage": "https://www.drupal.org/project/ui_patterns",
+            "description": "A Twig extension with some useful functions and filters for Drupal development.",
+            "homepage": "https://www.drupal.org/project/twig_tweak",
+            "keywords": [
+                "Drupal",
+                "Twig"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/ui_patterns"
+                "source": "https://git.drupalcode.org/project/twig_tweak",
+                "issues": "https://www.drupal.org/project/issues/twig_tweak"
             }
         },
         {
@@ -9469,81 +9255,6 @@
             "time": "2025-10-03T07:54:28+00:00"
         },
         {
-            "name": "justinrainbow/json-schema",
-            "version": "6.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "2eeb75d21cf73211335888e7f5e6fd7440723ec7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/2eeb75d21cf73211335888e7f5e6fd7440723ec7",
-                "reference": "2eeb75d21cf73211335888e7f5e6fd7440723ec7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "marc-mabe/php-enum": "^4.4",
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "3.3.0",
-                "json-schema/json-schema-test-suite": "^23.2",
-                "marc-mabe/php-enum-phpstan": "^2.0",
-                "phpspec/prophecy": "^1.19",
-                "phpstan/phpstan": "^1.12",
-                "phpunit/phpunit": "^8.5"
-            },
-            "bin": [
-                "bin/validate-json"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JsonSchema\\": "src/JsonSchema/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bruno Prieto Reis",
-                    "email": "bruno.p.reis@gmail.com"
-                },
-                {
-                    "name": "Justin Rainbow",
-                    "email": "justin.rainbow@gmail.com"
-                },
-                {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch"
-                },
-                {
-                    "name": "Robert Schönthal",
-                    "email": "seroscho@googlemail.com"
-                }
-            ],
-            "description": "A library to validate a json schema.",
-            "homepage": "https://github.com/jsonrainbow/json-schema",
-            "keywords": [
-                "json",
-                "schema"
-            ],
-            "support": {
-                "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.6.4"
-            },
-            "time": "2025-12-19T15:01:32+00:00"
-        },
-        {
             "name": "kint-php/kint",
             "version": "6.0.1",
             "source": {
@@ -10216,79 +9927,6 @@
                 }
             ],
             "time": "2025-07-17T11:15:13+00:00"
-        },
-        {
-            "name": "marc-mabe/php-enum",
-            "version": "v4.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/marc-mabe/php-enum.git",
-                "reference": "bb426fcdd65c60fb3638ef741e8782508fda7eef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/marc-mabe/php-enum/zipball/bb426fcdd65c60fb3638ef741e8782508fda7eef",
-                "reference": "bb426fcdd65c60fb3638ef741e8782508fda7eef",
-                "shasum": ""
-            },
-            "require": {
-                "ext-reflection": "*",
-                "php": "^7.1 | ^8.0"
-            },
-            "require-dev": {
-                "phpbench/phpbench": "^0.16.10 || ^1.0.4",
-                "phpstan/phpstan": "^1.3.1",
-                "phpunit/phpunit": "^7.5.20 | ^8.5.22 | ^9.5.11",
-                "vimeo/psalm": "^4.17.0 | ^5.26.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.2-dev",
-                    "dev-master": "4.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MabeEnum\\": "src/"
-                },
-                "classmap": [
-                    "stubs/Stringable.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Bennewitz",
-                    "email": "dev@mabe.berlin",
-                    "homepage": "https://mabe.berlin/",
-                    "role": "Lead"
-                }
-            ],
-            "description": "Simple and fast implementation of enumerations with native PHP",
-            "homepage": "https://github.com/marc-mabe/php-enum",
-            "keywords": [
-                "enum",
-                "enum-map",
-                "enum-set",
-                "enumeration",
-                "enumerator",
-                "enummap",
-                "enumset",
-                "map",
-                "set",
-                "type",
-                "type-hint",
-                "typehint"
-            ],
-            "support": {
-                "issues": "https://github.com/marc-mabe/php-enum/issues",
-                "source": "https://github.com/marc-mabe/php-enum/tree/v4.7.2"
-            },
-            "time": "2025-09-14T11:18:39+00:00"
         },
         {
             "name": "marcj/topsort",
@@ -17315,7 +16953,6 @@
         "bikeclub/bikeclub": 20,
         "drupal/address_map_link": 15,
         "drupal/conditional_fields": 15,
-        "drupal/dxpr_theme": 5,
         "drupal/sdc_examples": 20,
         "drupal/style_selector": 15,
         "drupal/webform": 10

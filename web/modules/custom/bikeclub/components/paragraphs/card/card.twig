@@ -1,0 +1,37 @@
+{#  card.twig is "included" in bikeclub_solo/templates/paragraphs/paragraph--card.html.twig
+    which must be modified if fields are added.
+
+  Do not put paragraph--card.html.twig in the module/templates folder, because then
+  it's applied to the admin theme and contextual links for editing are not displayed.
+ #}
+{%
+  set classes = [
+	'card',
+	height, 
+  bgcolor,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="card-image">
+    {% if link %}
+      <a href="{{ link }}">
+        {{ image }}
+      </a>
+    {% else %}
+      {{ image }}
+    {% endif %}
+  </div>
+
+  <div class="card-text">
+    {% if link %}
+      <a href="{{ link }}">
+        <h3><center>{{ heading }}</center></h3>
+      </a>
+    {% else %}
+      <h3><center>{{ heading }}</center></h3>
+    {% endif %}  
+
+    {{ content }}
+  </div>
+</div>

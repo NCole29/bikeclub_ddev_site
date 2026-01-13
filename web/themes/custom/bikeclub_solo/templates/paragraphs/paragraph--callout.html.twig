@@ -1,0 +1,8 @@
+{{ include('bikeclub:callout', {
+  heading: paragraph.field_title.value,
+  bgcolor: paragraph.field_callout_bgcolor.value,
+  height: paragraph.field_height.value, 
+  button_uri: paragraph.field_button.uri,
+  button_text: paragraph.field_button.title,
+  content: content|without(content.field_title, content.field_button)
+}, with_context = false) }}

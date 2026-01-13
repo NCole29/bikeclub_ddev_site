@@ -1,0 +1,27 @@
+{#  callout.twig is "included" in bikeclub_solo/templates/paragraphs/paragraph--callout.html.twig
+    which must be modified if fields are added.
+
+  Do not put paragraph--callout.html.twig in the module/templates folder, because then
+  it's applied to the admin theme and contextual links for editing are not displayed.
+ #}
+
+{%
+  set classes = [
+	'callout',
+	height, 
+  bgcolor,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="callout-text">
+    <h4><center>{{ heading }}</center></h4>
+    {{ content }}
+
+    {% if button_text %}
+    <div class="button">
+      <a href="{{ button_uri }}">{{ button_text }}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

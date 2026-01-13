@@ -1,5 +1,5 @@
 /*
-  This file has CSS to modify styles in core & contrib modules. These changes apply to all themes.
+  CSS modifications to styles in core & contrib modules. These changes apply to all themes.
   Additional CSS is in themes/bikeclub_solo (SOLO subtheme) to modify the Solo theme defaults.
   Color modifications are done through the UI in bikeclub_solo theme settings.
 */
@@ -11,6 +11,22 @@
 
 .fontawesome-icons {
   text-align: center;
+}
+
+/* Style the "upcoming" blocks on the home page */
+.rides-list {
+  margin:.5rem;
+  padding: 1rem;
+  height:100%;
+  width:auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* Style the text box overlay on banner pictures */
+.banner-textbox {
+  background-color: white;
+  color: black;
+  padding: 1rem;
 }
 
 /* CKEDITOR - Add styles for selection in editor */
@@ -52,25 +68,6 @@ p.button a {
   margin-bottom: 0;  
 }
 
-/* CALENDAR_VIEW module - Revise pager display and remove caption display (it duplicates pager) */
-.calendar-view-pager li {
-  list-style-type: none; 
-}
-.calendar-view-pager__reset a,
-.calendar-view-pager .pager__item > * {
-  padding: 1rem 0.5rem;
-  font-size: 1.5rem; /* was 0.8125rem */
-  line-height: 0;
-  text-transform: capitalize; /* was uppercase */
-  font-weight: bold;
-  text-decoration: none;
-}
-.pager__item a {
-  border: 0 !important;
-}
-.calendar-view-table caption {
-  display: none!important;
-}
 
 /* WEBFORM module - Change element width in Flex containers. */
 .webform-flex--container > .form-item > input:not([type="checkbox"]),
@@ -81,109 +78,6 @@ p.button a {
 /* Remove "About text formats" from forms. */
 .filter-tips {
     display: none!important;
-}
-
-/*-  CUSTOM TABLE STYLES - used in Views
-  Plain table - no shading, border on bottom only
-  Leader table - enforce equal column width
-  Report table  - alternate row shading, right align, small font
-  Schedule table - same as report + border between schedule and ride fields
-  --------------------------------------------------------------------------*/
-.narrow-table {
-  width: 50% !important;
-}
-
-.plain-table tr {
-  border-bottom: 1px solid var(--bg-d1)!important;
-}
-.plain-table td,
-.plain-table th {
-  font-size: .8em;
-  padding: 4px 4px;
-  text-align: left;
-  vertical-align: top;
-}
-
-.leader-table,
-.report-table,
-.schedule-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 98%;
-  margin-left: 2em;
-  display: table;
-  font-size:medium;
-}
-.leader-table tr,
-.report-table tr,
-.schedule-table tr {
-  border-bottom: 1px solid #ddd;
-}
-.leader-table   th:first-child,
-.leader-table   td:first-child,
-.report-table   th:first-child,
-.report-table   td:first-child,
-.schedule-table th:first-child,
-.schedule-table td:first-child {
-  padding-left: 16px;
-  text-align: left;
-}
-.leader-table th,
-.leader-table td,
-.report-table th,
-.report-table td,
-.schedule-table th,
-.schedule-table td {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 1em;
-  display: table-cell;
-  vertical-align: top;
-}
-.report-table th,
-.report-table td,
-.schedule-table th,
-.schedule-table td {
-  font-size: .8em!important;
-}
-
-/* Alternate row shading  */
-.leader-table tr:nth-child(odd),
-.report-table tr:nth-child(odd) {
-  background-color: #fff;
-}
-.leader-table tr:nth-child(even),
-.report-table tr:nth-child(even) {
-  background-color: #f1f1f1;
-}
-
-/* Enforce equal column width */
-.leader-table th,
-.leader-table td {
-  width: 20%;
-}
-
-.leader-table th,
-.leader-table td {
-  padding-left: 8px;
-  text-align: left;
-}
-
-/* Right-align */
-.report-table th {
-   text-align: center!important;
-}
-.report-table td {
-   text-align: right!important;
-}
-.schedule-table th,
-.schedule-table td {
-   text-align: left!important;
-}
-/* Vertical border between schedule and ride fields */
-.schedule-table th:nth-child(3),
-.schedule-table td:nth-child(3) {
-  border-left: 1px solid gray;
 }
 
 .footer {
