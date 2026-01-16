@@ -1,0 +1,27 @@
+uuid: 28a9c0f0-a831-4e38-a8c5-4ab85cb7dded
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_card_bgcolor
+field_name: field_card_bgcolor
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: bg-white
+      label: 'White (default)'
+    -
+      value: bg-light-gray
+      label: 'Light gray'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

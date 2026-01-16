@@ -25,12 +25,300 @@ dependencies:
     - field.field.node.ride.field_webform_closing
     - field.field.node.ride.field_webform_limit
     - node.type.ride
+    - views.view.ride_routes
   module:
     - bikeclub
     - datetime
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
     - options
     - text
     - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          cd54c4cd-b23d-4c14-8efa-46a2c69877f6:
+            uuid: cd54c4cd-b23d-4c14-8efa-46a2c69877f6
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_ride_picture'
+              label: 'Ride picture'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: media_thumbnail
+                label: visually_hidden
+                settings:
+                  image_link: ''
+                  image_style: large_16_9
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          339f5095-6d42-43f7-8bcb-50fae9fcdd5f:
+            uuid: 339f5095-6d42-43f7-8bcb-50fae9fcdd5f
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_description'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          63db1355-a28b-4842-b76c-cf09021cf8c6:
+            uuid: 63db1355-a28b-4842-b76c-cf09021cf8c6
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_activity'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          6b25058a-5ba6-4de0-9ff9-56972c3d651c:
+            uuid: 6b25058a-5ba6-4de0-9ff9-56972c3d651c
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_ride_leader'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: user_contact_link
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          5d1ab1f1-c6ab-46ed-af25-df96e8c468bb:
+            uuid: 5d1ab1f1-c6ab-46ed-af25-df96e8c468bb
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_webform'
+              label: 'Registration form'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: webform_entity_reference_link
+                label: visually_hidden
+                settings:
+                  label: Register
+                  dialog: ''
+                  attributes:
+                    class:
+                      - button
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          c8087f0a-3602-4e34-929c-07a86f7521be:
+            uuid: c8087f0a-3602-4e34-929c-07a86f7521be
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_webform_limit'
+              label: 'Registration limit'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          011df192-362c-492b-b38e-c694d183f41d:
+            uuid: 011df192-362c-492b-b38e-c694d183f41d
+            region: first
+            configuration:
+              id: 'field_block:node:ride:field_webform_closing'
+              label: 'Registration closing date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: medium
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          7e16acdc-af5b-420e-9a26-5429ff92859b:
+            uuid: 7e16acdc-af5b-420e-9a26-5429ff92859b
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_date'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: day_date_time
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          716305f7-e334-45fa-b550-29b187e09785:
+            uuid: 716305f7-e334-45fa-b550-29b187e09785
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_time'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          113b88f4-7fce-4618-8093-be23a3fed9b6:
+            uuid: 113b88f4-7fce-4618-8093-be23a3fed9b6
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_location'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: address
+                  link: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          223908de-d864-44b7-b128-748604fa614c:
+            uuid: 223908de-d864-44b7-b128-748604fa614c
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_lunch_same'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: list_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          7bf9d420-4eb4-4e5d-b9b1-b436b858a0b0:
+            uuid: 7bf9d420-4eb4-4e5d-b9b1-b436b858a0b0
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_lunch_place'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: address
+                  link: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          d5f58f2c-8b9b-4355-b467-a21fa740ebfd:
+            uuid: d5f58f2c-8b9b-4355-b467-a21fa740ebfd
+            region: second
+            configuration:
+              id: 'field_block:node:ride:field_additional_information'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          56545b8c-00b7-43c1-a686-c247976cf7bd:
+            uuid: 56545b8c-00b7-43c1-a686-c247976cf7bd
+            region: second
+            configuration:
+              id: 'views_block:ride_routes-route_list'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 6
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          b309d3be-735c-4efd-90de-cccdb71ddd67:
+            uuid: b309d3be-735c-4efd-90de-cccdb71ddd67
+            region: content
+            configuration:
+              id: 'views_block:ride_routes-route_maps'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.ride.default
 targetEntityType: node
 bundle: ride

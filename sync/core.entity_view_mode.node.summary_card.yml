@@ -1,0 +1,11 @@
+uuid: de2bbeab-709a-48b4-b20f-6b38e9e3ab6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.summary_card
+label: 'Summary card'
+description: 'Display "Summary for Home Page" in a card view.'
+targetEntityType: node
+cache: true

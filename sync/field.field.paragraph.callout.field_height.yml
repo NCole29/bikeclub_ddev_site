@@ -1,0 +1,23 @@
+uuid: 59deef69-d9f6-4d51-8890-fb82e8291fd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_height
+    - paragraphs.paragraphs_type.callout
+  module:
+    - options
+id: paragraph.callout.field_height
+field_name: field_height
+entity_type: paragraph
+bundle: callout
+label: Height
+description: "\"Auto\" adjusts height dynamically to fit the content; 100% makes an element's height fill the container in which it is placed.\r\nUse 100% if placing multiple cards/callouts in a row if you want them to have the same height regardless of content.\r\n"
+required: false
+translatable: false
+default_value:
+  -
+    value: height-auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.callout.field_background
-    - field.field.paragraph.callout.field_callout_border
-    - field.field.paragraph.callout.field_callout_height
-    - field.field.paragraph.callout.field_card_width
+    - field.field.paragraph.callout.field_button
+    - field.field.paragraph.callout.field_callout_bgcolor
+    - field.field.paragraph.callout.field_height
     - field.field.paragraph.callout.field_ptext
     - field.field.paragraph.callout.field_title
     - paragraphs.paragraphs_type.callout
   module:
+    - link
     - text
 _core:
   default_config_hash: d5UcVuZnJ7AbS0JWsXz20QoXRdUGTqTUHOKGcwu1daE
@@ -19,6 +19,18 @@ targetEntityType: paragraph
 bundle: callout
 mode: default
 content:
+  field_button:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_ptext:
     type: text_default
     label: visually_hidden
@@ -35,7 +47,5 @@ content:
     weight: 0
     region: content
 hidden:
-  field_background: true
-  field_callout_border: true
-  field_callout_height: true
-  field_card_width: true
+  field_callout_bgcolor: true
+  field_height: true

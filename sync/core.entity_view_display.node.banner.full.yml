@@ -1,0 +1,153 @@
+uuid: a0c977dc-f53a-4162-8ea1-996e43f8285c
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.banner.banner_image
+    - field.field.node.banner.field_button
+    - field.field.node.banner.field_resize_banner_image
+    - field.field.node.banner.field_text
+    - image.style.banner
+    - node.type.banner
+  module:
+    - layout_bg
+    - layout_builder
+    - layout_discovery
+    - link
+    - media
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_bg_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          background_color: '#aaaaaa'
+          static_image: true
+          center_content: true
+          add_overlay: true
+          overlay_color: '#000000'
+          overlay_opacity: '0.3'
+          set_text_color: true
+          text_color: '#ffffff'
+          link_underline: false
+        components:
+          58d38e66-c0b9-43a4-a7b8-4c5015c7879b:
+            uuid: 58d38e66-c0b9-43a4-a7b8-4c5015c7879b
+            region: background
+            configuration:
+              id: 'field_block:node:banner:banner_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: media_thumbnail
+                label: visually_hidden
+                settings:
+                  image_link: ''
+                  image_style: banner
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          a8e5b35c-c4df-4957-aef6-ac11c4b66eed:
+            uuid: a8e5b35c-c4df-4957-aef6-ac11c4b66eed
+            region: content
+            configuration:
+              id: 'field_block:node:banner:field_text'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e6a0021d-8e9e-4321-a544-db38e90b71f6:
+            uuid: e6a0021d-8e9e-4321-a544-db38e90b71f6
+            region: content
+            configuration:
+              id: 'field_block:node:banner:field_button'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: visually_hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          482e0c93-eab2-4110-add7-23ac59de121d:
+            uuid: 482e0c93-eab2-4110-add7-23ac59de121d
+            region: content
+            configuration:
+              id: 'extra_field_block:node:banner:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.banner.full
+targetEntityType: node
+bundle: banner
+mode: full
+content:
+  banner_image:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: banner
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_button:
+    type: link
+    label: visually_hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_resize_banner_image: true

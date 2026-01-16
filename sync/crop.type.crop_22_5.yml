@@ -1,0 +1,12 @@
+uuid: 0253a350-cdcc-44c9-905c-ad4fab15e2ec
+langcode: en
+status: true
+dependencies: {  }
+label: 'Crop 22:5'
+id: crop_22_5
+description: 'Banners above page title.'
+aspect_ratio: '22:5'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

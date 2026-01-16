@@ -1,9 +1,6 @@
 langcode: en
 status: open
-dependencies:
-  enforced:
-    module:
-      - bikeclub_stats
+dependencies: {  }
 weight: 0
 open: null
 close: null
@@ -47,7 +44,7 @@ settings:
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  page_theme_name: claro
+  page_theme_name: gin
   form_title: both
   form_submit_once: false
   form_open_message: ''
@@ -220,5 +217,102 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  old_member_fees_save_to_config:
+    id: old_member_fees
+    handler_id: null
+    label: 'Old Member Fees save to config'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: null
+    settings:
+      id: old_member_fees
+      handler_id: null
+      label: 'Old Member Fees save to config'
+      notes: ''
+      status: true
+      conditions: {  }
+      weight: null
+      settings:
+        id: old_member_fees
+        handler_id: null
+        label: 'Old Member Fees save to config'
+        notes: ''
+        status: true
+        conditions: {  }
+        weight: null
+        settings:
+          id: old_member_fees
+          handler_id: null
+          label: 'Old Member Fees save to config'
+          notes: ''
+          status: true
+          conditions: {  }
+          weight: null
+          settings:
+            id: old_member_fees
+            handler_id: null
+            label: 'Old Member Fees save to config'
+            notes: ''
+            status: true
+            conditions: {  }
+            weight: null
+            settings:
+              id: old_member_fees
+              handler_id: null
+              label: 'Old Member Fees save to config'
+              notes: ''
+              status: true
+              conditions: {  }
+              weight: null
+              settings:
+                id: old_member_fees
+                handler_id: null
+                label: 'Old Member Fees save to config'
+                notes: ''
+                status: true
+                conditions: {  }
+                weight: null
+                settings:
+                  id: old_member_fees
+                  handler_id: null
+                  label: 'Old Member Fees save to config'
+                  notes: ''
+                  status: true
+                  conditions: {  }
+                  weight: null
+                  settings:
+                    id: old_member_fees
+                    handler_id: null
+                    label: 'Old Member Fees save to config'
+                    notes: ''
+                    status: true
+                    conditions: {  }
+                    weight: null
+                    settings:
+                      id: old_member_fees
+                      handler_id: null
+                      label: 'Old Member Fees save to config'
+                      notes: ''
+                      status: true
+                      conditions: {  }
+                      weight: null
+                      settings:
+                        id: old_member_fees
+                        handler_id: null
+                        label: 'Old Member Fees save to config'
+                        notes: ''
+                        status: true
+                        conditions: {  }
+                        weight: null
+                        settings:
+                          id: old_member_fees
+                          handler_id: old_member_fees_save_to_config
+                          label: 'Old Member Fees save to config'
+                          notes: ''
+                          status: true
+                          conditions: {  }
+                          weight: 0
+                          settings: {  }
 variants: {  }

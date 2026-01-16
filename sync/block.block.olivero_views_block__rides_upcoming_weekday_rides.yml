@@ -12,7 +12,7 @@ dependencies:
 id: olivero_views_block__rides_upcoming_weekday_rides
 theme: olivero
 region: sidebar
-weight: -8
+weight: -9
 provider: null
 plugin: 'views_block:rides_upcoming-weekday_rides'
 settings:

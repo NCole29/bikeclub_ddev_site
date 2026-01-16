@@ -1,0 +1,24 @@
+uuid: b08b1f50-6ba2-4dc3-81ce-53b94352eccb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - filter.format.basic_html
+    - node.type.banner
+  module:
+    - text
+id: node.banner.field_text
+field_name: field_text
+entity_type: node
+bundle: banner
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

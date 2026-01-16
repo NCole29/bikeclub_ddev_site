@@ -3,66 +3,51 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.callout.field_background
-    - field.field.paragraph.callout.field_callout_border
-    - field.field.paragraph.callout.field_callout_height
-    - field.field.paragraph.callout.field_card_width
+    - field.field.paragraph.callout.field_button
+    - field.field.paragraph.callout.field_callout_bgcolor
+    - field.field.paragraph.callout.field_height
     - field.field.paragraph.callout.field_ptext
     - field.field.paragraph.callout.field_title
     - paragraphs.paragraphs_type.callout
   module:
     - field_group
-    - style_selector
+    - link
     - text
 third_party_settings:
   field_group:
-    group_tab_container:
-      children:
-        - group_content
-        - group_format
-      label: 'Tab container'
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        direction: horizontal
-        width_breakpoint: 320
     group_content:
       children:
         - field_title
         - field_ptext
+        - field_button
       label: Content
       region: content
-      parent_name: group_tab_container
-      weight: 20
-      format_type: tab
+      parent_name: ''
+      weight: 0
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        formatter: open
+        label_as_html: false
+        open: true
         description: ''
         required_fields: true
     group_format:
       children:
-        - field_background
-        - field_callout_border
-        - field_callout_height
-        - field_card_width
-      label: Format
+        - field_callout_bgcolor
+        - field_height
+      label: Appearance
       region: content
-      parent_name: group_tab_container
-      weight: 21
-      format_type: tab
+      parent_name: ''
+      weight: 1
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        formatter: closed
+        label_as_html: false
+        open: true
         description: ''
         required_fields: true
 _core:
@@ -72,39 +57,23 @@ targetEntityType: paragraph
 bundle: callout
 mode: default
 content:
-  field_background:
-    type: style_selector_compact_widget
-    weight: 3
+  field_button:
+    type: link_default
+    weight: 10
     region: content
     settings:
-      type: round
-      size: default
-      advanced:
-        color_prop: background-color
-        extra_classes: ''
-        empty_option: None
-        ui_settings:
-          alpha_grid: true
-          check_icon: true
-          empty_icon: true
-          text_icon: false
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
-  field_callout_border:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_callout_height:
+  field_callout_bgcolor:
     type: options_select
-    weight: 5
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_card_width:
+  field_height:
     type: options_select
-    weight: 6
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -124,6 +93,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
 hidden:
   created: true
-  status: true

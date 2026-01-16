@@ -1,0 +1,45 @@
+uuid: 68296fe3-26d4-45e7-87cb-f89eb2ce2db8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image_crop_22_5.field_image_category
+    - field.field.media.image_crop_22_5.field_media_image_1
+    - image.style.thumbnail_22_5
+    - media.type.image_crop_22_5
+  module:
+    - svg_image
+id: media.image_crop_22_5.default
+targetEntityType: media
+bundle: image_crop_22_5
+mode: default
+content:
+  field_image_category:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_media_image_1:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail_22_5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  publish_on: true
+  status: true
+  uid: true
+  unpublish_on: true

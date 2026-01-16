@@ -1,0 +1,30 @@
+uuid: f574c905-5e7b-4089-883d-10b27aec439e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:paragraphs_block:6f055b80-cd89-44dc-baff-12461f0d0ebb'
+  module:
+    - block_content
+    - system
+  theme:
+    - bikeclub_solo
+id: bikeclub_solo_homepageicons
+theme: bikeclub_solo
+region: footer_first
+weight: 0
+provider: null
+plugin: 'block_content:6f055b80-cd89-44dc-baff-12461f0d0ebb'
+settings:
+  id: 'block_content:6f055b80-cd89-44dc-baff-12461f0d0ebb'
+  label: 'Home page icons'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -1,0 +1,32 @@
+uuid: ad97b5a2-e95a-4748-99a6-7c9d4b4e6c95
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.crop_22_5
+  module:
+    - crop
+name: thumbnail_22_5
+label: 'Thumbnail 22:5'
+effects:
+  c0ec3227-a3d3-4721-9862-6003995a984f:
+    uuid: c0ec3227-a3d3-4721-9862-6003995a984f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: crop_22_5
+      automatic_crop_provider: null
+  088ea305-b794-4bd4-b20c-029fec874984:
+    uuid: 088ea305-b794-4bd4-b20c-029fec874984
+    id: image_scale
+    weight: 2
+    data:
+      width: 440
+      height: 100
+      upscale: false
+  54f9e47e-55e1-4384-ae64-8e538e8cf199:
+    uuid: 54f9e47e-55e1-4384-ae64-8e538e8cf199
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

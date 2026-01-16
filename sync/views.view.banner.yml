@@ -1,6 +1,6 @@
 uuid: 9d4eadd9-c587-400d-aa91-5b1fdffbe7f3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.banner_image
@@ -281,13 +281,16 @@ display:
       style:
         type: grid_responsive
         options:
-          grouping: {  }
-          columns: 1
+          uses_fields: false
+          columns: 3
           cell_min_width: 100
-          grid_gutter: 10
+          grid_gutter: 3
           alignment: horizontal
       row:
-        type: fields
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: default
       query:
         type: views_query
         options:
@@ -400,8 +403,10 @@ display:
           grid_gutter: 10
           alignment: horizontal
       row:
-        type: fields
-        options: {  }
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: default
       defaults:
         style: false
         row: false
@@ -411,6 +416,7 @@ display:
       display_description: ''
       display_extenders: {  }
       block_description: 'Banner-home page'
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
@@ -683,7 +689,25 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: grid_responsive
+        options:
+          grouping: {  }
+          columns: 1
+          cell_min_width: 100
+          grid_gutter: 0
+          alignment: horizontal
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            banner_image: banner_image
+          separator: ''
+          hide_empty: false
       defaults:
+        style: false
+        row: false
         fields: false
         arguments: false
         filters: false

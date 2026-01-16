@@ -1,0 +1,38 @@
+uuid: e709da48-c053-4799-85dc-582796c447b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.image_crop_22_5.field_image_category
+    - field.field.media.image_crop_22_5.field_media_image_1
+    - image.style.thumbnail_22_5
+    - media.type.image_crop_22_5
+  module:
+    - svg_image
+id: media.image_crop_22_5.media_library
+targetEntityType: media
+bundle: image_crop_22_5
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail_22_5
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_image_category: true
+  field_media_image_1: true
+  name: true
+  uid: true

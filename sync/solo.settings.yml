@@ -9,7 +9,7 @@ color_coded_system_tabs: true
 site_breadcrumb_scroll: true
 count_main: 3
 count_top: 3
-count_bottom: 0
+count_bottom: 1
 count_footer: 1
 footer_copyright: 'Copyright © %year% Company Name - All rights reserved'
 footer_link: 'https://www.alaahaddad.com/'

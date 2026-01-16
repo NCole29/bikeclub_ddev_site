@@ -14,7 +14,7 @@ field_name: field_components
 entity_type: node
 bundle: page
 label: Components
-description: 'Click "+" to add components to the page layout. If none available, install <a href="/admin/structure/paragraphs_type">paragraph types</a> from the <a href="/admin/modules/browse/recipes">bikeclub_paragraph_types recipe</a>, or alternative source.'
+description: "Click \"+\" to add components to the page layout. The final display will include styling not shown on this edit page.\r\n\r\nIf components are not available for selection, install <a href=\"/admin/structure/paragraphs_type\">paragraph types</a> from the <a href=\"/admin/modules/browse/recipes\">bikeclub_paragraph_types recipe</a>, or alternative source."
 required: false
 translatable: false
 default_value: {  }
@@ -30,6 +30,15 @@ settings:
         enabled: false
       card:
         weight: 11
+        enabled: false
+      hero_banner:
+        weight: 10
+        enabled: false
+      icon:
+        weight: 11
+        enabled: false
+      ptype:
+        weight: 12
         enabled: false
       section:
         weight: 12

@@ -1,0 +1,10 @@
+uuid: a381afe3-96ff-4067-8191-4cf288fc7867
+langcode: en
+status: true
+dependencies: {  }
+id: icon
+label: Icon
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -11,8 +11,8 @@ dependencies:
     - bikeclub_solo
 id: bikeclub_solo_views_block__locations_ride_start_map_block
 theme: bikeclub_solo
-region: footer_first
-weight: 0
+region: bottom_first
+weight: -12
 provider: null
 plugin: 'views_block:locations-ride_start_map_block'
 settings:

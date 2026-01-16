@@ -1,0 +1,329 @@
+uuid: ac7a917a-8b59-49d0-818a-3315f7ef62c5
+langcode: en
+status: open
+dependencies:
+  module:
+    - bikeclub
+    - honeypot
+    - webform_options_limit
+third_party_settings:
+  honeypot:
+    honeypot: true
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: century_volunteer_signup
+title: 'Century Volunteer Signup'
+description: ''
+categories:
+  - 'Volunteer signup'
+elements: |-
+  civicrm_1_contact_1_fieldset_fieldset:
+    '#type': fieldset
+    '#title': 'Contact information'
+    '#title_display': invisible
+  contactinfo_header:
+    '#type': webform_markup
+    '#markup': '<h3>Contact Information</h3>'
+  first_name:
+    '#type': textfield
+    '#title': 'First name'
+    '#maxlength': 25
+    '#size': 30
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': 'Last name'
+    '#size': 30
+    '#required': true
+  email:
+    '#type': email
+    '#title': Email
+    '#size': 30
+    '#required': true
+  tshirt_size:
+    '#type': select
+    '#title': 'T-shirt size (first-time volunteers)'
+    '#options':
+      S: S
+      M: M
+      L: L
+      XL: XL
+      XXL: XXL
+    '#empty_option': 'Select size'
+  positions_header:
+    '#type': webform_markup
+    '#markup': '<h3>Positions</h3>'
+  flexbox_01:
+    '#type': webform_flexbox
+    '#justify_content': justify-flex-start
+    positions:
+      '#type': checkboxes
+      '#title': Positions
+      '#title_display': invisible
+      '#options':
+        'Parking Lot attendants: 6 am to 9 am': 'Parking Lot attendants: 6 am to 9 am -- Manage parking areas for safety'
+        'Registration: 6am-9am': 'Registration: 6am-9am -- Sign in pre-registered participants; help set up the area'
+        'Rest Stop Set Up and Supply distribution: 6:30am-9am': 'Rest Stop Set Up and Supply distribution: 6:30am-9am -- Set up rest stops: distribute supplies and set up tables and canopies.'
+        'Set Up Triton Lunch Area: 8:30am-9:30am': 'Set Up Triton Lunch Area: 8:30am-9:30am -- Set up the large canopy, kitchen area, tables and chairs.'
+        'Runner for the Day': 'Runner for the Day -- Be available at Triton to run supplies to rest stops; assist at Triton with other needs.'
+        'Rest Stop 1: Sanborn Memorial School - 7:30am-11:15am': 'Rest Stop 1: Sanborn Memorial School - 7:30am-11:15am -- Engage with and serve  century riders.'
+        'Rest Stop 2: Maudslay State Park - 7:30am to 11:15am ': 'Rest Stop 2: Maudslay State Park - 7:30am to 11:15am  -- Engage with and serve century riders.'
+        'Rest Stop 3: Newbury Elementary - 8am-1:15pm': 'Rest Stop 3: Newbury Elementary - 8am-1:15pm -- Engage with and serve century riders.'
+        'Rest Stop 4: Bradley Palmer - 9am-12pm': 'Rest Stop 4: Bradley Palmer - 9am-12pm -- Engage with and serve century riders.'
+        'Rest Stop 4: Bradley Palmer - 12pm-3:15pm': 'Rest Stop 4: Bradley Palmer - 12pm-3:15pm -- Engage with and serve  century riders.'
+        'Roving sag: 7am-4pm ': "Roving sag: 7am-4pm  -- Be on the road to assist riders' non-emergency needs; mainly retrieving riders who can't continue."
+        'Triton Lunch Crew: 10am-2pm': 'Triton Lunch Crew: 10am-2pm -- Assist with food prep and engaging with and serving riders.'
+        'Triton Lunch Crew: 2pm-5pm': 'Triton Lunch Crew: 2pm-5pm -- Assist with food prep and engaging with and serving riders.'
+        'Final Rider Sweep ': 'Final Rider Sweep  -- Drive the routes that have not been swept at 5 pm to be sure all riders have completed the ride. '
+        Arrowing: 'Arrowing -- Work on arrowing the  Blazing Saddles routes.'
+        'Shut Down Triton: 4pm - 5pm': 'Shut Down Triton: 4pm - 5pm -- Be part of the team to close and clean Triton.'
+        'Administrative Tasks that arise': 'Administrative Tasks that arise -- Mainly affixing labels to the rider wristbands'
+        'Communication and promotion': 'Communication and promotion -- Promote the Century with other bikeclubs, FaceBook,   and other websites.'
+      '#required': true
+      '#options__properties': ''
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: webform_source_entity
+  form_submit_once: false
+  form_open_message: '<h5><strong>The sign-up form will open on&nbsp;[webform:open:custom:D, M j, Y] at [webform:open:custom:g:ia].</strong></h5>'
+  form_close_message: '<h5><strong>The sign-up form closed on [webform:close:custom:D, M j, Y] at [webform:close:custom:g:ia].</strong></h5>'
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: '[current-page:title]'
+  confirmation_message: |-
+    <h3>Registration is complete for&nbsp;<strong>[webform_submission:node]</strong></h3>
+    Name:&nbsp;<strong>[webform_submission:values:civicrm_1_contact_1_contact_first_name]&nbsp;[webform_submission:values:civicrm_1_contact_1_contact_last_name]</strong><br />
+    Sign-up date:&nbsp;[webform_submission:completed:custom:D, M j, Y g:ia]<br />
+    <br />
+    Positions: [webform_submission:values:positions]<br />
+    <br />
+    T-shirt size (if applicable):&nbsp;[webform_submission:values:tshirt_size]
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  century_signup_limit:
+    id: options_limit
+    handler_id: century_signup_limit
+    label: 'century signup limit'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: -50
+    settings:
+      element_key: positions
+      limit: null
+      limits:
+        'Parking Lot attendants: 6 am to 9 am': 3
+        'Registration: 6am-9am': 5
+        'Rest Stop Set Up and Supply distribution: 6:30am-9am': 5
+        'Set Up Triton Lunch Area: 8:30am-9:30am': 4
+        'Runner for the Day': 2
+        'Rest Stop 1: Sanborn Memorial School - 7:30am-11:15am': 4
+        'Rest Stop 2: Maudslay State Park - 7:30am to 11:15am ': 6
+        'Rest Stop 3: Newbury Elementary - 8am-1:15pm': 8
+        'Rest Stop 4: Bradley Palmer - 9am-12pm': 7
+        'Rest Stop 4: Bradley Palmer - 12pm-3:15pm': 8
+        'Roving sag: 7am-4pm ': 3
+        'Triton Lunch Crew: 10am-2pm': 7
+        'Triton Lunch Crew: 2pm-5pm': 6
+        'Final Rider Sweep ': 2
+        Arrowing: 4
+        'Shut Down Triton: 4pm - 5pm': 8
+        'Administrative Tasks that arise': 1
+        'Communication and promotion': 2
+      limit_reached_message: '@name is not available'
+      limit_source_entity: true
+      limit_user: false
+      option_none_action: disable
+      option_message_display: label
+      option_multiple_message: '[@remaining remaining]'
+      option_single_message: '[@remaining remaining]'
+      option_none_message: '[@remaining remaining]'
+      option_unlimited_message: '[Unlimited]'
+      option_error_message: '@name: @label is unavailable.'
+      tableselect_header: ''
+  add_user_id:
+    id: AddUserId
+    handler_id: add_user_id
+    label: 'Add User Id'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: -49
+    settings: {  }
+variants: {  }

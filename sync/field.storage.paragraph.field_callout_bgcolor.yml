@@ -1,0 +1,27 @@
+uuid: 12cfcfcd-6959-41cd-8bc3-647395c6ee3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_callout_bgcolor
+field_name: field_callout_bgcolor
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: bg-white
+      label: 'White (default)'
+    -
+      value: bg-light-blue
+      label: 'Light blue'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

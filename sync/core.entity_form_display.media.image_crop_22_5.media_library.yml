@@ -1,0 +1,43 @@
+uuid: d243ce77-2e59-4eda-a03d-09c4ce5971ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.image_crop_22_5.field_image_category
+    - field.field.media.image_crop_22_5.field_media_image_1
+    - image.style.thumbnail_22_5
+    - media.type.image_crop_22_5
+  module:
+    - image_widget_crop
+id: media.image_crop_22_5.media_library
+targetEntityType: media
+bundle: image_crop_22_5
+mode: media_library
+content:
+  field_media_image_1:
+    type: image_widget_crop
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail_22_5
+      crop_preview_image_style: thumbnail_22_5
+      crop_list:
+        - crop_22_5
+      crop_types_required:
+        - crop_22_5
+      warn_multiple_usages: true
+      show_crop_area: false
+      show_default_crop: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_image_category: true
+  name: true
+  path: true
+  publish_on: true
+  scheduler_settings: true
+  status: true
+  uid: true
+  unpublish_on: true

@@ -138,6 +138,15 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_background_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
   field_components:
     type: layout_paragraphs
     label: hidden

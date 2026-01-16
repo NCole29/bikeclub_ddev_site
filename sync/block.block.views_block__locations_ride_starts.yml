@@ -2,11 +2,8 @@ uuid: f24b1251-6da8-4952-89db-87861b949d90
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.locations
   module:
     - system
-    - views
   theme:
     - olivero
 _core:

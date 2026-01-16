@@ -1,0 +1,31 @@
+uuid: debe6e0e-ebbf-4043-8272-02e7c95c9a69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image_crop_16_9
+    - media.type.image_crop_20_7
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: banner
+label: Image
+description: 'A single image may be displayed at the top of the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image_crop_20_7: image_crop_20_7
+      image_crop_16_9: image_crop_16_9
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image_crop_20_7
+field_type: entity_reference

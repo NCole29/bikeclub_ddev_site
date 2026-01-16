@@ -1,0 +1,13 @@
+uuid: 8b40d227-db0f-4d14-8535-19752e843633
+langcode: en
+status: true
+dependencies: {  }
+id: change_status
+label: 'Change status'
+category: Bikeclub
+likert: false
+options: |-
+  rejected: Rejected
+  pending: Pending
+  completed: Completed
+  deployed: Deployed

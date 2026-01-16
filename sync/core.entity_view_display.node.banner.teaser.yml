@@ -1,0 +1,138 @@
+uuid: 1bbb12ef-5a84-4426-8ebb-b93e0504a637
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.banner.banner_image
+    - field.field.node.banner.field_button
+    - field.field.node.banner.field_resize_banner_image
+    - field.field.node.banner.field_text
+    - node.type.banner
+  module:
+    - layout_bg
+    - layout_builder
+    - layout_builder_restrictions
+    - link
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_bg_onecol
+        layout_settings:
+          label: Teaser
+          context_mapping: {  }
+          background_color: '#ffffff'
+          static_image: true
+          center_content: true
+          add_overlay: true
+          overlay_color: '#ffffff'
+          overlay_opacity: '0'
+          set_text_color: true
+          text_color: '#ffffff'
+          link_underline: false
+        components:
+          a009c7f0-e3b5-48dc-ad24-8895429b8dee:
+            uuid: a009c7f0-e3b5-48dc-ad24-8895429b8dee
+            region: background
+            configuration:
+              id: 'field_block:node:banner:banner_image'
+              label: Image
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: visually_hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          2b4e945d-fcdb-47c3-b147-ed1a88de168e:
+            uuid: 2b4e945d-fcdb-47c3-b147-ed1a88de168e
+            region: content
+            configuration:
+              id: 'field_block:node:banner:field_text'
+              label: Text
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          61076c0d-9c6b-4662-865a-1e468b8ebc73:
+            uuid: 61076c0d-9c6b-4662-865a-1e468b8ebc73
+            region: content
+            configuration:
+              id: 'field_block:node:banner:field_button'
+              label: Button
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: visually_hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks:
+        'Content fields':
+          - 'field_block:node:banner:title'
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+_core:
+  default_config_hash: dFv9fYd57p3AqqhEWPay0fqsTaBl0vIzD8VtcrawK-0
+id: node.banner.teaser
+targetEntityType: node
+bundle: banner
+mode: teaser
+content:
+  field_button:
+    type: link
+    label: visually_hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  banner_image: true
+  field_resize_banner_image: true
+  links: true

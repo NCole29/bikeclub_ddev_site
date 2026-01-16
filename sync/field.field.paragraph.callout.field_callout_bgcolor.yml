@@ -1,0 +1,21 @@
+uuid: 4023e950-37ef-495d-9cb0-dd3f642a5e73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_bgcolor
+    - paragraphs.paragraphs_type.callout
+  module:
+    - options
+id: paragraph.callout.field_callout_bgcolor
+field_name: field_callout_bgcolor
+entity_type: paragraph
+bundle: callout
+label: 'Background color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

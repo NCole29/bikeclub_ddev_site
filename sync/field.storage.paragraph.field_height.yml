@@ -1,0 +1,27 @@
+uuid: 36580802-2432-4521-a046-9a476b8fdbce
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_height
+field_name: field_height
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: height-auto
+      label: 'Auto (fit contents)'
+    -
+      value: height-100
+      label: '100% (fill container)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

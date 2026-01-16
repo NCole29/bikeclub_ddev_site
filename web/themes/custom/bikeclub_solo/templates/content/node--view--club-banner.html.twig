@@ -1,0 +1,7 @@
+{{ include('bikeclub:banner', {
+  heading: paragraph.field_title.value,
+  button_uri: paragraph.field_button.uri,
+  button_text: paragraph.field_button.title,
+  image: content.field_image,
+  content: content|without(content.field_title, content.field_image)
+}, with_context = false) }}

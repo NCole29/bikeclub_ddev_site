@@ -12,7 +12,7 @@ dependencies:
 id: olivero_views_block__events_upcoming_events
 theme: olivero
 region: sidebar
-weight: -10
+weight: -8
 provider: null
 plugin: 'views_block:events-upcoming_events'
 settings:

@@ -13,8 +13,8 @@ field_name: field_image
 entity_type: paragraph
 bundle: card
 label: Image
-description: ''
-required: false
+description: 'A single image may be displayed at the top of the card.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -27,5 +27,5 @@ settings:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: null
+    auto_create_bundle: ''
 field_type: entity_reference

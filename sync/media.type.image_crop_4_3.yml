@@ -4,14 +4,28 @@ status: true
 dependencies:
   module:
     - crop
+    - scheduler
 third_party_settings:
   crop:
     image_field: _none
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
 _core:
   default_config_hash: DnofcDoxMRV6Tr6c_zItWRZXyte1PgDRmX9ECbV-gRo
 id: image_crop_4_3
 label: 'Image, 4:3 aspect ratio'
-description: 'Use local images with crop for reusable media; 4:3 aspect ratio enforced.'
+description: 'Use for images added within the text editor; 4:3 aspect ratio enforced.'
 source: image
 queue_thumbnail_downloads: false
 new_revision: false

@@ -1,0 +1,60 @@
+uuid: e4885cfe-4871-48f9-a22b-4ee7cb26f2e3
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.banner.field_button
+    - field.field.paragraph.banner.field_image
+    - field.field.paragraph.banner.field_ptext
+    - field.field.paragraph.banner.field_title
+    - image.style.large_4_3
+    - paragraphs.paragraphs_type.banner
+  module:
+    - link
+    - media
+    - text
+id: paragraph.banner.preview
+targetEntityType: paragraph
+bundle: banner
+mode: preview
+content:
+  field_button:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large_4_3
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ptext:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

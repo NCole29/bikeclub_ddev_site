@@ -717,7 +717,7 @@ display:
           admin_label: author
           plugin_id: standard
           required: true
-      show_admin_links: false
+      show_admin_links: true
       display_extenders: {  }
     cache_metadata:
       max-age: 0

@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.banner_image
     - media.type.gallery
-    - media.type.image_crop_20_7
+    - media.type.image_crop_22_5
     - node.type.banner
 _core:
   default_config_hash: vpDr4EzQVGcMbIHStMpC7E_RaoZF8lCYt7PqM9CT898
@@ -13,8 +13,8 @@ id: node.banner.banner_image
 field_name: banner_image
 entity_type: node
 bundle: banner
-label: Images
-description: "\r\n"
+label: Image
+description: ''
 required: true
 translatable: false
 default_value: {  }
@@ -23,11 +23,11 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image_crop_20_7: image_crop_20_7
+      image_crop_22_5: image_crop_22_5
       gallery: gallery
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: image_crop_20_7
+    auto_create_bundle: image_crop_22_5
 field_type: entity_reference

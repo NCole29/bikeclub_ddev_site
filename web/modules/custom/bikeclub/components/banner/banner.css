@@ -1,0 +1,69 @@
+/* Set image to fill full screen width. */
+.solo-padding {
+  padding: 0; 
+}
+
+/* Default styles for all screen sizes (e.g., mobile-first) */
+.my-responsive-content .layout-bg-content-container.center-content {
+  display:flex;
+}
+
+/* Container for TEXT and BUTTON */
+.my-responsive-content .layout__region--content {
+  display: inline-block;
+  padding: .5rem .5rem 1rem .5rem;
+}
+
+/* TEXT */
+.layout__region--content .field--name-field-text h3, 
+.layout__region--content .field--name-field-ptext h3 {
+  margin:0;
+}
+.layout__region--content .field--name-field-text p, 
+.layout__region--content .field--name-field-ptext p  {
+  margin: 0;
+  font-weight: 700; /* bold because no background on mobile */
+}
+
+/* BUTTON */
+.layout__region--content .field--name-field-button {
+  margin-top: 1rem;
+}
+
+.layout__region--content .field--name-field-button a {
+  padding: .5rem .8rem .5rem .8rem;
+  background-color: #d4253d;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: white!important;
+  text-transform: uppercase;
+}
+
+.layout__region--content .field--name-field-button a:hover {
+  background-color: #d4253d;
+  color: white!important;
+  font-weight: 700;
+}
+
+
+/* Styles for screens wider than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+  .my-responsive-content .layout-bg-content-container.center-content {
+    padding-left: 4rem;
+    justify-content:left;
+  }
+
+  /* Add container for TEXT and BUTTON with background and border radius */
+  .my-responsive-content .layout__region--content {
+    display: block;
+    background-color: white; 
+    opacity: 1;
+    border-radius: .5rem;
+    padding: .5rem .5rem 1rem .5rem;
+  }
+
+  .layout__region--content .field--name-field-text p, 
+  .layout__region--content .field--name-field-ptext p  {
+    font-weight:normal; /* not bold since its on white background */
+  }
+}

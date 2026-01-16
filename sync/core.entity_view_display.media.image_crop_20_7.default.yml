@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.media.image_crop_20_7.field_image_category
     - field.field.media.image_crop_20_7.field_media_image
-    - image.style.banner
+    - image.style.banner_paragraph
     - media.type.image_crop_20_7
   module:
     - svg_image
@@ -29,7 +29,7 @@ content:
     label: visually_hidden
     settings:
       image_link: ''
-      image_style: banner
+      image_style: banner_paragraph
       image_loading:
         attribute: lazy
       svg_attributes:

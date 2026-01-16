@@ -1,6 +1,6 @@
 uuid: a83be26a-24a0-4ce5-b52e-5717d6c78f54
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.media.small

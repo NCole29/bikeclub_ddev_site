@@ -4,9 +4,9 @@ status: open
 dependencies: {  }
 _core:
   default_config_hash: ohjw79KFMl2FLIfU2_qOPJ4wPCPRiySWFcOYJw4pYKo
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -64,7 +64,7 @@ settings:
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  page_theme_name: claro
+  page_theme_name: gin
   form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
@@ -94,6 +94,7 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_file_limit_message: ''
   form_attributes: {  }
   form_method: ''
   form_action: ''

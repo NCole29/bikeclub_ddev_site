@@ -1,0 +1,17 @@
+uuid: 45ed2f64-abd6-46c5-a159-f35917ef96fc
+langcode: en
+status: true
+dependencies: {  }
+id: reports
+label: Reports
+category: Bikeclub
+likert: false
+options: |-
+  Century: Century
+  'Fun committee': 'Fun committee'
+  'Gravel rides': 'Gravel rides'
+  President: President
+  Rides: Rides
+  Treasurer: Treasurer
+  'Membership Meeting - Spring': 'Membership Meeting - Spring'
+  'Membership Meeting - Fall': 'Membership Meeting - Fall'

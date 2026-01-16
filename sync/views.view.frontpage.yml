@@ -242,6 +242,7 @@ display:
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       query:
         type: views_query
@@ -687,18 +688,7 @@ display:
         filter_groups: false
         header: false
       display_description: ''
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: false
-          content: "<hr style=\"height:1px;background-color:#155295;\">\r\n<h2><strong>Announcements</strong></h2>\r\n<hr style=\"background-color:#155295;\">"
-          tokenize: false
+      header: {  }
       display_extenders: {  }
       path: node
     cache_metadata:

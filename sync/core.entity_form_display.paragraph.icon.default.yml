@@ -1,0 +1,23 @@
+uuid: 3d18f485-c45b-4085-bbca-cbac78c0eda6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon.field_icon
+    - paragraphs.paragraphs_type.icon
+  module:
+    - fontawesome
+id: paragraph.icon.default
+targetEntityType: paragraph
+bundle: icon
+mode: default
+content:
+  field_icon:
+    type: fontawesome_icon_widget
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

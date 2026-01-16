@@ -1,0 +1,59 @@
+uuid: a0f9558b-f486-4ff6-8a25-1a144b616826
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.card
+    - field.field.paragraph.card.field_card_bgcolor
+    - field.field.paragraph.card.field_height
+    - field.field.paragraph.card.field_image
+    - field.field.paragraph.card.field_link
+    - field.field.paragraph.card.field_ptext
+    - field.field.paragraph.card.field_title
+    - image.style.large_4_3
+    - paragraphs.paragraphs_type.card
+  module:
+    - layout_builder
+    - media
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: BEN--OToCsbtc0YdH4SOoCJfJCgYKGCTyk11KFz7Gik
+id: paragraph.card.card
+targetEntityType: paragraph
+bundle: card
+mode: card
+content:
+  field_image:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large_4_3
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ptext:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_card_bgcolor: true
+  field_height: true
+  field_link: true

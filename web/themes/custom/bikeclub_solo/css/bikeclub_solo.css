@@ -9,9 +9,17 @@
   padding-bottom: 24px;
 }
 
+.full-width {
+  width:100%!important;
+}
 /* system message on Appearance > solo had black bckgrnd and was unreadable */
 ul.settings-message {
   background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 3%, #ffffff 100%) !important;
+}
+
+/* Eliminate padding above Calendar & Log in menu */
+.header-inner {
+  padding-top:0!important;
 }
 
 /* Change dark background on account menu */
@@ -42,6 +50,13 @@ h3 {
 @media(max-width: 767px) {
   h2 {
     font-size:20px!important;
+    margin:0;
+  }
+  p {
+    margin-bottom: .5rem;
+  }
+  .bottom-container {
+    margin-top: -2rem!important;
   }
 }
 
@@ -69,7 +84,11 @@ label, .field__label {
    Barely noticeable on desktop but helps on phone. 
  */
 .region-inner {
-  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.main-container-inner {
+  padding-top: 0!important;
 }
 
 /* Reduce form width (improves webform fit on page) */ 

@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.banner_image
     - media.type.gallery
-    - media.type.image_crop_20_7
+    - media.type.image_crop_22_5
     - node.type.webform
 id: node.webform.banner_image
 field_name: banner_image
@@ -21,11 +21,11 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image_crop_20_7: image_crop_20_7
+      image_crop_22_5: image_crop_22_5
       gallery: gallery
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: image_crop_20_7
+    auto_create_bundle: image_crop_22_5
 field_type: entity_reference
