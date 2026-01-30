@@ -1,4 +1,12 @@
+{# overlay_bgcolor and button colors are set in bikeclub_solo theme settings (Appearance)
+   and made available to Twig via a preprocess hook in bikeclub_solo.theme #}
+
 {{ include('bikeclub:banner', {
+  overlay_bgcolor: overlay_bgcolor,
+  button_text: button_text,
+  button_tx_hover: button_tx_hover,
+  button_bg: button_bg ,
+  button_bg_hover: button_bg_hover,
   heading: paragraph.field_title.value,
   button_uri: paragraph.field_button.uri,
   button_text: paragraph.field_button.title,

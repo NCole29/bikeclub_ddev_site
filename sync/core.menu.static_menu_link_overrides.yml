@@ -7,3 +7,15 @@ definitions:
     weight: 0
     expanded: false
     enabled: true
+  bikeclub_reports__uploads:
+    enabled: true
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    weight: -9
+  bikeclub_reports__file_uploads:
+    menu_name: admin
+    parent: system.admin
+    weight: -8
+    expanded: true
+    enabled: true

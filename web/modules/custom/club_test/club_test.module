@@ -21,48 +21,29 @@ use Drupal\file_mdm\FileMetadataManagerInterface;
 function club_test_help($route_name, RouteMatchInterface $route_match) {
 
   if ($route_name == 'help.page.club_test') {
-   
+
+    // theme_get_setting() is deprecated as of Drupal 11.3
+
+    $logo = theme_get_setting('logo.url', 'bikeclub_solo');
+    $callout_color = theme_get_setting('settings_bikeclub___callout_br', 'bikeclub_solo');
+    
+    $theme_name = \Drupal::config('system.theme')->get('default');
+    $config = \Drupal::configFactory()->getEditable("{$theme_name}.settings");
+
+    kint($config);
+    kint($logo);
+    kint($callout_color);
+
+    /* Test this after update to 11.3.2 - using the service is mandatory with Drupal 12 
   
-      die;
+    $themeSettingsProvider = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
+    $logo = $themeSettingsProvider->getSetting('logo.url', 'bikeclub_solo');
+
+    // To get the value of the 'logo' setting for the 'seven' theme
+    $logo_setting = $theme_settings_provider->getSettings('bikeclub_solo')['logo'];
+
+    kint($logo);
+    */
+    die;
   }
 }
-
-/*
-  //Tried to access file size but this did not work.
-    $uri = 'public://NSC favicon.jpg';
-    $url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
-
-    kint($url);
-
-    $fmdm = \Drupal::service(FileMetadataManagerInterface::class);
-    $my_file_metadata = $fmdm->uri($uri);
-    
-    kint($my_file_metadata);
-
-    $mime = $my_file_metadata->getMetadata('getimagesize', 'mime');
-
-    kint($mime);
-    die;
- */
-/*
-    $update_manager = \Drupal::service('entity.definition_update_manager');
-  
-    $entity_id = 'webform_submission';
-    $fields = [
-      'entity_id_comment',
-      'entity_id_smart_date_rule',
-    ];
-   
-    foreach ($fields as $field) {
-      // Load the field storage definition for the field to be uninstalled.
-      $definition = $update_manager->getFieldStorageDefinition($field, $entity_id);
-
-      // Uninstall the field storage definition.
-      if ($definition) {
-        $update_manager->uninstallFieldStorageDefinition($definition);
-      }
-      echo '<br>The base field <strong>' . $field . '</strong> was uninstalled from ' . $entity_id;
-    }
-   
-    die;
-*/

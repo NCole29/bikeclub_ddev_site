@@ -149,7 +149,7 @@
   {% endif %}
 
   {% if site_regions_footer_disable == 0 %}
-  {% include '@solo/partials/_footer-regions.html.twig' %}
+  {% include '@bikeclub_solo/partials/_footer-regions.html.twig' %}
   {% endif %}
   {% if site_regions_footer_disable == 1 and is_front %}
   {% include '@solo/partials/_footer-regions.html.twig' %}
@@ -158,8 +158,7 @@
   {% include '@solo/partials/_footer-regions.html.twig' %}
   {% endif %}
 
-  {% include '@solo/partials/_footer-menu.html.twig' %}
-
+  {# MOVED SOCIAL ICONS FROM FOOTER MENU TO FOOTER THIRD CONTAINER #}
   {% include '@solo/partials/_copyright.html.twig' %}
 </div>
 <!-- End: Page Wrapper -->

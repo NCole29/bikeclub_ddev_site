@@ -1,18 +1,21 @@
 {#  card.twig is "included" in bikeclub_solo/templates/paragraphs/paragraph--card.html.twig
     which must be modified if fields are added.
 
-  Do not put paragraph--card.html.twig in the module/templates folder, because then
-  it's applied to the admin theme and contextual links for editing are not displayed.
+  Do not put paragraph--callout.html.twig in the module/templates folder, because then
+  it's applied to the admin theme and the contextual edit link is not displayed in the admin view.
+ 
+  shade_color is set in the subtheme (Appearance > Bikeclub_solo) and made available to the template 
+  via a preprocess hook in bikeclub_solo.theme.
  #}
 {%
   set classes = [
 	'card',
 	height, 
-  bgcolor,
   ]
 %}
+{% set bg_color = shaded ? shade_color: '#ffffff' %}
 
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }} style="background-color: {{ bg_color }};">
   <div class="card-image">
     {% if link %}
       <a href="{{ link }}">

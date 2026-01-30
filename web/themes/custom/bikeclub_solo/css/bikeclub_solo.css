@@ -12,12 +12,24 @@
 .full-width {
   width:100%!important;
 }
-/* system message on Appearance > solo had black bckgrnd and was unreadable */
+
+/* Three footer containers */
+.footer-site-name {
+  display:block;
+  font-size:1.5rem;
+  margin:0!important;
+}
+
+.footer-width {
+  width:33%;
+}
+
+/* system message on Appearance > solo had black background and was unreadable */
 ul.settings-message {
   background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 3%, #ffffff 100%) !important;
 }
 
-/* Eliminate padding above Calendar & Log in menu */
+/* Eliminate padding (fixes Calendar & Login menu */
 .header-inner {
   padding-top:0!important;
 }

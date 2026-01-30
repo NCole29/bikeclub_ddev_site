@@ -1,0 +1,21 @@
+uuid: 0e2d80b5-f21a-49c8-bb49-1a5454dba919
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shaded_background
+    - paragraphs.paragraphs_type.callout
+id: paragraph.callout.field_shaded_background
+field_name: field_shaded_background
+entity_type: paragraph
+bundle: callout
+label: 'Shaded background'
+description: 'If unchecked, the background is white. The shaded background color is set at Appearance > Bikeclub_solo.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

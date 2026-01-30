@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.card.field_card_bgcolor
     - field.field.paragraph.card.field_height
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
     - field.field.paragraph.card.field_ptext
+    - field.field.paragraph.card.field_shaded_background
     - field.field.paragraph.card.field_title
     - paragraphs.paragraphs_type.card
   module:
@@ -19,7 +19,7 @@ third_party_settings:
   field_group:
     group_card_format:
       children:
-        - field_card_bgcolor
+        - field_shaded_background
         - field_height
       label: Appearance
       region: content
@@ -60,15 +60,9 @@ targetEntityType: paragraph
 bundle: card
 mode: default
 content:
-  field_card_bgcolor:
-    type: options_select
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_height:
     type: options_select
-    weight: 13
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -94,6 +88,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_shaded_background:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_title:
     type: string_textfield

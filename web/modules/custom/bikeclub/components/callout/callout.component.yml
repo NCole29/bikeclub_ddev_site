@@ -7,18 +7,18 @@ props:
     heading:
       type: string
       title: Heading
-    bgcolor:
-      type: string
-      label: Date
     button_uri:
       type: string
-      title: Button
+      title: Button link
     button_text:
       type: string
-      title: Button
+      title: Button text
+    shaded:
+      type: string
+      title: Shade background
     height:
       type: string
-      title: URL
+      title: Height
 slots:
   content:
     title: Content

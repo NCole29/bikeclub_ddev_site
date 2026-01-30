@@ -16,6 +16,7 @@ dependencies:
     - node
     - smart_date
     - user
+    - views_year_filter
 id: rides_upcoming
 label: 'Rides, upcoming'
 module: views
@@ -3103,7 +3104,7 @@ display:
           tokenize: false
       display_extenders: {  }
       block_description: 'Weekday rides'
-      block_hide_empty: true
+      block_hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -4111,7 +4112,7 @@ display:
           tokenize: false
       display_extenders: {  }
       block_description: 'Weekend rides'
-      block_hide_empty: true
+      block_hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:

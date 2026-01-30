@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.callout.field_button
-    - field.field.paragraph.callout.field_callout_bgcolor
     - field.field.paragraph.callout.field_height
     - field.field.paragraph.callout.field_ptext
+    - field.field.paragraph.callout.field_shaded_background
     - field.field.paragraph.callout.field_title
     - paragraphs.paragraphs_type.callout
   module:
@@ -47,5 +47,5 @@ content:
     weight: 0
     region: content
 hidden:
-  field_callout_bgcolor: true
   field_height: true
+  field_shaded_background: true

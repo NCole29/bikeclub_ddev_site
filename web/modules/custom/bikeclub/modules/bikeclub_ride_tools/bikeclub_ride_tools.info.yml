@@ -7,5 +7,3 @@ dependencies:
   - bikeclub:bikeclub
   - drupal:datetime
   - views_bulk_operations:views_bulk_operations  
-libraries:
-  - bikeclub_ride_tools/toolbar-icon

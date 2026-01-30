@@ -1,22 +1,22 @@
-uuid: c08eff8a-cf2e-44ea-b681-7f05d1e26603
+uuid: 5a0e98fd-6095-4837-9ee6-f52a908804ac
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.banner
+    - views.view.club_banner
   module:
     - system
     - views
   theme:
     - olivero
-id: olivero_views_block__banner_gallery_home
+id: olivero_views_block__club_banner_gallery_home
 theme: olivero
 region: hero
 weight: 0
 provider: null
-plugin: 'views_block:banner-gallery_home'
+plugin: 'views_block:club_banner-gallery_home'
 settings:
-  id: 'views_block:banner-gallery_home'
+  id: 'views_block:club_banner-gallery_home'
   label: ''
   label_display: '0'
   provider: views

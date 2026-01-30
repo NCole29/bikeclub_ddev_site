@@ -3,7 +3,6 @@
 use Drupal\Core\Entity\ContentEntityType;
 
 include_once __DIR__ . '/includes/install_nodes.inc';
-include_once __DIR__ . '/includes/install_menulinks.inc';
 
 /**
  * Implements hook_install.
@@ -13,7 +12,6 @@ function bikeclub_reports_install() {
   // Install menu links report uploads.
   
   //club_nodes();
-  report_menulinks();
 }
 
 /**

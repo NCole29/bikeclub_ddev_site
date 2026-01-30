@@ -1,0 +1,23 @@
+uuid: bcb30802-c5ca-48dd-8be0-60aee8d20ece
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bikeclub_solo
+id: bikeclub_solo_site_branding_footer
+theme: bikeclub_solo
+region: footer_first
+weight: -9
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

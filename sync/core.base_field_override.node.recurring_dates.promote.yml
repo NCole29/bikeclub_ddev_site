@@ -1,0 +1,22 @@
+uuid: aa6016e7-077d-4836-96de-3596d9633248
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.recurring_dates
+id: node.recurring_dates.promote
+field_name: promote
+entity_type: node
+bundle: recurring_dates
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

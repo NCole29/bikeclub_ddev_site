@@ -1,7 +1,11 @@
+{# shade_color is set in bikeclub_solo theme settings (Appearance)
+   and made available to Twig via a preprocess hook in bikeclub_solo.theme #}
+
 {{ include('bikeclub:card', {
-  heading: paragraph.field_title.value,
-  bgcolor: paragraph.field_card_bgcolor.value,
+  shade_color: shade_color,
+  shaded: paragraph.field_shaded_background.value, 
   height: paragraph.field_height.value, 
+  heading: paragraph.field_title.value,
   image: content.field_image,
   link: paragraph.field_link.uri,
   content: content|without(content.field_image)

@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.card
-    - field.field.paragraph.card.field_card_bgcolor
     - field.field.paragraph.card.field_height
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
     - field.field.paragraph.card.field_ptext
+    - field.field.paragraph.card.field_shaded_background
     - field.field.paragraph.card.field_title
     - image.style.large_4_3
     - paragraphs.paragraphs_type.card
@@ -54,6 +54,6 @@ content:
     weight: 1
     region: content
 hidden:
-  field_card_bgcolor: true
   field_height: true
   field_link: true
+  field_shaded_background: true

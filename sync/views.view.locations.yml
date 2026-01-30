@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_address
     - field.storage.node.field_coordinates
     - field.storage.node.field_location_type
+    - system.menu.club-reports
     - taxonomy.vocabulary.locations
   content:
     - 'taxonomy_term:locations:7140df33-c8a0-43e1-930e-72dc64cb302d'
@@ -3136,7 +3137,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: 'Click map markers to see place names and links to Google maps and routes from that location.'
+            value: "<h3>Here's where our rides start</h3>\r\nClick map markers to see place names and links to Google maps and routes from that location."
             format: basic_html
           tokenize: false
       display_extenders: {  }

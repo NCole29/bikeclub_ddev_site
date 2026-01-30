@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.callout.field_button
-    - field.field.paragraph.callout.field_callout_bgcolor
     - field.field.paragraph.callout.field_height
     - field.field.paragraph.callout.field_ptext
+    - field.field.paragraph.callout.field_shaded_background
     - field.field.paragraph.callout.field_title
     - paragraphs.paragraphs_type.callout
   module:
@@ -35,7 +35,7 @@ third_party_settings:
         required_fields: true
     group_format:
       children:
-        - field_callout_bgcolor
+        - field_shaded_background
         - field_height
       label: Appearance
       region: content
@@ -65,15 +65,9 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_callout_bgcolor:
-    type: options_select
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_height:
     type: options_select
-    weight: 13
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -84,6 +78,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_shaded_background:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_title:
     type: string_textfield

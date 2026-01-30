@@ -10,8 +10,8 @@ _core:
   default_config_hash: rLqYQMygOiAf2Cjj2FXMkeP0BnWA7orgjw6CMIQUz1M
 id: bikeclub_solo_powered
 theme: bikeclub_solo
-region: footer_menu
-weight: -5
+region: hidden
+weight: -11
 provider: null
 plugin: system_powered_by_block
 settings:

@@ -1,0 +1,21 @@
+uuid: 6eac9ef2-49e1-4393-a878-a3dd52f5b34e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shaded_background
+    - paragraphs.paragraphs_type.card
+id: paragraph.card.field_shaded_background
+field_name: field_shaded_background
+entity_type: paragraph
+bundle: card
+label: 'Shaded background'
+description: 'If unchecked, the background is white. The shaded background color is set at Appearance > Bikeclub_solo.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

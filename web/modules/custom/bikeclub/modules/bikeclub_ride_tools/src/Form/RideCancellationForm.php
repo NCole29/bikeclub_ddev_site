@@ -16,7 +16,7 @@ class RideCancellationForm extends FormBase {
   protected AccountInterface $currentUser;
   protected EntityTypeManagerInterface $entityTypeManager;
 
-  public function __construct(AccountInterface $currentUser, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(AccountInterface $currentUser, EntityTypeManagerInterface $entity_type_manager) {
     $this->currentUser = $currentUser;
     $this->entityTypeManager = $entity_type_manager;
   }

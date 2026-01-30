@@ -1,15 +1,35 @@
-# File uploads.
+# -------------------------------
+# File uploads on top admin menu 
+# -------------------------------
 bikeclub_reports.file_uploads:
-  path: '/admin/uploads'
+  path: '/admin/file-uploads'
   defaults:
     _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
     _title: 'File uploads'
   requirements:
     _permission: 'access toolbar'
 
+bikeclub_reports.board_minutes:
+  path: '/form/board-meeting-minutes'
+  defaults:
+    _controller: '\Drupal\webform\Controller\WebformEntityController'
+    _title: 'Board Meeting Minutes'
+    webform: 'board-meeting-minutes' 
+  requirements:
+    _permission: 'access toolbar'
+
+bikeclub_reports.club_reports:
+  path: '/form/club-reports'
+  defaults:
+    _controller: '\Drupal\webform\Controller\WebformEntityController'
+    _title: 'Club reports'
+    webform: 'club-reports' 
+  requirements:
+    _permission: 'access toolbar'
+
 # Custom reports.
 bikeclub_reports.multiple_memberships:
-  path: '/report/multiple_memberships'
+  path: '/report/multiple-memberships'
   defaults:
     _controller: '\Drupal\bikeclub_reports\Controller\MultipleMemberships::getMultiples'
     _title: 'Persons with Multiple Membership records'

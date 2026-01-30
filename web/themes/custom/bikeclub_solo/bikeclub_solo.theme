@@ -11,44 +11,33 @@ function bikeclub_solo_theme_suggestions_block_alter(&$suggestions, $variables) 
   }
 }
 
-/**
- * Implements hook_preprocess_node__banner__full().
- */
-function bikeclub_solo_preprocess_node__banner__full(array &$variables): void {
-  // Specific to bikeclub banner content type. 
-  // Pass number_images to template to set the columns in the responsive grid for galleries
-  $variables['columns'] = 'number_images';
-}
 
 /**
- * Implements hook_preprocess_block
+ * Implements hook_preprocess_paragraph
  */
-function bikeclub_solo_preprocess_block(&$variables) {
-  // Set background for cancellation alert from theme settings.
-  if ($variables['plugin_id'] == 'views_block:cancellations-cancellations') {
-    $colors = [
-      '#0085a1' => 'w3-vivid-greenish-blue',
-      '#008856' => 'w3-vivid-green',
-      '#008882' => 'w3-vivid-bluish-green',
-      '#00a1c2' => 'w3-vivid-blue',
-      '#27a64c' => 'w3-vivid-yellowish-green',
-      '#30267a' => 'w3-vivid-purplish-blue',
-      '#870074' => 'w3-vivid-reddish-purple',
-      '#8db600' => 'w3-vivid-yellow-green',
-      '#9a4eae' => 'w3-vivid-purple',
-      '#be0032' => 'w3-vivid-red',
-      '#ce4676' => 'w3-vivid-purplish-red',
-      '#dcd300' => 'w3-vivid-greenish-yellow',
-      '#e25822' => 'w3-vivid-reddish-orange',
-      '#f38400' => 'w3-vivid-orange',
-      '#f3c300' => 'w3-vivid-yellow',
-      '#f6a600' => 'w3-vivid-orange-yellow',
-      '#ffb5ba' => 'w3-vivid-vivid-pink',
-      '#ffb7a5' => 'w3-vivid-yellowish-pink',
-      '#ffffff' => 'w3-vivid-white',
-    ];
-    $background = theme_get_setting('cancel_bgcolor') ?? '#ffffff';
-    $bgcolor = $colors[$background];
-    $variables['bgcolor'] = $bgcolor;
+function bikeclub_solo_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $ptype = $paragraph->getType();
+
+  switch($ptype) {
+    case 'banner':
+      $variables['overlay_bg']  = theme_get_setting('bikeclub_banner_bg', 'bikeclub_solo');
+      $variables['button_tx']   = theme_get_setting('bikeclub_banner_tx_bt', 'bikeclub_solo');
+      $variables['button_tx_h'] = theme_get_setting('bikeclub_banner_tx_bt_h', 'bikeclub_solo');
+      $variables['button_bg']   = theme_get_setting('bikeclub_banner_bg_bt', 'bikeclub_solo');
+      $variables['button_bg_h'] = theme_get_setting('bikeclub_banner_bg_bt_h', 'bikeclub_solo');
+    break;
+
+    case 'callout':  
+      $variables['border_color'] = theme_get_setting('bikeclub_callout_br', 'bikeclub_solo');
+      $variables['shade_color']  = theme_get_setting('bikeclub_callout_bg', 'bikeclub_solo');
+      $variables['button_bg']    = theme_get_setting('bikeclub_callout_bt_bg', 'bikeclub_solo');
+      $variables['button_tx']    = theme_get_setting('bikeclub_callout_bt_tx', 'bikeclub_solo');
+    break;
+
+    case 'card':
+      $variables['shade_color']  = theme_get_setting('bikeclub_card_bg', 'bikeclub_solo');
+    break;
   }
 }
+

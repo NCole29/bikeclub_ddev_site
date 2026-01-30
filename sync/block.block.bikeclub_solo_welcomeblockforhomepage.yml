@@ -1,27 +1,25 @@
-uuid: 582cdd41-c1ba-4da3-afdb-c2bc63ba336d
+uuid: c84f02c9-369d-4b67-9f44-0a772fcdd676
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:e5ca9bb0-3ab7-4d5e-b7bc-e7a82587c61f'
+    - 'block_content:basic:1b38bb43-0da8-401e-81a4-7c63757a5587'
   module:
     - block_content
     - system
   theme:
     - bikeclub_solo
-id: bikeclub_solo_welcome
+id: bikeclub_solo_welcomeblockforhomepage
 theme: bikeclub_solo
 region: welcome_text
-weight: -10
+weight: 0
 provider: null
-plugin: 'block_content:e5ca9bb0-3ab7-4d5e-b7bc-e7a82587c61f'
+plugin: 'block_content:1b38bb43-0da8-401e-81a4-7c63757a5587'
 settings:
-  id: 'block_content:e5ca9bb0-3ab7-4d5e-b7bc-e7a82587c61f'
-  label: Welcome
+  id: 'block_content:1b38bb43-0da8-401e-81a4-7c63757a5587'
+  label: 'Welcome block for home page'
   label_display: '0'
   provider: block_content
-  status: true
-  info: ''
   view_mode: full
 visibility:
   request_path:

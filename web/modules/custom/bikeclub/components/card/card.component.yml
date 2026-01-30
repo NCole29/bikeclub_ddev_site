@@ -7,18 +7,18 @@ props:
     heading:
       type: string
       title: Heading
-    bgcolor:
-      type: string
-      label: Date
-    height:
-      type: string
-      title: URL
     image:
       type: string
       label: The image URL or data.
     link:
       type: string
       title: URL
+    shaded:
+      type: string
+      label: Shade background
+    height:
+      type: string
+      title: Height
 slots:
   content:
     title: Content

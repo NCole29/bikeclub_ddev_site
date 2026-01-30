@@ -1,4 +1,4 @@
-uuid: eb439b57-a0ae-4264-9e4c-80a4470e0951
+uuid: 30bb9f0c-7039-4dea-9a06-ed61664c04d5
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ dependencies:
 id: bikeclub_solo_views_block__rides_upcoming_weekday_rides
 theme: bikeclub_solo
 region: top_second
-weight: -10
+weight: 0
 provider: null
 plugin: 'views_block:rides_upcoming-weekday_rides'
 settings:
