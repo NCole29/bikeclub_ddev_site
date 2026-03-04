@@ -1,0 +1,27 @@
+uuid: 1a7b388a-dfc0-488b-8fab-4c0034db5954
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - nsc_theme
+_core:
+  default_config_hash: 0VOxC7grRLd99-guivD1ie2Id2h8HLpgnh5GvN9k41Y
+id: nsc_theme_account_menu
+theme: nsc_theme
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: true
+visibility: {  }

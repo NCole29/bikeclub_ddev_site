@@ -1,0 +1,13 @@
+{# shade_color is set in bikeclub_solo theme settings (Appearance)
+   and made available to Twig via a preprocess hook in bikeclub_solo.theme 
+
+ #}
+
+{{ include('nsc_theme:pcard', {
+  full_height: paragraph.field_full_height.value, 
+  shaded: paragraph.field_shaded_background.value, 
+  title:  paragraph.field_title.value,
+  link:   paragraph.field_link.uri,
+  image: content.field_image,
+  content: content|without(content.field_image)
+}, with_context = false) }}

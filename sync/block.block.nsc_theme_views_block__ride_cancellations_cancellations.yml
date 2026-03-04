@@ -1,0 +1,29 @@
+uuid: 3c7a25fe-4699-4929-95f3-8de047e63a18
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.ride_cancellations
+  module:
+    - system
+    - views
+  theme:
+    - nsc_theme
+id: nsc_theme_views_block__ride_cancellations_cancellations
+theme: nsc_theme
+region: canceled
+weight: -7
+provider: null
+plugin: 'views_block:ride_cancellations-cancellations'
+settings:
+  id: 'views_block:ride_cancellations-cancellations'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

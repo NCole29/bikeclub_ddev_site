@@ -7,92 +7,17 @@ dependencies:
     - field.field.node.banner.field_button
     - field.field.node.banner.field_resize_banner_image
     - field.field.node.banner.field_text
+    - image.style.banner
     - node.type.banner
   module:
-    - layout_bg
     - layout_builder
     - layout_builder_restrictions
-    - link
-    - text
+    - media
     - user
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: layout_bg_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-          background_color: '#ffffff'
-          static_image: true
-          center_content: true
-          add_overlay: true
-          overlay_color: '#000000'
-          overlay_opacity: '0'
-          set_text_color: true
-          text_color: '#ffffff'
-          link_underline: false
-        components:
-          6f699dcf-55a9-4b76-9cbb-f7644e07f820:
-            uuid: 6f699dcf-55a9-4b76-9cbb-f7644e07f820
-            region: background
-            configuration:
-              id: 'field_block:node:banner:banner_image'
-              label: Image
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          3cdf65bf-4b9c-4b62-b2b3-0afb3ee1a08b:
-            uuid: 3cdf65bf-4b9c-4b62-b2b3-0afb3ee1a08b
-            region: content
-            configuration:
-              id: 'field_block:node:banner:field_text'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: text_default
-                label: visually_hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          004de8c1-47a6-4217-96ed-9f530f81235c:
-            uuid: 004de8c1-47a6-4217-96ed-9f530f81235c
-            region: content
-            configuration:
-              id: 'field_block:node:banner:field_button'
-              label: Button
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: link
-                label: visually_hidden
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: '0'
-                  target: '0'
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-        third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
@@ -110,30 +35,13 @@ bundle: banner
 mode: default
 content:
   banner_image:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_button:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_text:
-    type: text_default
-    label: visually_hidden
-    settings: {  }
+      image_link: ''
+      image_style: banner
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 1
     region: content
@@ -143,4 +51,6 @@ content:
     weight: 0
     region: content
 hidden:
+  field_button: true
   field_resize_banner_image: true
+  field_text: true

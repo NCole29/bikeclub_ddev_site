@@ -5,10 +5,6 @@
     "type": "project",
     "license": "GPL-2.0-or-later",    
     "repositories": {
-        "bikeclub/bikeclub_civicrm": {
-            "type": "vcs",
-            "url": "https://github.com/NCole29/bikeclub_civicrm"
-        },
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
@@ -16,30 +12,9 @@
         "npm-asset":{
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        "bikeclub": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub" },
-        "bikeclub_announcements": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_announcements" },
-        "bikeclub_banner": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_banner" },
-        "bikeclub_civicrm": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_civicrm" },
-        "bikeclub_civicrm_forms": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_civicrm_forms" },
-        "bikeclub_content_type_base": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_content_type_base" },
-        "bikeclub_default_content": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_default_content" },    
-        "bikeclub_dev": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_dev" },
-        "bikeclub_editorial_workflow": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_editorial_workflow" },
-        "bikeclub_events": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_events" },
-        "bikeclub_faqs": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_faqs" },
-        "bikeclub_locations": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_locations" },
-        "bikeclub_media": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_media" },	
-        "bikeclub_member_directory": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_member_directory" },
-        "bikeclub_page": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_page" },
-        "bikeclub_paragraph_types": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_paragraph_types" },   
-        "bikeclub_registration_field_storage": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_registration_field_storage" }, 
-        "bikeclub_rides": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_rides" }, 
-        "bikeclub_starter": { "type": "vcs", "url": "https://github.com/NCole29/bikeclub_starter" },
-        "bikeclub_webform_nodes": {"type": "vcs", "url": "https://github.com/NCole29/bikeclub_webform_nodes" }  
+        }
     },
     "require": {
-        "bikeclub/bikeclub": "dev-main",
         "civicrm/civicrm-core": "^6.2",
         "civicrm/civicrm-drupal-8": "^6.2",
         "civicrm/civicrm-packages": "^6.2",
@@ -60,10 +35,10 @@
         "drupal/config_single_export": "^1.4",
         "drupal/contact_storage": "^1.5",
         "drupal/content_moderation_notifications": "^3.0",
-        "drupal/core-composer-scaffold": "11.3.2",
-        "drupal/core-project-message": "11.3.2",
+        "drupal/core-composer-scaffold": "11.3.3",
+        "drupal/core-project-message": "11.3.3",
         "drupal/core-recipe-unpack": "^11.2",
-        "drupal/core-recommended": "11.3.2",
+        "drupal/core-recommended": "11.3.3",
         "drupal/crop": "^2.5",
         "drupal/datetimehideseconds": "^1.0",
         "drupal/devel": "^5.5",
@@ -73,7 +48,6 @@
         "drupal/entity_reference_revisions": "^1.14",
         "drupal/faqfield": "^8.0",
         "drupal/field_group": "^4.0",
-        "drupal/fontawesome": "^3.0",
         "drupal/geocoder": "^4.23",
         "drupal/geofield": "^10.3",
         "drupal/geofield_map": "^11.1",
@@ -82,7 +56,6 @@
         "drupal/image_widget_crop": "^3.0",
         "drupal/jquery_ui": "^1.7",
         "drupal/kint-kint": "^2.3",
-        "drupal/layout_bg": "^1.4",
         "drupal/layout_builder_admin_theme": "^2.0",
         "drupal/layout_builder_restrictions": "^3.0",
         "drupal/layout_paragraphs": "^2.0",
@@ -107,6 +80,7 @@
         "drupal/smart_date": "^4.2",
         "drupal/solo": "^1.0",
         "drupal/style_selector": "^2.0",
+        "drupal/superfish": "*",
         "drupal/svg_image": "^3.0",
         "drupal/tac_lite": "^2.0",
         "drupal/token": "^1.17",
@@ -120,7 +94,7 @@
         "drush/drush": "^13",
         "geocoder-php/google-maps-provider": "^4.7",
         "geocoder-php/nominatim-provider": "^5.7",
-        "kint-php/kint": "^6.0",
+        "kint-php/kint": "^6.1",
         "npm-asset/fonticonpicker--fonticonpicker": "^3.0",
         "npm-asset/fortawesome--fontawesome-free": "5.15"
     },

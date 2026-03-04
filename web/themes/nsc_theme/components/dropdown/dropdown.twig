@@ -1,0 +1,32 @@
+{% set classes = [
+  'dropdown',
+] %}
+
+{% set dropdown_toggle_classes = [
+  'dropdown-toggle',
+  'flex',
+  'items-center',
+  'gap-2',
+]|merge(dropdown_toggle_extra_classes ?: []) %}
+
+{% set dropdown_content_classes = [
+  'dropdown-content',
+  'rounded-box',
+  'shadow',
+  'bg-base-100',
+]|merge(dropdown_content_extra_classes ?: []) %}
+
+{% set dropdown_item_classes = [
+  'dropdown-item',
+]|merge(dropdown_item_extra_classes ?: []) %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="{{ dropdown_toggle_classes|join(' ') }}" role="button" tabindex="0">
+    {{ toggle }}
+  </div>
+  <ul class="{{ dropdown_content_classes|join(' ') }}" tabindex="0">
+    {%- for item in items -%}
+      <li class="{{ dropdown_item_classes|join(' ') }}">{{ item.link }}</li>
+    {%- endfor -%}
+  </ul>
+</div>

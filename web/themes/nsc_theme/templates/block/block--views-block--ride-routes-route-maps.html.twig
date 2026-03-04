@@ -1,0 +1,28 @@
+{#
+/**
+ * Overrides block.html.twig for Route maps displayed in block.
+ * Display title as field label instead of <h2> to match other field labels.
+ * <h2> is hardcoded so can't change with attributes.
+ */
+#}
+
+{%
+  set classes = [
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+<section{{ attributes.addClass(classes) }}>
+  {% if label %}
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>   
+  {% endif %}
+
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</section>

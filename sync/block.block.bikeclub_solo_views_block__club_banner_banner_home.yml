@@ -1,6 +1,6 @@
 uuid: 571c839e-b37a-49aa-b589-9f147fe5c4ec
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.club_banner

@@ -13,7 +13,9 @@ label: 'Shaded background'
 description: 'If unchecked, the background is white. The shaded background color is set at Appearance > Bikeclub_solo.'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: false
 default_value_callback: ''
 settings:
   on_label: 'Yes'

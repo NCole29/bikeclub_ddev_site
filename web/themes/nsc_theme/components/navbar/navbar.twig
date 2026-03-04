@@ -1,0 +1,48 @@
+{% set classes = [
+  'navbar',
+  'container',
+] %}
+
+{% set navbar_collapse_classes = [
+]|merge(navbar_collapse_extra_classes ?: []) %}
+
+{% set navbar_fixed_classes = [
+  'navbar-fixed',
+  'flex',
+  'items-center',
+  'gap-2',
+]|merge(navbar_fixed_extra_classes ?: []) %}
+
+{% set navbar_toggler_classes = [
+  'btn',
+  'btn-ghost',
+  'btn-circle',
+  'lg:hidden',
+]|merge(navbar_toggler_extra_classes ?: []) %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="navbar-start">
+    {% block navbar_start %}
+      {{ navbar_start }}
+    {% endblock %}
+  </div>
+
+  <div class="navbar-center">
+    <div class="{{ navbar_collapse_classes|join(' ') }}">
+      {% block navbar_center %}
+        {{ navbar_center }}
+      {% endblock %}
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <div class="{{ navbar_fixed_classes|join(' ') }}">
+      {% block navbar_end %}
+        {{ navbar_end }}
+      {% endblock %}
+      <label for="header-drawer" aria-label="open sidebar" class="{{ navbar_toggler_classes|join(' ') }}">
+        {{ icon('heroicons', 'bars-3', {size: 24, aria_labelledby: 'Menu'}) }}
+      </label>
+    </div>
+  </div>
+</div>

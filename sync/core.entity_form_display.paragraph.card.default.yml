@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.card.field_height
+    - field.field.paragraph.card.field_full_height
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
     - field.field.paragraph.card.field_ptext
@@ -60,11 +60,12 @@ targetEntityType: paragraph
 bundle: card
 mode: default
 content:
-  field_height:
-    type: options_select
+  field_full_height:
+    type: boolean_checkbox
     weight: 15
     region: content
-    settings: {  }
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_image:
     type: media_library_widget

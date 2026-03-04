@@ -1,0 +1,20 @@
+uuid: 14f32428-b31e-4789-8ba1-e73006270c67
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nsc_theme
+_core:
+  default_config_hash: 1OjtPt88d9F-yKS7LO1Z1C6PKtR304ms_iWxDF5lywI
+id: nsc_theme_primary_admin_actions
+theme: nsc_theme
+region: pre_content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

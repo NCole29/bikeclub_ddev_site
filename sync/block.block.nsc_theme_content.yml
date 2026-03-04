@@ -1,0 +1,22 @@
+uuid: 62adbff9-5a17-4df6-84fd-12826ae8037c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nsc_theme
+_core:
+  default_config_hash: YJp41omLyBRHKSEblRdu6tljN7pX1ECGhy8Ducm4U98
+id: nsc_theme_content
+theme: nsc_theme
+region: content
+weight: -7
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

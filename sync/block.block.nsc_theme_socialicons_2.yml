@@ -1,0 +1,23 @@
+uuid: 10b8d2b7-3903-4c9b-823c-094a732fa657
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:be6fb7f4-f738-4412-9b34-e301d66054e5'
+  module:
+    - block_content
+  theme:
+    - nsc_theme
+id: nsc_theme_socialicons_2
+theme: nsc_theme
+region: footer_third
+weight: 0
+provider: null
+plugin: 'block_content:be6fb7f4-f738-4412-9b34-e301d66054e5'
+settings:
+  id: 'block_content:be6fb7f4-f738-4412-9b34-e301d66054e5'
+  label: 'Social icons'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

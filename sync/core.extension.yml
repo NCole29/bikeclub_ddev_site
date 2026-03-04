@@ -42,7 +42,6 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  fontawesome: 0
   geocoder: 0
   geocoder_address: 0
   geocoder_field: 0
@@ -56,7 +55,6 @@ module:
   image_widget_crop: 0
   jquery_ui: 0
   jquery_ui_accordion: 0
-  layout_bg: 0
   layout_builder: 0
   layout_builder_admin_theme: 0
   layout_builder_restrictions: 0
@@ -91,6 +89,7 @@ module:
   smart_date: 0
   smart_date_recur: 0
   style_selector: 0
+  superfish: 0
   svg_image: 0
   system: 0
   taxonomy: 0
@@ -123,5 +122,6 @@ theme:
   solo: 0
   bikeclub_solo: 0
   stable9: 0
-  olivero: 0
   gin: 0
+  canvas_stark: 0
+  nsc_theme: 0

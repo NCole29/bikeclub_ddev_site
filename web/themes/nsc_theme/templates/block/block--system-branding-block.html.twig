@@ -1,0 +1,23 @@
+{% extends "block.html.twig" %}
+
+{# Added margin above logo. 
+   In footer: removed hyperlink on site name and adjusted text size for name and slogan #}
+
+{% block content %}
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" rel="home">
+      <img class="mt-4" src="{{ site_logo }}" alt="{{ 'Home'|t }}" fetchpriority="high" />
+    </a>
+  {% endif %}
+  {% if site_name %}
+    <div class="text-2xl text-background">
+      {# <a href="{{ path('<front>') }}" rel="home">{{ site_name }}</a> #}
+      {{ site_name }}
+    </div>
+  {% endif %}
+   {% if site_slogan %}
+    <div class="text-sm text-background">
+      {{ site_slogan }}
+    </div>
+  {% endif %}
+{% endblock %}

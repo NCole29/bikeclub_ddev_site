@@ -1,0 +1,42 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Dropdown menu
+props:
+  type: object
+  properties:
+    items:
+      title: Nav items
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            title: text
+            type: string
+          url:
+            type: 'string'
+            title: url
+    toggle:
+      title: Dropdown toggle
+      type: object
+      properties:
+          title:
+            title: text
+            type: string
+          url:
+            title: url
+            type: 'string'
+    dropdown_toggle_extra_classes:
+      title: Dropdown toggle extra classes
+      type: array
+      items:
+        type: string
+    dropdown_content_extra_classes:
+      title: Dropdown content extra classes
+      type: array
+      items:
+        type: string
+    dropdown_item_extra_classes:
+      title: Dropdown item extra classes
+      type: array
+      items:
+        type: string

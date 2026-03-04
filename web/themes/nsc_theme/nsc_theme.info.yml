@@ -1,0 +1,18 @@
+name: 'NSC Custom Theme'
+type: theme
+base theme: false
+description: 'A customized version of Mercury.'
+core_version_requirement: ^11
+libraries:
+  - nsc_theme/global
+generator: 'mercury:1.0.0'
+regions:
+  canceled: 'Cancellations'
+  header: Header
+  primary_menu: 'Primary menu'
+  pre_content: 'Pre-content'
+  content: Content
+  footer_first: 'Footer First Container'
+  footer_second: 'Footer Second Container'
+  footer_third: 'Footer Third Container'
+  footer_bottom: 'Footer bottom'

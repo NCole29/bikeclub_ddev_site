@@ -434,6 +434,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: ''
       header:
         area:
           id: area
@@ -829,16 +830,16 @@ display:
       style:
         type: html_list
         options:
+          grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: false
           type: ul
-          wrapper_class: item-list
-          class: ''
+          wrapper_class: ''
+          class: list-none
       row:
         type: fields
         options:
-          default_field_elements: true
+          default_field_elements: false
           inline:
             title: title
             field_date: field_date
@@ -846,6 +847,7 @@ display:
           hide_empty: false
       defaults:
         title: false
+        css_class: false
         pager: false
         style: false
         row: false
@@ -854,6 +856,7 @@ display:
         filters: false
         filter_groups: false
         header: false
+      css_class: ''
       header: {  }
       display_extenders: {  }
       block_description: Cancellations

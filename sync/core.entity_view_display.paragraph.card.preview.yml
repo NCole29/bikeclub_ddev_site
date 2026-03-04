@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.card.field_height
+    - field.field.paragraph.card.field_full_height
     - field.field.paragraph.card.field_image
     - field.field.paragraph.card.field_link
     - field.field.paragraph.card.field_ptext
@@ -49,6 +49,6 @@ content:
     weight: 1
     region: content
 hidden:
-  field_height: true
+  field_full_height: true
   field_link: true
   field_shaded_background: true

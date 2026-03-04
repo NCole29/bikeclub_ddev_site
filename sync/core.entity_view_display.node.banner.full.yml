@@ -12,61 +12,20 @@ dependencies:
     - node.type.banner
   module:
     - layout_builder
-    - layout_discovery
-    - link
+    - layout_builder_restrictions
     - media
-    - text
     - user
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          d9aebb60-d035-4ef0-b7e9-f39ed4913c33:
-            uuid: d9aebb60-d035-4ef0-b7e9-f39ed4913c33
-            region: content
-            configuration:
-              id: 'field_block:node:banner:banner_image'
-              label: Image
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: media_thumbnail
-                label: visually_hidden
-                settings:
-                  image_link: ''
-                  image_style: banner
-                  image_loading:
-                    attribute: lazy
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          482e0c93-eab2-4110-add7-23ac59de121d:
-            uuid: 482e0c93-eab2-4110-add7-23ac59de121d
-            region: content
-            configuration:
-              id: 'extra_field_block:node:banner:links'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.banner.full
 targetEntityType: node
 bundle: banner
@@ -81,31 +40,10 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_button:
-    type: link
-    label: visually_hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_text:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_button: true
   field_resize_banner_image: true
+  field_text: true
+  links: true

@@ -1,0 +1,22 @@
+uuid: 693e7d69-36be-49f7-ba09-c0d0bc9ba84e
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - nsc_theme
+_core:
+  default_config_hash: npvn7zHu51Jm_7qcvYCyXqwv_b8_FjGCu0O6SF5BIR8
+id: nsc_theme_breadcrumbs
+theme: nsc_theme
+region: pre_content
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

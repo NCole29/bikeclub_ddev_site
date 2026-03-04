@@ -1,0 +1,9 @@
+{# Renders content using the "card-row" component. #}
+
+{{ include('nsc_theme:summary', {
+  heading: node.title.value,
+  url: path('entity.node.canonical', { node: node.id() }),
+  date: content.field_date,
+  location: content.field_location,
+  summary: content.field_summary
+}, with_context = false) }}

@@ -13,14 +13,6 @@
   text-align: center;
 }
 
-/* Style the "upcoming" blocks on the home page */
-.rides-list {
-  padding: 1rem;
-  height:100%;
-  width:auto;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
 /* Style the text box overlay on banner pictures */
 .banner-textbox {
   background-color: white;

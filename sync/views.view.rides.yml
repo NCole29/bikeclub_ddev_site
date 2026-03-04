@@ -476,30 +476,18 @@ display:
         type: table
         options:
           grouping: {  }
-          row_class: '<h2>'
+          row_class: ''
           default_row_class: true
           columns:
-            nid: nid
-            node_bulk_form: node_bulk_form
             title: title
-            field_date_1: field_date_1
-            field_cancel: field_cancel
-            status: status
-            changed: changed
+            field_activity: field_activity
+            field_datetime: field_datetime
+            field_date: field_datetime
+            field_location: field_location
+            field_address_locality: field_address_locality
+            field_address_administrative_area: field_address_administrative_area
           default: '-1'
           info:
-            nid:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            node_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -507,29 +495,41 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_date_1:
-              sortable: true
+            field_activity:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_cancel:
-              sortable: true
+            field_datetime:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            status:
-              sortable: true
+            field_location:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            changed:
-              sortable: true
+            field_address_locality:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_administrative_area:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2559,7 +2559,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: Activity
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -3222,7 +3222,7 @@ display:
           admin_label: 'field_location: Content'
           plugin_id: standard
           required: false
-      css_class: 'w3-table-all w3-medium'
+      css_class: club-table
       use_ajax: true
       group_by: false
       display_description: 'List of unique ride names'
@@ -3258,6 +3258,7 @@ display:
         title: Rides
         description: ''
         weight: -49
+        enabled: true
         expanded: false
         menu_name: main
         parent: ''

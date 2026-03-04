@@ -1,0 +1,23 @@
+uuid: 9e5577de-2805-4133-a7fe-0f796b1b21b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_height
+    - paragraphs.paragraphs_type.card
+id: paragraph.card.field_full_height
+field_name: field_full_height
+entity_type: paragraph
+bundle: card
+label: 'Full height'
+description: 'Card height will fit contents by default. Select full height if you want multiple cards placed side-by-side to be the same height. '
+required: false
+translatable: false
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings:
+  on_label: 'Full height (fill container)'
+  off_label: 'Fit contents'
+field_type: boolean

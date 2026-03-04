@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.club_banner
   module:
+    - system
     - views
   theme:
     - bikeclub_solo
@@ -22,4 +23,8 @@ settings:
   context_mapping: {  }
   views_label: ''
   items_per_page: null
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

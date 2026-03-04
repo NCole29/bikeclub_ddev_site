@@ -1,0 +1,158 @@
+/*----------------------------------------------------
+  Modify SOLO theme
+  Note: modifications to the css/templates of contrib  
+   modules are in bikeclub/css and bikeclub/templates
+  ----------------------------------------------------*/
+
+/* Fix admin-menu - without padding it hides the site menu */
+#toolbar-administration {
+  padding-bottom: 24px;
+}
+
+.full-width {
+  width:100%!important;
+}
+
+/* Three footer containers */
+.footer-site-name {
+  display:block;
+  font-size:1.5rem;
+  margin:0!important;
+}
+
+.footer-width {
+  width:33%;
+}
+
+/* system message on Appearance > solo had black background and was unreadable */
+ul.settings-message {
+  background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 3%, #ffffff 100%) !important;
+}
+
+/* Eliminate padding (fixes Calendar & Login menu */
+.header-inner {
+  padding-top:0!important;
+}
+
+/* Change dark background on account menu */
+.header-inner nav .navigation__menubar > li > button,
+.header-inner nav .navigation__menubar > li > a,
+.solo-inner .navigation__menubar-account li a {
+  background-color: inherit; /* white;*/
+}
+
+/* Increase logo size */
+.site-logo-img {
+  height:100px!important;
+  padding-bottom: 16px;
+}
+
+h1.page-title-text {
+  padding-block:0!important;
+}
+
+.page-wrapper h2 {
+  font-weight: 600!important;
+}
+
+h3 {
+  font-weight: 400; /* was 700 */
+}
+
+@media(max-width: 767px) {
+  h2 {
+    font-size:20px!important;
+    margin:0;
+  }
+  p {
+    margin-bottom: .5rem;
+  }
+  .bottom-container {
+    margin-top: -2rem!important;
+  }
+}
+
+/* Region overlapped so add padding */ 
+.layout--twocol-section > .layout__region {
+  flex: 0 1 100%;
+  padding: 0 1rem 0 1rem!important;
+}
+
+/* Teasers */
+.views-field-title a {
+  font-weight: bold;
+}
+
+hr {
+  margin-block: 0;
+} 
+
+label, .field__label {
+  font-weight: 600;
+  font-size: 110%;
+}
+
+/* Remove bottom margins to reduce white space.
+   Barely noticeable on desktop but helps on phone. 
+ */
+.region-inner {
+  padding-top: 0!important;
+}
+
+.main-container-inner {
+  padding-top: 0!important;
+}
+
+/* Reduce form width (improves webform fit on page) */ 
+.solo-input,
+.solo-select {
+  width: fit-content !important; /* was 100% and impacts webforms*/
+}
+
+.solo-inner:not( .primary-menu-inner,
+.primary-sidebar-menu-inner,
+.system-messages-inner,
+.highlighted-inner,
+.active-top-1 > .solo-inner,
+.active-main-1 > .solo-inner,
+.active-bottom-1 > .solo-inner,
+.active-footer-1 > .solo-inner) {
+  padding-bottom: 0!important;
+}
+
+/* Upcoming rides and events blocks on the home page.
+   The css class is added in the View (no need for custom template). */
+.rides-list {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #F5F5F5 ;
+  color: #000000;
+  height:100%;
+  padding: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* -----------------------------------------------------------------------
+  Style the select options in bikeclub-solo theme cancellation color form 
+  ------------------------------------------------------------------------ */
+select option[value='#ffb5ba'] { background-color: #ffb5ba; color: #ffffff;}
+select option[value='#be0032'] { background-color: #be0032; color: #ffffff;}
+select option[value='#f38400'] { background-color: #f38400; color: #ffffff;}
+select option[value='#f3c300'] { background-color: #f3c300; color: #ffffff;}
+select option[value='#008856'] { background-color: #008856; color: #ffffff;}
+select option[value='#00a1c2'] { background-color: #00a1c2; color: #ffffff;}
+select option[value='#9a4eae'] { background-color: #9a4eae; color: #ffffff;}
+select option[value='#9a4eae'] { background-color: #9a4eae; color: #ffffff;}
+select option[value='#ffb7a5'] { background-color: #ffb7a5; color: #ffffff;}
+select option[value='#e25822'] { background-color: #e25822; color: #ffffff;}
+select option[value='#f6a600'] { background-color: #f6a600; color: #ffffff;}
+select option[value='#dcd300'] { background-color: #dcd300; color: #ffffff;}
+select option[value='#8db600'] { background-color: #8db600; color: #ffffff;}
+select option[value='#27a64c'] { background-color: #27a64c; color: #ffffff;}
+select option[value='#008882'] { background-color: #008882; color: #ffffff;}
+select option[value='#0085a1'] { background-color: #0085a1; color: #ffffff;}
+select option[value='#30267a'] { background-color: #30267a; color: #ffffff;}
+select option[value='#870074'] { background-color: #870074; color: #ffffff;}
+select option[value='#ce4676'] { background-color: #ce4676; color: #ffffff;}

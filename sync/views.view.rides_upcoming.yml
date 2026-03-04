@@ -250,6 +250,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: card-display
       group_by: false
       header: {  }
       footer:
@@ -1936,10 +1937,12 @@ display:
       defaults:
         empty: false
         title: false
+        css_class: false
         style: false
         row: false
         filters: false
         filter_groups: false
+      css_class: summary-display
       display_description: ''
       display_extenders: {  }
       path: rides/list
@@ -2119,12 +2122,14 @@ display:
       defaults:
         empty: false
         title: false
+        css_class: false
         group_by: false
         style: false
         row: false
         sorts: false
         filters: false
         filter_groups: false
+      css_class: summary-display
       group_by: true
       display_description: ''
       display_extenders: {  }
@@ -2156,8 +2161,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  weekday_rides:
-    id: weekday_rides
+  weekday:
+    id: weekday
     display_title: Block-Weekday
     display_plugin: block
     position: 2
@@ -2705,7 +2710,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'There are no scheduled rides.'
+            value: 'There are no scheduled weekday rides.'
             format: basic_html
           tokenize: false
       sorts:
@@ -3058,6 +3063,7 @@ display:
       defaults:
         empty: false
         title: false
+        css_class: false
         pager: false
         use_more: false
         use_more_always: false
@@ -3072,6 +3078,7 @@ display:
         sorts: false
         filters: false
         filter_groups: false
+        header: false
         footer: false
       relationships:
         field_recurid:
@@ -3083,6 +3090,7 @@ display:
           admin_label: 'field_recurid: Content'
           plugin_id: standard
           required: false
+      css_class: ''
       group_by: false
       display_description: ''
       use_more: false
@@ -3090,6 +3098,18 @@ display:
       use_more_text: more
       link_display: page_4
       link_url: ''
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: '<h3>Weekday Rides</h3>'
+          tokenize: false
       footer:
         area_text_custom:
           id: area_text_custom
@@ -3117,8 +3137,8 @@ display:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_location'
         - 'config:field.storage.node.field_recurid'
-  weekend_rides:
-    id: weekend_rides
+  weekend:
+    id: weekend
     display_title: 'Block-Weekend rides'
     display_plugin: block
     position: 2
@@ -3729,7 +3749,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'There are no scheduled rides.'
+            value: "<h3>Weekend Rides</h3>\r\nThere are no scheduled rides."
             format: basic_html
           tokenize: false
       filters:
@@ -3798,7 +3818,7 @@ display:
           plugin_id: datetime
           operator: between
           value:
-            min: '-3 hours'
+            min: '-4 hours'
             max: '+ 14 days'
             value: ''
             type: offset
@@ -3969,7 +3989,7 @@ display:
           plugin_id: datetime
           operator: between
           value:
-            min: '-3 hours'
+            min: '-4 hours'
             max: '+14 days'
             value: ''
             type: date
@@ -4067,6 +4087,7 @@ display:
       defaults:
         empty: false
         title: false
+        css_class: false
         pager: false
         use_more: false
         use_more_always: false
@@ -4080,6 +4101,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        header: false
         footer: false
       relationships:
         field_recurid:
@@ -4091,6 +4113,7 @@ display:
           admin_label: 'field_recurid: Content'
           plugin_id: standard
           required: false
+      css_class: ''
       group_by: false
       display_description: ''
       use_more: false
@@ -4098,6 +4121,18 @@ display:
       use_more_text: more
       link_display: page_3
       link_url: ''
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: '<h3>Weekend Rides</h3>'
+          tokenize: false
       footer:
         area_text_custom:
           id: area_text_custom

@@ -1,0 +1,26 @@
+uuid: 43ecb0da-a284-4f55-92bf-c47e72a3d7b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nsc_theme
+id: nsc_theme_tabs
+theme: nsc_theme
+region: pre_content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

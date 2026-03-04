@@ -1,9 +1,0 @@
-{# Renders content using the "card-row" component. #}
-
-{{ include('bikeclub:summary_card', {
-  heading: node.title.value,
-  url: path('entity.node.canonical', { node: node.id() }),
-  date: content.field_date,
-  location: content.field_location,
-  content: content.field_summary
-}, with_context = false) }}

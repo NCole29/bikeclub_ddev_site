@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Navbar
+props:
+  type: object
+  properties:
+    navbar_container_extra_classes:
+      title: Actions extra classes
+      type: array
+      items:
+        type: string
+    navbar_collapse_extra_classes:
+      title: Actions extra classes
+      type: array
+      items:
+        type: string
+    navbar_fixed_extra_classes:
+      title: Actions extra classes
+      type: array
+      items:
+        type: string
+    navbar_toggler_extra_classes:
+      title: Actions extra classes
+      type: array
+      items:
+        type: string
+slots:
+  navbar_start:
+    title: Navbar start
+  navbar_center:
+    title: Navbar center
+  navbar_end:
+    title: Navbar end

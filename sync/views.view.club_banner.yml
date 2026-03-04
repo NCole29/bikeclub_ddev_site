@@ -396,21 +396,21 @@ display:
           separator: ', '
           field_api_classes: false
       style:
-        type: grid
+        type: grid_responsive
         options:
-          uses_fields: false
+          grouping: {  }
           columns: 1
-          automatic_width: true
+          cell_min_width: 100
+          grid_gutter: 0
           alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: teaser
+          default_field_elements: true
+          inline:
+            banner_image: banner_image
+          separator: ''
+          hide_empty: false
       defaults:
         style: false
         row: false
@@ -909,16 +909,14 @@ display:
         groups:
           1: AND
       style:
-        type: grid
+        type: grid_responsive
         options:
           grouping: {  }
+          uses_fields: false
           columns: 3
-          automatic_width: true
+          cell_min_width: 100
+          grid_gutter: 10
           alignment: horizontal
-          row_class_custom: ''
-          row_class_default: false
-          col_class_custom: w3-width-100-percent
-          col_class_default: true
       row:
         type: fields
         options: {  }

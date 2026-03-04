@@ -18,18 +18,6 @@ class BikeclubTemplates {
         'template' => 'node--location',
         'base hook' => 'node',
       ],
-      'node__summary' => [
-        'template' => 'node--summary',
-        'base hook' => 'node',
-      ],
-      'node__summary_card' => [
-        'template' => 'node--summary-card',
-        'base hook' => 'node',
-      ],
-     'paragraph__hero_banner' => [
-        'template' => 'paragraph--hero-banner',
-        'base hook' => 'paragraph',
-      ],
       'field__address' => [
         'template' => 'field--address',
         'base hook' => 'field',

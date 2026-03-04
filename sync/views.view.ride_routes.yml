@@ -1950,7 +1950,7 @@ display:
           admin_label: 'field_rwgps_routes: Club routes'
           plugin_id: standard
           required: false
-      css_class: number-table
+      css_class: 'club-table number-table'
       display_description: ''
       header:
         area_text_custom:
@@ -2368,7 +2368,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: w3-maps
+          row_class: map-grid
           default_row_class: true
       row:
         type: fields
@@ -2380,6 +2380,7 @@ display:
       defaults:
         access: false
         title: false
+        css_class: false
         style: false
         row: false
         relationships: false
@@ -2398,6 +2399,7 @@ display:
           admin_label: 'field_rwgps_routes: Club routes'
           plugin_id: standard
           required: true
+      css_class: ''
       display_description: ''
       display_extenders: {  }
       block_description: 'Route maps'

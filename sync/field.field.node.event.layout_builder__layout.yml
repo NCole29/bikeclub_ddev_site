@@ -1,4 +1,4 @@
-uuid: 31ecc669-3f42-4fdb-addd-4626ac91cada
+uuid: 667f86ba-a9b1-4ec3-a5a7-540e28b32119
 langcode: en
 status: true
 dependencies:
@@ -7,8 +7,6 @@ dependencies:
     - node.type.event
   module:
     - layout_builder
-_core:
-  default_config_hash: 8WV9mS7Smt0DiiOV7cThFE_Rkmof9Zyl4DHeNRVwokg
 id: node.event.layout_builder__layout
 field_name: layout_builder__layout
 entity_type: node

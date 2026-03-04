@@ -1,0 +1,22 @@
+uuid: 43518878-59ff-4c33-9e35-6b98e48fd35e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nsc_theme
+_core:
+  default_config_hash: JpuAENtZbfds80HSMUU7-Y8mo32RNj1Psb2FcNh-pIg
+id: nsc_theme_messages
+theme: nsc_theme
+region: pre_content
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

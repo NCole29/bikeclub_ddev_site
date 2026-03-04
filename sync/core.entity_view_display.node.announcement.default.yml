@@ -10,48 +10,96 @@ dependencies:
     - field.field.node.announcement.field_text
     - node.type.announcement
   module:
-    - bikeclub
-    - text
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
     - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          8b31ff04-a2a5-4c99-aff7-9b973bb821e2:
+            uuid: 8b31ff04-a2a5-4c99-aff7-9b973bb821e2
+            region: content
+            configuration:
+              id: 'extra_field_block:node:announcement:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+          ac730f9b-ba97-488d-8609-59a3ff8eca44:
+            uuid: ac730f9b-ba97-488d-8609-59a3ff8eca44
+            region: content
+            configuration:
+              id: 'field_block:node:announcement:field_text'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          5ed6fbed-83b0-4c05-80ef-2dc2fa7cdd2f:
+            uuid: 5ed6fbed-83b0-4c05-80ef-2dc2fa7cdd2f
+            region: content
+            configuration:
+              id: 'field_block:node:announcement:field_contact_form'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          93e3f530-45c8-4ab0-9346-339697b7b2d4:
+            uuid: 93e3f530-45c8-4ab0-9346-339697b7b2d4
+            region: content
+            configuration:
+              id: 'field_block:node:announcement:field_contact_person'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: user_contact_link
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 _core:
   default_config_hash: dpAW7yNltumctksIRg5RnXnIi1FXMwTMt0KMg8xJ-ro
 id: node.announcement.default
 targetEntityType: node
 bundle: announcement
 mode: default
-content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
-  field_contact_form:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_contact_person:
-    type: user_contact_link
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_text:
-    type: text_default
-    label: visually_hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
+  content_moderation_control: true
+  field_contact_form: true
+  field_contact_person: true
   field_resize_text_image: true
   field_summary: true
+  field_text: true
+  links: true

@@ -1,0 +1,31 @@
+
+/* Tailwind utilities used in Views. Include in dummy class so that they are included in the build */
+.dummy {
+  @apply text-sm rounded-xl;
+}
+
+/* Display for "upcoming" blocks on home page */
+.card-display {
+  @apply border border-black rounded-md bg-neutral-100 text-black p-4 shadow-md;
+}
+
+/* Home page images */
+.aspect-3\/1{
+  aspect-ratio:3/1; 
+}
+
+.field__label {
+  @apply text-border font-semibold;
+}
+
+/* Ride page route list and maps.   
+   table classes for route list are entered in the View > Other > CSS class 
+   map-grid is entered in the View Format > Settings > Row class 
+*/ 
+.block-views-blockride-routes-route-list,
+.block-views-blockride-routes-route-maps  {
+  @apply ml-2; 
+}
+.map-grid {
+  display: inline-block!important; 
+}

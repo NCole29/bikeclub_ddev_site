@@ -1,0 +1,33 @@
+{%
+  set classes = [
+    'menu',
+  ]
+%}
+
+{% if items %}
+  <ul {{ attributes.addClass(classes) }}>
+    {% block items %}
+      {% for item in items %}
+        {%
+          set nav_item_classes = [
+            'menu-item',
+            item.is_expanded and item.below ? 'has-submenu' : ''
+          ]
+        %}
+        {% if item.is_expanded and item.below %}
+          <li class="{{ nav_item_classes|join(' ') }}">
+            {% embed 'nsc_theme:dropdown-menu' with {
+              toggle: link(item.title, item.url),
+              items: item.below
+            } only %}
+            {% endembed %}
+          </li>
+        {% else %}
+          <li class="{{ nav_item_classes|join(' ') }}">
+            {{ link(item.title, item.url) }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endblock %}
+  </ul>
+{% endif %}
