@@ -33,6 +33,14 @@ p.regular {
   font-size: 100%;
   line-height: 1.5;
 }
+p.large {
+  font-size: 115%;
+  line-height: 1.5;
+}
+p.large {
+  font-size: 125%;
+  line-height: 1.5;
+}
 p.button {
   display: inline-block;
   width: fit-content;

@@ -15,23 +15,21 @@ bundle: statistic
 mode: default
 content:
   field_category:
-    type: string_textfield
-    weight: 2
+    type: options_select
+    weight: 1
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_number:
     type: number
-    weight: 26
+    weight: 3
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_year:
     type: number
-    weight: 1
+    weight: 2
     region: content
     settings:
       placeholder: ''

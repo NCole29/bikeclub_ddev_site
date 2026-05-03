@@ -50,13 +50,14 @@
  */
 #}
 {% if logged_in %}
-  <div class="layout-container mt-7">
+  <div class="layout-container mt-6 bg-white">
 {% else %}
-  <div class="layout-container">
+  <div class="layout-container bg-white">
 {% endif %}
-  {{ page.canceled }}
   {{ page.primary_menu }}
-
+  {{ page.canceled }}
+  {{ page.user_account }}
+  
   <header role="banner">
     {{ page.header }}
   </header>

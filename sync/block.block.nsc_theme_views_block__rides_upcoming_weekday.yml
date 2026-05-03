@@ -1,22 +1,22 @@
-uuid: 3c7a25fe-4699-4929-95f3-8de047e63a18
+uuid: 1a8b6921-d597-40c0-b800-14899a0d8c54
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.ride_cancellations
+    - views.view.rides_upcoming
   module:
     - system
     - views
   theme:
     - nsc_theme
-id: nsc_theme_views_block__ride_cancellations_cancellations
+id: nsc_theme_views_block__rides_upcoming_weekday
 theme: nsc_theme
-region: canceled
+region: content
 weight: -8
 provider: null
-plugin: 'views_block:ride_cancellations-cancellations'
+plugin: 'views_block:rides_upcoming-weekday'
 settings:
-  id: 'views_block:ride_cancellations-cancellations'
+  id: 'views_block:rides_upcoming-weekday'
   label: ''
   label_display: '0'
   provider: views

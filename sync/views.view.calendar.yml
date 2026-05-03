@@ -914,6 +914,11 @@ display:
         menu_name: account
         parent: ''
         context: '0'
+        as_local_task: false
+        local_task_link_title: ''
+        local_task_parent: 'views_view:view.calendar.page_2'
+        local_task_weight: 0
+        local_task_custom_parent_route: ''
     cache_metadata:
       max-age: -1
       contexts:

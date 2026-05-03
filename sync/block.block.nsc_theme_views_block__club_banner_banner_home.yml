@@ -1,22 +1,22 @@
-uuid: 3c7a25fe-4699-4929-95f3-8de047e63a18
+uuid: e211210b-46e8-4503-9863-74961193039c
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.ride_cancellations
+    - views.view.club_banner
   module:
     - system
     - views
   theme:
     - nsc_theme
-id: nsc_theme_views_block__ride_cancellations_cancellations
+id: nsc_theme_views_block__club_banner_banner_home
 theme: nsc_theme
-region: canceled
-weight: -8
+region: pre_content
+weight: -5
 provider: null
-plugin: 'views_block:ride_cancellations-cancellations'
+plugin: 'views_block:club_banner-banner_home'
 settings:
-  id: 'views_block:ride_cancellations-cancellations'
+  id: 'views_block:club_banner-banner_home'
   label: ''
   label_display: '0'
   provider: views

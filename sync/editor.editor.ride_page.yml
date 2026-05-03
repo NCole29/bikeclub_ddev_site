@@ -19,6 +19,8 @@ settings:
       - bulletedList
       - numberedList
       - alignment
+      - indent
+      - outdent
       - link
       - insertTable
       - drupalMedia

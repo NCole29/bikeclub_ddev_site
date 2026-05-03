@@ -1,12 +1,14 @@
 {% extends "block.html.twig" %}
+{% set attributes = attributes.addClass(classes, ['mt-4','max-w-100','max-h-100']) %}
 
 {# Added margin above logo. 
-   In footer: removed hyperlink on site name and adjusted text size for name and slogan #}
+   Added max width attribute so logo hyperlink doesn't obscure user_account menu
+#}
 
 {% block content %}
   {% if site_logo %}
     <a href="{{ path('<front>') }}" rel="home">
-      <img class="mt-4" src="{{ site_logo }}" alt="{{ 'Home'|t }}" fetchpriority="high" />
+      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
   {% endif %}
   {% if site_name %}

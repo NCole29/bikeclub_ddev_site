@@ -12,8 +12,8 @@ _core:
   default_config_hash: 0VOxC7grRLd99-guivD1ie2Id2h8HLpgnh5GvN9k41Y
 id: nsc_theme_account_menu
 theme: nsc_theme
-region: header
-weight: -7
+region: user_account
+weight: -8
 provider: null
 plugin: 'system_menu_block:account'
 settings:

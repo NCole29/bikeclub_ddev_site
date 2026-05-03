@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.statistic.field_year
     - node.type.statistic
   module:
+    - options
     - user
 _core:
   default_config_hash: 7RPdw4n-XIm5Unfs1J8VzwbkY7Zwx3UfawKHh50f0tI
@@ -17,12 +18,11 @@ bundle: statistic
 mode: default
 content:
   field_category:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
+    type: list_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_number:
     type: number_integer
@@ -31,7 +31,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_year:
     type: number_integer
@@ -40,7 +40,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   links:
     settings: {  }

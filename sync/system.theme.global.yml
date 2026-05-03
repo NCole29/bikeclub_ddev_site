@@ -1,8 +1,8 @@
 _core:
   default_config_hash: KZiV2LB312xgJBphfq5BTjmp16xiR5KM8InBJ-pff7Y
 favicon:
-  mimetype: image/vnd.microsoft.icon
-  path: ''
+  mimetype: image/jpeg
+  path: 'public://NSC favicon.jpg'
   url: ''
   use_default: false
 features:

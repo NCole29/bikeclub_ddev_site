@@ -184,6 +184,44 @@ class ClubRoute extends ContentEntityBase implements ClubInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['unpaved'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Unpaved pct'))
+      ->setDescription(t('RWGPS unpaved percent'))
+      ->setSettings([ 
+      'max_length' => 10, 
+      'suffix' => '%', 
+      ]) 
+      ->setDefaultValue('0')
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'integer',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+
+    $fields['terrain'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Terrain'))
+      ->setDescription(t('RWGPS terrain'))
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'integer',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+      
+    $fields['surface'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Surface'))
+      ->setDescription(t('RWGPS surface'))
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'integer',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);  
+
     $fields['locality'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Locality'))
       ->setDescription(t('City or town.'))

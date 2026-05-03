@@ -700,6 +700,7 @@ display:
         title: 'Orphaned paragraphs'
         description: ''
         weight: -50
+        enabled: false
         expanded: false
         menu_name: main
         parent: 'menu_link_content:cbb966e4-c463-48ec-9425-2d259d18c310'

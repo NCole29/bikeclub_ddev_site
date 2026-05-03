@@ -1,7 +1,17 @@
 
-/* Tailwind utilities used in Views. Include in dummy class so that they are included in the build */
+/* Tailwind utilities used in Views. Include in dummy class so that they are included in the build 
+ *
+ * Tailwind code goes in src/main.css and "npm run build" or "npm run dev"
+ *
+*/
 .dummy {
   @apply text-sm rounded-xl;
+}
+/* Single banner display */
+.banner {
+  max-width: 1500px; 
+  margin-bottom:1px;
+  margin-inline:auto;
 }
 
 /* Display for "upcoming" blocks on home page */
@@ -28,4 +38,7 @@
 }
 .map-grid {
   display: inline-block!important; 
+}
+.region-header {
+  margin-top: 40px;
 }

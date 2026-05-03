@@ -138,7 +138,7 @@ third_party_settings:
         id: ''
         label_as_html: true
         open: true
-        description: "<details class=\"info-details\">\r\n<summary>HOW TO ADD AND EDIT RECURRING DATES</summary>\r\n<ul>\r\n<li><strong>Duration and Times:</strong> Fill only the Start time. The end time will be set automatically to the Start time and Duration is not needed because only the start time is displayed.</li>\r\n<li><strong>Assigning different start times to different dates?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> to \"Override\" and change the time for specific dates.</li>\r\n<li><strong>Excluding specific dates from the series?</strong> After saving and editing the ride, click <strong>MANAGE INSTANCES</strong> to \"Override\" and \"Remove instance\" for specific dates. </li>\r\n</ul>\r\n<em>Important: A second date field appears after the page is saved and then edited. Leave the second date field empty unless there is a significant gap between the dates in the series.</em>\r\n</details>\r\n"
+        description: "<details class=\"info-details\">\r\n<summary>HOW TO ADD AND EDIT RECURRING DATES</summary>\r\n<ul>\r\n<li><strong>Start date/time:</strong> The web page only shows the start date and time; the end time defaults to the start time.</li>\r\n<li><strong>Assigning different start times to different dates?</strong> Save the ride to generate the series of dates in the database. Then edit the ride and click <strong>MANAGE INSTANCES</strong> to \"Override\" and change the time for specific dates.</li>\r\n<li><strong>Excluding specific dates from the series?</strong> After saving and editing the ride, click <strong>MANAGE INSTANCES</strong> to \"Override\" and \"Remove instance\" for specific dates. </li>\r\n</ul>\r\n<em>Important: A second date field appears after the page is saved and then edited. Leave the second date field empty unless there is a significant gap between the dates in the series.</em>\r\n</details>\r\n"
         required_fields: false
     group_lunch:
       children: {  }
@@ -175,7 +175,7 @@ third_party_settings:
     group_ride_images:
       children:
         - field_about_ride_images
-      label: 'HOW TO ADD AN IMAGE TO A RIDE PAGE'
+      label: 'HOW TO ADD A RIDE PICTURE'
       region: content
       parent_name: group_description
       weight: 23
@@ -247,7 +247,7 @@ content:
       hide_date: true
       allday: false
       remove_seconds: true
-      duration_overlay: false
+      duration_overlay: true
       separator: to
     third_party_settings:
       datetimehideseconds:

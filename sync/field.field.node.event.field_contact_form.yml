@@ -12,7 +12,7 @@ field_name: field_contact_form
 entity_type: node
 bundle: event
 label: Contact
-description: "\r\n"
+description: ''
 required: false
 translatable: false
 default_value: {  }

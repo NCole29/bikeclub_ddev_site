@@ -1,14 +1,10 @@
-uuid: 792d46aa-1141-42f5-9342-947de44cbf58
+uuid: ede757f9-fec2-4dd2-8ca1-adabf2e0c8b1
 langcode: en
 status: true
 dependencies:
   module:
-    - menu_ui
     - scheduler
 third_party_settings:
-  menu_ui:
-    available_menus: {  }
-    parent: ''
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
@@ -22,12 +18,8 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-_core:
-  default_config_hash: Do2obYQVS-EEvuKNwIHjcKWNAIqtZ-7iFPIPaibS4bY
-name: Ride
-type: ride
-description: '<em>Rides</em> are scheduled for a single date and automatically appear on the calendar and home page. Use the Clone feature to repeat a ride on a new date.'
-help: null
-new_revision: true
-preview_mode: 1
-display_submitted: false
+name: Statistics
+vid: statistics
+description: null
+weight: 0
+new_revision: false

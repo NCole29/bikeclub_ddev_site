@@ -1,13 +1,34 @@
 uuid: 8559fbc8-8aed-4eb1-bf15-0752c3885dcc
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
 _core:
   default_config_hash: Ck2eNubWupK9cSExYZMRtt870FAwWmiSGEQPXWoeNgg
 name: Location
 type: location
-description: '<em>Locations</em> are addresses available for selection when creating rides and events. Configure a <a href="/admin/config/system/geocoder/geocoder-provider">geocoder provider</a> to automatically geocode addresses for mapping.'
-help: "<em>Locations</em> are addresses available for selection when creating rides and events.<br>\r\nA <a href=\"/admin/config/system/geocoder/geocoder-provider\">geocoder provider</a> must be configured to automatically geocode addresses for mapping."
+description: '<em>Locations</em> are addresses available for selection when creating rides and events. They are automatically geocoded for mapping.'
+help: '<em>Locations</em> are automatically geocoded for mapping and available for selection when creating rides and events.'
 new_revision: false
 preview_mode: 1
 display_submitted: false

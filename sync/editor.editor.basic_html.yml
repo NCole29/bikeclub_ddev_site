@@ -19,6 +19,7 @@ settings:
       - bold
       - italic
       - '|'
+      - horizontalLine
       - bulletedList
       - numberedList
       - alignment
@@ -71,6 +72,12 @@ settings:
         -
           label: 'Regular text (100%)'
           element: '<p class="regular">'
+        -
+          label: 'Large text (115%)'
+          element: '<p class="large">'
+        -
+          label: 'XL text (125%)'
+          element: '<p class="xl">'
         -
           label: Button
           element: '<p class="button">'

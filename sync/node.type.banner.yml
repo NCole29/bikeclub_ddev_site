@@ -26,8 +26,8 @@ _core:
   default_config_hash: yL7HRFvwSfe_j4px9NaDM7te4canGGZLTunvi85uFhU
 name: 'Home page banner'
 type: banner
-description: 'Display a <em>banner</em> image, or three "gallery" images, across the top of the home page and optionally provide text and/or button link to overlay the image. Use scheduling options for different banners to display at different times of the year. '
-help: '<strong>Title</strong> is displayed on the administrative Content list. It is not displayed with the banner image(s).'
+description: 'Display a banner or a three-image gallery at the top of the homepage. Use the scheduling tool to rotate them seasonally.'
+help: 'The <strong>Title</strong> is used only for identification on the administrative Content list. It does not appear on the website alongside the banner images.'
 new_revision: false
 preview_mode: 0
 display_submitted: false

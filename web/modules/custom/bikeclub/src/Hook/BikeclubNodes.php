@@ -101,7 +101,6 @@ class BikeclubNodes {
             $node->field_schedule_date->target_id = $id;
           }   
         }  
-
         $this->updateRideFields($node);  
       break;
 
@@ -228,7 +227,13 @@ class BikeclubNodes {
 
       foreach ($node->field_rwgps_routes as $routeId) {
         if (!empty($routeId->target_id)){
-          $this->rwgpsClient->getRouteInfo($routeId->target_id, $ride_start);
+          if (preg_match('/[^0-9()]/', $routeId->target_id)) {
+            \Drupal::messenger()->addStatus('A RWGPS route number has non-numeric characters and was not saved');
+            unset($routeId->target_id);
+          } 
+          if (is_numeric($routeId->target_id)) {
+            $this->rwgpsClient->getRouteInfo($routeId->target_id, $ride_start);
+          }
         }
       }
     }  
@@ -255,12 +260,10 @@ class BikeclubNodes {
    * Convert webform date stored in site's default timezone to Drupal date (UTC). 
    */ 
   public function convertWebformDate($webformDate) {
-
     $timezone = $this->config->get('system.date')->get('timezone.default');
     $datetime = new DrupalDateTime($webformDate, $timezone);
     $datetime->setTimezone(new \DateTimeZone('UTC'));
 
     return $datetime->format('Y-m-d\TH:i:s');
   }
- 
 }
