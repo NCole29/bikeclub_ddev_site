@@ -9,21 +9,32 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response; 
 
-
+/**
+ * Program must be run on December 31.
+ */
 class AnnualStatistics implements ContainerInjectionInterface {
 
   protected $database;
   protected $entityTypeManager;
   protected $loggerFactory;
 
+  /**
+   * The club statistic storage.
+   *
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  protected $statisticStorage;
+
   public function __construct(
     Connection $database, 
     EntityTypeManagerInterface $entity_type_manager,
-    LoggerChannelFactoryInterface $logger_factory)
+    LoggerChannelFactoryInterface $logger_factory,
+    EntityStorageInterface $statistic_storage)
     {
     $this->database = $database;
     $this->entityTypeManager = $entity_type_manager;
     $this->loggerFactory = $logger_factory;
+    $this->statisticStorage = $statistic_storage;
   }
 
    public static function create(ContainerInterface $container) {
@@ -31,18 +42,36 @@ class AnnualStatistics implements ContainerInjectionInterface {
       $container->get('database'),
       $container->get('entity_type.manager'),
       $container->get('logger.factory'),
+      $container->get('entity_type.manager')->getStorage('club_statistic'),
     );
    }
 
- 
-  public function tabulate() {
   /**
-   * Count rides scheduled and cancelled during the year and save to Statistics.
+   * {@inheritdoc}
    */
-    $year = date('Y');
-    $jan1 = $year . '-01-01'; 
-    $dec31 = $year . '-12-31';
+  public function getTermId($name) {
+    $term = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->loadByProperties(['vid' => 'statistic','name' => $name, ]);
+    $term = reset($term);
+    $this->term_id = $term->id();
+    return $this->term_id;
+  }
+ 
+  public function saveStatistic($term, $stat) {
+    $saveStat = $this->statisticStorage->create([
+      'statistic' => getTermId($term),
+      'year' => date('Y'),
+      'number' => $stat,
+    ]);
+    $saveStat->save();
+  }
 
+  public function tabulate() {
+
+    $jan1 = date('Y-01-01'); 
+    $dec31 = date('Y-12-31');
+
+    //************ Count of rides and canceled rides ************//
     $node_storage = $this->entityTypeManager->getStorage('node');
 
     $bundles = ['ride', 'recurring_dates'];
@@ -63,97 +92,115 @@ class AnnualStatistics implements ContainerInjectionInterface {
         ->accessCheck(FALSE)
         ->count()->execute();  
     }
+    $scheduled_rides = $count['ride']['total'] + $count['recurring_dates']['total'];
+    $canceled_rides  = $count['ride']['canceled'] + $count['recurring_dates']['canceled'];
 
-    $stat['rides'] = $count['ride']['total'] + $count['recurring_dates']['total'];
-    $stat['canceled_rides'] = $count['ride']['canceled'] + $count['recurring_dates']['canceled'];
+    // Save statistics to custom club_statistic entity.
+    $this->saveStatistic('Rides',$scheduled_rides);
+    $this->saveStatistic('Canceled rides',$canceled_rides);
+   
 
-    // Check if node exists and update, else create.
-    $categories = ['rides', 'canceled_rides'];
+    //********* Count of current, new, and expired memberships *********//
+    $memberships = $this->database->select('civicrm_membership', 'm');
+    $memberships->leftjoin('civicrm_contact', 'c', 'm.contact_id = c.id');
+    $memberships
+      ->fields('m', ['status_id','start_date','end_date'])
+      ->condition('m.status_id', [1,2], 'IN')
+      ->condition('m.is_test', 0, '=')
+      ->condition('c.is_deleted', 0, '=');
 
-    foreach ($categories as $category) {
-      // TODO: check if $nodes has multiple values. Do we need "foreach($nodes)" on line 82?
-      $nodes = $node_storage->loadByProperties([
-          'type' =>'statistic',
-          'field_year' => $year,
-          'field_category' => $category,
-        ]);
+    // Total members at year-end.  
+    $member_count = $memberships
+      ->condition('m.status_id', [1,2], 'IN')
+      ->countQuery()->execute()->fetchField();
 
-      if (!empty($nodes)) {
-        foreach ($nodes as $node) {
-          $node->set('field_number', $stat[$category]);
-          $node->save();
-        }
-      } 
-      else {
-        $node = $node_storage->create([
-          'type' => 'statistic',
-          'title' => $year . ' ' . $category,
-          'field_year' => $year,
-          'field_category' => $category,
-          'field_number' => $stat[$category],
-          'status' => 1,
-          'created' => time(),
-          'changed' => time(),
-        ]);
-        $node->save();  
-      }
-    }
-    $logger = $this->loggerFactory->get('bikeclub_stats');
-    $logger->info('End-of-year ride counts were added to Statistics: @rides scheduled rides and @cancel cancelled rides.',
-     ['@rides'  => print_r($stat['rides'], TRUE), 
-      '@cancel' => print_r($stat['canceled_rides'], TRUE) ]);
-      
+    // New members this year (subset of all members).
+    $new_count = $memberships
+      ->condition('m.status_id', [1,2], 'IN')
+      ->condition('m.start_date', $jan1, '>=')
+      ->condition('m.start_date', $dec31, '<=')
+      ->countQuery()->execute()->fetchField();
 
-    /**
-     * If CiviCRM is installed, retrieve count of current and new memberships and save to Statistics.
-     */
-    if (\Drupal::moduleHandler()->moduleExists('civicrm')) {
+    // Expired memberships during the year.
+    $expired = $this->database->select('civicrm_membership', 'm');
+    $expired->leftjoin('civicrm_contact', 'c', 'm.contact_id = c.id');
+    $expired
+      ->condition('m.status_id', 4, '=')
+      ->condition('m.end_date', $jan1, '>=')
+      ->condition('m.end_date', $dec31, '<=')
+      ->condition('m.is_test', 0, '=')
+      ->condition('c.is_deleted', 0, '=');
+    $expired_count = $expired->countQuery()->execute()->fetchField();
+
+    // Save statistics to custom club_statistic entity.
+    $this->saveStatistic('Members',$member_count);
+    $this->saveStatistic('New members',$new_count);
+    $this->saveStatistic('Expired members',$expired_count);
+
   
-      $query = $this->database->select('civicrm_membership', 'm');
+    //*** Count of persons signing nonmember waiver (total, joined after ride, joined before ride) ***//
+
+    // Get activity_type_id for nonmember rider activity.
+    $query = $db->select('civicrm_option_value','v')
+      ->fields('v',['value'])
+      ->condition('name', 'Attended ride as non-member');
+    $activity_type_id = $query->execute()->fetchField();
+
+    // Get activity records and contact_id for nonmember riders.
+    $query = $db->select('civicrm_activity', 'a');
+    $query->leftjoin('civicrm_activity_contact', 'ac', 'a.id = ac.activity_id');
+    $query
+      ->fields('a', ['id','activity_type_id', 'activity_date_time', 'subject'])
+      ->fields('ac', ['contact_id'])
+      ->condition('ac.record_type_id', 3)
+      ->condition('a.activity_type_id', $activity_type_id, '=')
+      ->condition('a.activity_date_time', $jan1, '>=')
+      ->condition('a.activity_date_time', $dec31, '<=');
+    $nonmembers = $query->execute()->fetchAll();
+
+    $num_nonmembers = count($nonmembers);
+    $num_joined = 0;
+    $num_members = 0;
+
+    // Count nonmember riders with memberships.
+    foreach($nonmembers as $nonmember) {
+      $query = $db->select('civicrm_membership', 'm');
       $query->leftjoin('civicrm_contact', 'c', 'm.contact_id = c.id');
       $query
-        ->fields('m', ['status_id'])
-        ->condition('m.status_id', [1,2], 'IN')
+        ->fields('m', ['status_id','start_date','end_date'])
+        ->condition('m.contact_id', $nonmember->contact_id)
+        ->condition('m.status_id', [1,2,4], 'IN')
         ->condition('m.is_test', 0, '=')
         ->condition('c.is_deleted', 0, '=');
-      $count = $query->countQuery()->execute()->fetchField();
+      $membership = $query->execute()->fetchAll();
+      $membership = reset($membership);
 
-      // Save count.
-      $node_storage = $this->entityTypeManager->getStorage('node');
+      $nonmember->activity_date_time = substr($nonmember->activity_date_time,0,10); // To compare with membership date.
+      
+      $nonmember->joined = ($membership->start_date >= $nonmember->activity_date_time) ? 1 : 0;
+      $nonmember->member = ($membership->start_date >0 and $membership->start_date < $nonmember->activity_date_time) ? 1 : 0;
 
-      $year = date('Y');
-      $category = 'membership';
-
-      // Check if node exists and update, else create.
-      $nodes = $node_storage->loadByProperties([
-          'type' =>'statistic',
-          'field_year' => $year,
-          'field_category' => $category,
-        ]);
-
-      if (!empty($nodes)) {
-        foreach ($nodes as $node) {
-          $node->set('field_number', $count);
-          $node->save();
-        }
-      } 
-      else {
-        $node = $node_storage->create([
-          'type' => 'statistic',
-          'title' => $year . ' ' . $category,
-          'field_year' => $year,
-          'field_category' => $category,
-          'field_number' => $count,
-          'status' => 1,
-          'created' => time(),
-          'changed' => time(),
-        ]);
-        $node->save();  
-      }
-      $logger = $this->loggerFactory->get('bikeclub_stats');
-      $logger->info('End-of-year membership count was added to Statistics. Club has @count current and new members.',
-      ['@count' => print_r($count, TRUE)] );
+      $num_joined  = $num_joined + $nonmember->joined;
+      $num_members = $num_members + $nonmember->member;
     }
+    // Save statistics to custom club_statistic entity.
+    $this->saveStatistic('Nonmember riders',$num_nonmembers);
+    $this->saveStatistic('Nonmembers joined after',$num_joined);
+    $this->saveStatistic('Nonmembers joined before',$num_members);
+
+
+    // Log results
+    $logger = $this->loggerFactory->get('bikeclub_stats');
+    $logger->info('End-of-year counts. Rides: @rides scheduled, @cancel cancelled. Members: @members total, @new new, @expired expired. 
+    Nonmember riders: @nonmembers total, @joined joined, @past already member.',
+     ['@rides'  => print_r($stat['rides'], TRUE), 
+      '@cancel' => print_r($stat['canceled_rides'], TRUE),
+      '@members' => print_r($members, TRUE),
+      '@new' => print_r($new, TRUE),
+      '@expired' => print_r($expired, TRUE), 
+      '@nonmembers' => print_r($num_nonmembers, TRUE),
+      '@joined' => print_r($num_joined, TRUE),
+      '@past' => print_r($num_members, TRUE), ]);
 
     return new Response('', Response::HTTP_NO_CONTENT); 
  }
