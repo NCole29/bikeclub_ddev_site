@@ -55,7 +55,7 @@ bikeclub_reports.fix_memberships:
 
 # End-of-year counts of members, scheduled rides, and cancelled rides.
 bikeclub_reports.annual_stats:
-  path: '/admin/membership/annual-stats'
+  path: '/admin/getstats'
   defaults:
     _controller: '\Drupal\bikeclub_reports\Controller\AnnualStatistics::tabulate'
     _title: 'Tabulate Current membership, Scheduled rides, and Cancelled rides. Save to Statistics'

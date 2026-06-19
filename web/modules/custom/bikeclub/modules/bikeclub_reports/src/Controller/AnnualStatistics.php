@@ -4,6 +4,7 @@ namespace Drupal\bikeclub_reports\Controller;
 
 use Drupal\Core\Database\Connection; 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -51,16 +52,16 @@ class AnnualStatistics implements ContainerInjectionInterface {
    */
   public function getTermId($name) {
     $term = $this->entityTypeManager->getStorage('taxonomy_term')
-      ->loadByProperties(['vid' => 'statistic','name' => $name, ]);
+      ->loadByProperties(['vid' => 'statistics','name' => $name, ]);
     $term = reset($term);
     $this->term_id = $term->id();
     return $this->term_id;
   }
  
-  public function saveStatistic($term, $stat) {
+  public function saveStatistic($term, $stat, $yr) {
     $saveStat = $this->statisticStorage->create([
-      'statistic' => getTermId($term),
-      'year' => date('Y'),
+      'statistic' => $this->getTermId($term),
+      'year' => $yr,
       'number' => $stat,
     ]);
     $saveStat->save();
@@ -68,8 +69,16 @@ class AnnualStatistics implements ContainerInjectionInterface {
 
   public function tabulate() {
 
-    $jan1 = date('Y-01-01'); 
-    $dec31 = date('Y-12-31');
+    //Pass year in query string to populate past years, then disable the line of code.
+    // https://nscyc.ddev.site/admin/help/club_test?year=2025
+    $yr = \Drupal::request()->query->get('year');
+
+    if (is_null($yr)) {
+      $yr = date('Y');
+    }
+
+    $jan1  = date("$yr-01-01"); 
+    $dec31 = date("$yr-12-31");
 
     //************ Count of rides and canceled rides ************//
     $node_storage = $this->entityTypeManager->getStorage('node');
@@ -96,8 +105,8 @@ class AnnualStatistics implements ContainerInjectionInterface {
     $canceled_rides  = $count['ride']['canceled'] + $count['recurring_dates']['canceled'];
 
     // Save statistics to custom club_statistic entity.
-    $this->saveStatistic('Rides',$scheduled_rides);
-    $this->saveStatistic('Canceled rides',$canceled_rides);
+    $this->saveStatistic('Rides',$scheduled_rides, $yr);
+    $this->saveStatistic('Canceled rides',$canceled_rides, $yr);
    
 
     //********* Count of current, new, and expired memberships *********//
@@ -133,21 +142,21 @@ class AnnualStatistics implements ContainerInjectionInterface {
     $expired_count = $expired->countQuery()->execute()->fetchField();
 
     // Save statistics to custom club_statistic entity.
-    $this->saveStatistic('Members',$member_count);
-    $this->saveStatistic('New members',$new_count);
-    $this->saveStatistic('Expired members',$expired_count);
+    $this->saveStatistic('Members',$member_count, $yr);
+    $this->saveStatistic('New members',$new_count, $yr);
+    $this->saveStatistic('Expired members',$expired_count, $yr);
 
   
     //*** Count of persons signing nonmember waiver (total, joined after ride, joined before ride) ***//
 
     // Get activity_type_id for nonmember rider activity.
-    $query = $db->select('civicrm_option_value','v')
+    $query = $this->database->select('civicrm_option_value','v')
       ->fields('v',['value'])
       ->condition('name', 'Attended ride as non-member');
     $activity_type_id = $query->execute()->fetchField();
 
     // Get activity records and contact_id for nonmember riders.
-    $query = $db->select('civicrm_activity', 'a');
+    $query = $this->database->select('civicrm_activity', 'a');
     $query->leftjoin('civicrm_activity_contact', 'ac', 'a.id = ac.activity_id');
     $query
       ->fields('a', ['id','activity_type_id', 'activity_date_time', 'subject'])
@@ -164,7 +173,7 @@ class AnnualStatistics implements ContainerInjectionInterface {
 
     // Count nonmember riders with memberships.
     foreach($nonmembers as $nonmember) {
-      $query = $db->select('civicrm_membership', 'm');
+      $query = $this->database->select('civicrm_membership', 'm');
       $query->leftjoin('civicrm_contact', 'c', 'm.contact_id = c.id');
       $query
         ->fields('m', ['status_id','start_date','end_date'])
@@ -184,9 +193,9 @@ class AnnualStatistics implements ContainerInjectionInterface {
       $num_members = $num_members + $nonmember->member;
     }
     // Save statistics to custom club_statistic entity.
-    $this->saveStatistic('Nonmember riders',$num_nonmembers);
-    $this->saveStatistic('Nonmembers joined after',$num_joined);
-    $this->saveStatistic('Nonmembers joined before',$num_members);
+    $this->saveStatistic('Nonmember riders',$num_nonmembers, $yr);
+    $this->saveStatistic('Nonmembers joined after',$num_joined, $yr);
+    $this->saveStatistic('Nonmembers joined before',$num_members, $yr);
 
 
     // Log results
